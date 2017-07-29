@@ -6,8 +6,8 @@ Current capabilitites:
 * Some easter egg
 
 TODO:
-* Include cards in the response for Amazon Echo Show
-* User management so users can enter their API key for UptimeRobot.com in the Alexa App
+* Include cards in the response for Amazon Echo Show (wip)
+* User management so users can enter their API key for UptimeRobot.com in the Alexa App (wip)
 * Some more capabilities
 * Prepare for push
 
