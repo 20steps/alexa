@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
+use Symfony\Component\HttpFoundation\Response;
 
 class APIUptimeRobotController extends AbstractAPIController {
 
@@ -17,9 +18,9 @@ class APIUptimeRobotController extends AbstractAPIController {
 	private $uptimeRobotModule;
 
 	public function pingAction(Request $request) {
-		
-		// let the module do the ping/pong
-		return $this->success($this->uptimeRobotModule->ping());
+		$response = new Response($this->serializeJSON($this->uptimeRobotModule->ping()));
+		$response->headers->set('Content-Type', 'application/json');
+		return $response;
 	}
 	
 }
