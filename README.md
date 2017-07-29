@@ -9,6 +9,9 @@ TODO:
 * User management so users can enter their API key for UptimeRobot.com in the Alexa App
 * Some more capabilities
 
+Hints for fellow readers:
+* The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
+
 ## Author
 
 * Helmut Hoffer von Ankershoffen (hhva@20steps.de)
