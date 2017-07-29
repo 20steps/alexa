@@ -18,7 +18,7 @@ parameters:
     bricks_infrastructure_core_core_monitoring_uptime_alert_contacts: "0468077_0_0-2553365_0_0-2553366_0_0-2554119_0_0-2557247_0_0"
     bricks_infrastructure_core_core_monitoring_monitor_definitions_custom:
       - { name: "Admin Homepage", url: https://admin.alexa.20steps.de }
-      - { name: "Custom Ping", url: http://api.alexa.20steps.de/bricks/api/v1.0/alexa/uptime-robot/ping }
+      - { name: "Custom Ping", url: https://api.alexa.20steps.de/bricks/api/v1.0/alexa/uptime-robot/ping }
 
     bricks_custom_twentysteps_alexa_is_live: false
 
