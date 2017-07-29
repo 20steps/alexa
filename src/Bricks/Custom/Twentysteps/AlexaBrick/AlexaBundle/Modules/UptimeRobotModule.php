@@ -21,7 +21,7 @@
 		}
 		
 		public function getStatusResponseText() {
-			return 'Alle System up!';
+			return 'Alle Systeme up. Trink einen Kaffee!';
 		}
 		
 		public function processJob() {

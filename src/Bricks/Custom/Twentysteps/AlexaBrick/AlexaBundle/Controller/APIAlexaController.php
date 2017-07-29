@@ -25,7 +25,7 @@ class APIAlexaController extends AbstractAlexaAPIController {
 		if ($request->getMethod()==Request::METHOD_POST) {
 			return $this->successAlexa($this->alexaModule->processAlexaRequest($this->getAlexaRequest($request)));
 		}
-		return $this->success(['ping' => 'pong']);
+		return $this->success(['ping' => 'pong']); // for monitoring
 	}
 	
 }
