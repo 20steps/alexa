@@ -70,7 +70,7 @@
 						if (array_key_exists($status,$statusIdToName)) {
 							$statistics[$statusIdToName[$status]]['count']++;
 						} else {
-							$statistics['unknown'[$status]]['count']++;
+							$statistics['unknown']['count']++;
 						}
 						$count++;
 					}
@@ -80,7 +80,7 @@
 						$responseText.= 'Alle Systeme up. Trink einen Kaffee! ';
 					} else {
 						if ($statistics['down']['count'] > 0) {
-							$responseText.= 'Oh weh! '.$statistics['seems_down']['count'].' Monitore sind down! Bitte prüfe das sofort! ';
+							$responseText.= 'Oh weh! '.$statistics['down']['count'].' Monitore sind down! Bitte prüfe das sofort! ';
 						}
 						if ($statistics['seems_down']['count'] > 0) {
 							$responseText.= 'Hm, '.$statistics['seems_down']['count'].' Monitore sind möglicherweise down! Bitte prüfe das bei Gelegenheit! ';
