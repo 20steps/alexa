@@ -24,7 +24,17 @@
 		 * @return array
 		 */
 		public function ping() {
-			return ['ping' => 'pong'];
+			return [
+				'version' => '1.0',
+				'response' => [
+					'outputSpeech' => [
+						'type' => 'PlainText',
+						'text' => 'Hallo liebe Gäste, ich bin Alexa und das ist der Blog von Alexander.',
+						'ssml' => null
+					],
+					'shouldEndSession' => true
+				]
+			];;
 		}
 		
 		public function process() {
