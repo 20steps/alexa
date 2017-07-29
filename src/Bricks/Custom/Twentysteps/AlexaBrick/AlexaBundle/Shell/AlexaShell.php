@@ -11,6 +11,7 @@ use twentysteps\Commons\EnsureBundle\Ensure;
 
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Base\AbstractCustomShell;
 
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
 
 class AlexaShell extends AbstractCustomShell  {
@@ -41,12 +42,19 @@ class AlexaShell extends AbstractCustomShell  {
 	// getters for module
 	
 	/**
+	 * @return AlexaModule
+	 */
+	public function getAlexaModule() {
+		return $this->useModuleByKey('AlexaModule');
+	}
+	
+	/**
 	 * @return UptimeRobotModule
 	 */
 	public function getUptimeRobotModule() {
 		return $this->useModuleByKey('UptimeRobotModule');
 	}
-
+	
 	// overrides
 	
 	public function getProjectCode() {

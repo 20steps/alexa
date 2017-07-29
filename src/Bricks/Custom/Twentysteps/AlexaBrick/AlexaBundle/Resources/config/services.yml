@@ -11,11 +11,18 @@ services:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.shell" }
             - { name: twentysteps.bricks.shell, alias: twentysteps_alexa, integrated_kernel: true }
         calls:
+            - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.alexa' ] ]
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.uptime_robot' ] ]
     twentysteps_alexa: "@bricks.custom.twentysteps_alexa.shell"
 
 
     # Brick Shell Modules
+
+    bricks.custom.twentysteps_alexa.module.alexa:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule
+        arguments: [ '@logger']
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.alexa" }
 
     bricks.custom.twentysteps_alexa.module.uptime_robot:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule

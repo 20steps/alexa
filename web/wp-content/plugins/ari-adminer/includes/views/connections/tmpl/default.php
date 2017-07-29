@@ -8,12 +8,23 @@ $action_url = Helper::build_url(
         'noheader' => '1',
     ),
     array(
-        'filter'
+        'filter',
+    )
+);
+$reset_default_url = Helper::build_url(
+    array(
+        'action' => 'reset_default',
+    ),
+    array(
+        'filter',
     )
 );
 $tmpl_path = dirname( __FILE__ ) . '/';
 ?>
 <a href="#" class="<?php if ( ARI_WP_LEGACY ): ?>add-new-h2<?php else: ?>page-title-action<?php endif; ?>" id="btnAddConnection"><?php _e( 'Add New', 'ari-adminer' ); ?></a>
+<?php if ( $data['default_connection_id'] > 0 ): ?>
+<a href="<?php echo esc_url( $reset_default_url ); ?>" class="<?php if ( ARI_WP_LEGACY ): ?>add-new-h2<?php else: ?>page-title-action<?php endif; ?>"><?php _e( 'Reset Default Connection', 'ari-adminer' ); ?></a>
+<?php endif; ?>
 <hr class="wp-header-end">
 <form action="<?php echo esc_url( $action_url ); ?>" method="POST">
 <div>
@@ -73,7 +84,7 @@ $tmpl_path = dirname( __FILE__ ) . '/';
                 <a href="#" id="btnConnectionSave" class="button button-primary"><?php _e( 'Save', 'ari-adminer' ); ?></a>
                 <a href="#" id="btnConnectionTest" class="button"><?php _e( 'Test Connection', 'ari-adminer' ); ?></a>
             </div>
-            <input id="hidConnectionId" type="hidden" class="form-control" data-key="connection_id" value="0" autocomplete="off" />
+            <input id="hidFormConnectionId" type="hidden" class="form-control" data-key="connection_id" value="0" autocomplete="off" />
         </fieldset>
     </div>
 </div>

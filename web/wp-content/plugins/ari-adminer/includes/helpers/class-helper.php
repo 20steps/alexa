@@ -162,4 +162,29 @@ class Helper {
 
         return $connections_model->re_crypt_passwords( $new_crypt_key, $old_crypt_key );
     }
+
+    public static function set_default_connection( $connection_id, $reset_if_current = true ) {
+        $connection_id = intval( $connection_id, 10 );
+
+        if ( $connection_id < 0 )
+            return false;
+
+        if ( $reset_if_current ) {
+            $current_default_connetion_id = self::get_default_connection();
+
+            if ( $current_default_connetion_id == $connection_id )
+                $connection_id = 0;
+        }
+
+        return update_option( ARIADMINER_DEFAULT_CONN_OPTION, $connection_id );
+    }
+
+    public static function get_default_connection() {
+        $connection_id = intval( get_option( ARIADMINER_DEFAULT_CONN_OPTION, 0 ), 10 );
+
+        if ( $connection_id < 0 )
+            $connection_id = 0;
+
+        return $connection_id;
+    }
 }

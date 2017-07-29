@@ -56,6 +56,10 @@ class Html extends Base {
         $order_by = $filter['order_by'];
         $order_dir = $filter['order_dir'];
 
+        $default_connection_id = Helper::get_default_connection();
+        $set_default_message = __( 'Set as default connection', 'ari-adminer' );
+        $reset_default_message = __( 'Reset default connection to WordPress database', 'ari-adminer' );
+
         $delete_url = Helper::build_url(
             array(
                 'action' => 'delete',
@@ -160,6 +164,28 @@ class Html extends Base {
 
                         'column' => function( $val, $data ) {
                             return Helper::db_type_to_label( $val );
+                        }
+                    ),
+
+                    array(
+                        'key' => 'default',
+
+                        'header' => __( 'Default', 'ari-adminer' ),
+
+                        'header_class' => 'manage-column column-default',
+
+                        'class' => 'column-default',
+
+                        'virtual' => true,
+
+                        'column' => function( $val, $data ) use ( $default_connection_id, $set_default_message, $reset_default_message ) {
+                            $connection_id = $data->connection_id;
+                            $is_default_connection = $default_connection_id == $connection_id;
+                            $title = $is_default_connection ? $reset_default_message : $set_default_message;
+
+                            $css_class = $is_default_connection ? 'adminer-icon-default-selected' : 'adminer-icon-default';
+
+                            return '<a href="#" title="' . esc_attr( $title ) . '" class="btn-set-default adminer-icon ' . $css_class . '" data-connection-id="' . $connection_id . '"></a>';
                         }
                     ),
                 ),

@@ -41,7 +41,7 @@
 		public function run($jobId) {
 			/** @var AlexaShell $shell */
 			$shell = $this->getBrickShell();
-			return array('status' => 'success','result' => $shell->getUptimeRobotModule()->process());
+			return array('status' => 'success','result' => $shell->getUptimeRobotModule()->processJob());
 		}
 		
 	}

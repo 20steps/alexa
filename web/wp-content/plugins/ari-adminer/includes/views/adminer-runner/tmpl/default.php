@@ -3,6 +3,8 @@ use Ari_Adminer\Helpers\Helper as Helper;
 use Ari_Adminer\Utils\Db_Driver as DB_Driver;
 
 $connections = $data['connections'];
+$default_connection_id = $data['default_connection_id'];
+
 $run_url = Helper::build_url(
     array(
         'action' => 'run',
@@ -41,7 +43,7 @@ $run_url = Helper::build_url(
                             <a href="http://wp-quiz.ari-soft.com" target="_blank" title="Viral Quiz Builder for WordPress"><strong>ARI Stream Quiz</strong><?php _e( ' is viral quiz builder', 'ari-adminer' ); ?></a>
                         </li>
                         <li>
-                            <a href="https://wordpress.org/plugins/ari-cf7-connector/" target="_blank" title="Contact From 7 Connector"><strong>Contact Form 7 Connector</strong><?php _e( ' integrates CF7 with MailChimp', 'ari-adminer' ); ?></a>
+                            <a href="https://wordpress.org/plugins/ari-cf7-connector/" target="_blank" title="Contact From 7 Connector"><strong>Contact Form 7 Connector</strong><?php _e( ' integrates CF7 with MailChimp, MailerLite, Zapier', 'ari-adminer' ); ?></a>
                         </li>
                     </ul>
                 </div>
@@ -58,12 +60,12 @@ $run_url = Helper::build_url(
                                     <label for="ddlConnection"><?php _e( 'Connection', 'ari-adminer' ); ?></label>
                                     <select id="ddlConnection" name="connection_id" autocomplete="off">
                                         <option value="-1"><?php _e( '- Custom parameters -', 'ari-adminer' ); ?></option>
-                                        <option value="0" selected="selected"><?php _e( '- WordPress database -', 'ari-adminer' ); ?></option>
+                                        <option value="0"<?php if ( 0 === $default_connection_id ): ?> selected="selected"<?php endif; ?>><?php _e( '- WordPress database -', 'ari-adminer' ); ?></option>
                                         <?php
                                             if ( is_array( $connections ) ):
                                                 foreach ( $connections as $connection ):
                                         ?>
-                                        <option value="<?php echo $connection->connection_id; ?>"><?php echo $connection->title; ?></option>
+                                        <option value="<?php echo $connection->connection_id; ?>"<?php if ( $connection->connection_id == $default_connection_id ): ?> selected="selected"<?php endif; ?>><?php echo $connection->title; ?></option>
                                         <?php
                                                 endforeach;
                                             endif;

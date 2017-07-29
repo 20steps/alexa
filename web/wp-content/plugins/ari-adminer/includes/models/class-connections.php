@@ -54,7 +54,9 @@ class Connections extends Model {
 
             'filter' => $filter,
 
-            'filter_encoded' => $this->encoded_filter_state()
+            'filter_encoded' => $this->encoded_filter_state(),
+
+            'default_connection_id' => Helper::get_default_connection(),
         );
 
         return $data;

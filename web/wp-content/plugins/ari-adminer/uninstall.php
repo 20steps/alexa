@@ -29,6 +29,7 @@ if ( ! is_multisite() ) {
     execute_queries( $queries );
     delete_option( 'ari_adminer' );
     delete_option( 'ari_adminer_settings' );
+    delete_option( 'ari_adminer_default_conn' );
 } else {
     global $wpdb;
 
@@ -41,6 +42,7 @@ if ( ! is_multisite() ) {
         execute_queries( $queries );
         delete_option( 'ari_adminer' );
         delete_option( 'ari_adminer_settings' );
+        delete_option( 'ari_adminer_default_conn' );
     }
 
     switch_to_blog( $original_blog_id );

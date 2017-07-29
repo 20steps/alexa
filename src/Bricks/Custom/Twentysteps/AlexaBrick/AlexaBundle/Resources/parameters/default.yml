@@ -52,6 +52,8 @@ parameters:
 
     bricks_custom_twentysteps_alexa_analytics_tracking_code:  'UA-91361574-1'
 
+    bricks_custom_twentysteps_alexa_application_id: 'amzn1.ask.skill.02e1b208-5a8b-4072-8b11-a74d8fa75ab8'
+
     # unused
     bricks_custom_twentysteps_alexa_upload_user_avatar_directory: ''
     bricks_custom_twentysteps_alexa_user_avatar_path: ''

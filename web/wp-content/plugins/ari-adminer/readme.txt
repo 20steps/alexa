@@ -3,8 +3,8 @@ Contributors: arisoft
 Donate link: http://wp-quiz.ari-soft.com/plugins/wordpress-adminer.html
 Tags: adminer, sql, database, mysql, report, sqlite, table, postgresql, dump, backup, import, export, phpmyadmin
 Requires at least: 3.4
-Tested up to: 4.7.3
-Stable tag: 1.1.2
+Tested up to: 4.8.0
+Stable tag: 1.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -74,6 +74,12 @@ Sure, it is available [here](http://www.ari-soft.com/docs/wordpress/ari-adminer/
 
 == Changelog ==
 
+= 1.1.4 =
+* Bug fix
+
+= 1.1.3 =
+* Possible to select default connection
+
 = 1.1.2 =
 * Update Adminer to v. 4.3.1
 * Check installed PHP extensions for PostgreSQL
@@ -113,6 +119,12 @@ Sure, it is available [here](http://www.ari-soft.com/docs/wordpress/ari-adminer/
 
 
 == Upgrade Notice ==
+
+= 1.1.4 =
+* Bug fix
+
+= 1.1.3 =
+* Possible to select default connection
 
 = 1.1.2 =
 * Update Adminer to v. 4.3.1 

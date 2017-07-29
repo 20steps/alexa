@@ -20,24 +20,11 @@
 			parent::__construct($logger);
 		}
 		
-		/**
-		 * @return array
-		 */
-		public function ping() {
-			return [
-				'version' => '1.0',
-				'response' => [
-					'outputSpeech' => [
-						'type' => 'PlainText',
-						'text' => 'Sandra ich liebe Dich!',
-						'ssml' => null
-					],
-					'shouldEndSession' => true
-				]
-			];;
+		public function getStatusResponseText() {
+			return 'Alle System up!';
 		}
 		
-		public function process() {
+		public function processJob() {
 			return ['hello' => 'world'];
 		}
 		

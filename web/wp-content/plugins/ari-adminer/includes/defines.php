@@ -1,8 +1,9 @@
 <?php
-define( 'ARIADMINER_VERSION', '1.1.2' );
+define( 'ARIADMINER_VERSION', '1.1.4' );
 define( 'ARIADMINER_SLUG', 'ari-adminer' );
 define( 'ARIADMINER_ASSETS_URL', ARIADMINER_URL . 'assets/' );
 define( 'ARIADMINER_VERSION_OPTION', 'ari_adminer' );
+define( 'ARIADMINER_DEFAULT_CONN_OPTION', 'ari_adminer_default_conn' );
 define( 'ARIADMINER_INSTALL_PATH', ARIADMINER_PATH . 'install/' );
 define( 'ARIADMINER_CAPABILITY_RUN', 'run_adminer' );
 
