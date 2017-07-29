@@ -1,7 +1,13 @@
 20steps Alexa Backend
 =====================
 
-Work in progress, not useable yet.
+Current capabilitites:
+* Possiblity to ask UptimeRobot.com for system status
+* Some easter egg
+
+TODO:
+* User management so users can enter their API key for UptimeRobot.com in the Alexa App
+* Some more capabilities
 
 ## Author
 
