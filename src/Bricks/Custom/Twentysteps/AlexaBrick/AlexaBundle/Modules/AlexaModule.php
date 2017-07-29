@@ -56,6 +56,12 @@
 			
 		}
 		
+		public function processPush() {
+			$count = 0;
+			// push to Echo devices (will be implemented as soon as Alexa SDK is enhanced)
+			return ['count' => $count];
+		}
+		
 	}
 	
 	

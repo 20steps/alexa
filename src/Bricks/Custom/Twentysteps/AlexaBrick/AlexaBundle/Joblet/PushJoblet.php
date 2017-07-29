@@ -11,20 +11,20 @@
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Shell\AlexaShell;
 	
 	/**
-	 * @DI\Service("bricks_custom_twentysteps_alexa_joblet_invitation")
-	 * @DI\Tag("monolog.logger", attributes = {"channel" = "bricks.custom.twentysteps_alexas.joblet.invitation"})
-	 * @DI\Tag("twentysteps.bricks.joblet", attributes = {"alias" = "invitation"})
+	 * @DI\Service("bricks_custom_twentysteps_alexa_joblet_push")
+	 * @DI\Tag("monolog.logger", attributes = {"channel" = "bricks.custom.twentysteps_alexas.joblet.push"})
+	 * @DI\Tag("twentysteps.bricks.joblet", attributes = {"alias" = "push"})
 	 *
 	 * @Joblet(
 	 *		scope="project",
 	 *      actor="alexa",
 	 *      pods={"job"},
-	 *		queue="bricks_custom_twentysteps_alexa_uptime_robot",
+	 *		queue="bricks_custom_twentysteps_alexa_push",
 	 *		priority="normal",
 	 *		interval="PT1M"
 	 * )
 	 **/
-	class UptimeRobotJoblet extends AbstractJoblet implements JobletInterface {
+	class PushJoblet extends AbstractJoblet implements JobletInterface {
 		
 		/**
 		 * @DI\InjectParams({
@@ -41,7 +41,7 @@
 		public function run($jobId) {
 			/** @var AlexaShell $shell */
 			$shell = $this->getBrickShell();
-			return array('status' => 'success','result' => $shell->getUptimeRobotModule()->processJob());
+			return array('status' => 'success','result' => $shell->getAlexaModule()->processPush());
 		}
 		
 	}

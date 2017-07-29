@@ -7,8 +7,8 @@
 	use Psr\Http\Message\ResponseInterface;
 
 	use twentysteps\Commons\EnsureBundle\Ensure;
-	use twentysteps\Commons\UptimeRobotBundle\Model\GetMonitorsResponse;
 	use twentysteps\Commons\UptimeRobotBundle\UptimeRobotAPI;
+	use twentysteps\Commons\UptimeRobotBundle\Model\GetMonitorsResponse;
 	
 	/**
 	 * Module for uptime robot skill.
@@ -122,11 +122,6 @@
 			 */
 			$reasonPhrase = $monitorsResponse->getReasonPhrase();
 			return 'Leider konnte ich den Status nicht ermitteln: '.$reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode();
-		}
-		
-		public function processJob() {
-			// no background job processing needed yet
-			return ['hello' => 'world'];
 		}
 		
 	}

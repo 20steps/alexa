@@ -7,3 +7,22 @@ services:
     #
     # Custom filters are implemented in the Filter/ directory
 
+    bricks.custom.twentysteps_alexa.filter.user_basic:
+        parent:    'api_platform.doctrine.orm.search_filter'
+        arguments: [ { id: 'exact', slug: 'exact', username: 'ipartial', email: 'ipartial' } ]
+        tags:      [ { name: 'api_platform.filter', id: 'filter.user_basic' } ]
+
+    bricks.custom.twentysteps_alexa.filter.user_boolean:
+        parent:    'api_platform.doctrine.orm.boolean_filter'
+        arguments: [ ]
+        tags:      [ { name: 'api_platform.filter', id: 'filter.user_boolean' } ]
+
+    bricks.custom.twentysteps_alexa.filter.user_date:
+        parent:    'api_platform.doctrine.orm.date_filter'
+        arguments: [ { createdAt: ~, updatedAt: ~ } ]
+        tags:      [ { name: 'api_platform.filter', id: 'filter.user_date' } ]
+
+    bricks.custom.twentysteps_alexa.filter.user_order:
+        parent:    'api_platform.doctrine.orm.order_filter'
+        arguments: [ { id: ~, username: ~, email: ~, firstName: ~, createdAt: ~, updatedAt: ~ } ]
+        tags:      [ { name: 'api_platform.filter', id: 'filter.user_order' } ]
