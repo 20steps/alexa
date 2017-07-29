@@ -38,7 +38,7 @@
 				 */
 				switch ($alexaRequest->intentName) {
 					case 'SandraLoveIntent':
-						$responseText = 'Sandra, Helmut liebt Dich!!';
+						$responseText = 'Sandra, Helmut liebt Dich!!'; // easter egg
 						break;
 					case 'UptimeRobotStatusIntent':
 						$responseText = $this->getShell()->getUptimeRobotModule()->getStatusResponseText();
