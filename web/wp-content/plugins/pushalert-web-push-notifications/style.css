@@ -1,0 +1,25 @@
+#pushalert_notification_title, #pushalert_notification_message {
+    width: 100%;
+    margin-top: 8px;
+    display: block;
+    padding: 5px;
+}
+
+.pushalert_enable_label{
+    margin-top: 8px;
+    display: block;
+}
+
+.pushalert-woocommerce-text{
+    width:100%;
+    max-width: 480px;
+}
+.pushalert-woocommerce-text-small{
+    width:100%;
+    max-width: 100px;
+}
+.pushalert-woocommerce-text-css{
+    width:100%;
+    max-width: 480px;
+    height:200px;
+}

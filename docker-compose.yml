@@ -1,0 +1,18 @@
+web:
+    build: .
+    environment:
+        SYMFONY_ENV: dev
+    links:
+        - database
+    volumes:
+        - .:/app
+    ports:
+        - 8000:80
+
+database:
+    image: mysql
+    environment:
+        MYSQL_ROOT_PASSWORD: bricks
+        MYSQL_DATABASE: bricks_platform_dev
+        MYSQL_USER: bricks
+        MYSQL_PASSWORD: bricks

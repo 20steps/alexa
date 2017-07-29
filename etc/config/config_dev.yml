@@ -1,0 +1,10 @@
+imports:
+    - { resource: "../../vendor/20steps/bricks/src/Bricks/Platform/etc/config/config_dev.yml" }
+    - { resource: config.yml }
+    - { resource: framework_dev.yml }
+    - { resource: logging_dev.yml }
+    - { resource: profiler_dev.yml }
+    - { resource: mail_dev.yml }
+    - { resource: fixtures_dev.yml }
+
+

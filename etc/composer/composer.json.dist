@@ -1,0 +1,68 @@
+{
+  "directory": "bin\/{{ LOWER_NAME }}\/build",
+  "type": "directory",
+  "mode": "777",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "directory": "bin\/{{ LOWER_NAME }}\/prepare",
+  "type": "directory",
+  "mode": "777",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "file": "bin\/{{ LOWER_NAME }}\/build\/app-prod",
+  "link-file": "..\/..\/..\/src\/Bricks\/Custom\/BUNDLE_NAME\/bin\/build\/app-prod",
+  "type": "link",
+  "mode": "775",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "file": "bin\/{{ LOWER_NAME }}\/build\/prod",
+  "link-file": "..\/..\/..\/src\/Bricks\/Custom\/BUNDLE_NAME\/bin\/build\/prod",
+  "type": "link",
+  "mode": "775",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "file": "bin\/{{ LOWER_NAME }}\/build\/service-prod",
+  "link-file": "..\/..\/..\/src\/Bricks\/Custom\/BUNDLE_NAME\/bin\/build\/service-prod",
+  "type": "link",
+  "mode": "775",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "file": "bin\/{{ LOWER_NAME }}\/build\/watch",
+  "link-file": "..\/..\/..\/src\/Bricks\/Custom\/BUNDLE_NAME\/bin\/build\/watch",
+  "type": "link",
+  "mode": "775",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "file": "bin\/{{ LOWER_NAME }}\/prepare\/npm",
+  "link-file": "..\/..\/..\/src\/Bricks\/Custom\/BUNDLE_NAME\/bin\/prepare\/npm",
+  "type": "link",
+  "mode": "775",
+  "stage": [
+    "dev"
+  ]
+},
+{
+  "script": "bin\/{{ LOWER_NAME }}\/prepare\/npm",
+  "type": "script",
+  "stage": [
+    "dev"
+  ]
+}

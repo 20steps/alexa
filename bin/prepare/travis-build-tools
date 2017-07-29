@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Node based stuff, prerequisite is Node and NPM itself
+npm install -g bower
+npm install -g uglifycss
+npm install -g uglifyjs
+
+# Gems, prerequisite is Ruby
+sudo gem install sass -n /usr/local/bin
+# sudo gem install compass -n /usr/local/bin
+sudo gem install bricks-deploy -n /usr/local/bin

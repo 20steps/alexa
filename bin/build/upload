@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+scp var/uploads/latest.tgz root@bricks.cluster.20steps.de:/mnt/data/zones/l/custom/BricksSite/downloads/bricks-platform-standard-edition_latest.tgz
+scp etc/uploads/versions.json root@bricks.cluster.20steps.de:/mnt/data/zones/l/custom/BricksSite/versions/bricks-platform.json
+ssh root@bricks.cluster.20steps.de 'cd /mnt/data/zones/l/custom/BricksSite/downloads/; ./copy'

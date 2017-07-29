@@ -1,0 +1,25 @@
+{
+  "name": "wp-cli/wp-cli",
+  "require": {
+    "iandunn/wp-cli-plugin-active-on-sites": "dev-master",
+    "billerickson/wp-cli-plugin-install-missing": "dev-master",
+    "anhskohbo/wp-cli-themecheck": "dev-master",
+    "runcommand/find-unused-themes": "dev-master",
+    "runcommand/hook": "dev-master",
+    "runcommand/manifest": "dev-master",
+    "danielbachhuber/wp-cli-stat-command": "dev-master",
+    "markri/wp-sec": "dev-master",
+    "pantheon-systems/wp_launch_check": "dev-master"
+  },
+  "minimum-stability": "dev",
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wp-cli.org/package-index/"
+    }
+  ],
+  "version": "1.0.0",
+  "config": {
+    "secure-http": true
+  }
+}

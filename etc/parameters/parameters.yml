@@ -1,0 +1,10 @@
+# Do not change this file
+imports:
+    -
+        resource: default.yml
+    -
+        resource: cluster.yml
+    -
+        resource: node.yml
+    -
+       { resource: version.yml, ignore_errors: true }

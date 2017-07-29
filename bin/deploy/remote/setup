@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+date +"%T - %d.%m.%y"
+
+# check requirements, prepare access rights, self-update composer
+composer prepare-live
+
+# do the installation, optimize autoloader and reload services
+composer install --no-interaction --no-suggest
+composer dump-autoload --optimize
+sudo rm -rf /var/www/Bricks/var/cache/*
+sudo chmod -R 777 /var/www/Bricks/var/
+composer services-reload
+sudo chmod -R 777 /var/www/Bricks/var/
+
+# show resulting status
+composer info
+sudo chmod -R 777 /var/www/Bricks/var/
+
+

@@ -1,0 +1,4 @@
+application:
+  module: "twentysteps.alexa"
+  const: "MODULE_APP"
+  debug: false

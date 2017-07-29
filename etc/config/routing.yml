@@ -1,0 +1,8 @@
+bricks_custom_twentysteps_alexa:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.yml"
+    prefix:   /
+
+# Bricks Infrastructure and Basic layer
+
+bricks:
+  resource: "../../vendor/20steps/bricks/src/Bricks/Platform/etc/config/routing.yml"

@@ -1,0 +1,2 @@
+imports:
+    - resource: ../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/config/config.yml

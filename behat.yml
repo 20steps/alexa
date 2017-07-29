@@ -1,0 +1,23 @@
+default:
+  calls:
+    error_reporting: 16383 # E_ALL & ~E_USER_DREPRECATED
+  extensions:
+    Behat\Symfony2Extension:
+      kernel:
+        env: "test_clean"
+        debug: "true"
+    Behat\MinkExtension:
+      base_url: "http://api.platform.bricks.localhost.com/"
+      sessions:
+        default:
+          symfony2: ~
+    Sanpi\Behatch\Extension: ~
+  suites:
+    bricks_custom_giga_giga:
+      paths:
+          - "%paths.base%/src/Bricks/Custom/Acme/DemoBrick/DemoBundle/features"
+      contexts:
+        - FeatureContext: { doctrine: "@doctrine" }
+        - Behat\MinkExtension\Context\MinkContext
+        - Sanpi\Behatch\Context\RestContext
+        - Sanpi\Behatch\Context\JsonContext

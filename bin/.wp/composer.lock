@@ -1,0 +1,491 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "7af9f6d551aca299dac5dd4935c5860a",
+    "packages": [
+        {
+            "name": "anhskohbo/wp-cli-themecheck",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/anhskohbo/wp-cli-themecheck.git",
+                "reference": "8a33d4c5495524ba91fdcbd2ba0f279c24048a65"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/anhskohbo/wp-cli-themecheck/zipball/8a33d4c5495524ba91fdcbd2ba0f279c24048a65",
+                "reference": "8a33d4c5495524ba91fdcbd2ba0f279c24048a65",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/finder": "~2.0|~3.0"
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "command.php"
+                ]
+            },
+            "scripts": {
+                "run-behat": [
+                    "./vendor/bin/behat --strict --ansi"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nguyen Van Anh",
+                    "email": "anhskohbo@gmail.com"
+                }
+            ],
+            "description": "Run Themecheck in WP_CLI",
+            "homepage": "https://github.com/anhskohbo/wp-cli-themecheck",
+            "support": {
+                "source": "https://github.com/anhskohbo/wp-cli-themecheck/tree/master",
+                "issues": "https://github.com/anhskohbo/wp-cli-themecheck/issues"
+            },
+            "time": "2017-07-13 06:37:23"
+        },
+        {
+            "name": "billerickson/wp-cli-plugin-install-missing",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/billerickson/wp-cli-plugin-install-missing.git",
+                "reference": "2be8cca255c321080fb53e129ae20aef4abbdd7b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/billerickson/wp-cli-plugin-install-missing/zipball/2be8cca255c321080fb53e129ae20aef4abbdd7b",
+                "reference": "2be8cca255c321080fb53e129ae20aef4abbdd7b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4"
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "wp-cli-plugin-install-missing.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Install any plugins that are active but missing.",
+            "homepage": "https://github.com/billerickson/wp-cli-plugin-install-missing",
+            "support": {
+                "source": "https://github.com/billerickson/wp-cli-plugin-install-missing/tree/master",
+                "issues": "https://github.com/billerickson/wp-cli-plugin-install-missing/issues"
+            },
+            "time": "2016-10-20 14:17:11"
+        },
+        {
+            "name": "danielbachhuber/wp-cli-stat-command",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/danielbachhuber/wp-cli-stat-command.git",
+                "reference": "d308e5b9e21f7604cbf538366adc60bf623e0822"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/danielbachhuber/wp-cli-stat-command/zipball/d308e5b9e21f7604cbf538366adc60bf623e0822",
+                "reference": "d308e5b9e21f7604cbf538366adc60bf623e0822",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "wp-cli-stat-command.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bachhuber",
+                    "email": "d@danielbachhuber.com",
+                    "homepage": "http://danielbachhuber.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Explore data about your WordPress site.",
+            "homepage": "https://github.com/danielbachhuber/wp-cli-stat-command",
+            "keywords": [
+                "analytics",
+                "wp-cli"
+            ],
+            "support": {
+                "source": "https://github.com/danielbachhuber/wp-cli-stat-command/tree/master",
+                "issues": "https://github.com/danielbachhuber/wp-cli-stat-command/issues"
+            },
+            "time": "2016-10-20 14:08:17"
+        },
+        {
+            "name": "iandunn/wp-cli-plugin-active-on-sites",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iandunn/wp-cli-plugin-active-on-sites.git",
+                "reference": "87f4b0298203649c54cf412a2aeb396c4ca2d677"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iandunn/wp-cli-plugin-active-on-sites/zipball/87f4b0298203649c54cf412a2aeb396c4ca2d677",
+                "reference": "87f4b0298203649c54cf412a2aeb396c4ca2d677",
+                "shasum": ""
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "wp-cli-plugin-active-on-sites.php"
+                ]
+            },
+            "license": [
+                "GPLv2"
+            ],
+            "authors": [
+                {
+                    "name": "Ian Dunn",
+                    "email": "ian@iandunn.name",
+                    "homepage": "https://iandunn.name"
+                }
+            ],
+            "description": "A WP-CLI command to list all sites in a Multisite network that have activated a given plugin",
+            "homepage": "https://github.com/iandunn/wp-cli-plugin-active-on-sites",
+            "support": {
+                "source": "https://github.com/iandunn/wp-cli-plugin-active-on-sites/tree/master",
+                "issues": "https://github.com/iandunn/wp-cli-plugin-active-on-sites/issues"
+            },
+            "time": "2017-01-27 23:57:32"
+        },
+        {
+            "name": "markri/wp-sec",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/markri/wp-sec.git",
+                "reference": "173987424cb5df4a1cddf9193d375893f358fd3c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/markri/wp-sec/zipball/173987424cb5df4a1cddf9193d375893f358fd3c",
+                "reference": "173987424cb5df4a1cddf9193d375893f358fd3c",
+                "shasum": ""
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "command.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marco de Krijger",
+                    "homepage": "http://wp-sec.org"
+                }
+            ],
+            "description": "Checks Wordpress installation for CVE security issues at wpvulndb.com",
+            "homepage": "https://github.com/markri/wp-sec",
+            "support": {
+                "source": "https://github.com/markri/wp-sec/tree/0.0.3",
+                "issues": "https://github.com/markri/wp-sec/issues"
+            },
+            "time": "2017-01-25 12:22:51"
+        },
+        {
+            "name": "pantheon-systems/wp_launch_check",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pantheon-systems/wp_launch_check.git",
+                "reference": "6d223f4e8208020d70f017d90541e3e6b561330d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pantheon-systems/wp_launch_check/zipball/6d223f4e8208020d70f017d90541e3e6b561330d",
+                "reference": "6d223f4e8208020d70f017d90541e3e6b561330d",
+                "shasum": ""
+            },
+            "require-dev": {
+                "behat/behat": "~2.5",
+                "symfony/finder": "~2.3"
+            },
+            "type": "wp-cli-package",
+            "autoload": {
+                "files": [
+                    "php/commands/launchcheck.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "Check against a WordPress for performance and security",
+            "support": {
+                "source": "https://github.com/pantheon-systems/wp_launch_check/tree/master",
+                "issues": "https://github.com/pantheon-systems/wp_launch_check/issues"
+            },
+            "time": "2017-06-16 16:52:15"
+        },
+        {
+            "name": "runcommand/find-unused-themes",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/runcommand/find-unused-themes.git",
+                "reference": "920f953aca751801d87cf7533d0166de2a3ac2e2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/runcommand/find-unused-themes/zipball/920f953aca751801d87cf7533d0166de2a3ac2e2",
+                "reference": "920f953aca751801d87cf7533d0166de2a3ac2e2",
+                "shasum": ""
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "wp-cli-package",
+            "extra": {
+                "commands": [
+                    "find-unused-themes"
+                ],
+                "readme": {
+                    "shields": [
+                        "[![runcommand open source](https://runcommand.io/wp-content/themes/runcommand-theme/bin/shields/runcommand-open-source.svg)](https://runcommand.io/pricing/)",
+                        "[![Build Status](https://travis-ci.org/runcommand/find-unused-themes.svg?branch=master)](https://travis-ci.org/runcommand/find-unused-themes)"
+                    ],
+                    "sections": [
+                        "Using",
+                        "Installing",
+                        "Support"
+                    ],
+                    "support": {
+                        "body": "https://raw.githubusercontent.com/runcommand/runcommand-theme/master/bin/readme-partials/support-open-source.md"
+                    },
+                    "show_powered_by": false
+                }
+            },
+            "autoload": {
+                "files": [
+                    "command.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bachhuber",
+                    "email": "daniel@runcommand.io",
+                    "homepage": "https://runcommand.io"
+                }
+            ],
+            "description": "Find unused themes on a multisite network.",
+            "homepage": "https://runcommand.io/wp/find-unused-themes/",
+            "support": {
+                "source": "https://github.com/runcommand/find-unused-themes/tree/master",
+                "issues": "https://github.com/runcommand/find-unused-themes/issues"
+            },
+            "time": "2017-01-24 00:43:01"
+        },
+        {
+            "name": "runcommand/hook",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/runcommand/hook.git",
+                "reference": "7a7beae2013eeea243cc44524a7c5c21da11979e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/runcommand/hook/zipball/7a7beae2013eeea243cc44524a7c5c21da11979e",
+                "reference": "7a7beae2013eeea243cc44524a7c5c21da11979e",
+                "shasum": ""
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "wp-cli-package",
+            "extra": {
+                "commands": [
+                    "hook"
+                ],
+                "readme": {
+                    "shields": [
+                        "[![runcommand open source](https://runcommand.io/wp-content/themes/runcommand-theme/bin/shields/runcommand-open-source.svg)](https://runcommand.io/pricing/)",
+                        "[![Build Status](https://travis-ci.org/runcommand/hook.svg?branch=master)](https://travis-ci.org/runcommand/hook)"
+                    ],
+                    "sections": [
+                        "Using",
+                        "Installing",
+                        "Support"
+                    ],
+                    "support": {
+                        "body": "https://raw.githubusercontent.com/runcommand/runcommand-theme/master/bin/readme-partials/support-open-source.md"
+                    },
+                    "show_powered_by": false
+                }
+            },
+            "autoload": {
+                "files": [
+                    "command.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Bachhuber",
+                    "email": "daniel@runcommand.io",
+                    "homepage": "https://runcommand.io"
+                }
+            ],
+            "description": "List callbacks registered to a given action or filter.",
+            "homepage": "https://runcommand.io/wp/hook/",
+            "support": {
+                "source": "https://github.com/runcommand/hook/tree/master"
+            },
+            "time": "2016-11-15 18:48:54"
+        },
+        {
+            "name": "runcommand/manifest",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/runcommand/manifest.git",
+                "reference": "073a74795b68a0ccdc7d804da610ae035a86fcd1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/runcommand/manifest/zipball/073a74795b68a0ccdc7d804da610ae035a86fcd1",
+                "reference": "073a74795b68a0ccdc7d804da610ae035a86fcd1",
+                "shasum": ""
+            },
+            "require-dev": {
+                "behat/behat": "~2.5"
+            },
+            "type": "wp-cli-package",
+            "extra": {
+                "commands": [
+                    "manifest"
+                ],
+                "readme": {
+                    "shields": [
+                        "[![runcommand open source](https://runcommand.io/wp-content/themes/runcommand-theme/bin/shields/runcommand-open-source.svg)](https://runcommand.io/pricing/)",
+                        "[![Build Status](https://travis-ci.org/runcommand/manifest.svg?branch=master)](https://travis-ci.org/runcommand/manifest)"
+                    ],
+                    "sections": [
+                        "Using",
+                        "Installing",
+                        "Support"
+                    ],
+                    "support": {
+                        "body": "https://raw.githubusercontent.com/runcommand/runcommand-theme/master/bin/readme-partials/support-open-source.md"
+                    },
+                    "show_powered_by": false
+                }
+            },
+            "autoload": {
+                "files": [
+                    "command.php"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "See what's going on inside of WordPress.",
+            "homepage": "https://runcommand.io/wp/manifest/",
+            "support": {
+                "source": "https://github.com/runcommand/manifest/tree/master"
+            },
+            "time": "2016-11-01 18:25:08"
+        },
+        {
+            "name": "symfony/finder",
+            "version": "3.4.x-dev",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/finder.git",
+                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
+                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.4-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\Finder\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony Finder Component",
+            "homepage": "https://symfony.com",
+            "time": "2017-06-01 21:02:15"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "iandunn/wp-cli-plugin-active-on-sites": 20,
+        "billerickson/wp-cli-plugin-install-missing": 20,
+        "anhskohbo/wp-cli-themecheck": 20,
+        "runcommand/find-unused-themes": 20,
+        "runcommand/hook": 20,
+        "runcommand/manifest": 20,
+        "danielbachhuber/wp-cli-stat-command": 20,
+        "markri/wp-sec": 20,
+        "pantheon-systems/wp_launch_check": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

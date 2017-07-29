@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+bin/console bricks:generate:ng-admin:config --bundle-short-name="BricksCustomTwentystepsAlexaBundle" --verbose

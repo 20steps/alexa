@@ -1,0 +1,15 @@
+description: 'Alexa Brick.'
+navigation:
+    order: 1
+    top:
+        system:
+    main:
+        system:
+        client:
+        project:
+        user:
+    setup:
+        system:
+        client:
+        project:
+        user:

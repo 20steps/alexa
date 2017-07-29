@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+scp -P 2227 var/dump/wp-uploads_dev-latest.tgz twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp-uploads_dev-latest.tgz
+scp -P 2227 var/dump/web-custom_dev-latest.tgz twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/web-custom_dev-latest.tgz
+scp -P 2227 var/dump/sf_dev-latest.sql.gz twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/sf_dev-latest.sql.gz
+scp -P 2227 var/dump/wp_dev-latest.sql.gz twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp_dev-latest.sql.gz
+
+cho "Dumps have been pushed."

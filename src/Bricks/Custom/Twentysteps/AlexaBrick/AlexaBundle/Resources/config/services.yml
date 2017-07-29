@@ -1,0 +1,82 @@
+parameters:
+
+services:
+
+    # Brick Shell
+
+    bricks.custom.twentysteps_alexa.shell:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Shell\AlexaShell
+        arguments: [  '@service_container', '@logger', '@?debug.stopwatch']
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.shell" }
+            - { name: twentysteps.bricks.shell, alias: twentysteps_alexa, integrated_kernel: true }
+        calls:
+            - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.uptime_robot' ] ]
+    twentysteps_alexa: "@bricks.custom.twentysteps_alexa.shell"
+
+
+    # Brick Shell Modules
+
+    bricks.custom.twentysteps_alexa.module.uptime_robot:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule
+        arguments: [ '@logger']
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.uptime_robot" }
+
+
+    # Security
+
+    bricks.custom.twentysteps_alexa.security.voter.resource_action:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Security\Voter\ResourceActionVoter
+        arguments: [ '@service_container', '@security.access.decision_manager' ]
+        public: false
+        tags:
+            - { name: security.voter }
+
+
+    # User manager and provider
+
+    bricks.custom.twentysteps_alexa.user_manager:
+        class: FOS\UserBundle\Doctrine\UserManager
+        arguments: [ '@fos_user.util.password_updater', '@fos_user.util.canonical_fields_updater', '@fos_user.object_manager', 'Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User' ]
+
+    bricks.custom.twentysteps_alexa.user_provider:
+        class: FOS\UserBundle\Security\EmailUserProvider
+        arguments: ['@bricks.custom.twentysteps_alexa.user_manager']
+
+    # JWT
+
+    bricks.custom.twentysteps_alexa.jwt.authentication_success:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\JWT\AuthenticationSuccessHandler
+        arguments: [ '@lexik_jwt_authentication.jwt_manager', '@event_dispatcher', '@core', '@doctrine.orm.entity_manager', '@jms_serializer', '@bricks.custom.twentysteps_alexa.serialization.serialization_exclusion', '@business' ]
+        tags:
+            - { name: monolog.logger, channel: "security" }
+
+
+    # Foundlets
+
+    bricks.custom.twentysteps_alexa.foundlet.page:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Foundlet\PageFoundlet
+        arguments: [  '@bricks.custom.twentysteps_alexa.shell', '@logger', '@pages'  ]
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.foundlet.page" }
+            - { name: twentysteps.bricks.foundlet, alias: 'page' }
+
+    bricks.custom.twentysteps_alexa.foundlet.post:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Foundlet\PostFoundlet
+        arguments: [  '@bricks.custom.twentysteps_alexa.shell', '@logger', '@pages'  ]
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.foundlet.post" }
+            - { name: twentysteps.bricks.foundlet, alias: 'post' }
+
+    # Fixtures providers for custom data generation
+
+    bricks.custom.twentysteps_alexa.push.data_fixtures.provider:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\DataFixtures\Provider
+        arguments: [ '@faker.generator', '@libphonenumber.phone_number_util', '@libphonenumber.phone_number_offline_geocoder', '@libphonenumber.phone_number_to_time_zones_mapper' ]
+        tags:
+          - { name: hautelook_alice.faker.provider }
+
+imports:
+    - resource: ../../Entity/filter.yml
+

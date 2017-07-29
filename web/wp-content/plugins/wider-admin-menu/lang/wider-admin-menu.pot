@@ -1,0 +1,114 @@
+# Copyright (C) 2014 Wider Admin Menu
+# This file is distributed under the same license as the Wider Admin Menu package.
+msgid ""
+msgstr ""
+"Project-Id-Version: Wider Admin Menu 1.1.1\n"
+"Report-Msgid-Bugs-To: http://wordpress.org/tag/wider-admin-menu\n"
+"POT-Creation-Date: 2014-10-20 03:46:25+00:00\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2014-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+
+#: includes/settings-alternate.php:8
+msgid "Find the %s stylesheet."
+msgstr ""
+
+#: includes/settings-alternate.php:9
+msgid "Then either copy its contents to your theme&apos;s stylesheet"
+msgstr ""
+
+#: includes/settings-alternate.php:10
+msgid "OR"
+msgstr ""
+
+#: includes/settings-alternate.php:11
+msgid ""
+"copy the file to your theme folder and add this to your theme&apos;s "
+"<code>functions.php</code> to load it:"
+msgstr ""
+
+#: includes/settings-alternate.php:23
+msgid "That stylesheet covers WordPress 4.0 and up."
+msgstr ""
+
+#: includes/settings-alternate.php:24 includes/settings-alternate.php:25
+#: includes/settings-alternate.php:26
+msgid "For WordPress %s to %s, substitute %s."
+msgstr ""
+
+#: includes/settings-alternate.php:27
+msgid "Then you can deactivate this plugin."
+msgstr ""
+
+#: includes/settings-form.php:30
+msgid "New"
+msgstr ""
+
+#: includes/settings-form.php:43
+msgid "Current"
+msgstr ""
+
+#: includes/settings-form.php:46
+msgid "revert to the current width"
+msgstr ""
+
+#: includes/settings-form.php:50
+msgid "Default"
+msgstr ""
+
+#: includes/settings-form.php:53
+msgid "restore default width"
+msgstr ""
+
+#: includes/settings-form.php:66
+msgid "Leave No Trace"
+msgstr ""
+
+#: includes/settings-form.php:68
+msgid "Deleting this plugin will also delete these settings."
+msgstr ""
+
+#: includes/settings-form.php:69
+msgid "Deactivating it will <strong>not</strong> delete these settings."
+msgstr ""
+
+#: wider-admin-menu.php:75 wider-admin-menu.php:160
+msgid "Settings"
+msgstr ""
+
+#: wider-admin-menu.php:146
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#. #-#-#-#-#  plugin.pot (Wider Admin Menu 1.1.1)  #-#-#-#-#
+#. Plugin Name of the plugin/theme
+#: wider-admin-menu.php:153
+msgid "Wider Admin Menu"
+msgstr ""
+
+#: wider-admin-menu.php:155
+msgid "Adjust the width of the admin menu to accomodate longer menu items."
+msgstr ""
+
+#: wider-admin-menu.php:161
+msgid "Alternate Method"
+msgstr ""
+
+#. Plugin URI of the plugin/theme
+msgid "http://www.wpmission.com/plugins/wider-admin-menu/"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid "Let your admin menu breathe."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Chris Dillon"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "http://wpmission.com"
+msgstr ""

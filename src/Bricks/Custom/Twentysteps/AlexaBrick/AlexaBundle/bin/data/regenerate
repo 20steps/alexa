@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+echo "regenerating ..."
+echo "migrating"
+rm -rf /tmp/apc/*
+bin/console d:m:m
+rm -rf /tmp/apc/*
+
+# echo "loading fixtures"
+# bin/console fixtures:load --append --verbose --env=prod --no-debug
+
+echo "generating admin users"
+bin/console bricks:custom:twentysteps:alexa:user:manipulate -- "hhva@20steps.de" "geheim" "hhva@20steps.de" "12305"
+bin/console bricks:custom:twentysteps:alexa:user:promote --username="hhva@20steps.de" --role="ROLE_TWENTYSTEPS_ALEXA_ADMIN"
+bin/console bricks:custom:twentysteps:alexa:user:manipulate -- "daniel.boberg@20steps.de" "geheim" "daniel.boberg@20steps.de" "12305"
+bin/console bricks:custom:twentysteps:alexa:user:promote --username="daniel.boberg@20steps.de" --role="ROLE_TWENTYSTEPS_ALEXA_ADMIN"
+bin/console bricks:custom:twentysteps:alexa:user:manipulate -- "daniel@20steps.de" "geheim" "daniel@20steps.de" "12305"
+
+echo "indexing"
+bin/console b:f:process --verbose
+
+echo "regenerated."

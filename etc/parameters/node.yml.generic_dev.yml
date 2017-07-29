@@ -1,0 +1,3 @@
+parameters:
+    bricks_cluster_node_key: workstation
+    bricks_pod: "web,control_process,job"

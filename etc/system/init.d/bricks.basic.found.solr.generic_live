@@ -1,0 +1,34 @@
+#!/bin/sh
+
+# Starts, stops, and restarts Apache Solr as part of Bricks.
+#
+# chkconfig: 35 92 08
+# description: Starts and stops Apache Solr as part of Bricks
+
+. /etc/init.d/functions
+
+SOLR_SH=/var/www/Bricks/bin/vendor/solr
+BRICKS_DIR=/var/www/Bricks
+
+case $1 in
+    start)
+        echo "Starting Found Brick / Solr service" &>> $BRICKS_DIR/var/logs/solr/bricks.basic.found.solr.log
+        chmod 777 $BRICKS_DIR/var/logs/solr/bricks.basic.found.solr.log
+        runuser twentysteps -c "nohup $SOLR_SH start &>> $BRICKS_DIR/var/logs/solr/bricks.basic.found.solr.log &"
+        sleep 5
+        ;;
+    stop)
+        echo "Stopping Found brick / Solr service" &>> $BRICKS_DIR/var/logs/solr/bricks.basic.found.solr.log
+        chmod 777 $BRICKS_DIR/var/logs/solr/bricks.basic.found.solr.log
+        runuser twentysteps -c "$SOLR_SH stop"
+        ;;
+    restart)
+        $0 stop
+        sleep 3
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}" >&2
+        exit 1
+        ;;
+esac

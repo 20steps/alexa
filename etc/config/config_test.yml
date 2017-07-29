@@ -1,0 +1,12 @@
+imports:
+    - { resource: "../../vendor/20steps/bricks/src/Bricks/Platform/etc/config/config_test.yml" }
+    - { resource: config.yml }
+    - { resource: framework_test.yml }
+    - { resource: logging_test.yml }
+    - { resource: profiler_test.yml }
+    - { resource: mail_test.yml }
+    - { resource: fixtures_test.yml }
+    - { resource: monitoring_test.yml }
+
+
+

@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cho "Downloading latest live-latest dumps ..."
+
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp-uploads_live-latest.tgz var/dump/wp-uploads_live-latest.tgz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/web-custom_live-latest.tgz var/dump/web-custom_live-latest.tgz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/sf_live-latest.sql.gz var/dump/sf_live-latest.sql.gz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp_live-latest.sql.gz var/dump/wp_live-latest.sql.gz
+
+cho "Dumps can be found in $INSTALL_DIR/var/dump and are tagged with live-latest."

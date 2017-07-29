@@ -1,0 +1,42 @@
+bricks_custom_LOWER_INTERIM_NAME_api_authenticated_token_create:
+      pattern:  ^/api/v1.0/authenticated/token/create
+      host: %bricks_custom_LOWER_INTERIM_NAME_host%
+      provider: bricks_custom_LOWER_INTERIM_NAME_user_provider
+      stateless: true
+      gfreeau_get_jwt:
+          username_parameter: username
+          password_parameter: password
+          post_only: true
+          success_handler: bricks.custom.LOWER_INTERIM_NAME.jwt.authentication_success
+          failure_handler: lexik_jwt_authentication.handler.authentication_failure
+
+bricks_custom_LOWER_INTERIM_NAME_api_bricks_authenticated:
+    pattern:  ^/bricks/api/authenticated/project/LOWER_NAME
+    host:     %bricks_api_host%
+    provider: bricks_custom_LOWER_INTERIM_NAME_user_provider
+    stateless: true
+    lexik_jwt: ~
+    switch_user_stateless: true
+
+bricks_custom_LOWER_INTERIM_NAME_api_authenticated:
+    pattern:  ^/api/v1.0/authenticated
+    host:     %bricks_custom_LOWER_INTERIM_NAME_host%
+    provider: bricks_custom_LOWER_INTERIM_NAME_user_provider
+    stateless: true
+    lexik_jwt: ~
+    switch_user_stateless: true
+
+bricks_custom_LOWER_INTERIM_NAME_tv_api_authenticated:
+    pattern:  ^/api/v1.0/tv/authenticated
+    host:     %bricks_custom_LOWER_INTERIM_NAME_host%
+    provider: bricks_custom_LOWER_INTERIM_NAME_user_provider
+    stateless: true
+    lexik_jwt: ~
+    switch_user_stateless: true
+
+bricks_custom_LOWER_INTERIM_NAME_api_rest_authenticated:
+    pattern:  /LOWER_NAME/authenticated
+    provider: bricks_custom_LOWER_INTERIM_NAME_user_provider
+    stateless: true
+    lexik_jwt: ~
+    switch_user_stateless: true

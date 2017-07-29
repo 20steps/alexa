@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+INSTALL_DIR=`pwd`
+
+echo "Generating dumps of remote live environment ..."
+
+echo "TBD (daniel as an exercise)"
+
+mysqldump --user=USER --password=PASS DB $(mysql --user=USER --password=PASS -D DB -Bse "show tables like 'wp_%'") | gzip > wp_live-latest.sql.gz
+
+
+echo "Dumps have ben generated - download them by executing bin/dump/pull-live."

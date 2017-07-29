@@ -1,0 +1,3 @@
+parameters:
+    bricks_cluster_node_key: alexa1
+    bricks_pod: "web,found_master,control_process,job"

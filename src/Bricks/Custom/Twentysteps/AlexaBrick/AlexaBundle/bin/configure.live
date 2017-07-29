@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+bin/alexa/wp-plugins
+
+bin/console bricks:core:client:create 20steps
+bin/console bricks:core:project:create Alexa 20steps
+
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_custom_twentysteps_alexa_enabled" --value="1"
+
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_found_enabled" --value="1"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_places_enabled" --value="1"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_shop_enabled" --value="0"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_pages_enabled" --value="1"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_mobile_enabled" --value="0"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_business_enabled" --value="1"

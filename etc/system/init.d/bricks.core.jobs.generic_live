@@ -1,0 +1,36 @@
+#!/bin/sh
+
+# Starts, stops, and restarts Bricks job queue.
+#
+# chkconfig: 35 92 08
+# description: Starts and stops Bricks job queue
+
+. /etc/init.d/functions
+
+BRICKS_DIR=/var/www/Bricks
+
+case $1 in
+    start)
+        cd $BRICKS_DIR
+        echo "Starting Core Brick / Job module" &>> $BRICKS_DIR/var/logs/bricks.core.jobs.log
+        chmod 777 $BRICKS_DIR/var/logs/bricks.core.jobs.log
+        runuser twentysteps -c "export PATH=/opt/remi/php70/root/usr/bin:/opt/remi/php70/root/usr/sbin${PATH:+:${PATH}}; LD_LIBRARY_PATH=/opt/remi/php70/root/usr/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}; nohup bin/console bricks:core:job:run --env=prod --no-debug &>> $BRICKS_DIR/var/logs/bricks.core.jobs.log &"
+        ;;
+    stop)
+        mkdir -p "$BRICKS_DIR/var/logs"
+        chmod 777 $BRICKS_DIR/var/logs
+        echo "Stopping Core Brick / Job module" &>> $BRICKS_DIR/var/logs/bricks.core.jobs.log
+        chmod 777 $BRICKS_DIR/var/logs/bricks.core.jobs.log
+        pkill -f "bin/console bricks:core:job:run"
+        pkill -f "bin/console bricks:core:job:queue:run"
+        ;;
+    restart)
+        $0 stop
+        sleep 3
+        $0 start
+        ;;
+    *)
+        echo "Usage: $0 {start|stop|restart}" >&2
+        exit 1
+        ;;
+esac

@@ -1,0 +1,32 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "app",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-concat": "^2.2.0",
+    "gulp-concat-json": "latest",
+    "gulp-inject": "latest",
+    "gulp-file-insert": "latest",
+    "gulp-rename": "latest",
+    "gulp-angular-templatecache": "latest",
+    "gulp-uglifyjs": "^0.6.2",
+    "gulp-uglify": "latest",
+    "gulp-concat-css": "latest",
+    "gulp-sass": "latest",
+    "gulp-minify-css": "latest",
+    "gulp-strip-ng-log": "latest",
+    "gulp-ng-annotate": "latest",
+    "gulp-plumber": "latest"
+  },
+  "dependencies": {
+    "gulp-extend": "^0.2.0"
+  }
+}

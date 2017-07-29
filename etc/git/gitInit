@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+echo "# REPO_NAME" >> README.md
+git init
+git add .
+git commit -m "first commit"
+git remote add origin REPO_URL
+git push -u origin master

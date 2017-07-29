@@ -1,0 +1,9 @@
+imports:
+parameters:
+    database_dbname: alexa_live
+    solr_master_host: alexa1
+    bricks_core_node_executables_base: /usr/bin/
+    bricks_core_gem_executables_base: /usr/local/bin
+    bricks_api_protocol: https
+    bricks_api_host: api.alexa.20steps.de
+    bricks_customer_host: admin.alexa.20steps.de

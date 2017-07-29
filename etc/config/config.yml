@@ -1,0 +1,29 @@
+imports:
+    - { resource: ../parameters/parameters.yml }
+    - { resource: framework.yml }
+    - { resource: logging.yml }
+    - { resource: security.yml }
+    - { resource: orm.yml }
+    - { resource: user-management.yml }
+    - { resource: session.yml }
+    - { resource: serialization.yml }
+    - { resource: rest.yml }
+    - { resource: caching.yml }
+    - { resource: mailer.yml }
+    - { resource: templating.yml }
+    - { resource: di.yml }
+    - { resource: mobile-push.yml }
+    - { resource: cms.yml }
+    - { resource: media-management.yml }
+    - { resource: assets.yml }
+    - { resource: geocoding.yml }
+    - { resource: monitoring.yml }
+    - { resource: documentation.yml }
+    - { resource: custom.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: en
+
+

@@ -1,0 +1,6 @@
+imports:
+
+parameters:
+    database_dbname: alexa_dev
+    bricks_api_host: api.alexa.localhost.com
+    bricks_customer_host: admin.alexa.localhost.com

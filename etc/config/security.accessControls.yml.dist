@@ -1,0 +1,4 @@
+- { host: %CUSTOM_HOST%, path: ^/api/v1.0/authenticated/token/create, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+- { host: %CUSTOM_HOST%, path: ^/api/v1.0/authenticated, roles: IS_AUTHENTICATED_FULLY }
+- { host: %CUSTOM_HOST%, path: ^/$, roles: ROLE_INTERIM_NAME_USER }
+- { path: /LOWER_NAME/authenticated, roles: IS_AUTHENTICATED_FULLY }

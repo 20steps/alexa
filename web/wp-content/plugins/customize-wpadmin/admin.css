@@ -1,0 +1,7 @@
+.customizewpadmin_links td {
+	vertical-align: top;
+}
+
+.customizewpadmin_links td:nth-child(2), .customizewpadmin_links th:nth-child(2) {
+	display: none;
+}

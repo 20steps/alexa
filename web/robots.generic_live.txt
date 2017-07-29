@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /
+Sitemap: https://alexa.20steps.de/sitemap.xml

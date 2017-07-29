@@ -1,0 +1,19 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 20steps Bricks Bridge\n"
+"POT-Creation-Date: 2015-01-07 15:15-0800\n"
+"PO-Revision-Date: 2015-01-07 15:15-0800\n"
+"Last-Translator: \n"
+"Language-Team: 20steps\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: twentysteps-bricks-bridge-wp.php:0
+msgid "tbd"
+msgstr "tbd"
+

@@ -1,0 +1,9 @@
+services:
+
+    # Filters for collections
+    #
+    # Hint: you don't have to implement the filters, just describe them here (cp. https://api-platform.com/docs/core/filters)
+    # and reference in the attributes section of @ApiResource annotation
+    #
+    # Custom filters are implemented in the Filter/ directory
+

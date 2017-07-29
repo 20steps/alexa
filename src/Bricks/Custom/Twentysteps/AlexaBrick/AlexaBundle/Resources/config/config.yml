@@ -1,0 +1,90 @@
+framework:
+    trusted_proxies: [127.0.0.1/32,192.168.0.1/16,136.243.144.68,136.243.144.74,136.243.144.75,136.243.148.18,138.201.122.28,138.201.137.4,144.76.121.145]
+
+jms_di_extra:
+    locations:
+        directories:
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Pageslet"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Foundlet"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Joblet"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Action"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Serialization"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Filter"
+            - "%kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/EventSubscriber"
+
+
+# Swiftmailer Configuration
+swiftmailer:
+    mailers:
+        twentysteps_alexa:
+            logging:    true
+            transport:  "%bricks_custom_twentysteps_alexa_mailer_transport%"
+            host:       "%bricks_custom_twentysteps_alexa_mailer_host%"
+            encryption: ssl
+            auth_mode:  login
+            username:   "%bricks_custom_twentysteps_alexa_mailer_user%"
+            password:   "%bricks_custom_twentysteps_alexa_mailer_password%"
+            spool:      { type: memory }
+        twentysteps_alexa_signin:
+            logging: true
+            transport:  "%bricks_custom_twentysteps_alexa_signin_mailer_transport%"
+            host:       "%bricks_custom_twentysteps_alexa_signin_mailer_host%"
+            encryption: "%bricks_custom_twentysteps_alexa_signin_mailer_encryption%"
+            auth_mode:  "%bricks_custom_twentysteps_alexa_signin_mailer_auth_mode%"
+            username:   "%bricks_custom_twentysteps_alexa_signin_mailer_user%"
+            password:   "%bricks_custom_twentysteps_alexa_signin_mailer_password%"
+            spool:     { type: memory }
+
+sp_bower:
+    bundles:
+      BricksCustomTwentystepsAlexaBundle:
+          cache:
+              directory: "%kernel.root_dir%/../var/bower"
+
+assetic:
+    bundles:
+          - 'BricksCustomTwentystepsAlexaBundle'
+
+snc_redis:
+    clients:
+        twentysteps_alexa:
+            type: predis
+            alias: twentysteps_alexa
+            dsn: redis://127.0.1
+            logging: "%kernel.debug%"
+            options:
+                connection_timeout: 2
+                read_write_timeout: 2
+                connection_persistent: true
+
+oneup_flysystem:
+    adapters:
+        twentysteps_alexa_user_avatar_adapter:
+            local:
+                directory: %kernel.root_dir%/../web/custom/Twentysteps/Alexa/user/avatar
+
+    filesystems:
+        twentysteps_alexa_user_avatar_filesystem:
+            adapter:    twentysteps_alexa_user_avatar_adapter
+            mount:      twentysteps_alexa_user_avatar_mount
+
+vich_uploader:
+    mappings:
+        twentysteps_alexa_user_avatar:
+            uri_prefix: "/custom/Twentysteps/Alexa/user/avatar"
+            upload_destination: twentysteps_alexa_user_avatar_mount
+            namer:              vich_uploader.namer_uniqid
+            inject_on_load:     true
+            delete_on_update:   true
+            delete_on_remove:   true
+
+liip_imagine:
+    resolvers:
+        default:
+            web_path: ~
+    filter_sets:
+        cache: ~
+        twentysteps_alexa_user_avatar_mobile:
+            quality: 75
+            filters:
+                thumbnail: { size: [512, 512], mode: inset, allow_upscale: true }

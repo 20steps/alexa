@@ -1,0 +1,4 @@
+bricks.custom.twentysteps_alexda.api.uptime_robot.ping:
+    path: /ping
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:APIUptimeRobot:ping, project: alexa }
+    methods: [GET]

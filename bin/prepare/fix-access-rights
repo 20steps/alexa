@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+HTTPDUSER=`ps axo user,comm | grep -E '[a]pache|[h]ttpd|[_]www|[w]ww-data|[n]ginx' | grep -v root | head -1 | cut -d\  -f1`
+
+if [ $HTTPDUSER ]; then
+    echo "Detected Webserver user $HTTPDUSER, updating ACLs"
+
+    exec 2>/dev/null
+
+    sudo setfacl -R -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var
+    sudo setfacl -dR -m u:"$HTTPDUSER":rwX -m u:`whoami`:rwX var
+
+    sudo chmod -R +a "$HTTPDUSER allow delete,write,append,file_inherit,directory_inherit" var
+    sudo chmod -R +a "`whoami` allow delete,write,append,file_inherit,directory_inherit" var
+
+else
+
+    echo "Startup Webserver first so user can be detected"
+
+fi
+

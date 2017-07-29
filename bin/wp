@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# cp. https://runcommand.io/to/shared-wp-cli-packages/
+PLATFORM_DIR=`pwd`
+export WP_CLI_PACKAGES_DIR=$PLATFORM_DIR/bin/.wp
+php $PLATFORM_DIR/bin/.wp/wp.phar "$@"

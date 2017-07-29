@@ -1,0 +1,95 @@
+language: php
+sudo: required
+dist: trusty
+addons:
+  apt:
+    packages:
+    - mysql-server-5.6
+    - mysql-client-core-5.6
+    - mysql-client-5.6
+services:
+- mysql
+- mongodb
+- memcached
+- redis-server
+cache:
+  directories:
+  - "$HOME/.composer/cache/files"
+matrix:
+  fast_finish: true
+  include:
+  - php: 7.0
+    env:
+    - APCU_PECL_VERSION="apcu-5.1.7"
+    - APCU_BC_PECL_VERSION="apcu_bc-1.0.3"
+    - DATABASE_USERNAME="travis"
+    - DATABASE_PASSWORD=""
+    - BRICKS_COLOR="generic"
+    - BRICKS_STAGE="test"
+  - php: 7.1
+    env:
+    - APCU_PECL_VERSION="apcu-5.1.7"
+    - APCU_BC_PECL_VERSION="apcu_bc-1.0.3"
+    - DATABASE_USERNAME="travis"
+    - DATABASE_PASSWORD=""
+    - BRICKS_COLOR="generic
+    - BRICKS_STAGE="test"
+before_install:
+- composer prepare-travis
+- sed -i 's/;opcache.enable=0/opcache.enable=1/' ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+- sed -i 's/;opcache.enable_cli=0/opcache.enable_cli=1/' ~/.phpenv/versions/$(phpenv
+  version-name)/etc/php.ini
+- if [[ $APCU_PECL_VERSION != '' ]]; then echo "yes\nno\n" | pecl install $APCU_PECL_VERSION
+  && sed -i 's/extension="apcu.so"//' ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  ; fi
+- if [[ $APCU_BC_PECL_VERSION != '' ]]; then pecl install $APCU_BC_PECL_VERSION &&
+  sed -i 's/extension="apc.so"//' ~/.phpenv/versions/$(phpenv version-name)/etc/php.ini
+  ; fi
+- if [[ $TRAVIS_PHP_VERSION != 'hhvm' ]]; then if [[ $APCU_PECL_VERSION != '' && $APCU_BC_PECL_VERSION
+  == '' ]]; then phpenv config-add etc/travis/apcu.ini ; elif [[ $APCU_BC_PECL_VERSION
+  != '' ]]; then phpenv config-add etc/travis/apcu_bc.ini ; fi ; if [[ $TESTS_ZEND_CACHE_REDIS_ENABLED
+  == 'true' ]]; then phpenv config-add app/config/etc/travis/redis.ini ; fi ; if [[
+  $TESTS_ZEND_CACHE_MEMCACHE_ENABLED == 'true' ]]; then phpenv config-add app/config/etc/travis/memcache.ini
+  ; fi ; if [[ $TESTS_ZEND_CACHE_MEMCACHED_ENABLED == 'true' ]]; then phpenv config-add
+  app/config/etc/travis/memcached.ini ; fi ; if [[ $TESTS_ZEND_CACHE_MONGODB_ENABLED
+  == 'true' ]]; then phpenv config-add app/config/etc/travis/mongo.ini ; fi ; if [[
+  $TESTS_ZEND_CACHE_XCACHE_ENABLED == 'true' ]]; then phpenv config-add app/config/etc/travis/xcache.ini
+  ; fi ; fi
+- mysql -e 'CREATE DATABASE bricks_platform_test; USE bricks_platform_test; GRANT ALL
+  ON bricks_platform_test.* TO travis@localhost;'
+install:
+- composer install --no-interaction --no-suggest --no-dev
+- bin/console bricks:core:cluster:node:register
+- bin/console bricks:core:bootstrap --no-interaction
+- bin/wp core multisite-install --url="admin.platform.bricks.localhost.com" --title="Bricks Platform Standard Edition" --admin_user="admin" --admin_password="bricks" --admin_email="webmaster@20steps.de"
+- bin/wp site create --slug="bei-mir-um-die-ecke"
+- bin/wp site create --slug="giga-smb"
+- bin/wp site create --slug="demo-acme"
+- ./src/Bricks/Custom/SMB/GIGABrick/GIGABundle/bin/configure
+- ./src/Bricks/Custom/Acme/DemoBrick/DemoBundle/bin/configure
+- bin/console bricks:core:job:run &
+- bin/console bricks:found:setup
+- bin/vendor/solr &
+- sleep 180
+- bin/console bricks:found:process
+before_script:
+- composer platform-info
+script:
+- composer test
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_a297dcc24359_key -iv $encrypted_a297dcc24359_iv -in .travis/deploy_rsa.enc -out /tmp/deploy.rsa -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/deploy.rsa
+- ssh-add /tmp/deploy.rsa
+- git status
+- cat .travis/known_hosts >> ~/.ssh/known_hosts
+- git fetch --unshallow
+deploy:
+  provider: script
+  skip_cleanup: true
+  script: composer deploy -- cluster
+  on:
+    branch: master
+notifications:
+  email:
+  - dev@20steps.de

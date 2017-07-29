@@ -1,0 +1,104 @@
+security:
+    acl:
+        connection: default
+    access_decision_manager:
+        strategy: unanimous
+    encoders:
+        Kayue\WordpressBundle\Entity\User:
+            id: kayue_wordpress.security.encoder.phpass
+        FOS\UserBundle\Model\UserInterface:
+            id: security.encoder.scrypt
+        Symfony\Component\Security\Core\User\User: plaintext
+    providers:
+        bricks_user_provider:
+            id: fos_user.user_provider.username_email
+        bricks_api_key:
+            id: bricks.infrastructure.core.service.security.api_key_user_provider
+        wordpress:
+            entity: { class: Kayue\WordpressBundle\Entity\User, property: username }
+    role_hierarchy:
+        ROLE_ADMIN:
+            - ROLE_USER
+        ROLE_SUPER_ADMIN:
+            - ROLE_USER
+            - ROLE_ADMIN
+            - ROLE_ALLOWED_TO_SWITCH
+        ROLE_BRICKS_USER:
+            - ROLE_USER
+        ROLE_BRICKS_CUSTOMER_STAFF:
+            - ROLE_BRICKS_USER
+        ROLE_BRICKS_CUSTOMER_PRODUCER:
+            - ROLE_BRICKS_CUSTOMER_STAFF
+        ROLE_BRICKS_CUSTOMER_MANAGER:
+            - ROLE_BRICKS_CUSTOMER_STAFF
+        ROLE_BRICKS_CUSTOMER_SUPERVISOR:
+            - ROLE_BRICKS_CUSTOMER_STAFF
+        ROLE_BRICKS_CUSTOMER_ADMIN:
+            - ROLE_BRICKS_CUSTOMER_PRODUCER
+            - ROLE_BRICKS_CUSTOMER_MANAGER
+            - ROLE_BRICKS_CUSTOMER_SUPERVISOR
+        ROLE_BRICKS_AGENCY_STAFF:
+            - ROLE_BRICKS_USER
+        ROLE_BRICKS_AGENCY_PRODUCER:
+            - ROLE_BRICKS_AGENCY_STAFF
+            - ROLE_BRICKS_CUSTOMER_PRODUCER
+        ROLE_BRICKS_AGENCY_BUILDER:
+            - ROLE_BRICKS_AGENCY_STAFF
+        ROLE_BRICKS_AGENCY_MANAGER:
+            - ROLE_BRICKS_AGENCY_STAFF
+            - ROLE_BRICKS_CUSTOMER_MANAGER
+        ROLE_BRICKS_AGENCY_SUPERVISOR:
+            - ROLE_BRICKS_AGENCY_STAFF
+            - ROLE_BRICKS_CUSTOMER_SUPERVISOR
+        ROLE_BRICKS_AGENCY_ADMIN:
+            - ROLE_BRICKS_AGENCY_PRODUCER
+            - ROLE_BRICKS_AGENCY_BUILDER
+            - ROLE_BRICKS_AGENCY_MANAGER
+            - ROLE_BRICKS_AGENCY_SUPERVISOR
+            - ROLE_BRICKS_CUSTOMER_ADMIN
+        ROLE_BRICKS_OPERATOR:
+            - ROLE_BRICKS_AGENCY_ADMIN
+            - ROLE_SUPER_ADMIN
+        ROLE_BRICKS_SUPER_ADMIN:
+            - ROLE_BRICKS_OPERATOR
+        ROLE_TWENTYSTEPS_ALEXA_USER:
+            - ROLE_USER
+        ROLE_TWENTYSTEPS_ALEXA_ADMIN:
+            - ROLE_ACME_DEMO_USER
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        bricks_api_authenticated:
+            pattern: ^/bricks/api/secure/
+            stateless: true
+            simple_preauth: { authenticator: bricks.infrastructure.core.service.security.api_key_authenticator }
+        bricks_login:
+            pattern: ^/(de|en)/bricks/secure/login$
+            security: false
+        bricks_authenticated:
+            pattern: ^/(de|en)(/bricks/secure/)|(/auttables)
+            provider: bricks_user_provider
+            access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
+            form_login: { login_path: bricks.infrastructure.core.login, check_path: bricks.infrastructure.core.login.check, default_target_path: bricks.infrastructure.core.login.entry, provider: bricks_user_provider }
+            logout: { path: bricks.infrastructure.core.login.logout, target: bricks.infrastructure.core.login, invalidate_session: true }
+        bricks_login_en:
+            pattern: ^/en/bricks/secure/login$
+            security: false
+        bricks_authenticated_en:
+            pattern: ^/en/bricks/secure/
+            provider: bricks_user_provider
+            form_login: { login_path: /en/bricks/secure/login, check_path: /en/bricks/secure/login_check, default_target_path: /en/bricks/secure/entry, provider: bricks_user_provider }
+            logout: { path: /en/bricks/secure/logout, target: /en/bricks/secure/login, invalidate_session: true }
+    access_control:
+        -
+            path: ^/(de|en)/bricks/secure
+            roles: ROLE_BRICKS_USER
+        -
+            path: ^/_wdt
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        -
+            path: ^/_profiler
+            role: IS_AUTHENTICATED_ANONYMOUSLY
+            path: /app/authenticated
+            roles: IS_AUTHENTICATED_FULLY

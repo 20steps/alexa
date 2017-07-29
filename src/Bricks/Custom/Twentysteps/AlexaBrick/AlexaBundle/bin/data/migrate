@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+bin/console d:m:m
+src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/bin/data/regenerate

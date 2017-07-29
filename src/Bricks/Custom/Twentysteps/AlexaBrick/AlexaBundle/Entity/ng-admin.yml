@@ -1,0 +1,11 @@
+application:
+  title: "Datenpflege"
+  module: "twentysteps.alexa"
+  const: "MODULE_APP"
+  debug: false
+
+dashboard:
+  customize: true
+  collections: []
+  template: >
+    <div ng-include="'/bundles/brickscustomtwentystepsalexa/SPA/modules/dashboard/admin/home/template.html'"></div>

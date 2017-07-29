@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+brew install gnu-tar
+echo 'PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"' >> ~/.bash_profile
+source ~/.bash_profile

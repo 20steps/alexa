@@ -1,0 +1,555 @@
+{
+  "name": "20steps\/alexa",
+  "license": "(c) 20steps Digital Full Service Boutique",
+  "type": "project",
+  "description": "20steps.de",
+  "homepage": "https:\/\/github.com\/20steps\/alexa",
+  "autoload": {
+    "psr-4": {
+      "": "src\/"
+    },
+    "classmap": [
+      "app\/AppKernel.php",
+      "app\/AppCache.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests\/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:20steps\/bricks-angularjs.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:20steps\/bricks.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "nyholm\/google-api-php-client",
+        "version": "dev-abandoned",
+        "type": "library",
+        "description": "Google API library for PHP (with namespaces). This packet is maintained! Version 0.6.2 of original code.",
+        "keywords": [
+          "google",
+          "gdata"
+        ],
+        "homepage": "http:\/\/nyholm.github.io\/google-api-php-client",
+        "license": "Apache 2.0",
+        "authors": [
+          {
+            "name": "Tobias Nyholm",
+            "email": "tobias.nyholm@gmail.com",
+            "homepage": "http:\/\/www.tnyholm.se\/"
+          }
+        ],
+        "require": {
+          "php": ">=5.3.0",
+          "ext-curl": "*"
+        },
+        "autoload": {
+          "psr-0": {
+            "GoogleApi": "src"
+          }
+        },
+        "source": {
+          "type": "git",
+          "url": "git@github.com:20steps\/google-api-php-client.git",
+          "reference": "master"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "symfony\/symfony": "^3.2, !=3.2.10",
+
+    "20steps\/bricks": "3.2.x-dev",
+    "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
+    "20steps\/angularjs-bundle": "dev-master",
+    "20steps/mailchimp-bundle": "dev-master",
+    "hashids/hashids": "dev-master"
+  },
+  "require-dev": {
+    "jane/open-api": "dev-master"
+  },
+  "scripts": {
+    "maintenance-start": [
+      "bin/console bricks:core:monitoring:monitors:pause",
+      "bin/console bricks:core:cluster:node:maintenance:start"
+    ],
+    "maintenance-stop": [
+      "bin/console bricks:core:cluster:node:maintenance:stop",
+      "bin/console bricks:core:monitoring:monitors:resume",
+      "bin/console bricks:core:monitoring:monitors:create-or-update"
+    ],
+    "cluster-info": [
+      "bin/console bricks:core:cluster:node:properties:update",
+      "bin/console bricks:core:cluster:info"
+    ],
+    "post-install-cmd": [
+      "@wp-cli-install",
+      "@wp-install",
+      "@bricks-install",
+      "@symfony-install",
+      "@custom-install"
+    ],
+    "post-update-cmd": [
+      "@wp-cli-update",
+      "@wp-update",
+      "@bricks-update",
+      "@symfony-update",
+      "@app-update"
+    ],
+    "prepare-dev": [
+      "composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "bin\/symfony_requirements",
+      "php --version",
+      "bin\/prepare\/fix-access-rights"
+    ],
+    "prepare-live": [
+      "sudo -i composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "bin\/symfony_requirements",
+      "php --version",
+      "bin\/prepare\/fix-access-rights"
+    ],
+    "prepare-travis": [
+      "sudo -i composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "php --version",
+      "bin\/prepare\/travis-build-tools"
+    ],
+    "wp-cli-install": [
+      "composer install --working-dir=bin\/.wp --no-interaction --no-suggest"
+    ],
+    "wp-cli-update": [
+      "composer update --working-dir=bin\/.wp --no-interaction --no-suggest"
+    ],
+    "wp-iinstall": [
+
+    ],
+    "wp-update": [
+      "bin/wp core update",
+      "bin/wp plugin update --all"
+    ],
+    "bricks-install": [
+      "BricksPlatformComposerExtras\\Bootstrap::setup",
+      "BricksPlatformComposerExtras\\Bootstrap::remotes"
+    ],
+    "bricks-update": [
+      "@bricks-install"
+    ],
+    "symfony-install": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "@cache-clear",
+      "@assets-build",
+      "@doctrine-migrate",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "symfony-update": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "@cache-clear",
+      "@assets-build",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "assets-build": [
+      "bin\/console sp:bower:install --env=prod --no-debug --interactive=false",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "bin\/console bazinga:js-translation:dump --env=prod --no-debug",
+      "bin\/console assetic:dump --env=prod --no-debug  --no-interaction"
+    ],
+    "doctrine-migrate": [
+      "bin\/console doctrine:migrations:migrate  --no-interaction"
+    ],
+    "cache-clear": [
+      "sudo rm -rf var\/cache\/*"
+    ],
+    "platform-info": [
+      "bin\/console bricks:core:info",
+      "bin\/wp manifest"
+    ],
+    "services-reload": [
+      "BricksPlatformComposerExtras\\Bootstrap::reload"
+    ],
+    "test-phpunit": [
+      "@cache-clear",
+      "bin\/vendor\/phpunit"
+    ],
+    "test-behat": [
+      "@cache-clear",
+      "bin\/vendor\/behat"
+    ],
+    "test": [
+      "@test-phpunit",
+      "@test-behat"
+    ],
+    "documentation-generate": [
+      "bin\/console api:swagger:export > web\/doc\/api\/rest.json",
+      "#You can now import web\/doc\/api\/rest.json into postman."
+    ],
+    "deploy": [
+      "BricksPlatformComposerExtras\\Bootstrap::remotes",
+      "BricksPlatformComposerExtras\\Bootstrap::deploy"
+    ],
+    "mac-apache-restart": [
+      "sudo rm -rf \/tmp\/apc\/*; sudo rm -rf var\/cache\/*; rm -rf var\/logs\/*; sudo killall -9 httpd; sudo killall -9 httpd; sudo apachectl restart; bin/console"
+    ],
+    "custom-update": [
+    ],
+    "custom-install": [
+      "@custom-update"
+    ]
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "config": {
+    "platform": {
+      "php": "7.0.0"
+    },
+    "bin-dir": "bin\/vendor",
+    "optimize-autoloader": false,
+    "apcu-autoloader": true,
+    "classmap-authoritative": false
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-bin-dir": "bin",
+    "symfony-var-dir": "var",
+    "symfony-web-dir": "web",
+    "symfony-tests-dir": "tests",
+    "symfony-assets-install": "relative",
+    "installer-paths": {
+      "web\/{$name}": [
+        "interconnectit\/search-replace-db"
+      ]
+    },
+    "bricks-platform": {
+      "config": [
+        {
+          "directory": "var\/cache\/jms_diextra\/metadata",
+          "type": "directory",
+          "mode": "777"
+        },
+        {
+          "directory": "var\/pids",
+          "type": "directory",
+          "mode": "777",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "directory": "var\/pids",
+          "type": "directory",
+          "mode": "777",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        {
+          "file": "etc\/credentials\/.credentials",
+          "dist-file": "etc\/credentials\/.credentials.dist",
+          "type": "dist",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        {
+          "file": "etc\/credentials\/.credentials",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/.credentials",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "etc\/parameters\/cluster.yml",
+          "type": "link"
+        },
+        {
+          "file": "etc\/parameters\/node.yml",
+          "type": "link",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        {
+          "file": "etc\/parameters\/node.yml",
+          "type": "link",
+          "use-hostname": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "etc\/credentials\/basic\/mobile\/apns_cert.pem",
+          "type": "link"
+        },
+        {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "dist-file": "etc\/credentials\/basic\/pages\/.wordpress.dist.generic_dev.php",
+          "type": "dist",
+          "stage": [
+            "dev"
+          ]
+        },
+        {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "dist-file": "etc\/credentials\/basic\/pages\/.wordpress.dist.generic_test.php",
+          "type": "dist",
+          "stage": [
+            "test"
+          ]
+        },
+        {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/basic\/pages\/.wordpress.php",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "web\/.htaccess",
+          "type": "link"
+        },
+        {
+          "file": "web\/robots.txt",
+          "type": "link"
+        },
+        {
+          "file": "\/etc\/hosts",
+          "inject-file": "etc\/system\/hosts\/hosts.generic_dev",
+          "type": "inject",
+          "sudo": true,
+          "stage": [
+            "dev"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/httpd\/sites-available\/alexa.conf",
+          "dist-file": "etc\/system\/httpd\/sites-available\/alexa.generic_live.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/etc\/apache2\/sites-available\/alexa.conf",
+          "dist-file": "etc\/system\/httpd\/sites-available\/alexa.generic_dev.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "dev"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/httpd\/conf.d\/pagespeed.conf",
+          "dist-file": "etc\/system\/httpd\/conf.d\/pagespeed.generic_live.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/default.vcl",
+          "dist-file": "etc\/system\/varnish\/default.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/director.vcl",
+          "dist-file": "etc\/system\/varnish\/director.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/badbot.vcl",
+          "dist-file": "etc\/system\/varnish\/badbot.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/haproxy\/haproxy.cfg",
+          "dist-file": "etc\/system\/haproxy\/haproxy.generic_live.cfg",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "etc\/system\/solr\/resources\/log4j.properties",
+          "type": "link"
+        },
+        {
+          "file": "\/etc\/init.d\/bricks.basic.found.solr",
+          "link-file": "\/var\/www\/Bricks\/etc\/system\/init.d\/bricks.basic.found.solr.generic_live",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/etc\/init.d\/bricks.core.jobs",
+          "link-file": "\/var\/www\/Bricks\/etc\/system\/init.d\/bricks.core.jobs.generic_live",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/var\/www\/Bricks\/web\/custom",
+          "link-file": "\/mnt\/data\/zone\/var\/web-custom",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/var\/www\/Bricks\/web\/wp-content\/uploads",
+          "link-file": "\/mnt\/data\/zone\/var\/wp-uploads",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/var\/www\/Bricks\/web\/.well-known",
+          "link-file": "\/mnt\/data\/zone\/.well-known",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/nginx\/alexa.conf",
+          "dist-file": "etc\/system\/nginx\/alexa.generic_live.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "file": "\/mnt\/data\/zone\/etc\/system\/letsencrypt\/alexa.conf",
+          "dist-file": "etc\/system\/letsencrypt\/alexa.generic_live.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "script": "bin\/prepare\/linux-systemctl",
+          "type": "script",
+          "stage": [
+            "live"
+          ]
+        }
+      ],
+      "service": [
+        {
+          "name": "haproxy",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "name": "bricks.basic.found.solr",
+          "sudo": "true",
+          "action": "restart",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "name": "bricks.core.jobs",
+          "sudo": "true",
+          "action": "restart",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "name": "hhvm",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "name": "Apache",
+          "sudo": "true",
+          "script": "sudo apachectl restart",
+          "stage": [
+            "dev"
+          ]
+        },
+        {
+          "name": "httpd",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        {
+          "name": "varnish",
+          "sudo": "true",
+          "action": "reload",
+          "stage": [
+            "live"
+          ]
+        }
+      ],
+      "remote": [
+        {
+          "name": "alexa1",
+          "url": "ssh:\/\/twentysteps@h6.20steps.de:2232\/var\/www\/Bricks",
+          "color": "generic",
+          "stage": "live"
+        }
+      ],
+      "target": [
+        {
+          "name": "cluster",
+          "remote": [
+            "alexa1"
+          ],
+          "branch": "master"
+        }
+      ]
+    },
+    "branch-alias": {
+      "dev-master": "3.2-dev"
+    }
+  }
+}

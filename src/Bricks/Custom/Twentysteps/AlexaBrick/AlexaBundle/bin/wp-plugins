@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+#bin/wp plugin install https://github.com/20steps/twentysteps-bricks-bridge-wp/archive/master.zip --force --activate-network

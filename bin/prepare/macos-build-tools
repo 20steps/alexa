@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+# Node, NPM and node based stuff
+brew install node
+npm install -g bower
+npm install -g uglifycss
+npm install -g uglifyjs
+
+# Ruby based gems Gems - Ruby itself is already installed on Mac OS
+sudo gem install sass -n /usr/local/bin
+sudo gem install compass -n /usr/local/bin

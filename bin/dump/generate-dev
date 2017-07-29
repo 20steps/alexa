@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+INSTALL_DIR=`pwd`
+
+echo "Generating dumps of local developer environment ..."
+
+echo "Generating .tgz for wp-content/uploads/*"
+cd $INSTALL_DIR/web/wp-content/uploads/ && tar czf $INSTALL_DIR/var/dump/wp-uploads_dev-latest.tgz *
+
+echo "Generating .tgz for web/custom/*"
+cd $INSTALL_DIR/web/custom/ && tar czf $INSTALL_DIR/var/dump/web-custom_dev-latest.tgz *
+
+echo "Generating .sql.gz of all Wordpress tables in database"
+cd $INSTALL_DIR
+mysqldump -u root DB $(mysql -u root -D DB -Bse "show tables like 'wp_%'") | gzip > $INSTALL_DIR/var/dump/wp_dev-latest.sql.gz
+
+echo "Generating .sql.gz of all non-Wordpress tables in database"
+cd $INSTALL_DIR
+mysqldump -u root DB $(mysql -u root -D DB -Bse "SELECT table_name FROM INFORMATION_SCHEMA.TABLES WHERE table_schema = 'DB' AND table_name NOT LIKE 'wp_%';") | gzip > $INSTALL_DIR/var/dump/sf_dev-latest.sql.gz
+
+echo "Dumps can be found in $INSTALL_DIR/var/dump and are tagged with dev-latest."
+
+echo "Execute bin/dump/push-dev to push your dumps to the cluster for sharing with other developers. WARNING: your dumps will override the latest dev-latest dumps in the cluster."

@@ -1,0 +1,5 @@
+imports:
+parameters:
+    database_dbname: alexa_test
+    bricks_core_node_executables_base: /home/travis/.nvm/versions/node/v4.1.2/bin/
+    bricks_core_gem_executables_base: /usr/local/bin

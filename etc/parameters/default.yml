@@ -1,0 +1,8 @@
+imports:
+    -
+        resource: ../../vendor/20steps/bricks/src/Bricks/Platform/etc/parameters/default.yml
+    -
+        resource: ../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/parameters/default.yml
+    -
+        resource: ../../etc/credentials/custom/parameters.yml
+  

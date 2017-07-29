@@ -1,0 +1,9 @@
+{
+  "name": "BricksCustomTwentystepsAlexaBundle",
+  "dependencies": {
+
+  },
+  "resolutions": {
+    "angular": "~1.5"
+  }
+}

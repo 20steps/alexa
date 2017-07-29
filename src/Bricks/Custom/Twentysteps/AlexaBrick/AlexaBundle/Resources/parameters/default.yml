@@ -1,0 +1,66 @@
+parameters:
+
+    jms_serializer.serialized_name_annotation_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+
+
+    bricks_cdn_enabled: false
+    bricks_cdn_host:    cdn.alexa.20steps.de
+    bricks_cdn_protocol: https
+    bricks_cdn_zone_id: 66933
+    bricks_cdn_api_protocol: https
+    bricks_cdn_api_host: api.keycdn.com
+
+    bricks_core_monitoring_webmaster_email: 'dev@20steps.de'
+
+    bricks_basic_business_is_live: false
+    bricks_basic_places_enabled: true
+
+    bricks_infrastructure_core_core_monitoring_uptime_alert_contacts: "0468077_0_0-2553365_0_0-2553366_0_0-2554119_0_0-2557247_0_0"
+    bricks_infrastructure_core_core_monitoring_monitor_definitions_custom:
+      - { name: "Admin Homepage", url: https://admin.alexa.20steps.de }
+      - { name: "Custom Ping", url: http://api.alexa.20steps.de/bricks/api/v1.0/alexa/uptime-robot/ping }
+
+    bricks_custom_twentysteps_alexa_is_live: false
+
+    bricks_custom_twentysteps_alexa_protocol: http
+    bricks_custom_twentysteps_alexa_host: api.alexa.localhost.com
+    bricks_custom_twentysteps_alexa_command_prefix: twentysteps:alexa
+
+    bricks_custom_twentysteps_alexa_activation_token_validity: 86400
+    bricks_custom_twentysteps_alexa_reset_password_token_validity: 86400
+
+    bricks_custom_twentysteps_alexa_mailers_bcc: webmaster@20steps.de
+    bricks_custom_twentysteps_alexa_mailers_bcc_dev: dev@20steps.de
+    bricks_custom_twentysteps_alexa_mailer_transport: smtp
+    bricks_custom_twentysteps_alexa_mailer_encryption: tls
+    bricks_custom_twentysteps_alexa_mailer_host: 		smtp.gmail.com
+    bricks_custom_twentysteps_alexa_mailer_host_imap: 	imap.gmail.com
+    bricks_custom_twentysteps_alexa_mailer_user: 20steps@20steps.de
+    bricks_custom_twentysteps_alexa_mailer_from_mail:  '20steps@20steps.de'
+    bricks_custom_twentysteps_alexa_mailer_from_name:  '20stepsAlexa'
+    bricks_custom_twentysteps_alexa_mailer_reply_to:   '20steps@20steps.de'
+    bricks_custom_twentysteps_alexa_signin_mailer_transport: smtp
+    bricks_custom_twentysteps_alexa_signin_mailer_auth_mode: login
+    bricks_custom_twentysteps_alexa_signin_mailer_user: 20steps@20steps.de
+    bricks_custom_twentysteps_alexa_signin_mailer_encryption: tls
+    bricks_custom_twentysteps_alexa_signin_mailer_host: 		smtp.gmail.com
+    bricks_custom_twentysteps_alexa_signin_mailer_from_email: '20steps@20steps.de'
+    bricks_custom_twentysteps_alexa_signin_mailer_from_name:  '20stepsAlexa'
+    bricks_custom_twentysteps_alexa_signin_mailer_reply_to:   '20steps@20steps.de'
+    bricks_custom_twentysteps_alexa_signin_mailer_allow_multipart: true
+    bricks_custom_twentysteps_alexa_wamp_topic_authenticated_prefix_uri: ''
+
+    bricks_custom_twentysteps_alexa_analytics_tracking_code:  'UA-91361574-1'
+
+    # unused
+    bricks_custom_twentysteps_alexa_upload_user_avatar_directory: ''
+    bricks_custom_twentysteps_alexa_user_avatar_path: ''
+    bricks_custom_twentysteps_alexa_facebook_app_id: ''
+    bricks_custom_twentysteps_alexa_google_client_id: ''
+    bricks_custom_twentysteps_alexa_digits_consumer_key: ''
+    bricks_custom_twentysteps_alexa_linkedin_consumer_key: ''
+    bricks_custom_twentysteps_alexa_twitter_consumer_key: ''
+    bricks_custom_twentysteps_alexa_wamp_topic_general_uri: ''
+    bricks_custom_twentysteps_alexa_wamp_topic_editor_uri: ''
+
+    # hint - parameters with sensitive values such as passwords or api keys reside in non-comitted etc/credentials/custom/parameters.yml

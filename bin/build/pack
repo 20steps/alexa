@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd ..
+tar --exclude=".tarignore" --exclude-ignore=.tarignore -czvf bricks-platform-standard-edition/var/uploads/latest.tgz bricks-platform-standard-edition

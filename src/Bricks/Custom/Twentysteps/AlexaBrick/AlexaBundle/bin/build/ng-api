@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+# regenerate ng-apis
+bin/console bricks:generate:ng-api:config --bundle-short-name="BricksCustomTwentystepsAlexaBundle" --verbose

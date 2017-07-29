@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+cho "Downloading latest dev-latest dumps ..."
+
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp-uploads_dev-latest.tgz var/dump/wp-uploads_dev-latest.tgz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/web-custom_dev-latest.tgz var/dump/web-custom_dev-latest.tgz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/sf_dev-latest.sql.gz var/dump/sf_dev-latest.sql.gz
+scp -P 2227 twentysteps@h2.20steps.de:/mnt/data/zone/var/dump/wp_dev-latest.sql.gz var/dump/wp_dev-latest.sql.gz
+
+cho "Dumps can be found in $INSTALL_DIR/var/dump and are tagged with dev-latest."
