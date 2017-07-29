@@ -322,6 +322,14 @@
           ]
         },
         {
+          "file": "etc\/credentials\/custom\/parameters.yml",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/custom\/parameters.yml",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        {
           "file": "web\/.htaccess",
           "type": "link"
         },
