@@ -29,7 +29,7 @@
 				'response' => [
 					'outputSpeech' => [
 						'type' => 'PlainText',
-						'text' => 'Hallo liebe Gäste, ich bin Alexa und das ist der Blog von Alexander.',
+						'text' => 'Sandra ich liebe Dich!',
 						'ssml' => null
 					],
 					'shouldEndSession' => true
