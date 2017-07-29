@@ -5,6 +5,7 @@
 	use Monolog\Logger;
 	
 	use Psr\Http\Message\ResponseInterface;
+
 	use twentysteps\Commons\EnsureBundle\Ensure;
 	use twentysteps\Commons\UptimeRobotBundle\Model\GetMonitorsResponse;
 	use twentysteps\Commons\UptimeRobotBundle\UptimeRobotAPI;

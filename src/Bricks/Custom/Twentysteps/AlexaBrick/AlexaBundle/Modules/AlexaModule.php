@@ -46,6 +46,7 @@
 					default:
 						$responseText = 'Quatsch nicht!';
 				}
+				$response->endSession();
 				$response->respond($responseText);
 			} else {
 				$response->reprompt('Sags nochmal');
