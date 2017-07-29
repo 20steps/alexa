@@ -9,7 +9,27 @@ bricks.custom.twentysteps_alexa.api.alexa:
         bricks_api_host: "%bricks_api_host%"
 
 
-# REST Generic
+# Generic user management
+
+bricks.custom.twentysteps_alexa.api.authenticated:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.api.1.0.authenticated.yml"
+    prefix: "/bricks/api/v1.0/alexa/authenticated"
+    host: "%bricks_api_host%"
+    defaults: { _format: "json" }
+    requirements:
+        bricks_api_host: "%bricks_api_host%"
+
+
+bricks.custom.twentysteps_alexa.api.signin:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.api.1.0.signin.yml"
+    prefix: "/bricks/api/v1.0/alexa"
+    host: "%bricks_api_host%"
+    defaults: { _format: "json" }
+    requirements:
+        bricks_api_host: "%bricks_api_host%"
+
+
+# Generic REST
 
 bricks.custom.twentysteps_alexa.rest:
     resource: '@BricksCustomTwentystepsAlexaBundle/Action/'

@@ -1,0 +1,28 @@
+# registration
+
+bricks.custom.twentysteps_alexa.api.signin.user.register:
+    path: /register.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignInAPI:register, _format: json, project: app }
+    methods: [POST]
+
+bricks.custom.twentysteps_alexa.api.signin.user.register_activate:
+    path: /register/activate.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignInAPI:activateRegistration, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.signin.user.password_reset:
+    path: /reset/password.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignInAPI:resetPassword, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.signin.user.password_reset_update:
+    path: /reset/password/update.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignInAPI:resetPasswordUpdate, _format: json, project: app }
+    methods: [GET]
+
+# social signin
+
+bricks.custom.twentysteps_alexa.api.signin.user.signIn.facebook:
+    path: /signIn/facebook.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignInAPI:facebook, _format: json, project: app }
+    methods: [POST]

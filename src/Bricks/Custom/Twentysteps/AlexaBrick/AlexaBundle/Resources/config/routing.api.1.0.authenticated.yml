@@ -1,0 +1,54 @@
+bricks.custom.twentysteps_alexa.api.authenticated.token.create:
+    path: /token/create.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:createToken, _format: json, project: app }
+    methods: [POST]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.profile.update:
+    path: /users/self/profile/update.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:updateProfile, _format: json, project: app }
+    methods: [POST]
+
+bricks.custom.twentysteps_alexa.api.authenticated.device.info:
+    path: /device/info.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:updateDeviceInfo, _format: json, project: app }
+    methods: [PUT]
+
+bricks.custom.twentysteps_alexa.api.authenticated.device.info.get:
+    path: /device/info/update.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:updateDeviceInfoGet, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.info:
+    path: /users/self/info.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:info, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.password:
+    path: /users/self/password.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:changePassword, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.username:
+    path: /users/self/username.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:changeUsername, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.firstName:
+    path: /users/self/firstName.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:changeFirstName, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.lastName:
+    path: /users/self/lastName.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:changeLastName, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.updateNamesAndCredentitals:
+    path: /users/self/namesAndCredentials/update.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:updateNamesAndCredentials, _format: json, project: app }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.api.authenticated.user.self.settings.update:
+    path: /users/self/settings/update.{_format}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:AuthenticatedUserAPI:updateSetting, _format: json, project: app }
+    methods: [GET]
