@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/amazon-alexa-php.git",
-                "reference": "fce43488c9feadb81be9496d6f1a8ddf32fc4475"
+                "reference": "c37c7df421d6d519e8ecba04cee7c183b241a571"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/fce43488c9feadb81be9496d6f1a8ddf32fc4475",
-                "reference": "fce43488c9feadb81be9496d6f1a8ddf32fc4475",
+                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/c37c7df421d6d519e8ecba04cee7c183b241a571",
+                "reference": "c37c7df421d6d519e8ecba04cee7c183b241a571",
                 "shasum": ""
             },
             "require": {
@@ -55,7 +55,7 @@
                 }
             ],
             "description": "Amazon Alexa interface for PHP",
-            "time": "2017-07-29 19:15:40"
+            "time": "2017-07-29 19:27:00"
         },
         {
             "name": "20steps/angularjs-bundle",
