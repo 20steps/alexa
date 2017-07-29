@@ -26,7 +26,7 @@ services:
 
     bricks.custom.twentysteps_alexa.module.uptime_robot:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule
-        arguments: [ '@logger']
+        arguments: [ '@twentysteps_commons.uptime_robot.api', '@logger']
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.uptime_robot" }
 
