@@ -13,10 +13,12 @@ services:
         calls:
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.alexa' ] ]
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.uptime_robot' ] ]
+            - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.user' ] ]
+            - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.mail' ] ]
     twentysteps_alexa: "@bricks.custom.twentysteps_alexa.shell"
 
 
-    # Brick Shell Modules
+    # Brick Shell Modules (business logic)
 
     bricks.custom.twentysteps_alexa.module.alexa:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule
@@ -29,6 +31,60 @@ services:
         arguments: [ '@twentysteps_commons.uptime_robot.api', '@logger']
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.uptime_robot" }
+
+
+    bricks.custom.twentysteps_alexa.module.user:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule
+        arguments: [
+          '@doctrine.orm.entity_manager',
+          '@request_stack',
+          '@event_dispatcher',
+          '@bricks.custom.twentysteps_alexa.user_manager',
+          '@security.token_storage',
+          '@security.authorization_checker',
+          '@gesdinet.jwtrefreshtoken.refresh_token_manager',
+          '@snc_redis.twentysteps_alexa',
+          '@lexik_jwt_authentication.jwt_encoder',
+          '@liip_imagine.cache.manager',
+          '%bricks_custom_twentysteps_alexa_upload_user_avatar_directory%',
+          '%bricks_custom_twentysteps_alexa_user_avatar_path%',
+          '@translator',
+          '@twig',
+          '@swiftmailer.mailer.twentysteps_alexa_signin',
+          '%bricks_custom_twentysteps_alexa_signin_mailer_from_email%',
+          '%bricks_custom_twentysteps_alexa_signin_mailer_from_name%',
+          '%bricks_custom_twentysteps_alexa_signin_mailer_reply_to%',
+          '%bricks_custom_twentysteps_alexa_signin_mailer_allow_multipart%',
+          '%bricks_custom_twentysteps_alexa_protocol%',
+          '%bricks_custom_twentysteps_alexa_host%',
+          '%bricks_custom_twentysteps_alexa_activation_token_validity%',
+          '%bricks_custom_twentysteps_alexa_reset_password_token_validity%',
+          '%bricks_custom_twentysteps_alexa_mailers_bcc%',
+          '%bricks_custom_twentysteps_alexa_mailers_bcc_dev%',
+          '@business',
+          '@logger' ]
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.user" }
+
+
+    bricks.custom.twentysteps_alexa.module.mail:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\MailModule
+        arguments: [
+          '@twig',
+          '@pages',
+          '@swiftmailer.mailer.twentysteps_alexa',
+          '%bricks_custom_twentysteps_alexa_mailer_user%',
+          '%bricks_custom_twentysteps_alexa_mailer_from_mail%',
+          '%bricks_custom_twentysteps_alexa_mailer_from_name%',
+          '%bricks_custom_twentysteps_alexa_mailer_reply_to%',
+          '%bricks_custom_twentysteps_alexa_mailers_bcc%',
+          '%bricks_custom_twentysteps_alexa_mailers_bcc_dev%',
+          '%bricks_custom_twentysteps_alexa_host%',
+          '%bricks_custom_twentysteps_alexa_protocol%',
+          '@event_dispatcher',
+          '@logger' ]
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.mail" }
 
 
     # Security
@@ -51,6 +107,7 @@ services:
         class: FOS\UserBundle\Security\EmailUserProvider
         arguments: ['@bricks.custom.twentysteps_alexa.user_manager']
 
+
     # JWT
 
     bricks.custom.twentysteps_alexa.jwt.authentication_success:
@@ -60,7 +117,7 @@ services:
             - { name: monolog.logger, channel: "security" }
 
 
-    # Foundlets
+    # Foundlets (for search)
 
     bricks.custom.twentysteps_alexa.foundlet.page:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Foundlet\PageFoundlet
@@ -75,6 +132,7 @@ services:
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.foundlet.post" }
             - { name: twentysteps.bricks.foundlet, alias: 'post' }
+
 
     # Fixtures providers for custom data generation
 

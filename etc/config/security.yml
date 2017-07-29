@@ -90,6 +90,21 @@ security:
             provider: bricks_user_provider
             form_login: { login_path: /en/bricks/secure/login, check_path: /en/bricks/secure/login_check, default_target_path: /en/bricks/secure/entry, provider: bricks_user_provider }
             logout: { path: /en/bricks/secure/logout, target: /en/bricks/secure/login, invalidate_session: true }
+        oauth_token:
+            pattern:    ^/oauth/v2/token
+            security:   false
+        oauth_authorize:
+            pattern:    ^/oauth/v2/auth
+            provider: bricks_user_provider
+            form_login: { login_path: /oauth/v2/auth/login, check_path: /oauth/v2/auth/login_check, default_target_path: /oauth/v2/auth/entry, provider: bricks_user_provider }
+            logout: { path: /oauth/v2/auth/logout, target: /oauth/v2/auth/login, invalidate_session: true }
+            # Add your favorite authentication process here
+        api:
+            pattern:    ^/api
+            fos_oauth:  true
+            stateless:  true
+            anonymous:  false # can be omitted as its default value
+
     access_control:
         -
             path: ^/(de|en)/bricks/secure
@@ -101,4 +116,7 @@ security:
             path: ^/_profiler
             role: IS_AUTHENTICATED_ANONYMOUSLY
             path: /app/authenticated
+            roles: IS_AUTHENTICATED_FULLY
+        -
+            path: ^/api
             roles: IS_AUTHENTICATED_FULLY

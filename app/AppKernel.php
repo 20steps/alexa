@@ -10,6 +10,9 @@ class AppKernel extends \Bricks\Platform\BricksKernel {
 			
 			// 20steps/angularjs-bundle
 			new twentysteps\Bundle\AngularJsBundle\twentystepsAngularJsBundle(),
+			
+			// Custom dependencies
+			new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
 
 			// Custom Bricks
 			new Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\BricksCustomTwentystepsAlexaBundle()

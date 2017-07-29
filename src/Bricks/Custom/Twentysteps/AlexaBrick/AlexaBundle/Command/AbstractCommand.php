@@ -8,6 +8,8 @@ use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations\Command;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\Mailmodule;
 
 /**
  *
@@ -34,6 +36,20 @@ abstract class AbstractCommand extends AbstractProjectCommand {
 	 */
 	protected final function getUptimeRobotModule() {
 		return $this->container->get('twentysteps_alexa')->getUptimeRobotModule();
+	}
+	
+	/**
+	 * @return UserModule
+	 */
+	protected final function getUserModule() {
+		return $this->container->get('twentysteps_alexa')->getUserModule();
+	}
+	
+	/**
+	 * @return Mailmodule
+	 */
+	protected final function getMailModule() {
+		return $this->container->get('twentysteps_alexa')->getMailModule();
 	}
 	
 }

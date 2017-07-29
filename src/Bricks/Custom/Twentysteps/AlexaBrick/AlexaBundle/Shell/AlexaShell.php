@@ -13,6 +13,8 @@ use Bricks\Infrastructure\CoreBrick\CoreBundle\Base\AbstractCustomShell;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\MailModule;
 
 class AlexaShell extends AbstractCustomShell  {
 
@@ -53,6 +55,20 @@ class AlexaShell extends AbstractCustomShell  {
 	 */
 	public function getUptimeRobotModule() {
 		return $this->useModuleByKey('UptimeRobotModule');
+	}
+	
+	/**
+	 * @return UserModule
+	 */
+	public function getUserModule() {
+		return $this->useModuleByKey('UserModule');
+	}
+	
+	/**
+	 * @return MailModule
+	 */
+	public function getMailModule() {
+		return $this->useModuleByKey('MailModule');
 	}
 	
 	// overrides
