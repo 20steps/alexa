@@ -99,6 +99,7 @@
 							$responseText .= 'Bei ' . $statistics['paused']['count'] . ' Monitoren bin ich mir nicht sicher..';
 						}
 					}
+					$this->logger->warn('statistics',$statistics);
 					return $responseText;
 				}
 				return 'Leider konnte ich den Status nicht ermitteln: '.$monitorsResponse->getError()->getMessage();
