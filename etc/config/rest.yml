@@ -5,10 +5,10 @@ fos_http_cache:
       -
         match:
           attributes:
-            _route: ^bricks.custom.twentysteps_alexda.api.uptime_robot.ping
+            _route: ^bricks.custom.twentysteps_alexda.api.alexa.process
           match_response: response.getStatusCode() == 200
         headers:
-          cache_control: { private: false, public: true, max_age: 10, s_maxage: 10 }
+          cache_control: { private: true, public: false, max_age: 0, s_maxage: 0 }
           etag: false
           vary: [Accept-Encoding]
       # Content REST Calls

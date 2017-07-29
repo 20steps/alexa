@@ -1,9 +1,9 @@
 # Custom
 
-bricks.custom.twentysteps_alexa.api.uptime_robot:
-    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.api.1.0.uptime-robot.yml"
+bricks.custom.twentysteps_alexa.api.alexa:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.api.1.0.alexa.yml"
     host: "%bricks_api_host%"
-    prefix: "/bricks/api/v1.0/alexa/uptime-robot"
+    prefix: "/bricks/api/v1.0/alexa/alexa"
     defaults: { _format: "json" }
     requirements:
         bricks_api_host: "%bricks_api_host%"

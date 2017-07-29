@@ -9,7 +9,7 @@ use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
 
-class APIAlexaIntentController extends AbstractAlexaAPIController {
+class APIAlexaController extends AbstractAlexaAPIController {
 
 	/**
 	 * @var AlexaModule $alexaModule;
@@ -21,8 +21,11 @@ class APIAlexaIntentController extends AbstractAlexaAPIController {
 	 * @param Request $request
 	 * @return Response
 	 */
-	public function pingAction(Request $request) {
-		return $this->successAlexa($this->alexaModule->processAlexaRequest($this->getAlexaRequest($request)));
+	public function processAction(Request $request) {
+		if ($request->getMethod()==Request::METHOD_POST) {
+			return $this->successAlexa($this->alexaModule->processAlexaRequest($this->getAlexaRequest($request)));
+		}
+		return $this->success(['ping' => 'pong']);
 	}
 	
 }
