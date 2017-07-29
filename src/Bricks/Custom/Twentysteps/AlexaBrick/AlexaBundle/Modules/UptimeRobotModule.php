@@ -30,13 +30,18 @@
 			$this->uptimeRobotAPI = $uptimeRobotAPI;
 		}
 		
+		/**
+		 * @return string
+		 */
 		public function getStatusResponseText() {
+			// get info about all monitors connected to configured account
 			$monitorsResponse = $this->uptimeRobotAPI->monitor()->all();
 			if ($monitorsResponse instanceof GetMonitorsResponse) {
 				/**
 				 * @var GetMonitorsResponse $monitorsResponse
 				 */
 				if ($monitorsResponse->getStat()=='ok') {
+					// gather statistics
 					$statistics = [
 						'paused' => [
 							'count' => 0
@@ -55,8 +60,10 @@
 						],
 						'unknown' => [
 							'count' => 0
-						]
+						],
+						'count' => 0
 					];
+					
 					$statusIdToName = [
 						0 => 'paused',
 						1 => 'not_checked_yet',
@@ -64,7 +71,7 @@
 						8 => 'seems_down',
 						9 => 'down'
 					];
-					$count = 0;
+					
 					foreach ($monitorsResponse->getMonitors() as $monitor) {
 						$status = $monitor->getStatus();
 						if (array_key_exists($status,$statusIdToName)) {
@@ -72,18 +79,22 @@
 						} else {
 							$statistics['unknown']['count']++;
 						}
-						$count++;
+						$statistics['count']++;
 					}
-					$responseText = $count.' Monitore wurden geprüft: ';
 					
-					if ($statistics['seems_down']['count'] + $statistics['down']['count'] == 0) {
+					$this->logger->warn('statistics',$statistics);
+					
+					// prepare response text
+					$responseText = $statistics['count'].' Monitore wurden geprüft: ';
+					
+					if (($statistics['seems_down']['count'] + $statistics['down']['count']) == 0) {
 						$responseText.= 'Alle Systeme up. Trink einen Kaffee! ';
 					} else {
 						if ($statistics['down']['count'] > 0) {
-							$responseText.= 'Oh weh! '.$statistics['down']['count'].' Monitore sind down! Bitte prüfe das sofort! ';
+							$responseText.= 'Oh weh! '.$statistics['down']['count'].' Monitore sind down! Bitte prüfe das sofort oder hol Dir einen Schnaps! ';
 						}
 						if ($statistics['seems_down']['count'] > 0) {
-							$responseText.= 'Hm, '.$statistics['seems_down']['count'].' Monitore sind möglicherweise down! Bitte prüfe das bei Gelegenheit! ';
+							$responseText.= 'Hm, '.$statistics['seems_down']['count'].' Monitore sind möglicherweise down! Bitte prüfe das bei Gelegenheit, trinke aber vorher ein Wasser ';
 						}
 					}
 					
@@ -99,9 +110,10 @@
 							$responseText .= 'Bei ' . $statistics['paused']['count'] . ' Monitoren bin ich mir nicht sicher..';
 						}
 					}
-					$this->logger->warn('statistics',$statistics);
+					
 					return $responseText;
 				}
+				
 				return 'Leider konnte ich den Status nicht ermitteln: '.$monitorsResponse->getError()->getMessage();
 			}
 			
