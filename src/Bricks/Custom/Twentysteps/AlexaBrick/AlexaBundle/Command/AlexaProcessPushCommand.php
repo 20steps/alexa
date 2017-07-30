@@ -12,16 +12,16 @@
 	 * )
 	 *
 	 */
-	class UptimeRobotPingCommand extends AbstractCommand {
+	class AlexaProcessPushCommand extends AbstractCommand {
 		
 		/**
 		 * @see Command
 		 */
 		protected function configure() {
-			$commandName = $this->getCommandPrefix().'uptime-robot:ping';
+			$commandName = $this->getCommandPrefix().'alexa:process-push';
 			$this
-				->setHelp('By calling <info>'.$commandName.'</info> you can ping')
-				->setDescription('Ping.')->setName($commandName);
+				->setHelp('By calling <info>'.$commandName.'</info> you can process push')
+				->setDescription('Process push.')->setName($commandName);
 			parent::configure();
 		}
 		
@@ -30,6 +30,6 @@
 		 * @see AbstractCommand
 		 */
 		protected function executeCommand() {
-			var_dump($this->getUptimeRobotModule()->ping());
+			var_dump($this->getAlexaModule()->processPush());
 		}
 	}

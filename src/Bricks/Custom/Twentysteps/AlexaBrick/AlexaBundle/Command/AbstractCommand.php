@@ -21,7 +21,7 @@ use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\Mailmodule;
 abstract class AbstractCommand extends AbstractProjectCommand {
 
 	protected function getCommandPrefix() {
-		return 'bricks:custom:twentysteps:alexa:';
+		return 'bricks:custom:alexa:';
 	}
 	
 	/**
