@@ -7,6 +7,7 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for system status
+* Alexa Account linking for pre-registered users
 * Some easter egg
 
 TODO:
