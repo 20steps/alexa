@@ -22,6 +22,8 @@ parameters:
 
     bricks_custom_twentysteps_alexa_is_live: false
 
+    bricks_custom_twentysteps_alexa_alexa_oauth2_client_id: "2_1b1zwhhvnthc00oco0w4k840gg40okcoko40wg8w8gcwwoo840"
+
     bricks_custom_twentysteps_alexa_protocol: http
     bricks_custom_twentysteps_alexa_host: alexa.localhost.com
     bricks_custom_twentysteps_alexa_command_prefix: twentysteps:alexa
