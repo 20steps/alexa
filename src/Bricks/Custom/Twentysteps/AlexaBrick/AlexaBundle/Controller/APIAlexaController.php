@@ -9,7 +9,7 @@ use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
 
-class APIAlexaController extends AbstractAlexaAPIController {
+class APIAlexaController extends AbstractAPIAlexaController {
 
 	/**
 	 * @var AlexaModule $alexaModule;

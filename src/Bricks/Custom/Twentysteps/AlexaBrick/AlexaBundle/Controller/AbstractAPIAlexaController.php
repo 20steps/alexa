@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Alexa\Request\Request as AlexaRequest;
 use Alexa\Response\Response as AlexaResponse;
 
-abstract class AbstractAlexaAPIController extends AbstractAPIController {
+abstract class AbstractAPIAlexaController extends AbstractAPIController {
 	
 	/**
 	 * @param Request $request
