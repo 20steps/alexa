@@ -24,38 +24,63 @@ abstract class AbstractAuthenticatedAPIController extends AbstractAbstractAuthen
     {
         parent::prepareAction();
     }
-
+	
+	/**
+	 * @return array
+	 */
     protected function getSerializationGroups()
     {
         return ['public','self'];
     }
-
+	
+	/**
+	 * @return array
+	 */
     protected function getSerializationGroupsForLists()
     {
         return ['public_list'];
     }
-
+	
+	/**
+	 * @return string
+	 */
     protected function getCustomSerializationExclusionStrategy() {
         return 'bricks.custom.saarow_app.serialization.serialization_exclusion';
     }
-
+	
+	/**
+	 * @param AbstractUser $user
+	 * @return array|mixed|null|object
+	 */
     protected function serializeUser(AbstractUser $user) {
         return json_decode($this->serializeJSON($this->user,["self","linked","public"],['requestingUser' => $this->user]),true);
     }
 
-    // avatar
-
+	// avatar
+	
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
     public function uploadAvatarPictureAction(Request $request) {
         $this->flash=$this->userModule->uploadAvatarPicture($request);
         return $this->infoAction($request);
     }
-
+	
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
     public function uploadAvatarPictureDesktopAction(Request $request) {
         $files = $request->files->get('files');
         $this->userModule->uploadAvatarPictureDesktop($files);
         return $this->infoAction($request);
     }
-
+	
+	/**
+	 * @param Request $request
+	 * @return \Symfony\Component\HttpFoundation\Response
+	 */
     public function deleteAvatarPictureAction(Request $request) {
         $this->flash=$this->userModule->deleteAvatarPicture();
         return $this->infoAction($request);
