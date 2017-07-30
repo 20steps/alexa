@@ -1,0 +1,60 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:layout:layout.html.twig" %}
+
+{% block content %}
+
+    <header id="login_header">
+        <nav id="login_main">
+            <ul>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle border" data-toggle="dropdown">{{ 'Language'| trans({},'core') }}</a>
+                    <ul class="dropdown-menu">
+                        <li {% if app.request.locale == 'de' %}class="active"{% endif %}>
+                            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'de'})) }}">
+                                {{ 'German'|trans({},'core') }}
+                            </a>
+                        </li>
+                        <li {% if app.request.locale == 'en' %}class="active"{% endif %}>
+                            <a href="{{ path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'})) }}">
+                                {{ 'English'|trans({},'core') }}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <div class="inner_table">
+        <div class="login-box">
+            <!--<img class="hand" src="/bundles/brickscorecore/images/bricks-login_hand.png" alt="" />-->
+            <div class="top">
+                <div class="brand">
+                    <img src="{{ bricks_brand_logo_login }}" class="img-responsive">
+                </div>
+                <form class="form-horizontal" action="{{ path('fos_oauth_server_authorize') }}" method="post">
+                    <fieldset>
+                        <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="Username" value="{{ last_username }}"/>
+
+                        <input class="input-large col-xs-8" name="_password" id="password" type="password" placeholder="{{ 'Password' | trans({},'core') }}"/>
+
+                        <button type="submit" id="login" class="btn btn-primary col-xs-4">{{ 'Login'|trans({},'core') }}<span class="ts-icon icon-ts-arrowright"></span></button>
+
+                        <div class="clearfix"></div>
+
+                        {# <label class="remember" for="remember"><input type="checkbox" id="remember" />'Remember login' | trans({},'core')</label> #}
+
+                        <div class="clearfix"></div>
+
+                    </fieldset>
+                </form>
+            </div>
+            <div class="bottom">
+                <p>
+                    <a href="#">{{ 'Forgot password?'|trans({},'core') }}</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

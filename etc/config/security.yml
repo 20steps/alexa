@@ -112,10 +112,6 @@ security:
             stateless: true
             lexik_jwt: null
             switch_user_stateless: true
-        bricks_custom_twentysteps_alexa_login:
-            pattern: ^/alexa/(de|en)/login$
-            host: '%bricks_custom_twentysteps_alexa_host%'
-            security: false
         bricks_custom_twentysteps_alexa_authenticated:
             pattern: ^/(de|en)/authenticated
             provider: bricks_custom_twentysteps_alexa_user_provider
@@ -127,11 +123,11 @@ security:
             host: '%bricks_api_host%'
             security:   false
         bricks_custom_twentysteps_alexa_oauth_authorize:
-            pattern:    ^/oauth/v2/auth
+            pattern:    ^/oauth/v2/authenticated/check
             host: '%bricks_api_host%'
             provider: bricks_user_provider
-            form_login: { login_path: /oauth/v2/auth/login, check_path: /oauth/v2/auth/login_check, default_target_path: /oauth/v2/auth/entry, provider: bricks_custom_twentysteps_alexa_user_provider }
-            logout: { path: /oauth/v2/auth/logout, target: /oauth/v2/auth/login, invalidate_session: true }
+            form_login: { login_path: /oauth/v2/authenticated/login, check_path: /oauth/v2/authenticated/check, default_target_path: /oauth/v2/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
+            logout: { path: /oauth/v2/authenticated/logout, target: /oauth/v2/authenticated/login, invalidate_session: true }
             # Add your favorite authentication process here
         bricks_custom_twentysteps_alexa_oauth_api:
             pattern:    ^/api
