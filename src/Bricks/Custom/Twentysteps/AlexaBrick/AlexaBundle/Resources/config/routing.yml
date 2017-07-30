@@ -35,3 +35,11 @@ bricks.custom.twentysteps_alexa.rest:
     resource: '@BricksCustomTwentystepsAlexaBundle/Action/'
     prefix: "%bricks_api_rest_prefix%"
     type:     'annotation'
+
+# OAuth2
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_oauth_server_authorize:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/authorize.xml"

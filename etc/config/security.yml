@@ -16,6 +16,8 @@ security:
             id: bricks.infrastructure.core.service.security.api_key_user_provider
         wordpress:
             entity: { class: Kayue\WordpressBundle\Entity\User, property: username }
+        bricks_custom_twentysteps_alexa_user_provider:
+            id: bricks.custom.twentysteps_alexa.user_provider
     role_hierarchy:
         ROLE_ADMIN:
             - ROLE_USER
@@ -90,11 +92,33 @@ security:
             provider: bricks_user_provider
             form_login: { login_path: /en/bricks/secure/login, check_path: /en/bricks/secure/login_check, default_target_path: /en/bricks/secure/entry, provider: bricks_user_provider }
             logout: { path: /en/bricks/secure/logout, target: /en/bricks/secure/login, invalidate_session: true }
+        bricks_custom_twentysteps_alexa_api_authenticated_token_create:
+            pattern: ^/bricks/api/v1.0/alexa/authenticated/token/create
+            host: '%bricks_api_host%'
+            provider: bricks_custom_twentysteps_alexa_user_provider
+            stateless: true
+            gfreeau_get_jwt: { username_parameter: username, password_parameter: password, success_handler: bricks.custom.twentysteps_alexa.jwt.authentication_success, failure_handler: lexik_jwt_authentication.handler.authentication_failure }
+        bricks_custom_twentysteps_alexa_api_authenticated:
+            pattern: ^/bricks/api/v1.0/alexa/authenticated
+            host: '%bricks_api_host%'
+            provider: bricks_custom_twentysteps_alexa_user_provider
+            stateless: true
+            lexik_jwt: null
+            switch_user_stateless: true
+        bricks_custom_twentysteps_alexa_api_authenticated:
+            pattern:  ^/bricks/api/authenticated/project/alexa
+            host: '%bricks_api_host%'
+            provider: bricks_custom_twentysteps_alexa_user_provider
+            stateless: true
+            lexik_jwt: null
+            switch_user_stateless: true
         oauth_token:
             pattern:    ^/oauth/v2/token
+            host: '%bricks_api_host%'
             security:   false
         oauth_authorize:
             pattern:    ^/oauth/v2/auth
+            host: '%bricks_api_host%'
             provider: bricks_user_provider
             form_login: { login_path: /oauth/v2/auth/login, check_path: /oauth/v2/auth/login_check, default_target_path: /oauth/v2/auth/entry, provider: bricks_user_provider }
             logout: { path: /oauth/v2/auth/logout, target: /oauth/v2/auth/login, invalidate_session: true }
