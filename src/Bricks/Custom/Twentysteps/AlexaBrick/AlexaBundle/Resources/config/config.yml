@@ -98,6 +98,9 @@ fos_oauth_server:
     service:
         options:
             supported_scopes: _TWENTYSTEPS_ALEXA_USER
+            access_token_lifetime: false
+            refresh_token_lifetime: false
+            auth_code_lifetime: 3600
         user_provider: bricks.custom.twentysteps_alexa.user_provider
 
 braincrafted_bootstrap:

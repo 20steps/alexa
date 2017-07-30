@@ -68,7 +68,7 @@
 			 */
 			$client = $clientManager->createClient();
 			$client->setRedirectUris(array('https://www.amazon.de'));
-			$client->setAllowedGrantTypes(array('token'));
+			$client->setAllowedGrantTypes(array('authorization_code'));
 			$clientManager->updateClient($client);
 			return $client;
 		}
