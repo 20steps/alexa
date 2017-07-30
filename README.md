@@ -10,10 +10,10 @@ Current capabilitites:
 * Some easter egg
 
 TODO:
-* Include cards in the response for Amazon Echo Show (wip)
 * User management so users can enter their API key for UptimeRobot.com in the Alexa App (wip)
-* Some more capabilities that help developers and system administrators
-* Prepare for push
+* Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
+* Prepare for Alexa push messages
+* Automated tests
 
 Hints for fellow readers:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
