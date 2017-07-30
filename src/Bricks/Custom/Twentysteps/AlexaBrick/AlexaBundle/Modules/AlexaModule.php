@@ -2,6 +2,7 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client;
 	use Monolog\Logger;
 
 	use twentysteps\Commons\EnsureBundle\Ensure;
@@ -55,6 +56,21 @@
 			$count = 0;
 			// push to Echo devices (will be implemented as soon as Alexa SDK is enhanced)
 			return ['count' => $count];
+		}
+		
+		/**
+		 * @return Client
+		 */
+		public function createClient() {
+			$clientManager = $this->getCore()->getContainer()->get('fos_oauth_server.client_manager.default');
+			/**
+			 * @var Client $client
+			 */
+			$client = $clientManager->createClient();
+			$client->setRedirectUris(array('https://www.amazon.de'));
+			$client->setAllowedGrantTypes(array('token'));
+			$clientManager->updateClient($client);
+			return $client;
 		}
 		
 	}

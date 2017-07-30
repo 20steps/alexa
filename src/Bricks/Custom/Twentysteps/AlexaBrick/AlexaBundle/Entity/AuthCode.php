@@ -25,7 +25,7 @@ class AuthCode extends BaseAuthCode
 	protected $client;
 	
 	/**
-	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User")
+	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User", cascade={"persist","merge"})
 	 */
 	protected $user;
 }

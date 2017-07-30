@@ -85,7 +85,7 @@
     "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
 
     "20steps/amazon-alexa-php": "dev-master",
-    "friendsofsymfony/oauth-server-bundle": "dev-master",
+    "20steps/oauth-server-bundle": "dev-master",
     "braincrafted/bootstrap-bundle": "dev-master",
     "twbs/bootstrap": "^3.0",
     "jquery/jquery":  "1.11.*"

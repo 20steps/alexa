@@ -4,6 +4,7 @@ namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use FOS\RestBundle\Controller\Annotations\View;
 
@@ -41,8 +42,23 @@ class UserController extends AbstractBricksController {
 	 * @param Request $request
 	 * @return array
 	 */
+	public function homeAction(Request $request) {
+		$context = ['message' => 'Hallo Welt'];
+		return $context;
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
 	public function loginAlexaAction(Request $request) {
 		$session = $request->getSession();
+		$session->set('alexa_state',$request->query->get('state',rand(0,99)));
+		$session->set('alexa_client_id',$request->query->get('client_id','2_1b1zwhhvnthc00oco0w4k840gg40okcoko40wg8w8gcwwoo840'));
+		$session->set('alexa_response_type',$request->query->get('response_type','token'));
+		$session->set('alexa_scope',$request->query->get('scope','_TWENTYSTEPS_ALEXA_USER'));
+		$session->set('alexa_redirect_uri',$request->query->get('redirect_uri','https://20steps.de'));
 		
 		// get the login error if there is one
 		if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
@@ -61,13 +77,29 @@ class UserController extends AbstractBricksController {
 	}
 	
 	/**
+	 * @param Request $request
+	 * @return RedirectResponse
+	 */
+	public function preAuthorizeAlexaAction(Request $request) {
+		$session = $request->getSession();
+		return $this->redirectToRoute('fos_oauth_server_authorize',[
+			'state' => $session->get('alexa_state','na'),
+			'client_id' => $session->get('alexa_client_id','na'),
+			'response_type' => $session->get('alexa_response_type','na'),
+			'scope' => $session->get('alexa_scope','na'),
+			'redirect_uri' => $session->get('alexa_redirect_uri','na'),
+		]);
+		
+	}
+	
+	/**
 	 * @View
 	 * @param Request $request
 	 * @return array
 	 */
-	public function homeAction(Request $request) {
-		$context = ['message' => 'Hallo Welt'];
+	public function homeAlexaAction(Request $request) {
+		$context = ['message' => 'Hallo Alexa'];
 		return $context;
 	}
-    
+	
 }

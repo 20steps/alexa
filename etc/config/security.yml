@@ -114,21 +114,21 @@ security:
             switch_user_stateless: true
         bricks_custom_twentysteps_alexa_authenticated:
             pattern: ^/(de|en)/authenticated
+            host: '%bricks_custom_twentysteps_alexa_host%'
             provider: bricks_custom_twentysteps_alexa_user_provider
             access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
             form_login: { login_path: /de/login, check_path: /de/authenticated/check, default_target_path: /de/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /de/authenticated/logout, target: /de/login, invalidate_session: true }
+        bricks_custom_twentysteps_alexa_oauth_authorize:
+            pattern:    ^/oauth/v2/authenticated
+            host: '%bricks_custom_twentysteps_alexa_host%'
+            provider: bricks_user_provider
+            form_login: { login_path: /oauth/v2/authenticated/login, check_path: /oauth/v2/authenticated/check, default_target_path: /oauth/v2/authenticated/pre-authorize, provider: bricks_custom_twentysteps_alexa_user_provider }
+            logout: { path: /oauth/v2/authenticated/logout, target: /oauth/v2/authenticated/login, invalidate_session: true }
         bricks_custom_twentysteps_alexa_oauth_token:
             pattern:    ^/oauth/v2/token
-            host: '%bricks_api_host%'
+            host: '%bricks_custom_twentysteps_alexa_host%'
             security:   false
-        bricks_custom_twentysteps_alexa_oauth_authorize:
-            pattern:    ^/oauth/v2/authenticated/check
-            host: '%bricks_api_host%'
-            provider: bricks_user_provider
-            form_login: { login_path: /oauth/v2/authenticated/login, check_path: /oauth/v2/authenticated/check, default_target_path: /oauth/v2/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
-            logout: { path: /oauth/v2/authenticated/logout, target: /oauth/v2/authenticated/login, invalidate_session: true }
-            # Add your favorite authentication process here
         bricks_custom_twentysteps_alexa_oauth_api:
             pattern:    ^/api
             fos_oauth:  true

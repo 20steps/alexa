@@ -32,7 +32,7 @@
                 <div class="brand">
                     <img src="{{ bricks_brand_logo_login }}" class="img-responsive">
                 </div>
-                <form class="form-horizontal" action="{{ path('fos_oauth_server_authorize') }}" method="post">
+                <form class="form-horizontal" action="{{ path('bricks.custom.twentysteps_alexa.user.alexa.check') }}" method="post">
                     <fieldset>
                         <input class="input-large col-xs-12" name="_username" id="username" type="text" placeholder="Username" value="{{ last_username }}"/>
 

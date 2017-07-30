@@ -399,11 +399,45 @@ class User extends AbstractUser
 	
 	// relations
 	
+	/**
+	 *
+	 * @var array
+	 *
+	 * @ORM\OneToMany(targetEntity="AccessToken", mappedBy="user", cascade={"persist", "remove", "merge"})
+	 * @JMS\Exclude
+	 *
+	 **/
+	protected $accessTokens;
+	
+	/**
+	 *
+	 * @var array
+	 *
+	 * @ORM\OneToMany(targetEntity="AuthCode", mappedBy="user", cascade={"persist", "remove", "merge"})
+	 * @JMS\Exclude
+	 *
+	 **/
+	protected $authCodes;
+	
+	/**
+	 *
+	 * @var array
+	 *
+	 * @ORM\OneToMany(targetEntity="RefreshToken", mappedBy="user", cascade={"persist", "remove", "merge"})
+	 * @JMS\Exclude
+	 *
+	 **/
+	protected $refreshTokens;
+	
+	
 	// constructor
 
 	public function __construct()
 	{
 		parent::__construct();
+		$this->accessTokens = new ArrayCollection();
+		$this->authCodes = new ArrayCollection();
+		$this->refreshTokens = new ArrayCollection();
 	}
     
     public function setTranslatableLocale($locale) {
@@ -646,5 +680,59 @@ class User extends AbstractUser
 		}
 		return false;
 	}
-
+	
+	// relations
+	
+	/**
+	 * @return array
+	 */
+	public function getAccessTokens() {
+		return $this->accessTokens;
+	}
+	
+	/**
+	 * @param array $accessTokens
+	 * @return User
+	 */
+	public function setAccessTokens($accessTokens) {
+		$this->accessTokens = $accessTokens;
+		
+		return $this;
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getAuthCodes() {
+		return $this->authCodes;
+	}
+	
+	/**
+	 * @param array $authCodes
+	 * @return User
+	 */
+	public function setAuthCodes($authCodes) {
+		$this->authCodes = $authCodes;
+		
+		return $this;
+	}
+	
+	/**
+	 * @return array
+	 */
+	public function getRefreshTokens() {
+		return $this->refreshTokens;
+	}
+	
+	/**
+	 * @param array $refreshTokens
+	 * @return User
+	 */
+	public function setRefreshTokens($refreshTokens) {
+		$this->refreshTokens = $refreshTokens;
+		
+		return $this;
+	}
+	
+	
 }
