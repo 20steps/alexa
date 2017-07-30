@@ -22,7 +22,7 @@ abstract class AbstractAPIAlexaController extends AbstractAPIController {
     		$appId = $this->getParameter('bricks_custom_twentysteps_alexa_application_id');
 	    }
 	    $content = $request->getContent();
-	    $this->logger->error('alexa request',$content);
+	    $this->logger->error('alexa request',json_decode($content,true));
 		$alexaRequest = new AlexaRequest($content, $appId);
 		return $alexaRequest->fromData();
     }
@@ -51,7 +51,7 @@ abstract class AbstractAPIAlexaController extends AbstractAPIController {
 	    /**
 	     * @var User $user
 	     */
-	    $this->logger->error('alexa user',$user?$user->getUsername():'no user');
+	    $this->logger->error('alexa user',['user' => $user?$user->getUsername():'no user']);
 	    return null;
     }
 	/**

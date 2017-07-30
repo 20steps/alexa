@@ -76,7 +76,7 @@ DirectoryIndex app.php
     RewriteCond %{REQUEST_URI}  !(^/wp-content/uploads/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/js/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/bundles/) [NC]
-    RewriteRule ^ %{ENV:BASE}/app_dev.php [L]
+    RewriteRule ^ %{ENV:BASE}/app.php [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>
