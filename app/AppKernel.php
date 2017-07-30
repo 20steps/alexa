@@ -13,6 +13,7 @@ class AppKernel extends \Bricks\Platform\BricksKernel {
 			
 			// Custom dependencies
 			new FOS\OAuthServerBundle\FOSOAuthServerBundle(),
+			new Braincrafted\Bundle\BootstrapBundle\BraincraftedBootstrapBundle(),
 
 			// Custom Bricks
 			new Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\BricksCustomTwentystepsAlexaBundle()

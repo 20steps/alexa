@@ -63,6 +63,17 @@
           "reference": "master"
         }
       }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "jquery/jquery",
+        "version": "1.11.1",
+        "dist": {
+          "url": "https://code.jquery.com/jquery-1.11.1.js",
+          "type": "file"
+        }
+      }
     }
   ],
   "require": {
@@ -74,7 +85,10 @@
     "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
 
     "20steps/amazon-alexa-php": "dev-master",
-    "friendsofsymfony/oauth-server-bundle": "dev-master"
+    "friendsofsymfony/oauth-server-bundle": "dev-master",
+    "braincrafted/bootstrap-bundle": "dev-master",
+    "twbs/bootstrap": "^3.0",
+    "jquery/jquery":  "1.11.*"
   },
   "require-dev": {
     "jane/open-api": "dev-master"
@@ -205,6 +219,7 @@
       "sudo rm -rf \/tmp\/apc\/*; sudo rm -rf var\/cache\/*; rm -rf var\/logs\/*; sudo killall -9 httpd; sudo killall -9 httpd; sudo apachectl restart; bin/console"
     ],
     "custom-update": [
+      "Braincrafted\\Bundle\\BootstrapBundle\\Composer\\ScriptHandler::install"
     ],
     "custom-install": [
       "@custom-update"

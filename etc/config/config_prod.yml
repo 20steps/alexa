@@ -1,4 +1,5 @@
 imports:
+    - { resource: "../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/config/assets.yml" }
     - { resource: "../../vendor/20steps/bricks/src/Bricks/Platform/etc/config/config_prod.yml" }
     - { resource: config.yml }
     - { resource: logging_prod.yml }

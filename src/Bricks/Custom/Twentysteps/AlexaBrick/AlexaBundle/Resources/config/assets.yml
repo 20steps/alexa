@@ -1,0 +1,99 @@
+assetic:
+    assets:
+        twentysteps_alexa_bootstrap_css:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/less/bootstrap.less
+                - %kernel.root_dir%/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/less/form.less
+            filters:
+                - lessphp
+                - cssrewrite
+            output: bundles/brickscustomtwentystepsalexa/css/bootstrap.css
+        twentysteps_alexa_bootstrap_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/transition.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/alert.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/button.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/carousel.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/collapse.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/dropdown.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/modal.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tooltip.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/popover.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/scrollspy.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/tab.js
+                - %kernel.root_dir%/../vendor/twbs/bootstrap/js/affix.js
+                - %kernel.root_dir%/../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/js/bc-bootstrap-collection.js
+            output: bundles/brickscustomtwentystepsalexa/js/bootstrap.js
+        twentysteps_alexa_jquery_js:
+            inputs:
+                - %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.11.1.js
+            output: bundles/brickscustomtwentystepsalexa/js/jquery.js
+    debug: "%kernel.debug%"
+    use_controller:
+        enabled: false
+        profiler: false
+    sass: "%bricks_core_gem_executables_base%/sass"
+    node: "%bricks_core_node_executables_base%/node"
+    java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        sass:
+          bin: "%bricks_core_gem_executables_base%/sass"
+        compass:
+          bin: "%bricks_core_gem_executables_base%/compass"
+        less:
+            node: "%bricks_core_node_executables_base%/node"
+            node_paths: [/home/igor/nvm/bin/node_modules]
+        closure:
+            jar: "%kernel.root_dir%/Resources/java/compiler.jar"
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yuicompressor-2.4.7.jar"
+        uglifyjs2:
+            bin: "%bricks_core_node_executables_base%/uglifyjs"
+        uglifycss:
+            bin: "%bricks_core_node_executables_base%/uglifycss"
+        lessphp:
+            apply_to: ".less$"
+            file:   "%kernel.root_dir%/../vendor/oyejorge/less.php/lessc.inc.php"
+            presets:
+                theme_base_color_background: "%pages_styling_color_background%"
+                theme_base_color_link: "%pages_styling_color_link%"
+                theme_base_color_link_hover: "%pages_styling_color_link_hover%"
+                theme_base_color_text: "%pages_styling_color_text%"
+                theme_base_color_headline: "%pages_styling_color_headline%"
+                theme_base_color_footer_background: "%pages_styling_color_footer_background%"
+                theme_base_color_footer_headline: "%pages_styling_color_footer_headline%"
+                theme_base_color_footer_text: "%pages_styling_color_footer_text%"
+                theme_base_color_footer_link_hover: "%pages_styling_color_link_hover%"
+                theme_base_color_light_grey: "%pages_styling_color_light_grey%"
+                theme_base_color_input_form_bg: "%pages_styling_color_input_form_bg%"
+                theme_base_color_text_sub: "%pages_styling_color_text_sub%"
+                theme_base_color_sidebar_background: "%pages_styling_color_sidebar_background%"
+                theme_base_color_sidebar_divider: "%pages_styling_color_sidebar_divider%"
+                theme_base_color_infobar_background: "%pages_styling_color_infobar_background%"
+                theme_base_color_border_bottom: "%pages_styling_color_border_bottom%"
+                theme_base_font_css: "%pages_styling_font_css%"
+                pages_brand_background_color: "%pages_brand_background_color%"
+                pages_brand_main_color: "%pages_brand_main_color%"
+                pages_styling_color_link: "%pages_brand_main_color%"
+                pages_styling_color_link_hover: "%pages_brand_main_color%"
+    bundles: []
+
+sp_bower:
+    bin: bower
+    assetic:
+        enabled: true
+        nest_dependencies: false
+    bundles:
+      twentystepsAngularJsBundle:
+          cache:
+              directory: "%kernel.root_dir%/../var/bower"
+      BricksCoreCoreBundle:
+          cache:
+              directory: "%kernel.root_dir%/../var/bower"
+      BricksBasicWidgetsBundle:
+          cache:
+              directory: "%kernel.root_dir%/../var/bower"
+      BricksBasicPagesBundle:
+          cache:
+              directory: "%kernel.root_dir%/../var/bower"
