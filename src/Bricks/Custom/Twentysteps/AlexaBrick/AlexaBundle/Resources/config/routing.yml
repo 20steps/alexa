@@ -30,8 +30,8 @@ bricks.custom.twentysteps_alexa.api.signin:
 
 # Generic user management (Web)
 
-bricks.custom.twentysteps_alexa.signin:
-    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.signin.yml"
+bricks.custom.twentysteps_alexa.user:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.user.yml"
     host: "%bricks_custom_twentysteps_alexa_host%"
     prefix: "/"
     requirements:

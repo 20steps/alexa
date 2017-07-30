@@ -91,10 +91,10 @@ liip_imagine:
 
 fos_oauth_server:
     db_driver: orm
-    client_class:        Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Client
-    access_token_class:  Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\AccessToken
-    refresh_token_class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\RefreshToken
-    auth_code_class:     Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\AuthCode
+    client_class:        Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client
+    access_token_class:  Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken
+    refresh_token_class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\RefreshToken
+    auth_code_class:     Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AuthCode
     service:
         user_provider: bricks.custom.twentysteps_alexa.user_provider
 

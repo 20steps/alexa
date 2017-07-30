@@ -1,0 +1,16 @@
+# login
+
+bricks.custom.twentysteps_alexa.user.login:
+    path: /{_locale}/login
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:login, project: alexa }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.user.check:
+    path:   /{_locale}/authenticated/check
+
+bricks.custom.twentysteps_alexa.user.home:
+    path:   /{_locale}/authenticated/home
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:home }
+
+bricks.custom.twentysteps_alexa.user.logout:
+    path:   /{_locale}/authenticated/logout

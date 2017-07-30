@@ -1,6 +1,0 @@
-# login
-
-bricks.custom.twentysteps_alexa.signin.user.login:
-    path: /{_locale}/login
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:SignIn:login, project: alexa }
-    methods: [GET]
