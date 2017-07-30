@@ -13,6 +13,7 @@ TODO:
 * User management so users can enter their API key for UptimeRobot.com in the Alexa App (wip)
 * Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
 * Prepare for Alexa push messages
+* Localization for english language (in addition to german language)
 * Automated tests
 
 Hints for fellow readers:
