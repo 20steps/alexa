@@ -7,7 +7,7 @@ use Bricks\AbstractCustomBundle\DTO\AbstractRegistration;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\DTO\Registration;
 
-class SignInAPIController extends AbstractSignInAPIController {
+class APISignInController extends AbstractSignInAPIController {
 
     /** @return AbstractRegistration */
     protected function registrationFactory() {
