@@ -1,6 +1,6 @@
 imports:
     -
-        resource: ../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/parameters/generic_live.yml
+        resource: ../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/parameters/cluster.generic_live.yml
 
 parameters:
     database_dbname: alexa_live
