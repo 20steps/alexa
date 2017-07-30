@@ -2,11 +2,13 @@
 
 namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Alexa\Request\Request as AlexaRequest;
 use Alexa\Response\Response as AlexaResponse;
+use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 
 abstract class AbstractAPIAlexaController extends AbstractAPIController {
 	
@@ -34,5 +36,29 @@ abstract class AbstractAPIAlexaController extends AbstractAPIController {
 	    $response->headers->set('Content-Type', 'application/json');
 	    return $response;
     }
+	
+	/**
+	 * @return null|User
+	 */
+    protected function getUser() {
+	    $token = $this->getTokenStorage()->getToken();
+	    if ($token) {
+		    $tokenUser = $token->getUser();
+		    $user = $this->em->find(get_class($tokenUser),$tokenUser->getId());
+	    } else {
+	    	$user = null;
+	    }
+	    /**
+	     * @var User $user
+	     */
+	    $this->logger->error('alexa user',$user?$user->getUsername():'no user');
+	    return null;
+    }
+	/**
+	 * @return TokenStorage
+	 */
+	protected function getTokenStorage() {
+		return $this->get('security.token_storage');
+	}
     
 }

@@ -3,6 +3,7 @@
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 	use Monolog\Logger;
 
 	use twentysteps\Commons\EnsureBundle\Ensure;
@@ -29,7 +30,7 @@
 		 * @param AlexaRequest $alexaRequest
 		 * @return AlexaResponse
 		 */
-		public function processAlexaRequest(AlexaRequest $alexaRequest) {
+		public function processAlexaRequest(AlexaRequest $alexaRequest, User $user = null) {
 
 			if ($alexaRequest instanceof IntentRequest) {
 				/**
@@ -39,9 +40,12 @@
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
 						$responseText = 'Sandra, Helmut liebt Dich!';
+						if ($user) {
+							$responseText.=' Ach übrigens: der aktuelle Nutzer ist '.$user->getUsername();
+						}
 						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
 					case 'UptimeRobotStatusIntent':
-						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest);
+						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					default:
 						$response = new AlexaResponse();
 						return $response->respond('Quatsch nicht!')->endSession();

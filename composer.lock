@@ -813,12 +813,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/oauth2-php.git",
-                "reference": "99088ecb02053dafa96f250d85076c9451c5e1de"
+                "reference": "1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/oauth2-php/zipball/99088ecb02053dafa96f250d85076c9451c5e1de",
-                "reference": "99088ecb02053dafa96f250d85076c9451c5e1de",
+                "url": "https://api.github.com/repos/20steps/oauth2-php/zipball/1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c",
+                "reference": "1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c",
                 "shasum": ""
             },
             "require": {
@@ -859,7 +859,7 @@
                 "oauth",
                 "oauth2"
             ],
-            "time": "2017-07-30 16:20:43"
+            "time": "2017-07-30 16:37:46"
         },
         {
             "name": "20steps/phone-number-bundle",
