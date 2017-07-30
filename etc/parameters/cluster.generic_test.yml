@@ -1,4 +1,7 @@
 imports:
+    -
+        resource: ../../vendor/20steps/bricks/src/Bricks/Platform/etc/parameters/cluster.generic_test.yml
+
 parameters:
     database_dbname: alexa_test
     bricks_core_node_executables_base: /home/travis/.nvm/versions/node/v4.1.2/bin/
