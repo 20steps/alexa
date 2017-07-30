@@ -79,7 +79,8 @@ class UserModule extends AbstractUserModule {
     }
 
     // abstracts
-    /** @return UserRepository */
+    
+	/** @return UserRepository */
     public function getRepository() {
         return $this->em->getRepository('BricksCustomTwentystepsAlexaBundle:User');
     }

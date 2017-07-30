@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Table(name="bricks_custom_twentysteps_alexa_access_token")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessTokenRepository")
  */
 class AccessToken extends BaseAccessToken
 {

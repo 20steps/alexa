@@ -2,6 +2,7 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 	use Monolog\Logger;
 	
 	use Psr\Http\Message\ResponseInterface;
@@ -37,7 +38,7 @@
 		 * @param IntentRequest $intentRequest
 		 * @return AlexaResponse
 		 */
-		public function processAlexaIntent(IntentRequest $intentRequest) {
+		public function processAlexaIntent(IntentRequest $intentRequest, User $user) {
 			Ensure::isTrue($intentRequest->intentName == 'UptimeRobotStatusIntent',
 				sprintf('Wrong intent [%s]',$intentRequest->intentName));
 
@@ -119,6 +120,9 @@
 						}
 					}
 					
+					if ($user) {
+						$responseText = 'Hallo '.$user->getUsername().'. '.$responseText;
+					}
 					$this->logger->debug('success',['statistics' => $statistics,'responseText' => $responseText]);
 
 					return $response->respond($responseText)->withCard('UptimeRobot Check',$responseText)->endSession();

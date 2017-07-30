@@ -22,7 +22,7 @@ services:
 
     bricks.custom.twentysteps_alexa.module.alexa:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule
-        arguments: [ '@logger']
+        arguments: [ '@doctrine.orm.entity_manager', '@logger']
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.alexa" }
 

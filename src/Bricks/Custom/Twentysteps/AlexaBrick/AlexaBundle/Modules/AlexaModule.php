@@ -2,8 +2,11 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessTokenRepository;
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client;
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
+	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
 	use twentysteps\Commons\EnsureBundle\Ensure;
@@ -18,19 +21,27 @@
 	class AlexaModule extends AbstractModule {
 		
 		/**
+		 * @var EntityManager
+		 */
+		private $em;
+		
+		/**
 		 * UptimeRobotModule constructor.
 		 *
 		 * @param Logger $logger
 		 */
-		public function __construct(Logger $logger) {
+		public function __construct(EntityManager $em, Logger $logger) {
 			parent::__construct($logger);
+			$this->em = $em;
 		}
 		
 		/**
 		 * @param AlexaRequest $alexaRequest
 		 * @return AlexaResponse
 		 */
-		public function processAlexaRequest(AlexaRequest $alexaRequest, User $user = null) {
+		public function processAlexaRequest(AlexaRequest $alexaRequest) {
+
+			$user = $this->getUserFromRequest($alexaRequest);
 
 			if ($alexaRequest instanceof IntentRequest) {
 				/**
@@ -76,6 +87,34 @@
 			$clientManager->updateClient($client);
 			return $client;
 		}
+		
+		// helpers
+		
+		/**
+		 * @param AlexaRequest $alexaRequest
+		 * @return null|User
+		 */
+		public function getUserFromRequest(AlexaRequest $alexaRequest) {
+			$user = $alexaRequest->session->user;
+			if ($user && $user->accessToken) {
+				$accessToken = $user->accessToken;
+				$token = $this->getAccessTokenRepository()->findOneBy(['token' => $accessToken]);
+				if ($token) {
+					/**
+					 * @var AccessToken $token
+					 */
+					return $token->getUser();
+				}
+			}
+			return null;
+		}
+		
+		/** @return AccessTokenRepository */
+		protected function getAccessTokenRepository() {
+			return $this->em->getRepository('BricksCustomTwentystepsAlexaBundle:AccessToken');
+		}
+		
+		
 		
 	}
 	
