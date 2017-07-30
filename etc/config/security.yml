@@ -120,7 +120,7 @@ security:
             form_login: { login_path: /de/login, check_path: /de/authenticated/check, default_target_path: /de/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /de/authenticated/logout, target: /de/login, invalidate_session: true }
         bricks_custom_twentysteps_alexa_oauth_token:
-            pattern:    ^/oauth/v2/authenticated/token
+            pattern:    ^/oauth/v2/authenticated/token$
             host: '%bricks_custom_twentysteps_alexa_host%'
             security:   false
         bricks_custom_twentysteps_alexa_oauth_authorize:
