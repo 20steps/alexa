@@ -10,7 +10,7 @@ Current capabilitites:
 * Some easter egg
 
 TODO:
-* User management so users can enter their API key for UptimeRobot.com in the Alexa App (wip)
+* User management and Alexa account linking so users can enter their API key for UptimeRobot.com at https://alexa.20steps.de (wip)
 * Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
 * Prepare for Alexa push messages
 * Localization for english language (in addition to german language)
