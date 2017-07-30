@@ -95,9 +95,9 @@
 		 * @return null|User
 		 */
 		public function getUserFromRequest(AlexaRequest $alexaRequest) {
-			$user = $alexaRequest->session->user;
-			if ($user && $user->accessToken) {
-				$accessToken = $user->accessToken;
+			Ensure::isNotNull($alexaRequest,'request must not be null');
+			if ($alexaRequest->session && $alexaRequest->session->user && $alexaRequest->session->user->accessToken) {
+				$accessToken = $alexaRequest->session->user->accessToken;
 				$token = $this->getAccessTokenRepository()->findOneBy(['token' => $accessToken]);
 				if ($token) {
 					/**
