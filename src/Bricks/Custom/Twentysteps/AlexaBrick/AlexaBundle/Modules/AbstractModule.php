@@ -6,8 +6,9 @@
 	
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Shell\AlexaShell;
 	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
+	
 	abstract class AbstractModule extends AbstractBrickShellModule {
-		
 		
 		/**
 		 * @return User

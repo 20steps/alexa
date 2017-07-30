@@ -2,10 +2,6 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
-	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken;
-	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessTokenRepository;
-	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client;
-	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -14,6 +10,11 @@
 	use Alexa\Request\Request as AlexaRequest;
 	use Alexa\Response\Response as AlexaResponse;
 	use Alexa\Request\IntentRequest;
+	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessTokenRepository;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 	
 	/**
 	 * Module for processing alexa requests.
@@ -82,8 +83,8 @@
 			 * @var Client $client
 			 */
 			$client = $clientManager->createClient();
-			$client->setRedirectUris(array('https://www.amazon.de'));
-			$client->setAllowedGrantTypes(array('authorization_code'));
+			$client->setRedirectUris([]); // ignored as alexa uses dynamic urls
+			$client->setAllowedGrantTypes(['authorization_code']);
 			$clientManager->updateClient($client);
 			return $client;
 		}
