@@ -2,13 +2,13 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
-	use Alexa\Request\IntentRequest;
 	use Monolog\Logger;
 
 	use twentysteps\Commons\EnsureBundle\Ensure;
 	
 	use Alexa\Request\Request as AlexaRequest;
 	use Alexa\Response\Response as AlexaResponse;
+	use Alexa\Request\IntentRequest;
 	
 	/**
 	 * Module for processing alexa requests.
@@ -29,31 +29,25 @@
 		 * @return AlexaResponse
 		 */
 		public function processAlexaRequest(AlexaRequest $alexaRequest) {
-			$response = new \Alexa\Response\Response;
 
 			if ($alexaRequest instanceof IntentRequest) {
-				$responseText = null;
 				/**
 				 * @var IntentRequest $alexaRequest
 				 */
 				switch ($alexaRequest->intentName) {
 					case 'SandraLoveIntent':
-						$responseText = 'Sandra, Helmut liebt Dich!!'; // easter egg
-						break;
+						$response = new AlexaResponse();
+						return $response->respond('Sandra, Helmut liebt Dich!')->endSession();
 					case 'UptimeRobotStatusIntent':
-						$responseText = $this->getShell()->getUptimeRobotModule()->getStatusResponseText();
-						break;
+						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest);
 					default:
-						$responseText = 'Quatsch nicht!';
+						$response = new AlexaResponse();
+						return $response->respond('Quatsch nicht!')->endSession();
 				}
-				$response->endSession();
-				$response->respond($responseText);
-			} else {
-				$response->reprompt('Sags nochmal');
 			}
 			
-			return $response;
-			
+			$response = new AlexaResponse();
+			return $response->reprompt('Versuch\'s nochmal.')->endSession();
 		}
 		
 		public function processPush() {

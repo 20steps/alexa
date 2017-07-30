@@ -5,7 +5,10 @@
 	use Monolog\Logger;
 	
 	use Psr\Http\Message\ResponseInterface;
-
+	
+	use Alexa\Request\IntentRequest;
+	use Alexa\Response\Response as AlexaResponse;
+	
 	use twentysteps\Commons\EnsureBundle\Ensure;
 	use twentysteps\Commons\UptimeRobotBundle\UptimeRobotAPI;
 	use twentysteps\Commons\UptimeRobotBundle\Model\GetMonitorsResponse;
@@ -31,9 +34,15 @@
 		}
 		
 		/**
-		 * @return string
+		 * @param IntentRequest $intentRequest
+		 * @return AlexaResponse
 		 */
-		public function getStatusResponseText() {
+		public function processAlexaIntent(IntentRequest $intentRequest) {
+			Ensure::isTrue($intentRequest->intentName == 'UptimeRobotStatusIntent',
+				sprintf('Wrong intent [%s]',$intentRequest->intentName));
+
+			$response = new AlexaResponse();
+
 			// get info about all monitors connected to configured account
 			$monitorsResponse = $this->uptimeRobotAPI->monitor()->all();
 			if ($monitorsResponse instanceof GetMonitorsResponse) {
@@ -82,7 +91,6 @@
 						$statistics['count']++;
 					}
 					
-					$this->logger->warn('statistics',$statistics);
 					
 					// prepare response text
 					$responseText = $statistics['count'].' Monitore wurden geprüft: ';
@@ -111,17 +119,31 @@
 						}
 					}
 					
-					return $responseText;
+					$this->logger->debug('success',['statistics' => $statistics,'responseText' => $responseText]);
+
+					return $response->respond($responseText)->withCard($responseText)->endSession();
 				}
 				
-				return 'Leider konnte ich den Status nicht ermitteln: '.$monitorsResponse->getError()->getMessage();
+				$error = $monitorsResponse->getError();
+				$responseText = 'Leider konnte ich den Status nicht ermitteln: '.$error->getMessage();
+
+				$this->logger->error('error',['error' => ['type' => $error->getType(), 'message' => $error->getMessage()],'responseText' => $responseText]);
+
+				return $response
+					->respond($responseText)
+					->withCard($responseText)
+					->endSession();
 			}
 			
 			/**
 			 * @var $monitorsResponse ResponseInterface
 			 */
 			$reasonPhrase = $monitorsResponse->getReasonPhrase();
-			return 'Leider konnte ich den Status nicht ermitteln: '.$reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode();
+			$responseText = 'Leider ist ein technischer Fehler aufgetreten: '.($reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode());
+
+			$this->logger->error('error_technical',['error' => ['reasonPhrase' => $reasonPhrase, 'statusCode' => $monitorsResponse->getStatusCode()],'responseText' => $responseText]);
+
+			return $response->respond($responseText)->withCard($responseText)->endSession();
 		}
 		
 	}

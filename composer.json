@@ -2,8 +2,8 @@
   "name": "20steps\/alexa",
   "license": "(c) 20steps Digital Full Service Boutique",
   "type": "project",
-  "description": "Backend for the 20steps Amazon Alexa skill.",
-  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot"],
+  "description": "Backend for the 20steps Amazon Alexa skill (wip)",
+  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo"],
   "homepage": "https:\/\/github.com\/20steps\/alexa",
   "autoload": {
     "psr-4": {
