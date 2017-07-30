@@ -735,12 +735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/FOSOAuthServerBundle.git",
-                "reference": "bef5659b53baf3ac593183f120502583ef938889"
+                "reference": "a22c025aa9eecac592daa84313924634ab90c5e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/bef5659b53baf3ac593183f120502583ef938889",
-                "reference": "bef5659b53baf3ac593183f120502583ef938889",
+                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/a22c025aa9eecac592daa84313924634ab90c5e6",
+                "reference": "a22c025aa9eecac592daa84313924634ab90c5e6",
                 "shasum": ""
             },
             "require": {
@@ -805,7 +805,7 @@
                 "oauth2",
                 "server"
             ],
-            "time": "2017-07-30 14:04:49"
+            "time": "2017-07-30 14:11:02"
         },
         {
             "name": "20steps/phone-number-bundle",
