@@ -95,3 +95,5 @@ fos_oauth_server:
     access_token_class:  Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\AccessToken
     refresh_token_class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\RefreshToken
     auth_code_class:     Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\AuthCode
+    service:
+        user_provider: bricks.custom.twentysteps_alexa.user_provider
