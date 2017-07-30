@@ -19,7 +19,9 @@ abstract class AbstractAPIAlexaController extends AbstractAPIController {
     	if (!$appId) {
     		$appId = $this->getParameter('bricks_custom_twentysteps_alexa_application_id');
 	    }
-		$alexaRequest = new AlexaRequest($request->getContent(), $appId);
+	    $content = $request->getContent();
+	    $this->logger->debug('alexa request',$content)
+		$alexaRequest = new AlexaRequest($content, $appId);
 		return $alexaRequest->fromData();
     }
 	
