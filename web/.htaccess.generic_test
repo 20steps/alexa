@@ -20,8 +20,9 @@ DirectoryIndex app.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
-    SetEnvIf Host "alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
     SetEnvIf Host "admin.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
+    SetEnvIf Host "api.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
+    SetEnvIf Host "alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
 
     # Determine the RewriteBase automatically and set it as environment variable.
     # If you are using Apache aliases to do mass virtual hosting or installed the

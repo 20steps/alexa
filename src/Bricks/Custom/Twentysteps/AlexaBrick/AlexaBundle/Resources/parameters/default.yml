@@ -23,7 +23,7 @@ parameters:
     bricks_custom_twentysteps_alexa_is_live: false
 
     bricks_custom_twentysteps_alexa_protocol: http
-    bricks_custom_twentysteps_alexa_host: api.alexa.localhost.com
+    bricks_custom_twentysteps_alexa_host: alexa.localhost.com
     bricks_custom_twentysteps_alexa_command_prefix: twentysteps:alexa
 
     bricks_custom_twentysteps_alexa_activation_token_validity: 86400

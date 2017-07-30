@@ -21,6 +21,7 @@ DirectoryIndex app.php
     RewriteEngine On
 
     SetEnvIf Host "admin.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
+    SetEnvIf Host "api.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
     SetEnvIf Host "alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
 
     # Custom redirects and rewrites

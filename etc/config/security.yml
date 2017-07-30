@@ -112,18 +112,22 @@ security:
             stateless: true
             lexik_jwt: null
             switch_user_stateless: true
-        oauth_token:
+        bricks_custom_twentysteps_alexa_signin:
+            pattern: ^/(de|en)/login$
+            host: '%bricks_custom_twentysteps_alexa_host%'
+            security: false
+        bricks_custom_twentysteps_alexa_oauth_token:
             pattern:    ^/oauth/v2/token
             host: '%bricks_api_host%'
             security:   false
-        oauth_authorize:
+        bricks_custom_twentysteps_alexa_oauth_authorize:
             pattern:    ^/oauth/v2/auth
             host: '%bricks_api_host%'
             provider: bricks_user_provider
             form_login: { login_path: /oauth/v2/auth/login, check_path: /oauth/v2/auth/login_check, default_target_path: /oauth/v2/auth/entry, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /oauth/v2/auth/logout, target: /oauth/v2/auth/login, invalidate_session: true }
             # Add your favorite authentication process here
-        api:
+        bricks_custom_twentysteps_alexa_oauth_api:
             pattern:    ^/api
             fos_oauth:  true
             stateless:  true

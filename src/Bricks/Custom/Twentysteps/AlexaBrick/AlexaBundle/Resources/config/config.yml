@@ -90,7 +90,7 @@ liip_imagine:
                 thumbnail: { size: [512, 512], mode: inset, allow_upscale: true }
 
 fos_oauth_server:
-    db_driver: orm       # Drivers available: orm, mongodb, or propel
+    db_driver: orm
     client_class:        Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Client
     access_token_class:  Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\AccessToken
     refresh_token_class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\RefreshToken
