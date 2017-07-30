@@ -37,7 +37,8 @@
 				switch ($alexaRequest->intentName) {
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
-						return $response->respond('Sandra, Helmut liebt Dich!')->endSession();
+						$responseText = 'Sandra, Helmut liebt Dich!';
+						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
 					case 'UptimeRobotStatusIntent':
 						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest);
 					default:

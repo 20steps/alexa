@@ -96,7 +96,7 @@
 					$responseText = $statistics['count'].' Monitore wurden geprüft: ';
 					
 					if (($statistics['seems_down']['count'] + $statistics['down']['count']) == 0) {
-						$responseText.= 'Alle Systeme up. Trink einen Kaffee! ';
+						$responseText.= 'Alle Systeme sind up. Trink einen Kaffee! ';
 					} else {
 						if ($statistics['down']['count'] > 0) {
 							$responseText.= 'Oh weh! '.$statistics['down']['count'].' Monitore sind down! Bitte prüfe das sofort oder hol Dir einen Schnaps! ';
@@ -121,7 +121,7 @@
 					
 					$this->logger->debug('success',['statistics' => $statistics,'responseText' => $responseText]);
 
-					return $response->respond($responseText)->withCard($responseText)->endSession();
+					return $response->respond($responseText)->withCard('UptimeRobot Check',$responseText)->endSession();
 				}
 				
 				$error = $monitorsResponse->getError();
@@ -131,7 +131,7 @@
 
 				return $response
 					->respond($responseText)
-					->withCard($responseText)
+					->withCard('UptimeRobot Check',$responseText)
 					->endSession();
 			}
 			
@@ -143,7 +143,7 @@
 
 			$this->logger->error('error_technical',['error' => ['reasonPhrase' => $reasonPhrase, 'statusCode' => $monitorsResponse->getStatusCode()],'responseText' => $responseText]);
 
-			return $response->respond($responseText)->withCard($responseText)->endSession();
+			return $response->respond($responseText)->withCard('UptimeRobot Check',$responseText)->endSession();
 		}
 		
 	}
