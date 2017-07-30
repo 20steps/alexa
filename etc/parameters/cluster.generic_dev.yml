@@ -1,6 +1,6 @@
 imports:
     -
-        resource: ../../vendor/20steps/bricks/src/Bricks/Platform/etc/parameters/cluster.generic_dev.yml
+        resource: ../../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/parameters/cluster.generic_dev.yml
 
 parameters:
     database_dbname: alexa_dev
