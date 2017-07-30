@@ -2,7 +2,14 @@
 
 {% block content %}
 
-    <div>{{ message }}</div>
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <div id="logo-container"></div>
+                <div>{{ message }}</div>
+                <div><a href="{{ path('bricks.custom.twentysteps_alexa.user.logout') }}">logout</a></div>
+            </div>
+        </div>
+    </div>
 
-    <div><a href="{{ path('bricks.custom.twentysteps_alexa.user.logout') }}">logout</a></div>
 {% endblock %}

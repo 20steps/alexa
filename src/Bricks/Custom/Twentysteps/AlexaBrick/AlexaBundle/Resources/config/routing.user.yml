@@ -42,7 +42,7 @@ fos_oauth_server_token:
 
 fos_oauth_server_profile_show:
     path:   /oauth/v2/authenticated/home
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, , project: alexa }
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, , project: alexa}
 
 bricks.custom.twentysteps_alexa.user.alexa.logout:
     path:   /oauth/v2/authenticated/logout
