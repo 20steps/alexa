@@ -9,7 +9,7 @@ parameters:
     bricks_core_node_executables_base: /usr/bin/
     bricks_core_gem_executables_base: /usr/local/bin
     bricks_core_configuration_cache_lifetime_seconds: 3600
-    bricks_core_use_project_cache: false
+    bricks_core_use_project_cache: true
 
     bricks_api_protocol: https
     bricks_api_host: api.alexa.20steps.de
