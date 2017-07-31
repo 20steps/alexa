@@ -42,6 +42,17 @@ class UserController extends AbstractBricksController {
 	 * @param Request $request
 	 * @return array
 	 */
+	public function registerAction(Request $request) {
+		return array(
+			'body_class' => 'register'
+		);
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
 	public function homeAction(Request $request) {
 		$context = ['message' => 'Hallo Welt'];
 		return $context;

@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d"
+                "reference": "50c00f8b54766646ee0740a22e01e0196e192243"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d",
-                "reference": "471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/50c00f8b54766646ee0740a22e01e0196e192243",
+                "reference": "50c00f8b54766646ee0740a22e01e0196e192243",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-07-31 11:50:15"
+            "time": "2017-07-31 13:22:47"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
@@ -3561,17 +3561,17 @@
         },
         {
             "name": "eightpoints/guzzle-bundle",
-            "version": "v5.3.0",
+            "version": "v5.4.0",
             "target-dir": "EightPoints/Bundle/GuzzleBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/8p/GuzzleBundle.git",
-                "reference": "59f0b3079954716a3be32a8537003be2540ad156"
+                "reference": "38976c6c43081754a09173483c6d26820ec74a3b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/8p/GuzzleBundle/zipball/59f0b3079954716a3be32a8537003be2540ad156",
-                "reference": "59f0b3079954716a3be32a8537003be2540ad156",
+                "url": "https://api.github.com/repos/8p/GuzzleBundle/zipball/38976c6c43081754a09173483c6d26820ec74a3b",
+                "reference": "38976c6c43081754a09173483c6d26820ec74a3b",
                 "shasum": ""
             },
             "require": {
@@ -3621,7 +3621,7 @@
                 "symfony",
                 "web service"
             ],
-            "time": "2016-12-30T13:35:37+00:00"
+            "time": "2017-07-29T20:47:17+00:00"
         },
         {
             "name": "eightpoints/guzzle-wsse-middleware",

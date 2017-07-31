@@ -1,0 +1,29 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:layout:layout.html.twig" %}
+
+{% block content %}
+
+
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <div id="logo-container"></div>
+                <div class="col-sm-12 col-md-10 col-md-offset-1" style="background-color:white; padding: 25px 25px 25px 25px; color: black">
+                    <form action="{{ path('bricks.custom.twentysteps_alexa.user.register') }}" method="post">
+                        <label>Jetzt registrieren</label>
+                        <div class="form-group">
+                            <label for="username">E-Mail Adresse</label>
+                            <input type="text" class="form-control" id="email" name="email" placeholder="E-Mail Adresse">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Passwort</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Passwort">
+                        </div>
+                        <button type="submit" class="btn btn-primary">{{ 'Register'|trans({},'core') }}</button>
+                        <a style="padding-left: 15px" href="{{ path('bricks.custom.twentysteps_alexa.user.login') }}">{{ 'Login'|trans({},'core') }}</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
