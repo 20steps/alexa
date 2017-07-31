@@ -4,5 +4,8 @@ imports:
 
 parameters:
     database_dbname: alexa_dev
+
+    bricks_core_configuration_cache_lifetime_seconds: 0
+
     bricks_api_host: api.alexa.localhost.com
     bricks_customer_host: admin.alexa.localhost.com

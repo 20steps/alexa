@@ -78,7 +78,7 @@ DirectoryIndex app.php
     RewriteCond %{REQUEST_URI}  !(^/js/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/css/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/bundles/) [NC]
-    RewriteCond %{HTTP:X_BRICKS_DEBUG}  20steps [NC]
+    RewriteCond %{HTTP:X-Bricks-Debug}  20steps [NC]
     RewriteRule ^ %{ENV:BASE}/app_dev.php [L]
 
     RewriteCond %{REQUEST_URI}  !(^/custom/) [NC]
