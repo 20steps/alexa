@@ -20,6 +20,7 @@ DirectoryIndex app.php
 <IfModule mod_rewrite.c>
     RewriteEngine On
 
+    # Do not bootup WP-Core immediately for given hosts
     SetEnvIf Host "admin.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
     SetEnvIf Host "api.alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
     SetEnvIf Host "alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
@@ -75,6 +76,7 @@ DirectoryIndex app.php
     RewriteCond %{REQUEST_URI}  !(^/custom/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/wp-content/uploads/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/js/) [NC]
+    RewriteCond %{REQUEST_URI}  !(^/css/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/bundles/) [NC]
     RewriteCond %{HTTP:X_BRICKS_DEBUG}  20steps [NC]
     RewriteRule ^ %{ENV:BASE}/app_dev.php [L]
@@ -82,6 +84,7 @@ DirectoryIndex app.php
     RewriteCond %{REQUEST_URI}  !(^/custom/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/wp-content/uploads/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/js/) [NC]
+    RewriteCond %{REQUEST_URI}  !(^/css/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/bundles/) [NC]
     RewriteRule ^ %{ENV:BASE}/app.php [L]
 </IfModule>
