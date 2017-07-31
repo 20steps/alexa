@@ -25,7 +25,7 @@ class RefreshToken extends BaseRefreshToken
 	protected $client;
 	
 	/**
-	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User", cascade={"persist","merge"})
+	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User", inversedBy="refreshTokens", cascade={"persist","merge"})
 	 */
 	protected $user;
 }

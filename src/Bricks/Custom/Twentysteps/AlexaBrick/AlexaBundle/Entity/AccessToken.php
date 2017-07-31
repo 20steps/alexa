@@ -25,7 +25,7 @@ class AccessToken extends BaseAccessToken
 	protected $client;
 	
 	/**
-	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User", cascade={"persist","merge"})
+	 * @ORM\ManyToOne(targetEntity="Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User", inversedBy="accessTokens", cascade={"persist","merge"})
 	 */
 	protected $user;
 }
