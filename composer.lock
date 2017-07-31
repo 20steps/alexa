@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "4bc82bcfb060a6ce9d220b100bd921a35798a258"
+                "reference": "471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/4bc82bcfb060a6ce9d220b100bd921a35798a258",
-                "reference": "4bc82bcfb060a6ce9d220b100bd921a35798a258",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d",
+                "reference": "471a2e9929a60ffad5dc169e83f0c3d3e4f1b80d",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-07-31 11:39:16"
+            "time": "2017-07-31 11:50:15"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
