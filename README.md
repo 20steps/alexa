@@ -7,9 +7,10 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for system status
-* Basic user management including user settings
-* Alexa Account linking using oAuth2 for pre-registered users
 * Some easter egg
+* Basic Website using PagesBrick to integrate Wordpress as CMS
+* User management including user settings
+* Alexa Account linking using oAuth2 for pre-registered users
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
