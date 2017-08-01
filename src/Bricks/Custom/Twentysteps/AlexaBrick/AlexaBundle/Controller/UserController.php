@@ -24,20 +24,26 @@ class UserController extends AbstractBricksController {
 	public function loginAction(Request $request) {
 		$session = $request->getSession();
 		
+		$context = [
+			// last username entered by the user
+			'last_username' => $session->get(Security::LAST_USERNAME),
+			'body_class' => 'login'
+		];
+		
 		// get the login error if there is one
 		if ($request->attributes->has(Security::AUTHENTICATION_ERROR)) {
 			$error = $request->attributes->get(Security::AUTHENTICATION_ERROR);
 		} else {
 			$error = $session->get(Security::AUTHENTICATION_ERROR);
 			$session->remove(Security::AUTHENTICATION_ERROR);
+			if ($error) {
+				$context['message']='Wrong credentials';
+			}
 		}
 		
-		return array(
-			// last username entered by the user
-			'last_username' => $session->get(Security::LAST_USERNAME),
-			'error'         => $error,
-			'body_class' => 'login'
-		);
+		$context['error'] = $error;
+
+		return $context;
 	}
 	
 	/**
@@ -89,6 +95,7 @@ class UserController extends AbstractBricksController {
 		}
 		return $context;
 	}
+	
 	/**
 	 * @View
 	 * @param Request $request
@@ -96,6 +103,12 @@ class UserController extends AbstractBricksController {
 	 */
 	public function loginAlexaAction(Request $request) {
 		$session = $request->getSession();
+		$context = [
+			// last username entered by the user
+			'last_username' => $session->get(Security::LAST_USERNAME),
+			'body_class' => 'login'
+		];
+		
 		$session->set('alexa_state',$request->query->get('state',rand(0,99)));
 		$session->set('alexa_client_id',$request->query->get('client_id',$this->getParameter('bricks_custom_twentysteps_alexa_alexa_oauth2_client_id')));
 		$session->set('alexa_response_type',$request->query->get('response_type','code'));
@@ -108,14 +121,14 @@ class UserController extends AbstractBricksController {
 		} else {
 			$error = $session->get(Security::AUTHENTICATION_ERROR);
 			$session->remove(Security::AUTHENTICATION_ERROR);
+			if ($error) {
+				$context['message']='Wrong credentials';
+			}
 		}
+	
+		$context['error'] = $error;
 		
-		return array(
-			// last username entered by the user
-			'last_username' => $session->get(Security::LAST_USERNAME),
-			'error'         => $error,
-			'body_class' => 'login'
-		);
+		return $context;
 	}
 	
 	/**
