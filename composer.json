@@ -2,7 +2,7 @@
   "name": "20steps\/alexa",
   "license": "(c) 20steps Digital Full Service Boutique",
   "type": "project",
-  "description": "Backend for the 20steps Amazon Alexa skill (wip)",
+  "description": "Backend for the 20steps Amazon Alexa skill",
   "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking","Wordpress"],
   "homepage": "https:\/\/alexa.20steps.de",
   "autoload": {
