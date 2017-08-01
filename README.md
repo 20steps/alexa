@@ -21,7 +21,7 @@ TODO:
 * Self-registration and password reset for users at https://alexa.20steps.de  (wip)
 * Publish skill at Amazon (wip)
 * Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
-* Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
+* Some more capabilities that help developers and system administrators (GA, GWT, BATCH, and a lot more in the works ...)
 * Adapt for Echo Show (as soon as it is available in Germany)
 * Localization for english language (in addition to german language)
 * Enhance AbstractCustomBundle of Bricks platform to minimize glue code in custom brick as this is prob. the most simple application ever built with bricks ,-)
