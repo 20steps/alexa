@@ -9,6 +9,8 @@ bin/console bricks:core:configuration:project:meta:set --project=alexa --name="b
 
 bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_pages_enabled" --value="1"
 bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_pages_wordpress_site_id" --value="2"
+bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_pages_twentysteps_alexa_alexa_enabled" --value="1"
+
 bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_found_enabled" --value="1"
 
 bin/console bricks:core:configuration:project:meta:set --project=alexa --name="bricks_basic_places_enabled" --value="0"

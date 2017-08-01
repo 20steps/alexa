@@ -151,5 +151,9 @@ class AbstractModel extends Node {
 		return (string)(S::safeTruncate($content,162, ' ...'));
 	}
 	
+	public function getPath($locale = 'de')
+	{
+		return '/'.$locale.'/c/'.$this->getSlug();
+	}
 	
 }

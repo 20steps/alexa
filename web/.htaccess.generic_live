@@ -27,6 +27,8 @@ DirectoryIndex app.php
 
     # Custom redirects and rewrites
     RewriteRule ^$ /de/login [L,R=302]
+    RewriteRule ^de$ /de/login [L,R=302]
+    RewriteRule ^en /enlogin [L,R=302]
     RewriteRule ^sitemap\.xml$ /custom/alexa/sitemaps/sitemap-index.xml [L]
     RewriteRule ^sitemaps/(.*)$ /custom/alexa/sitemaps/$1
 

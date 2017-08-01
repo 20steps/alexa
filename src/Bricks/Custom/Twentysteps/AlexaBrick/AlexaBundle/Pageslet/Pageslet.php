@@ -8,6 +8,8 @@ use JMS\DiExtraBundle\Annotation as DI;
 use Kayue\WordpressBundle\Entity\Post as PostEntity;
 use Mcfedr\AwsPushBundle\Message\Message as PushMessage;
 
+use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Component\Routing\Router;
 use twentysteps\Commons\EnsureBundle\Ensure;
 
 use Bricks\Basic\PagesBrick\PagesBundle\Annotations as Pages;
@@ -39,7 +41,12 @@ class Pageslet extends AbstractPageslet {
 	 * @var FoundShell
 	 */
     private $found;
-
+	
+	/**
+	 * @var Router
+	 */
+    private $router;
+    
     /**
      * @DI\InjectParams({
      *     "brickShell" = @Di\Inject("twentysteps_alexa"),
@@ -47,13 +54,15 @@ class Pageslet extends AbstractPageslet {
      *     "pages" = @Di\Inject("pages"),
      *     "found" = @Di\Inject("found"),
      *     "eventDispatcher" = @Di\Inject("event_dispatcher"),
+     *     "router" = @Di\Inject("router"),
      *     "logger" = @Di\Inject("logger"),
-     *     "stopwatch" = @Di\Inject("stopwatch", required = false)
+     *     "stopwatch" = @Di\Inject("stopwatch", required = false),
      * })
      */
-    public function __construct($brickShell,$core,$pages,$found,$eventDispatcher,$logger,$stopwatch=null) {
+    public function __construct($brickShell,$core,$pages,$found,$eventDispatcher,$router,$logger,$stopwatch=null) {
         parent::__construct($brickShell,$core,$pages,$eventDispatcher,$logger,$stopwatch);
         $this->found = $found;
+        $this->router = $router;
     }
 
 
@@ -99,7 +108,7 @@ class Pageslet extends AbstractPageslet {
         $project=$this->core->injection()->getActor();
         Ensure::isNotNull($project, "Project must not be null when calling transformNodeData(...).");
 
-        Ensure::isEqual($project->getCode(),"alexa","Pageslet should only be executed for project with code app");
+        Ensure::isEqual($project->getCode(),"alexa","Pageslet should only be executed for project with code alexa");
 	
 	    /**
 	     * @var Node $node
@@ -157,19 +166,18 @@ class Pageslet extends AbstractPageslet {
 
 
     public function getSitemapItems() {
-
+    	
         /** @var SitemapItem[] $sitemapItems */
         $sitemapItems=array();
 
         // start urls
         $sitemapItems[]=new SitemapItem('/');
-        $sitemapItems[]=new SitemapItem('/#!/');
 
         // generate sitemap entries for all locales and node types
         foreach ($this->getLocales() as $locale) {
 
             // homepage
-            $sitemapItems[]=new SitemapItem('/#!/'.$locale);
+            $sitemapItems[]=new SitemapItem('/'.$locale);
 
             // pages
             array_map(function(Page $page) use (&$sitemapItems,$locale) {
@@ -183,13 +191,18 @@ class Pageslet extends AbstractPageslet {
             },$this->pages->getContentModule()->findAllNodes(true,array('post')));
 
 			// functional pages in SPA
-	        $functionPaths = [
-	        	'startseite',
-	        	'ueber-uns'
+	        $functionalRoutes = [
+	        	'bricks.custom.twentysteps_alexa.user.login',
+		        'bricks.custom.twentysteps_alexa.user.register',
+	        	'bricks.custom.twentysteps_alexa.user.reset_password',
+	        	'bricks.custom.twentysteps_alexa.user.alexa.login',
+		        'bricks.custom.twentysteps_alexa.user.alexa.register'
 	        ];
-	        array_map(function($functionPath) use (&$sitemapItems,$locale) {
-		        $sitemapItems[]=new SitemapItem('/#!/'.$locale.'/'.$functionPath);
-	        },$functionPaths);
+	        array_map(function($functionalRoute) use (&$sitemapItems,$locale) {
+	        	$url = $this->router->getGenerator()->generate($functionalRoute,['_locale' => $locale,'project' => 'alexa'],UrlGeneratorInterface::ABSOLUTE_URL);
+		        $path = parse_url($url,PHP_URL_PATH);
+		        $sitemapItems[]=new SitemapItem($path);
+	        },$functionalRoutes);
         }
 	    
         return $sitemapItems;
