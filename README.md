@@ -7,7 +7,7 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for system status
-* Basic user management
+* Basic user management including user settings
 * Alexa Account linking using oAuth2 for pre-registered users
 * Some easter egg
 
@@ -17,7 +17,7 @@ Usage:
 * After activating the skill in the Alexa App connect the previously registered account.
 
 TODO:
-* Self-registration for users at https://alexa.20steps.de inc. management of settings for UptimeRobot.com  (wip)
+* Self-registration and password reset for users at https://alexa.20steps.de inc. management of settings for UptimeRobot.com  (wip)
 * Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
 * Prepare Joblet for Alexa push messages
 * Adapt for Echo Show (as soon as it is available in Germany)
