@@ -24,7 +24,12 @@ bricks.custom.twentysteps_alexa.user.logout:
 
 bricks.custom.twentysteps_alexa.user.alexa.login:
     path: /oauth/v2/login
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:loginAlexa, project: alexa }
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:loginAlexa, project: alexa, _locale: de }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.user.alexa.register:
+    path: /oauth/v2/register
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:registerAlexa, project: alexa, _locale: de }
     methods: [GET]
 
 bricks.custom.twentysteps_alexa.user.alexa.check:
@@ -32,22 +37,22 @@ bricks.custom.twentysteps_alexa.user.alexa.check:
 
 bricks.custom.twentysteps_alexa.user.alexa.pre_authorize:
     path:   /oauth/v2/authenticated/pre-authorize
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:preAuthorizeAlexa, project: alexa }
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:preAuthorizeAlexa, project: alexa, _locale: de }
     methods: [GET]
 
 fos_oauth_server_authorize:
     path: /oauth/v2/authenticated/authorize
-    defaults: { _controller: FOSOAuthServerBundle:Authorize:authorize }
+    defaults: { _controller: FOSOAuthServerBundle:Authorize:authorize, _locale: de }
     methods: [GET,POST]
 
 fos_oauth_server_token:
     path: /oauth/v2/authenticated/token
-    defaults: { _controller: fos_oauth_server.controller.token:tokenAction }
+    defaults: { _controller: fos_oauth_server.controller.token:tokenAction, _locale: de }
     methods: [GET,POST]
 
 fos_oauth_server_profile_show:
     path:   /oauth/v2/authenticated/home
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, , project: alexa}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, , project: alexa, _locale: de}
 
 bricks.custom.twentysteps_alexa.user.alexa.logout:
     path:   /oauth/v2/authenticated/logout

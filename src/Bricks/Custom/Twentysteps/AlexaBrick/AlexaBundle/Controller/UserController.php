@@ -88,6 +88,18 @@ class UserController extends AbstractBricksController {
 	}
 	
 	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function registerAlexaAction(Request $request) {
+		return array(
+			'body_class' => 'register'
+		);
+	}
+	
+	
+	/**
 	 * @param Request $request
 	 * @return RedirectResponse
 	 */
