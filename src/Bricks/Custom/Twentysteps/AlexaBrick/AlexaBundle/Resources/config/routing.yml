@@ -37,6 +37,14 @@ bricks.custom.twentysteps_alexa.user:
     requirements:
         bricks_custom_twentysteps_alexa_host: "%bricks_custom_twentysteps_alexa_host%"
 
+# Wordpress CMS (Web)
+
+bricks.custom.twentysteps_alexa.content:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.content.yml"
+    host: "%bricks_custom_twentysteps_alexa_host%"
+    prefix: "/"
+    requirements:
+        bricks_custom_twentysteps_alexa_host: "%bricks_custom_twentysteps_alexa_host%"
 
 # Generic REST
 

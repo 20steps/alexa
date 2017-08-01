@@ -44,6 +44,25 @@
 
 			$response = new AlexaResponse();
 
+			if (!$user) {
+				$responseText='Bitte registriere Dich bei alexa.20steps.de und verknüpfe in der Alexa App Deinen Account.';
+				return $response
+					->respond($responseText)
+					->withCard('Account verknüpfen',$responseText)
+					->endSession();
+			}
+			
+			if (!$user->hasSetting('uptime_robot_api_key') || $user->getSetting('uptime_robot_api_key')=='') {
+				$responseText='Bitte melde Dich bei alexa.20steps.de an und speichere Deinen UptimeRobot API Key';
+				return $response
+					->respond($responseText)
+					->withCard('UptimeRobot API Key',$responseText)
+					->endSession();
+				
+			}
+
+			$this->uptimeRobotAPI->setApiKey($user->getSetting('uptime_robot_api_key'));
+			
 			// get info about all monitors connected to configured account
 			$monitorsResponse = $this->uptimeRobotAPI->monitor()->all();
 			if ($monitorsResponse instanceof GetMonitorsResponse) {
@@ -121,7 +140,7 @@
 					}
 					
 					if ($user) {
-						$responseText = 'Hallo '.$user->getUsername().'. '.$responseText;
+						$responseText = 'Hallo '.$user->getDisplayName().'. '.$responseText;
 					}
 					$this->logger->debug('success',['statistics' => $statistics,'responseText' => $responseText]);
 
@@ -129,7 +148,7 @@
 				}
 				
 				$error = $monitorsResponse->getError();
-				$responseText = 'Leider konnte ich den Status nicht ermitteln: '.$error->getMessage();
+				$responseText = 'Leider konnte ich den Status nicht ermitteln - bitte prüfe Deinen UptimeRobot API Key: '.$error->getMessage();
 
 				$this->logger->error('error',['error' => ['type' => $error->getType(), 'message' => $error->getMessage()],'responseText' => $responseText]);
 
@@ -143,7 +162,7 @@
 			 * @var $monitorsResponse ResponseInterface
 			 */
 			$reasonPhrase = $monitorsResponse->getReasonPhrase();
-			$responseText = 'Leider ist ein technischer Fehler aufgetreten: '.($reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode());
+			$responseText = 'Leider ist ein technischer Fehler aufgetreten - bitte prüfe Deinen UptimeRobot API Key: '.($reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode());
 
 			$this->logger->error('error_technical',['error' => ['reasonPhrase' => $reasonPhrase, 'statusCode' => $monitorsResponse->getStatusCode()],'responseText' => $responseText]);
 

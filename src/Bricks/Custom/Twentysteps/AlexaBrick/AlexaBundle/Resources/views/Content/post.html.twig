@@ -1,0 +1,21 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:layout:layout.html.twig" %}
+
+{% block content %}
+
+    <div id="logo-container-top"></div>
+    <div id="action-container-top"><a href="{{ path('bricks.custom.twentysteps_alexa.user.login') }}">{{ 'Login'|trans({},'core') }}</a></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive is-Node">
+                <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
+                    <div class="node">
+                        <h1>{{ node.title }}</h1>
+                        <div>{{ node.content | raw }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

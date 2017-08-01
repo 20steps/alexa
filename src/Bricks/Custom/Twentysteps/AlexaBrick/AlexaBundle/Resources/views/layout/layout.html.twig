@@ -4,7 +4,10 @@
     <head>
 
         <title>20steps Alexa</title>
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Alexa Skill von 20steps für Entwickler und Systemadministratoren">
+
         {% stylesheets
             combine=true
             filter='cssrewrite'
@@ -16,6 +19,7 @@
         %}
             <link rel="stylesheet" href="{{ bricks_cdn_prefix }}{{ asset_url }}?v={{ bricks_application_version }}" />
         {% endstylesheets %}
+
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
     </head>
@@ -23,7 +27,7 @@
     <body>
 
         {% block content %}
-            No content yet - please fillup the content block.
+            No content yet - please fillup the content block in the view.
         {% endblock %}
 
         <footer>
@@ -31,13 +35,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4 text-center">
-                            <p><a href="/de/about">Was kann der Skill?</a></p>
+                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{slug:'was-kann-der-skill'}) }}">Was kann der Skill?</a></p>
                         </div>
                         <div class="col-sm-4 text-center">
                             <p>Source code @ <a target="_blank" href="https://github.com/20steps/alexa">GitHub</a></p>
                         </div>
                         <div class="col-sm-4 text-center">
-                            <p><a href="/de/impressum">Impressum &amp; Datenschutz</a></p>
+                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{slug:'impressum'}) }}">Impressum &amp; Datenschutz</a></p>
                         </div>
                     </div>
                 </div>

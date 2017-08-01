@@ -2,11 +2,14 @@
 
 namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 
 use FOS\RestBundle\Controller\Annotations\View;
+
+use twentysteps\Commons\EnsureBundle\Ensure;
 
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Controller\AbstractBricksController;
 
@@ -54,10 +57,38 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function homeAction(Request $request) {
-		$context = ['message' => 'Hallo Welt'];
+		/**
+		 * @var User $user
+		 */
+		$user = Ensure::isNotNull($this->getUser(),'user not logged in');
+		$user = $this->getBrickShell()->getUserModule()->find($user->getId());
+		$user->completeSettingsUsingDefaults();
+		$context = [
+			'user' => $user
+		];
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$settings = $request->request->all();
+			foreach ($settings as $key => $value) {
+				$user->updateSetting($key,trim($value));
+			}
+			$this->em->flush();
+			$context['message']='Settings saved';
+		}
 		return $context;
 	}
 	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function resetPasswordAction(Request $request) {
+		$context = [];
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$context['message']='Not yet implemented';
+		}
+		return $context;
+	}
 	/**
 	 * @View
 	 * @param Request $request

@@ -20,6 +20,11 @@ bricks.custom.twentysteps_alexa.user.home:
 bricks.custom.twentysteps_alexa.user.logout:
     path:   /{_locale}/authenticated/logout
 
+bricks.custom.twentysteps_alexa.user.reset_password:
+    path:   /{_locale}/reset-password
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPassword, , project: alexa}
+
+
 # alexa account linking login
 
 bricks.custom.twentysteps_alexa.user.alexa.login:

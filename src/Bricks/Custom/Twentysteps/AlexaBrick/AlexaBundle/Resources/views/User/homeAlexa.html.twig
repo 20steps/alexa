@@ -5,9 +5,15 @@
     <div class="container">
         <div class="row">
             <div class="Absolute-Center is-Responsive">
-                <div id="logo-container"></div>
-                <div>{{ message }}</div>
-                <div><a href="{{ path('bricks.custom.twentysteps_alexa.user.logout') }}">logout</a></div>
+                <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
+                    <div id="logo-container"></div>
+                    <form action="{{ path('bricks.custom.twentysteps_alexa.user.settings.save') }}" method="post">
+                        <label style="margin-bottom: 15px; width: 100%">Einstellungen vornehmen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Einstellungen&nbsp;vornehmen" data-content="Passen Sie die Einstellungen des Skills."></span></label>
+                        <div>{{ message }}</div>
+                        <hr/>
+                        <div><a href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.logout') }}">logout</a></div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>

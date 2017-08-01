@@ -51,9 +51,10 @@
 				switch ($alexaRequest->intentName) {
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
-						$responseText = 'Sandra, Helmut liebt Dich!';
-						if ($user) {
-							$responseText.=' Ach übrigens: der aktuelle Nutzer ist '.$user->getUsername();
+						if ($user && $user->hasSetting('love_name')) {
+							$responseText = sprintf('%s, %s liebt Dich!',$user->getSetting('love_name'),$user->getDisplayName());
+						} else {
+							$responseText = 'Sandra, Helmut liebt Dich!';
 						}
 						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
 					case 'UptimeRobotStatusIntent':
