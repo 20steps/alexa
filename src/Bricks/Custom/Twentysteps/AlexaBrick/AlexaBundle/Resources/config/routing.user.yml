@@ -8,7 +8,7 @@ bricks.custom.twentysteps_alexa.user.login:
 bricks.custom.twentysteps_alexa.user.register:
     path: /{_locale}/register
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:register, project: alexa }
-    methods: [GET]
+    methods: [GET,POST]
 
 bricks.custom.twentysteps_alexa.user.check:
     path:   /{_locale}/authenticated/check
@@ -35,7 +35,7 @@ bricks.custom.twentysteps_alexa.user.alexa.login:
 bricks.custom.twentysteps_alexa.user.alexa.register:
     path: /oauth/v2/register
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:registerAlexa, project: alexa, _locale: de }
-    methods: [GET]
+    methods: [GET,POST]
 
 bricks.custom.twentysteps_alexa.user.alexa.check:
     path:   /oauth/v2/authenticated/check

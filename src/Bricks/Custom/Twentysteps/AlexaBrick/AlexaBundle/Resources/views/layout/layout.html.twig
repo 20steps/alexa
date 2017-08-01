@@ -30,7 +30,11 @@
         <meta property="og:site_name" content="20steps Digital Full Service Boutique"/>
         <meta property="og:url" content="{{ app.request.uri | replace({'http://': 'https://'}) }}"/><!-- have to replace protocol as we are deployed behind an SSL offloader -->
         <metax property="og:type" content="page"/>
-        <meta property="og:title" content="20steps Alexa | {{ title|trans({},'core') }}"/>
+        {% if title is defined %}
+            <meta property="og:title" content="20steps Alexa | {{ title|trans({},'core') }}"/>
+        {% else %}
+            <meta property="og:title" content="20steps Alexa"/>
+        {% endif %}
         {% if node is defined %}
             <meta property="og:description" content="{{ node.metaDescription }}">
         {% else %}
@@ -76,12 +80,18 @@
 
             window.console.log("\n\n\n\nPowered by:\n\n.---.  .--.       .-.\n`--. :: ,. :     .' `.\n   ,',: :: : .--.`. .'.--. .---.  .--.\n .'.'_: :; :`._-.': :' '_.': .; ``._-.'\n:____;`.__.'`.__.':_;`.__.': ._.'`.__.'\nDigital Full Service Boutique;\n                           :_;\n\n\nHi awesome developers, designers, partners and customers!\n\nTake a look at our bricks platform, agency services and job offers.\n\nContact us directly at:\nhello@20steps.de\n+49 30 9940 400 00\n\n  ____\n /|  /|\n/_|_/_|\n| / | /\n|/__|/\n\n\n\nThis website was proudly built in Berlin using Bricks by 20steps.\n\n\n");
         </script>
-
-        <title>{{ title|trans({},'core') }} | 20steps Alexa</title>
+        {% if title is defined %}
+            <title>{{ title|trans({},'core') }} | 20steps Alexa</title>
+        {% else %}
+            <title>20steps Alexa</title>
+        {% endif %}
 
     </head>
-
+    {% if body_class is defined %}
     <body class="{{ body_class }}">
+    {% else %}
+    <body class="redirect">
+    {% endif %}
 
         {% block content %}
             No content yet - please fillup the content block in the view.

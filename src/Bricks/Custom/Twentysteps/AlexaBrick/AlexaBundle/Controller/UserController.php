@@ -62,10 +62,15 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function registerAction(Request $request) {
-		return array(
+		$context = [
 			'body_class' => 'register',
 			'title' => 'Register'
-		);
+		];
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$context['message']='Registration succeeded';
+			$context['message']='Not yet implemented';
+		}
+		return $context;
 	}
 	
 	/**
@@ -154,10 +159,15 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function registerAlexaAction(Request $request) {
-		return array(
+		$context = [
 			'body_class' => 'register',
 			'title' => 'Register'
-		);
+		];
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$context['message']='Registration succeeded';
+			$context['message']='Not yet implemented';
+		}
+		return $context;
 	}
 	
 	
