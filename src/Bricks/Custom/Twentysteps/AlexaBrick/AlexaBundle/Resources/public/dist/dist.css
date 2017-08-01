@@ -7124,7 +7124,7 @@ div.well {
   margin-bottom: 10px;
   width: 200px;
   height: 40px;
-  background-image: url('//20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-white.png');
+  background-image: url('https://20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-white.png');
   background-size: cover;
 }
 .Absolute-Center.is-Responsive {
@@ -7139,7 +7139,7 @@ div.well {
   left: 10px;
   width: 200px;
   height: 40px;
-  background-image: url('//20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-white.png');
+  background-image: url('https://20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-white.png');
   background-size: cover;
 }
 .icon-info {
