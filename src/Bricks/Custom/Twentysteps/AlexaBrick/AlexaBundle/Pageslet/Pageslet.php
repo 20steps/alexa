@@ -170,7 +170,7 @@ class Pageslet extends AbstractPageslet {
         /** @var SitemapItem[] $sitemapItems */
         $sitemapItems=array();
 
-        // start urls
+        // root url
         $sitemapItems[]=new SitemapItem('/');
 
         // generate sitemap entries for all locales and node types
@@ -185,12 +185,11 @@ class Pageslet extends AbstractPageslet {
             },$this->pages->getContentModule()->findAllNodes(true,array('page')));
 
             // posts
-            $sitemapItems[]=new SitemapItem('/#!/'.$locale.'/news');
             array_map(function(Post $post) use (&$sitemapItems,$locale) {
                 $sitemapItems[]=new SitemapItem($post->getPath($locale));
             },$this->pages->getContentModule()->findAllNodes(true,array('post')));
 
-			// functional pages in SPA
+			// functional pages
 	        $functionalRoutes = [
 	        	'bricks.custom.twentysteps_alexa.user.login',
 		        'bricks.custom.twentysteps_alexa.user.register',
