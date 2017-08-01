@@ -148,7 +148,8 @@
 				}
 				
 				$error = $monitorsResponse->getError();
-				$responseText = 'Leider konnte ich den Status nicht ermitteln - bitte prüfe Deinen UptimeRobot API Key: '.$error->getMessage();
+				$responseText = 'Leider konnte ich den Status nicht ermitteln - bitte prüfe Deinen UptimeRobot API Key : '.$error->getMessage();
+				$responseText .= ' Melde Dich bei alexa.20steps.de an um Deinen API Key zu konfigurieren.';
 
 				$this->logger->error('error',['error' => ['type' => $error->getType(), 'message' => $error->getMessage()],'responseText' => $responseText]);
 
@@ -163,6 +164,7 @@
 			 */
 			$reasonPhrase = $monitorsResponse->getReasonPhrase();
 			$responseText = 'Leider ist ein technischer Fehler aufgetreten - bitte prüfe Deinen UptimeRobot API Key: '.($reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode());
+			$responseText .= ' Melde Dich bei alexa.20steps.de an um Deinen API Key zu konfigurieren.';
 
 			$this->logger->error('error_technical',['error' => ['reasonPhrase' => $reasonPhrase, 'statusCode' => $monitorsResponse->getStatusCode()],'responseText' => $responseText]);
 
