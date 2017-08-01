@@ -27,16 +27,16 @@
         <meta name="apple-mobile-web-app-title" content="20steps">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+        <meta property="og:site_name" content="20steps Digital Full Service Boutique"/>
         <meta property="og:url" content="{{ app.request.uri | replace({'http://': 'https://'}) }}"/><!-- have to replace protocol as we are deployed behind an SSL offloader -->
         <meta property="og:type" content="page"/>
-        <meta property="og:site_name" content="20steps Digital Full Service Boutique"/>
         <meta property="og:title" content="20steps Alexa | {{ title|trans({},'core') }}"/>
         {% if node is defined %}
             <meta property="og:description" content="{{ node.metaDescription }}">
         {% else %}
             <meta property="og:description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
         {% endif %}
-        <meta property="og:image" content="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-black.png"/>
+        <meta property="og:image" content="http://20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-black.png"/>
 
         {% stylesheets
             combine=true
