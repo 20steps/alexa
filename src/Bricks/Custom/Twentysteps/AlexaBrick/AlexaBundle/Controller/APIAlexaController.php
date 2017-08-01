@@ -24,11 +24,16 @@ class APIAlexaController extends AbstractAPIAlexaController {
 	public function processAction(Request $request) {
 		
 		if ($request->getMethod()==Request::METHOD_POST) {
+			// prepare/process request from Amazon Alexa
 			return $this->successAlexa(
 				$this->alexaModule->processAlexaRequest($this->getAlexaRequest($request))
 			);
 		}
-		return $this->success(['ping' => 'pong']); // for monitoring
+		
+		// for monitoring / health-check,
+		// cp. bricks_infrastructure_core_core_monitoring_monitor_definitions_custom
+		return $this->success(['ping' => 'ok']);
+	
 	}
 	
 }

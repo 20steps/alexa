@@ -5,18 +5,73 @@
 
         <title>20steps Alexa</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="{{ asset('bundles/brickscustomtwentystepsalexa/css/bootstrap.css') }}" rel="stylesheet" media="screen">
-        <link href="{{ asset('bundles/brickscustomtwentystepsalexa/css/alexa.css') }}" rel="stylesheet" media="screen">
+        {% stylesheets
+            combine=true
+            filter='cssrewrite'
+            output='bundles/brickscustomtwentystepsalexa/dist/dist.css'
+
+            "@BricksCustomTwentystepsAlexaBundle/Resources/public/css/bootstrap.less"
+            "@BraincraftedBootstrapBundle/Resources/less/form.less"
+            "@BricksCustomTwentystepsAlexaBundle/Resources/public/css/custom.less"
+        %}
+            <link rel="stylesheet" href="{{ bricks_cdn_prefix }}{{ asset_url }}?v={{ bricks_application_version }}" />
+        {% endstylesheets %}
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
     </head>
 
     <body>
+
         {% block content %}
-            No content yet
+            No content yet - please fillup the content block.
         {% endblock %}
-        <script src="{{ asset('bundles/brickscustomtwentystepsalexa/js/jquery.js') }}"></script>
-        <script src="{{ asset('bundles/brickscustomtwentystepsalexa/js/bootstrap.js') }}"></script>
+
+        <footer class="footer">
+            <nav class="navbar navbar-bottom">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4 text-center">
+                            <p><a href="/de/about">Was kann der Skill?</a></p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <p>Source code @ <a target="_blank" href="https://github.com/20steps/alexa">GitHub</a></p>
+                        </div>
+                        <div class="col-sm-4 text-center">
+                            <p><a href="/de/impressum">Impressum &amp; Datenschutz</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 text-center">
+                            <p>{c) 2017 - <a href="https://20steps.de">20steps Digital Full Service Boutique</a>s</p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </footer>
+
+        {% javascripts
+            combine=true
+            output='bundles/brickscustomtwentystepsalexa/dist/alexa.js'
+
+            "../vendor/jquery/jquery/jquery-1.11.1.js"
+            "../vendor/twbs/bootstrap/js/transition.js"
+            "../vendor/twbs/bootstrap/js/alert.js"
+            "../vendor/twbs/bootstrap/js/button.js"
+            "../vendor/twbs/bootstrap/js/carousel.js"
+            "../vendor/twbs/bootstrap/js/collapse.js"
+            "../vendor/twbs/bootstrap/js/dropdown.js"
+            "../vendor/twbs/bootstrap/js/modal.js"
+            "../vendor/twbs/bootstrap/js/tooltip.js"
+            "../vendor/twbs/bootstrap/js/popover.js"
+            "../vendor/twbs/bootstrap/js/scrollspy.js"
+            "../vendor/twbs/bootstrap/js/tab.js"
+            "../vendor/twbs/bootstrap/js/affix.js"
+            "../vendor/braincrafted/bootstrap-bundle/Braincrafted/Bundle/BootstrapBundle/Resources/js/bc-bootstrap-collection.js"
+            "@BricksCustomTwentystepsAlexaBundle/Resources/public/js/custom.js"
+        %}
+            <script type="text/javascript" src="{{ bricks_cdn_prefix }}{{ asset_url }}?v={{ bricks_application_version }}"></script>
+        {% endjavascripts %}
+
     </body>
 
 </html>

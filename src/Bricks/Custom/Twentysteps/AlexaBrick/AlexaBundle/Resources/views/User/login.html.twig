@@ -9,7 +9,7 @@
                 <div id="logo-container"></div>
                 <div class="col-sm-12 col-md-10 col-md-offset-1" style="background-color:white; padding: 25px 25px 25px 25px; color: black">
                     <form action="{{ path('bricks.custom.twentysteps_alexa.user.check') }}" method="post">
-                        <label>Jetzt anmelden</label>
+                        <label style="margin-bottom: 15px; width: 100%">Alexa Skill anpassen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" title="Alexa&nbsp;20steps&nbsp;Skill&nbsp;anpassen" data-content="Passen Sie die Einstellungen des Skills z.B. den API Key für UptimeRobot an.Wenn Sie noch keinen Account bei 20steps haben, klicken Sie auf Registrieren."></span></label>
                         <div class="form-group">
                             <label for="username">E-Mail Adressse</label>
                             <input type="text" class="form-control" id="username" name="_username" placeholder="E-Mail Adresse">
@@ -19,7 +19,7 @@
                             <input type="password" class="form-control" id="password" name="_password" placeholder="Passwort">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ 'Login'|trans({},'core') }}</button>
-                        <a style="padding-left: 15px" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
+                        <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
                     </form>
                 </div>
             </div>

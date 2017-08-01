@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "fa06b5c093dddd73d9fe26e576005f79",
+    "content-hash": "ee6ae86a5d8b19a30107f1282e04ea14",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -1030,16 +1030,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.1",
+            "version": "3.32.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "ca8791495696a1620fe2275df4983d063627aba7"
+                "reference": "a823106c19f44bed652b6415e846d7afa503c04c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/ca8791495696a1620fe2275df4983d063627aba7",
-                "reference": "ca8791495696a1620fe2275df4983d063627aba7",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a823106c19f44bed652b6415e846d7afa503c04c",
+                "reference": "a823106c19f44bed652b6415e846d7afa503c04c",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-07-27T19:46:08+00:00"
+            "time": "2017-07-31T22:18:28+00:00"
         },
         {
             "name": "beberlei/DoctrineExtensions",
@@ -1640,17 +1640,17 @@
         },
         {
             "name": "braincrafted/bootstrap-bundle",
-            "version": "dev-master",
+            "version": "dev-develop",
             "target-dir": "Braincrafted/Bundle/BootstrapBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/braincrafted/bootstrap-bundle.git",
-                "reference": "23ae42061668d0fdc999b63db55c264265e037ab"
+                "reference": "4367295d62d9ca4190fdf9e944148c19e04d0aa7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/23ae42061668d0fdc999b63db55c264265e037ab",
-                "reference": "23ae42061668d0fdc999b63db55c264265e037ab",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/4367295d62d9ca4190fdf9e944148c19e04d0aa7",
+                "reference": "4367295d62d9ca4190fdf9e944148c19e04d0aa7",
                 "shasum": ""
             },
             "require": {
@@ -1697,7 +1697,7 @@
             "keywords": [
                 "bootstrap"
             ],
-            "time": "2016-01-23 17:44:32"
+            "time": "2016-10-10 21:30:05"
         },
         {
             "name": "brandonwamboldt/utilphp",
