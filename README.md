@@ -19,6 +19,7 @@ Usage:
 
 TODO:
 * Self-registration and password reset for users at https://alexa.20steps.de  (wip)
+* Publish skill at Amazon (wip)
 * Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
 * Prepare Joblet for Alexa push messages
 * Adapt for Echo Show (as soon as it is available in Germany)
