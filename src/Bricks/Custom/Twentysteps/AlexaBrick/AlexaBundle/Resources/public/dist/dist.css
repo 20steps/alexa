@@ -7092,8 +7092,8 @@ footer .navbar .container a {
 footer .navbar .container p {
   margin-bottom: 5px;
 }
-@media screen and (max-height: 500px) {
-  .footer {
+@media screen and (max-width: 768px) {
+  body.when-keyboard-showing footer {
     display: none;
   }
 }
