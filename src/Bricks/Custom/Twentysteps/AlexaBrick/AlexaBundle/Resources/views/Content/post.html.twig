@@ -3,19 +3,13 @@
 {% block content %}
 
     <div id="logo-container-top"></div>
-    <div id="action-container-top"><a href="{{ path('bricks.custom.twentysteps_alexa.user.login') }}">{{ 'Login'|trans({},'core') }}</a></div>
+    <div id="action-container-top"><a href="{{ path('bricks.custom.twentysteps_alexa.user.login') }}">{{ 'Start'|trans({},'core') }}</a></div>
 
-    <div class="container">
-        <div class="row">
-            <div class="Absolute-Center is-Responsive is-Node">
-                <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
-                    <div class="node">
-                        <h1>{{ node.title }}</h1>
-                        <img src="{{ node.post.fullFeaturedImageUrl }}" style="width: 100%"/>
-                        <div>{{ node.post.content | raw }}</div>
-                    </div>
-                </div>
-            </div>
+    <div class="node-wrapper">
+        <div class="node">
+            <h1>{{ node.title }}</h1>
+            <img src="{{node.post.fullFeaturedImageUrl  }}" style="width: 100%"/>
+            <div>{{ node.post.content | raw }}</div>
         </div>
     </div>
 
