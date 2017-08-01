@@ -70,7 +70,8 @@ class UserController extends AbstractBricksController {
 		$user = $this->getBrickShell()->getUserModule()->find($user->getId());
 		$user->completeSettingsUsingDefaults();
 		$context = [
-			'user' => $user
+			'user' => $user,
+			'body_class' => 'home'
 		];
 		if ($request->getMethod()==Request::METHOD_POST) {
 			$settings = $request->request->all();
@@ -89,7 +90,9 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function resetPasswordAction(Request $request) {
-		$context = [];
+		$context = [
+			'body_class' => 'reset_password'
+		];
 		if ($request->getMethod()==Request::METHOD_POST) {
 			$context['message']='Not yet implemented';
 		}
@@ -165,7 +168,10 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function homeAlexaAction(Request $request) {
-		$context = ['message' => 'Hallo Alexa'];
+		$context = [
+			'body_class' => 'home',
+			'message' => 'Hallo Alexa'
+		];
 		return $context;
 	}
 	

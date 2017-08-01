@@ -51,7 +51,7 @@
 				switch ($alexaRequest->intentName) {
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
-						if ($user && $user->hasSetting('love_name')) {
+						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
 							$responseText = sprintf('%s, %s liebt Dich!',$user->getSetting('love_name'),$user->getDisplayName());
 						} else {
 							$responseText = 'Sandra, Helmut liebt Dich!';
