@@ -11,6 +11,11 @@ Current capabilitites:
 * Alexa Account linking using oAuth2 for pre-registered users
 * Some easter egg
 
+Usage:
+* First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
+* Configure the skill e.g. by entering the API Key of your UptimeRobot account.
+* After activating the skill in the Alexa App connect the previously registered account.
+
 TODO:
 * Self-registration for users at https://alexa.20steps.de inc. management of settings for UptimeRobot.com  (wip)
 * Some more capabilities that help developers and system administrators (any ideas welcome e.g. integration of additional services)
@@ -27,7 +32,7 @@ Hints for fellow readers:
 * Helmut Hoffer von Ankershoffen (hhva@20steps.de)
 
 ## Sponsored by
-<a href="http://20steps.de">20steps - Digital Full Service Boutique</a>
+<a href="https://20steps.de">20steps - Digital Full Service Boutique</a>
 
 [1]:  https://github.com/20steps/bricks-installer
 [2]:  https://symfony.com/

@@ -4,7 +4,7 @@
   "type": "project",
   "description": "Backend for the 20steps Amazon Alexa skill (wip)",
   "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking"],
-  "homepage": "https:\/\/github.com\/20steps\/alexa",
+  "homepage": "https:\/\/alexa.20steps.de",
   "autoload": {
     "psr-4": {
       "": "src\/"

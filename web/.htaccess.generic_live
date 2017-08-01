@@ -26,6 +26,7 @@ DirectoryIndex app.php
     SetEnvIf Host "alexa.20steps.de" LAZY_LOAD_WORDPRESS=1
 
     # Custom redirects and rewrites
+    RewriteRule ^$ /de/login [L,R=302]
     RewriteRule ^sitemap\.xml$ /custom/alexa/sitemaps/sitemap-index.xml [L]
     RewriteRule ^sitemaps/(.*)$ /custom/alexa/sitemaps/$1
 
