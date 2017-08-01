@@ -6,7 +6,7 @@ This is the backend of the "20steps" Alexa skill - the skill aims to support dev
 Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps.
 
 Current capabilitites:
-* Possiblity to ask UptimeRobot.com for system status
+* Possiblity to ask UptimeRobot.com for detailed system status of your services
 * Some easter egg
 * Basic Website using PagesBrick to integrate Wordpress as CMS
 * Basic user management including user settings
