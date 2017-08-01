@@ -27,7 +27,7 @@ TODO:
 * Enhance AbstractCustomBundle of Bricks platform to minimize glue code in custom brick as this is prob. the most simple application ever built with bricks ,-)
 * Automated tests and after that invite som developers to provide speechlets ,-)
 
-Hints for fellow readers:
+Hints for fellow coders:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
 
 ## Author
