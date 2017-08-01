@@ -7,7 +7,7 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
-* Some easter egg
+* Some easter egg for your loved one
 * Basic Website using PagesBrick to integrate Wordpress as CMS
 * Basic user management including user settings
 * Alexa Account linking using oAuth2 for pre-registered users
