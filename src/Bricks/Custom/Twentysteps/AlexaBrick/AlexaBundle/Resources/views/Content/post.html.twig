@@ -11,7 +11,8 @@
                 <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
                     <div class="node">
                         <h1>{{ node.title }}</h1>
-                        <div>{{ node.content | raw }}</div>
+                        <img src="{{ node.post.fullFeaturedImageUrl }}" style="width: 100%"/>
+                        <div>{{ node.post.content | raw }}</div>
                     </div>
                 </div>
             </div>

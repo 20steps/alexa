@@ -7097,6 +7097,12 @@ footer .navbar .container p {
     display: none;
   }
 }
+body.page footer {
+  display: none;
+}
+body.post footer {
+  display: none;
+}
 div.well {
   height: 250px;
 }
@@ -7137,11 +7143,15 @@ div.well {
   min-width: 320px;
   max-width: 450px;
 }
-.Absolute-Center.is-Node {
-  width: 80%;
-  height: 50%;
-  min-width: 320px;
-  max-width: 900px;
+.node {
+  margin-top: 65px;
+  background-color: white;
+  color: black;
+  padding: 25px;
+  z-index: 100;
+}
+.node img {
+  margin: 0px 0px 10px 0px;
 }
 #logo-container-top {
   position: absolute;
@@ -7155,9 +7165,8 @@ div.well {
 #action-container-top {
   position: absolute;
   right: 10px;
-  left: 10px;
+  top: 10px;
   text-align: right;
-  margin-top: 10px;
 }
 #action-container-top a {
   font-weight: lighter;

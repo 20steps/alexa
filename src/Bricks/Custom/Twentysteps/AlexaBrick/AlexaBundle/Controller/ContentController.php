@@ -28,7 +28,7 @@ class ContentController extends AbstractBricksController {
 	public function pageAction(Request $request, string $slug) {
 		$node =  $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'page',true);
 		return [
-			'node' => $node,
+			'node' => $this->contentModule->serializeOne($node,$request->getLocale(),true,true), // let assigned pageslet do its magic
 			'body_class' => 'page',
 			'title' => $node->getTitle($request->getLocale())
 		];
@@ -43,7 +43,7 @@ class ContentController extends AbstractBricksController {
 	public function postAction(Request $request, string $slug) {
 		$node =  $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'page',true);
 		return [
-			'node' => $node,
+			'node' => $this->contentModule->serializeOne($node,$request->getLocale(),true,true), // let assigned pageslet do its magic
 			'body_class' => 'post',
 			'title' => $node->getTitle($request->getLocale())
 		];

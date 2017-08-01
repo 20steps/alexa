@@ -124,11 +124,13 @@ class Pageslet extends AbstractPageslet {
                         'mediumFeaturedImageUrl' => $page->getMediumFeaturedImageUrl(),
                         'shortDescription' => $page->getShortDescription(),
                         'metaDescription' => $page->getMetaDescription(),
+                        'content' => wpautop($page->getContent()),
                         'paths' => array(
                             'de' => $page->getPath('de'),
                             'en' => $page->getPath('en')
                         ),
                     );
+	                $nodeData['metaDescription']=$page->getMetaDescription();
                     break;
                 case 'post':
                     /** @var Post $post */
@@ -143,6 +145,7 @@ class Pageslet extends AbstractPageslet {
                         'mediumFeaturedImageUrl' => $post->getMediumFeaturedImageUrl(),
                         'shortDescription' => $post->getShortDescription(),
                         'metaDescription' => $post->getMetaDescription(),
+                        'content' => wpautop($post->getContent()),
                         'categories' => array(
                             'primary' => $primaryCategory?array(
                                 'id' => $primaryCategory['id'],
@@ -151,7 +154,8 @@ class Pageslet extends AbstractPageslet {
                             ):null
                         )
                     );
-                    break;
+                    $nodeData['metaDescription']=$post->getMetaDescription();
+	                break;
             }
         } else {
             // no details
