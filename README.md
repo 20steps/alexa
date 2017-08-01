@@ -26,6 +26,7 @@ TODO:
 * Localization for english language (in addition to german language)
 * Refactor to minimize glue code
 * Automated tests
+* Invite som developers to provide skillets ,-)
 
 Hints for fellow readers:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
