@@ -1,7 +1,5 @@
 parameters:
 
-    bricks_cdn_enabled: false
-
     bricks_custom_twentysteps_alexa_host: alexa.20steps.de
     bricks_custom_twentysteps_alexa_protocol: https
 
