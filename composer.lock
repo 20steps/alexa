@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee6ae86a5d8b19a30107f1282e04ea14",
+    "content-hash": "205ba2c49cc86ce383678234984aa1c0",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "50c00f8b54766646ee0740a22e01e0196e192243"
+                "reference": "0c02414f100e44182cf29b3a705a9691c2b0c578"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/50c00f8b54766646ee0740a22e01e0196e192243",
-                "reference": "50c00f8b54766646ee0740a22e01e0196e192243",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/0c02414f100e44182cf29b3a705a9691c2b0c578",
+                "reference": "0c02414f100e44182cf29b3a705a9691c2b0c578",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-07-31 13:22:47"
+            "time": "2017-08-01 11:19:10"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
@@ -11502,7 +11502,7 @@
         },
         {
             "name": "symfony/phpunit-bridge",
-            "version": "v3.3.5",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/phpunit-bridge.git",
@@ -12021,16 +12021,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "v3.3.5",
+            "version": "v3.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "b9a0d3d2393f683b28043e9dbf83b8bf6b347faa"
+                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/b9a0d3d2393f683b28043e9dbf83b8bf6b347faa",
-                "reference": "b9a0d3d2393f683b28043e9dbf83b8bf6b347faa",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/6f80cbd2dd89c5308b14e03d806356fac72c263e",
+                "reference": "6f80cbd2dd89c5308b14e03d806356fac72c263e",
                 "shasum": ""
             },
             "require": {
@@ -12170,7 +12170,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2017-07-17T19:08:46+00:00"
+            "time": "2017-08-01T10:26:30+00:00"
         },
         {
             "name": "theofidry/alice-bundle-extension",
