@@ -7092,6 +7092,11 @@ body {
 .footer .navbar .container p {
   margin-bottom: 5px;
 }
+@media screen and (max-height: 500px) {
+  .footer {
+    display: none;
+  }
+}
 div.well {
   height: 250px;
 }
