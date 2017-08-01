@@ -20,6 +20,15 @@ class ContentController extends AbstractBricksController {
 	private $contentModule;
 	
 	/**
+	 * @param Request $request
+	 */
+	protected function setupController(Request $request) {
+		parent::setupController($request);
+		// force html format as some spiders send strange requests ...
+		$request->setRequestFormat('html');
+	}
+	
+	/**
 	 * @View
 	 * @param Request $request
 	 * @param string $slug
