@@ -6,8 +6,11 @@
         <title>20steps Alexa</title>
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="Alexa Skill von 20steps für Entwickler und Systemadministratoren">
-
+        {% if node is defined %}
+            <meta name="description" content="{{ node.metaDescription }}">
+        {% else %}
+            <meta name="description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
+        {% endif %}
         {% stylesheets
             combine=true
             filter='cssrewrite'

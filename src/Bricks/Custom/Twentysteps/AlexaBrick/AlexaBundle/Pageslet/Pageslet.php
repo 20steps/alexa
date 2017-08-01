@@ -123,6 +123,7 @@ class Pageslet extends AbstractPageslet {
                         'fullFeaturedImageUrl' => $page->getFullFeaturedImageUrl(),
                         'mediumFeaturedImageUrl' => $page->getMediumFeaturedImageUrl(),
                         'shortDescription' => $page->getShortDescription(),
+                        'metaDescription' => $page->getMetaDescription(),
                         'paths' => array(
                             'de' => $page->getPath('de'),
                             'en' => $page->getPath('en')
@@ -141,6 +142,7 @@ class Pageslet extends AbstractPageslet {
                         'fullFeaturedImageUrl' => $post->getFullFeaturedImageUrl(),
                         'mediumFeaturedImageUrl' => $post->getMediumFeaturedImageUrl(),
                         'shortDescription' => $post->getShortDescription(),
+                        'metaDescription' => $post->getMetaDescription(),
                         'categories' => array(
                             'primary' => $primaryCategory?array(
                                 'id' => $primaryCategory['id'],
