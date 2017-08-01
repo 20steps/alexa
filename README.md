@@ -9,7 +9,7 @@ Current capabilitites:
 * Possiblity to ask UptimeRobot.com for system status
 * Some easter egg
 * Basic Website using PagesBrick to integrate Wordpress as CMS
-* User management including user settings
+* Basic user management including user settings
 * Alexa Account linking using oAuth2 for pre-registered users
 
 Usage:
