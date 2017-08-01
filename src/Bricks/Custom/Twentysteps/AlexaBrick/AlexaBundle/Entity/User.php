@@ -552,10 +552,10 @@ class User extends AbstractUser
 
 
     protected function getDefaultSettings() {
-
         return array_merge(parent::getDefaultSettings(),[
-            'mobile.infoPushNotifications' => true,
-            'mobile.personalPushNotifications' => true
+            'mobile.allow_push' => true,
+	        'uptime_robot_api_key' => null,
+		    'love_name' => null
         ]);
     }
 
