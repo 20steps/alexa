@@ -8,7 +8,7 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
 * Some easter egg for your loved one
-* Basic Website using Pages Brick to integrate Wordpress as CMS
+* Basic Website using Pages brick to integrate Wordpress as CMS
 * Basic user management including user settings
 * Alexa Account linking using oAuth2 for pre-registered users
 
@@ -24,9 +24,8 @@ TODO:
 * Prepare Joblet for Alexa push messages
 * Adapt for Echo Show (as soon as it is available in Germany)
 * Localization for english language (in addition to german language)
-* Refactor to minimize glue code
-* Automated tests
-* Invite som developers to provide skillets ,-)
+* Enhance AbstractCustomBundle of Bricks platform to minimize glue code in custom brick as this is prob. the most simple application ever built with bricks ,-)
+* Automated tests and after that invite som developers to provide speechlets ,-)
 
 Hints for fellow readers:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory

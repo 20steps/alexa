@@ -27,6 +27,7 @@
         <meta name="apple-mobile-web-app-title" content="20steps">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+        <meta name="og:url" content="{{ app.request.uri | replace({'http://': 'https://'}) }}"/><!-- have to replace protocol as we are deployed behind an SSL offloader -->
         <meta name="og:type" content="page"/>
         <meta name="og:title" ng-attr-content="20steps Alexa | {{ title|trans({},'core') }}"/>
         {% if node is defined %}
