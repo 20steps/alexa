@@ -3,16 +3,39 @@
 
     <head>
 
-        <title>20steps Alexa</title>
-
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="google-site-verification" content="OUTj1s45ISULL26zSM8m0q5_Lr0Gw1aVm3T-NGp2f34" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
         {% if node is defined %}
             <meta name="description" content="{{ node.metaDescription }}">
         {% else %}
             <meta name="description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
         {% endif %}
+        
+        <link rel="shortcut icon" type="image/png" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png" >
+        <link rel="icon" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png" type="image/png">
+
+        <link rel="apple-touch-startup-image" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+        <link rel="apple-touch-icon" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-title" content="20steps">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        <meta name="og:type" content="page"/>
+        <meta name="og:title" ng-attr-content="20steps Alexa | {{ title|trans({},'core') }}"/>
+        {% if node is defined %}
+            <meta name="og:description" content="{{ node.metaDescription }}">
+        {% else %}
+            <meta name="og:description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
+        {% endif %}
+        <meta name="og:image" content="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/20steps-logo-black.png"/>
+
         {% stylesheets
             combine=true
             filter='cssrewrite'
@@ -26,6 +49,30 @@
         {% endstylesheets %}
 
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+
+        <script type="text/javascript">
+
+            // emulate window.console.* on very old browsers
+            if (!window.console) {
+                window.console = {};
+            }
+            // union of Chrome, FF, IE, and Safari console methods
+            var m = [
+                "log", "info", "warn", "error", "debug", "trace", "dir", "group",
+                "groupCollapsed", "groupEnd", "time", "timeEnd", "profile", "profileEnd",
+                "dirxml", "assert", "count", "markTimeline", "timeStamp", "clear"
+            ];
+
+            for (var i = 0; i < m.length; i++) {
+                if (!window.console[m[i]]) {
+                    window.console[m[i]] = function() {};
+                }
+            }
+
+            window.console.log("\n\n\n\nPowered by:\n\n.---.  .--.       .-.\n`--. :: ,. :     .' `.\n   ,',: :: : .--.`. .'.--. .---.  .--.\n .'.'_: :; :`._-.': :' '_.': .; ``._-.'\n:____;`.__.'`.__.':_;`.__.': ._.'`.__.'\nDigital Full Service Boutique;\n                           :_;\n\n\nHi awesome developers, designers, partners and customers!\n\nTake a look at our bricks platform, agency services and job offers.\n\nContact us directly at:\nhello@20steps.de\n+49 30 9940 400 00\n\n  ____\n /|  /|\n/_|_/_|\n| / | /\n|/__|/\n\n\n\nThis website was proudly built in Berlin using Bricks by 20steps.\n\n\n");
+        </script>
+
+        <title>{{ title|trans({},'core') }} | 20steps Alexa</title>
 
     </head>
 
@@ -86,7 +133,7 @@
             ga('send', 'pageview');
 
         </script>
-    
+
     </body>
 
 </html>

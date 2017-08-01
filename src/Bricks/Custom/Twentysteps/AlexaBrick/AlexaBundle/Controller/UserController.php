@@ -27,7 +27,8 @@ class UserController extends AbstractBricksController {
 		$context = [
 			// last username entered by the user
 			'last_username' => $session->get(Security::LAST_USERNAME),
-			'body_class' => 'login'
+			'body_class' => 'login',
+			'title' => 'Login'
 		];
 		
 		// get the login error if there is one
@@ -53,7 +54,8 @@ class UserController extends AbstractBricksController {
 	 */
 	public function registerAction(Request $request) {
 		return array(
-			'body_class' => 'register'
+			'body_class' => 'register',
+			'title' => 'Register'
 		);
 	}
 	
@@ -71,7 +73,8 @@ class UserController extends AbstractBricksController {
 		$user->completeSettingsUsingDefaults();
 		$context = [
 			'user' => $user,
-			'body_class' => 'home'
+			'body_class' => 'home',
+			'title' => 'Settings'
 		];
 		if ($request->getMethod()==Request::METHOD_POST) {
 			$settings = $request->request->all();
@@ -91,7 +94,8 @@ class UserController extends AbstractBricksController {
 	 */
 	public function resetPasswordAction(Request $request) {
 		$context = [
-			'body_class' => 'reset_password'
+			'body_class' => 'reset_password',
+			'title' => 'Reset password'
 		];
 		if ($request->getMethod()==Request::METHOD_POST) {
 			$context['message']='Not yet implemented';
@@ -109,7 +113,8 @@ class UserController extends AbstractBricksController {
 		$context = [
 			// last username entered by the user
 			'last_username' => $session->get(Security::LAST_USERNAME),
-			'body_class' => 'login'
+			'body_class' => 'login',
+			'title' => 'Login'
 		];
 		
 		$session->set('alexa_state',$request->query->get('state',rand(0,99)));
@@ -141,7 +146,8 @@ class UserController extends AbstractBricksController {
 	 */
 	public function registerAlexaAction(Request $request) {
 		return array(
-			'body_class' => 'register'
+			'body_class' => 'register',
+			'title' => 'Register'
 		);
 	}
 	
@@ -170,7 +176,8 @@ class UserController extends AbstractBricksController {
 	public function homeAlexaAction(Request $request) {
 		$context = [
 			'body_class' => 'home',
-			'message' => 'Hallo Alexa'
+			'message' => 'Hallo Alexa',
+			'title' => 'Settings'
 		];
 		return $context;
 	}

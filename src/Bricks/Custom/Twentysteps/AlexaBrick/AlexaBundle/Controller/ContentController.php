@@ -26,9 +26,11 @@ class ContentController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function pageAction(Request $request, string $slug) {
+		$node =  $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'page',true);
 		return [
-			'node' => $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'page',true),
-			'body_class' => 'page'
+			'node' => $node,
+			'body_class' => 'page',
+			'title' => $node->getTitle($request->getLocale())
 		];
 	}
 	
@@ -39,9 +41,11 @@ class ContentController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function postAction(Request $request, string $slug) {
+		$node =  $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'page',true);
 		return [
-			'node' => $this->contentModule->findNode('slug:'.$slug,$request->getLocale(),'post',true),
-			'body_class' => 'post'
+			'node' => $node,
+			'body_class' => 'post',
+			'title' => $node->getTitle($request->getLocale())
 		];
 	}
 	
