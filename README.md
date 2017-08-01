@@ -3,7 +3,7 @@
 
 This is the backend of the "20steps" Alexa skill - the skill aims to support developers and system administrators. 
 
-Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps.
+Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps and used to enhance my skillset ,-)
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
