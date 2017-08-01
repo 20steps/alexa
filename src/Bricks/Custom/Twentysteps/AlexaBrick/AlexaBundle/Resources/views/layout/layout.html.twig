@@ -29,7 +29,7 @@
 
         <meta property="og:site_name" content="20steps Digital Full Service Boutique"/>
         <meta property="og:url" content="{{ app.request.uri | replace({'http://': 'https://'}) }}"/><!-- have to replace protocol as we are deployed behind an SSL offloader -->
-        <meta property="og:type" content="page"/>
+        <metax property="og:type" content="page"/>
         <meta property="og:title" content="20steps Alexa | {{ title|trans({},'core') }}"/>
         {% if node is defined %}
             <meta property="og:description" content="{{ node.metaDescription }}">
@@ -37,8 +37,8 @@
             <meta property="og:description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
         {% endif %}
         <meta property="og:image" content="{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/20steps-logo-black.png"/>
-        <meta property="og:image:width" content="400"/>
-        <meta property="og:image:height" content="84"/>
+        <meta property="og:image:width" content="600"/>
+        <meta property="og:image:height" content="600"/>
 
 
         {% stylesheets
