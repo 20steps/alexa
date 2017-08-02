@@ -62,7 +62,7 @@ services:
           '%bricks_custom_twentysteps_alexa_mailers_bcc%',
           '%bricks_custom_twentysteps_alexa_mailers_bcc_dev%',
           '@business',
-          '@router',s
+          '@router',
           '@logger' ]
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.user" }
