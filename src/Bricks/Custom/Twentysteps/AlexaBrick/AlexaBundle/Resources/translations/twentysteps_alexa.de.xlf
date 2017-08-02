@@ -40,7 +40,7 @@
             </trans-unit>
             <trans-unit id="10">
                 <source>API key at</source>
-                <target>API Schlüssel bei</target>
+                <target>API Key bei</target>
             </trans-unit>
             <trans-unit id="11">
                 <source>info.login.title</source>
