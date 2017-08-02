@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/amazon-alexa-php.git",
-                "reference": "ef4e4d7cc701d6c65bd593a43a92e856a20770bf"
+                "reference": "2b54e196cb4b1e2fa3b21806631ad3c45040e6c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/ef4e4d7cc701d6c65bd593a43a92e856a20770bf",
-                "reference": "ef4e4d7cc701d6c65bd593a43a92e856a20770bf",
+                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/2b54e196cb4b1e2fa3b21806631ad3c45040e6c5",
+                "reference": "2b54e196cb4b1e2fa3b21806631ad3c45040e6c5",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "php",
                 "show"
             ],
-            "time": "2017-08-02 14:11:06"
+            "time": "2017-08-02 19:46:05"
         },
         {
             "name": "20steps/angularjs-bundle",
