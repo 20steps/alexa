@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/amazon-alexa-php.git",
-                "reference": "ae469479fc3c3554345dd22eec149ad5b85af6bf"
+                "reference": "ef4e4d7cc701d6c65bd593a43a92e856a20770bf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/ae469479fc3c3554345dd22eec149ad5b85af6bf",
-                "reference": "ae469479fc3c3554345dd22eec149ad5b85af6bf",
+                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/ef4e4d7cc701d6c65bd593a43a92e856a20770bf",
+                "reference": "ef4e4d7cc701d6c65bd593a43a92e856a20770bf",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "php",
                 "show"
             ],
-            "time": "2017-07-29 20:30:54"
+            "time": "2017-08-02 14:11:06"
         },
         {
             "name": "20steps/angularjs-bundle",
@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "da66781a2069499f1541b41a31628bfd879011e5"
+                "reference": "0f224d8591e5b03a2bdf1af4a949c7357e40f7d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/da66781a2069499f1541b41a31628bfd879011e5",
-                "reference": "da66781a2069499f1541b41a31628bfd879011e5",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/0f224d8591e5b03a2bdf1af4a949c7357e40f7d4",
+                "reference": "0f224d8591e5b03a2bdf1af4a949c7357e40f7d4",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-08-02 08:57:33"
+            "time": "2017-08-02 14:11:25"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",

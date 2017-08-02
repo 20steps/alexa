@@ -8,9 +8,10 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
 * Some easter egg for your loved one
-* Basic Website using Pages brick to integrate Wordpress as CMS
+* Basic Website using Pages brick to integrate Wordpress as CMS 
 * Basic user management including user settings
 * Alexa Account linking using oAuth2
+* Support for german and english language including localized website
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
@@ -19,7 +20,6 @@ Usage:
 
 TODO:
 * Self-registration for users at https://alexa.20steps.de  (wip)
-* Localization for english language (in addition to german language) (wip)
 * Publish skill at Amazon (wip)
 * Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
 * Some more capabilities that help developers, system administrators and marketers (GA, GWT, Slack etc.)

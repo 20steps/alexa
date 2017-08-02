@@ -1,1 +1,0 @@
-<option value="{key}"{disabled}{selected}>{value}</option>
