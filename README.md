@@ -25,7 +25,7 @@ Usage:
 
 TODO:
 * Publish skill at Amazon (waiting for approval)
-* A lot more capabilities that help developers, system administrators and marketers such as GA, GWT, Slack, GitHub, StackOverflow, some banks, some SEO services etc. (wip)
+* A lot more capabilities that help developers, system administrators and marketers such as GA, GWT, Slack, GitHub, StackOverflow, some banks, some SEO services, some job boards etc. (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code and introduce speechlets (wip)
 * Prepare Joblet for Alexa push messages
 * Adapt for Echo Show as soon as it is available in Germany
