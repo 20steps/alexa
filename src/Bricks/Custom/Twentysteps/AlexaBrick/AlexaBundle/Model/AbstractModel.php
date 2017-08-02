@@ -153,7 +153,7 @@ class AbstractModel extends Node {
 	
 	public function getPath($locale = 'de')
 	{
-		return '/'.$locale.'/c/'.$this->getSlug();
+		return '/'.$locale.'/c/'.$this->getSlug($locale);
 	}
 	
 }

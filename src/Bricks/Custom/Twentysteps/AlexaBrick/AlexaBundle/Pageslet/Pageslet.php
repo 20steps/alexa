@@ -67,7 +67,7 @@ class Pageslet extends AbstractPageslet {
 
 
     public function getLocales() {
-        return array('de');
+        return $this->pages->getContentModule()->getAvailableLocales();
     }
 
     public function createNodeFromEntity($entity) {
