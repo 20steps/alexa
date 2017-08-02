@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use Alexa\Request\Request as AlexaRequest;
-use Alexa\Response\Response as AlexaResponse
+use Alexa\Response\Response as AlexaResponse;
 
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 
