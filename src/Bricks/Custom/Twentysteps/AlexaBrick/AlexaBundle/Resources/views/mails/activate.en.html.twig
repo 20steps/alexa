@@ -1,0 +1,9 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:mails:layout.html.twig" %}
+
+{% block content %}
+	<p>Click the following link to activate your account:</p>
+
+	<p>
+		<a href="{{ activationUrl }}" target="_blank">{{ activationUrl }}</a>
+	</p>
+{% endblock %}

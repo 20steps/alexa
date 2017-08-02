@@ -327,11 +327,11 @@ sub vcl_recv {
   # Send Surrogate-Capability headers to announce ESI support to backend
   set req.http.Surrogate-Capability = "key=ESI/1.0";
 
-  # allow caching even when using Authorization
-  #if (req.http.Authorization) {
-  #  # Not cacheable by default
-  #  return (pass);
-  #}
+  # disallow caching when using Authorization
+  if (req.http.Authorization) {
+    # Not cacheable by default
+    return (pass);
+  }
 
   return (hash);
 }
