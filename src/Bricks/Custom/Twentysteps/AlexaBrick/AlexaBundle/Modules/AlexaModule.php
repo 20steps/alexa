@@ -52,16 +52,16 @@
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
-							if ($alexaRequest->locale=='de_DE') {
+							if ($alexaRequest->locale=='de') {
 								$responseText = sprintf('%s, %s liebt Dich!', $user->getSetting('love_name'), $user->getDisplayName());
 							} else {
 								$responseText = sprintf('%s, %s loves you!', $user->getSetting('love_name'), $user->getDisplayName());
 							}
 						} else {
-							if ($alexaRequest->locale=='en_US') {
-								$responseText = 'Sandra, Helmut loves you!';
-							} else {
+							if ($alexaRequest->locale=='de') {
 								$responseText = 'Sandra, Helmut liebt Dich!';
+							} else {
+								$responseText = 'Sandra, Helmut loves you!';
 							}
 						}
 						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
@@ -69,7 +69,7 @@
 						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					default:
 						$response = new AlexaResponse();
-						if ($alexaRequest->locale=='de_DE') {
+						if ($alexaRequest->locale=='de') {
 							return $response->respond('Quatsch nicht!')->endSession();
 						} else {
 							return $response->respond('Don\'t talk rubbish!')->endSession();

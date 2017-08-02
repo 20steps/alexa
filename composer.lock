@@ -735,12 +735,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/FOSOAuthServerBundle.git",
-                "reference": "552f6f47ea7ba60c6e706a327669177696d81ecf"
+                "reference": "73368ac3d04c5bd9f91f79b217dbee639d7c431e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/552f6f47ea7ba60c6e706a327669177696d81ecf",
-                "reference": "552f6f47ea7ba60c6e706a327669177696d81ecf",
+                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/73368ac3d04c5bd9f91f79b217dbee639d7c431e",
+                "reference": "73368ac3d04c5bd9f91f79b217dbee639d7c431e",
                 "shasum": ""
             },
             "require": {
@@ -805,7 +805,7 @@
                 "oauth2",
                 "server"
             ],
-            "time": "2017-07-30 16:28:00"
+            "time": "2017-08-02 20:08:49"
         },
         {
             "name": "20steps/oauth2-php",

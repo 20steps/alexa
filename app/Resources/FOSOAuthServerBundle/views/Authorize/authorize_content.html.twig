@@ -6,7 +6,7 @@
         <div class="Absolute-Center is-Responsive">
             <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
                 {{ form_start(form, {'method': 'POST', 'action': path('fos_oauth_server_authorize'), 'label_attr': {'class': 'fos_oauth_server_authorize'} }) }}
-                <label style="margin-bottom: 15px; width: 100%">20steps Konto verknüpfen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="20steps&nbsp;Konto&nbsp;verknüpfen" data-content="Klicken Sie auf Erlauben um Alexa den Zugriff auf Ihr Konto bei 20steps zu erlauben. 20steps erhält keinerlei Zugriff auf Ihr Konto bei Alexa."></span></label>
+                <label style="margin-bottom: 15px; width: 100%">{{ 'Connect 20steps Account'|trans({}, 'twentysteps_alexa') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="20steps&nbsp;Konto&nbsp;verknüpfen" data-content="Klicken Sie auf Erlauben um Alexa den Zugriff auf Ihr Konto bei 20steps zu erlauben. 20steps erhält keinerlei Zugriff auf Ihr Konto bei Alexa."></span></label>
                 <button type="submit" class="btn btn-success btn-lg" name="accepted" value="{{ 'authorize.accept'|trans({}, 'FOSOAuthServerBundle') }}" >{{ 'authorize.accept'|trans({}, 'FOSOAuthServerBundle') }}</button>
                 <button type="submit" class="btn btn-danger btn-lg pull-right" name="rejected" value="{{ 'authorize.reject'|trans({}, 'FOSOAuthServerBundle') }}" >{{ 'authorize.reject'|trans({}, 'FOSOAuthServerBundle') }}</button>
 

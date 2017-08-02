@@ -6,7 +6,7 @@ This is the backend of the "20steps" Alexa skill - the skill aims to support dev
 Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps and used to enhance my skillset.
 
 Current capabilitites:
-* Possiblity to ask UptimeRobot.com for detailed system status of your services
+* Possiblity to ask UptimeRobot.com for detailed system status of your web services
 * Some easter egg for your loved one
 * Basic Website using Pages brick to integrate Wordpress as CMS 
 * Basic user management including self-regirations and user settings
@@ -18,6 +18,7 @@ Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API Key of your UptimeRobot account etc.
 * Connect the previously registered account in the Alexa App.
+* Cp <a href="https://alexa.20steps.de/en/c/about-the-skill">About the skill</a> for more infos.
 
 TODO:
 * Publish skill at Amazon (waiting for approval)
