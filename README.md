@@ -10,7 +10,7 @@ Current capabilitites:
 * Some easter egg for your loved one
 * Support for german and english language
 * Support for Alexa Account linking via oAuth2
-* User management including self-registration, double-opt-in, user settings, password reset, resend activation etc.
+* User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
 * Basic localized Website using Pages brick to integrate Wordpress as CMS
 * High availability deployment at Bricks Cluster, service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
