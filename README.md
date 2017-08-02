@@ -17,7 +17,7 @@ Current capabilitites:
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API Key of your UptimeRobot account etc.
-* Connect the previously registered account in the Alexa App.
+* Connect the previously registered account in the Alexa App on your smartphone.
 * Cp <a href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
