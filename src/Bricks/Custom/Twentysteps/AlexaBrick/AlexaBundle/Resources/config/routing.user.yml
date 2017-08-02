@@ -10,9 +10,9 @@ bricks.custom.twentysteps_alexa.user.confirm:
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:confirm, project: alexa }
     methods: [GET]
 
-bricks.custom.twentysteps_alexa.user.resend_acivation_mail:
-    path: /{_locale}/resend-activation-mail
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resendActivationMail, project: alexa }
+bricks.custom.twentysteps_alexa.user.resend_activation_link:
+    path: /{_locale}/resend-activation-link
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resendActivationLink, project: alexa }
     methods: [GET,POST]
 
 bricks.custom.twentysteps_alexa.user.login:
@@ -33,6 +33,7 @@ bricks.custom.twentysteps_alexa.user.logout:
 bricks.custom.twentysteps_alexa.user.reset_password:
     path:   /{_locale}/reset-password
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPassword, , project: alexa}
+    methods: [GET,POST]
 
 
 # alexa account linking login

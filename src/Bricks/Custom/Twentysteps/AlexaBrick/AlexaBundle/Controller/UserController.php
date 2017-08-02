@@ -5,6 +5,7 @@ namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 use Bricks\AbstractCustomBundle\Exception\EmailAlreadyTakenException;
 use Bricks\AbstractCustomBundle\Exception\EmailInvalidException;
 use Bricks\AbstractCustomBundle\Exception\PasswordToShortException;
+use Bricks\AbstractCustomBundle\Exception\UserNotActivatedException;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\DTO\Registration;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
@@ -56,8 +57,11 @@ class UserController extends AbstractBricksController {
 			$registration->setFromRequest($request);
 			try {
 				$result = $this->userModule->register($registration);
-				$context['message']=$result['message'];
-				$context['is_enabled']=$result['is_enabled'];
+				$context['message'] = $result['message'];
+				$context['is_enabled'] = $result['is_enabled'];
+			} catch(UserNotActivatedException $e) {
+				$context['message']='user_not_activated';
+				$context['is_enabled']=false;
 			} catch(EmailInvalidException $e) {
 				$context['message']='email_invalid';
 				$context['is_enabled']=false;
@@ -86,10 +90,12 @@ class UserController extends AbstractBricksController {
 			'title' => 'Confirm registration'
 		];
 		
-		$token = Ensure::isNotNull($request->query->get('token'),'token must not be null');
+		$token = $request->query->get('token');
+		if ($token) {
+			$flash = $this->userModule->activateRegistration($token);
+			$context['message'] = $flash['message'];
+		}
 		
-		$flash = $this->userModule->activateRegistration($token);
-		$context['message'] = $flash['message'];
 		
 		return $context;
 	}
@@ -99,13 +105,17 @@ class UserController extends AbstractBricksController {
 	 * @param Request $request
 	 * @return array
 	 */
-	public function resendActivationMailAction(Request $request) {
+	public function resendActivationLinkAction(Request $request) {
 		$context = [
-			'body_class' => 'resend_activation_mail',
-			'title' => 'Resend activation mail'
+			'body_class' => 'resend_activation_link',
+			'title' => 'Resend activation link'
 		];
-		
-		$context['message'] = 'not yet implemented';
+
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$email = Ensure::isNotNull($request->request->get('email'),'Email parameter missing');
+			$this->userModule->resendActivationLinkByEmailOrUsername($email);
+			$context['message']='resent_activation_link';
+		}
 		
 		return $context;
 	}
@@ -185,7 +195,20 @@ class UserController extends AbstractBricksController {
 			'title' => 'Reset password'
 		];
 		if ($request->getMethod()==Request::METHOD_POST) {
-			$context['message']='Not yet implemented';
+			if (!$request->request->has('token')) {
+				$this->userModule->resetPasswordByEmailOrUsername($request->request->get('password'));
+				// do not show user if user was found or not for security reasons
+				$context['message']='reset_password_triggered';
+			} else {
+				$flash = $this->userModule->resetPasswordUpdateByToken($token,$request->request->get('password'));
+				$context['message']=$flash['message'];
+			}
+		} else {
+			if ($request->query->has('token')) {
+				$token = $request->query->get('token');
+				$flash = $this->userModule->isResetPasswordTokenValid($token);
+				$context['message']=$flash['message'];
+			}
 		}
 		return $context;
 	}

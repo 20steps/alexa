@@ -7125,10 +7125,6 @@ div.well {
   padding: 25px 25px 25px 25px;
   background-color: white;
 }
-.Absolute-Center .Absolute-Content .node {
-  padding: 25px 25px 25px 25px;
-  background-color: white;
-}
 .Absolute-Center .Absolute-Content #logo-container {
   margin: auto;
   margin-bottom: 10px;
@@ -7144,7 +7140,12 @@ div.well {
   max-width: 450px;
 }
 .node {
-  margin-top: 65px;
+  max-width: 700px;
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 60px;
+  margin: auto;
   background-color: white;
   color: black;
   padding: 25px;
@@ -7164,11 +7165,24 @@ div.well {
 }
 #action-container-top {
   position: absolute;
-  right: 10px;
+  right: 100px;
   top: 10px;
   text-align: right;
 }
 #action-container-top a {
+  font-weight: lighter;
+  color: white;
+}
+#language-switcher {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  text-align: right;
+}
+#language-switcher span.divider {
+  color: grey;
+}
+#language-switcher a {
   font-weight: lighter;
   color: white;
 }

@@ -11,7 +11,7 @@
         {% if node is defined %}
             <meta name="description" content="{{ node.metaDescription }}">
         {% else %}
-            <meta name="description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
+            <meta name="description" content="{{ 'meta.description'|trans({},'twentysteps_alexa') }}">
         {% endif %}
 
         <link rel="shortcut icon" type="image/png" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png" >
@@ -38,7 +38,7 @@
         {% if node is defined %}
             <meta property="og:description" content="{{ node.metaDescription }}">
         {% else %}
-            <meta property="og:description" content="{{ 'Alexa Skill von 20steps für Entwickler und Systemadministratoren'|trans({},'twentytsteps_alexa') }}">
+            <meta property="og:description" content="{{ 'meta.description'|trans({},'twentysteps_alexa') }}">
         {% endif %}
         <meta property="og:image" content="{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/20steps-logo-black.png"/>
         <meta property="og:image:width" content="600"/>
@@ -93,6 +93,16 @@
     <body class="redirect">
     {% endif %}
 
+        <div id="language-switcher">
+            <ul class="lang-menu">
+                {% if (app.request.locale  == 'de') %}
+                    de&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">en</a>
+                {% elseif (app.request.locale  == 'en') %}
+                    en&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'de'}))}}">de</a>
+                {% endif %}
+            </ul>
+        </div>
+
         {% block content %}
             No content yet - please fillup the content block in the view.
         {% endblock %}
@@ -102,13 +112,13 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-4 text-center">
-                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{slug:'was-kann-der-skill'}) }}">Was kann der Skill?</a></p>
+                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{ slug:'slug.about' | trans({},'twentysteps_alexa') }) }}">{{ 'link.about'|trans({},'twentysteps_alexa') }}</a></p>
                         </div>
                         <div class="col-sm-4 text-center">
                             <p>Open source @ <a target="_blank" href="https://github.com/20steps/alexa">GitHub</a></p>
                         </div>
                         <div class="col-sm-4 text-center">
-                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{slug:'impressum'}) }}">Impressum &amp; Datenschutz</a></p>
+                            <p><a href="{{ path('bricks.custom.twentysteps_alexa.content.page',{ slug:'slug.imprint' | trans({},'twentysteps_alexa') }) }}">{{ 'link.imprint'|trans({},'twentysteps_alexa') }}</a></p>
                         </div>
                     </div>
                 </div>

@@ -26,9 +26,17 @@ DirectoryIndex app.php
     SetEnvIf Host "alexa.localhost.com" LAZY_LOAD_WORDPRESS=1
 
     # Custom redirects and rewrites
+
+    RewriteCond %{HTTP:Accept-Language} ^de [NC]
     RewriteRule ^$ /de/login [L,R=302]
+
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^$ /en/login [L,R=302]
+
+    RewriteRule ^$ /de/login [L,R=302]
+
     RewriteRule ^de$ /de/login [L,R=302]
-    RewriteRule ^en /enlogin [L,R=302]
+    RewriteRule ^en$ /en/login [L,R=302]
     RewriteRule ^sitemap\.xml$ /custom/alexa/sitemaps/sitemap-index.xml [L]
     RewriteRule ^sitemaps/(.*)$ /custom/alexa/sitemaps/$1 [L]
 

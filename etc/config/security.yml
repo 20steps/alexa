@@ -112,13 +112,20 @@ security:
             stateless: true
             lexik_jwt: null
             switch_user_stateless: true
-        bricks_custom_twentysteps_alexa_authenticated:
-            pattern: ^/(de|en)/authenticated
+        bricks_custom_twentysteps_alexa_authenticated_de:
+            pattern: ^/de/authenticated
             host: '%bricks_custom_twentysteps_alexa_host%'
             provider: bricks_custom_twentysteps_alexa_user_provider
             access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
             form_login: { login_path: /de/login, check_path: /de/authenticated/check, default_target_path: /de/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /de/authenticated/logout, target: /de/login, invalidate_session: true }
+        bricks_custom_twentysteps_alexa_authenticated_e:
+            pattern: ^/en/authenticated
+            host: '%bricks_custom_twentysteps_alexa_host%'
+            provider: bricks_custom_twentysteps_alexa_user_provider
+            access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
+            form_login: { login_path: /en/login, check_path: /en/authenticated/check, default_target_path: /en/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
+            logout: { path: /en/authenticated/logout, target: /en/login, invalidate_session: true }
         bricks_custom_twentysteps_alexa_oauth_token:
             pattern:    ^/oauth/v2/authenticated/token$
             host: '%bricks_custom_twentysteps_alexa_host%'

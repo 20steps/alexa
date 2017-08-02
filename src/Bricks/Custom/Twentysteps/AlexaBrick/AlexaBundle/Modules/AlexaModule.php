@@ -52,21 +52,37 @@
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
-							$responseText = sprintf('%s, %s liebt Dich!',$user->getSetting('love_name'),$user->getDisplayName());
+							if ($alexaRequest->locale=='de_DE') {
+								$responseText = sprintf('%s, %s liebt Dich!', $user->getSetting('love_name'), $user->getDisplayName());
+							} else {
+								$responseText = sprintf('%s, %s loves you!', $user->getSetting('love_name'), $user->getDisplayName());
+							}
 						} else {
-							$responseText = 'Sandra, Helmut liebt Dich!';
+							if ($alexaRequest->locale=='en_US') {
+								$responseText = 'Sandra, Helmut loves you!';
+							} else {
+								$responseText = 'Sandra, Helmut liebt Dich!';
+							}
 						}
 						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
 					case 'UptimeRobotStatusIntent':
 						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					default:
 						$response = new AlexaResponse();
-						return $response->respond('Quatsch nicht!')->endSession();
+						if ($alexaRequest->locale=='de_DE') {
+							return $response->respond('Quatsch nicht!')->endSession();
+						} else {
+							return $response->respond('Don\'t talk rubbish!')->endSession();
+						}
 				}
 			}
 			
 			$response = new AlexaResponse();
-			return $response->reprompt('Versuch\'s nochmal.')->endSession();
+			if ($alexaRequest->locale=='de_DE') {
+				return $response->reprompt('Versuch\'s nochmal.')->endSession();
+			} else {
+				return $response->reprompt('Try again.')->endSession();
+			}
 		}
 		
 		public function processPush() {

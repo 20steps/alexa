@@ -12825,3 +12825,8 @@ function resetForm() {
 $("#logo-container-top").click(function() {
     window.location.href = "/";
 });
+
+// goto start on logo click
+$("#logo-container").click(function() {
+    window.location.href = "/";
+});

@@ -14,6 +14,90 @@
                 <source>signin.mail.reset_password.subject</source>
                 <target>Zurücksetzen deines Passworts</target>
             </trans-unit>
+            <trans-unit id="4">
+                <source>meta.description</source>
+                <target>Alexa Skill von 20steps für Entwickler, Systemadministratoren und Marketer.</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>link.about</source>
+                <target>Über den Alexa Skill</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>link.imprint</source>
+                <target>Impressum und Datenschutz</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>slug.about</source>
+                <target>ueber-den-alexa-skill</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>slug.imprint</source>
+                <target>impressum</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Name of your loved one</source>
+                <target>Name Deines/Deiner Liebsten</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>API key at</source>
+                <target>API Schlüssel bei</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>info.login.title</source>
+                <target>Warum soll ich mich anmelden?</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>info.login.content</source>
+                <target>Passen Sie nach Anmeldung die Einstellungen des Skills an, z.B. den API Key für UptimeRobot. Wenn Sie noch kein Konto bei 20steps haben, klicken Sie auf Registrieren.</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>info.register.title</source>
+                <target>Warum soll ich mich registrieren?</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>info.register.content</source>
+                <target>Erstellen Sie ein Konto um den Skill an Ihre Bedürfnisse anpassen zu können. Klicken Sie danach auf Konto verknüpfen in der Alexa App.</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>info.resetPassword.title</source>
+                <target>Ich habe mein Passwort vergessen!</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>info.resetPassword.content</source>
+                <target>Kein Problem! Geben Sie Ihre E-Mail adresse ein und klicken auf Passwort zurücksetzen. Sofern Ihre E-Mail Adresse korrekt war senden wir Ihnen eine Mail mit einem sicheren Link zum ändern des Passworts.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>info.confirmAccount.title</source>
+                <target>Warum soll ich das Konto bestätigen?</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>info.confirmAccount.content</source>
+                <target>Aus Sicherheitsgründen müssen wir Ihre Email Adresse validieren.</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>info.resendActivationLink.title</source>
+                <target>Ich habe nach der Registrierung keine Email erhalten?</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>info.resendActivationLink.content</source>
+                <target>Kein Problem! Geben Sie Ihre E-Mail Adresse ein und prüfen Ihr Postfach, inklusive dem Spam-Ordner!</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>info.updatePassword.title</source>
+                <target>Was muss ich tun?</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>info.updatePassword.content</source>
+                <target>Geben Sie einfach das neue gewünschte Passwort ein und melden Sich danach damit an.</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>info.home.title</source>
+                <target>Und nun?</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>info.home.content</source>
+                <target>Prima dass Sie hier sind. Nehmen Sie die gewünschten Einstellungen vor um den Alexa Skill an Ihren Bedarf anzupassen. Und bitte vergiss nicht das Konto in der Alexa App auf Deinem Smartphone zu verknüpfen!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

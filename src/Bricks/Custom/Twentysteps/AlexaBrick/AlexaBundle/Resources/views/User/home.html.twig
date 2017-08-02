@@ -10,22 +10,22 @@
             <div class="Absolute-Center is-Responsive">
                 <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
                     <form action="{{ path('bricks.custom.twentysteps_alexa.user.home') }}" method="post">
-                        <label style="margin-bottom: 15px; width: 100%">Einstellungen vornehmen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Einstellungen&nbsp;vornehmen" data-content="Passen Sie die Einstellungen des Skills an Ihre Bedürfnisse an."></span></label>
+                        <label style="margin-bottom: 15px; width: 100%">{{ 'Configure settings'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.home.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.home.content'|trans({},'twentysteps_alexa') }}"></span></label>
                         {% if (message is defined) %}
                             <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                         {% else %}
                             <div style="margin-bottom: 10px">{{ 'Hello'|trans({},'core') }} {{  user.displayName }}</div>
                         {% endif %}
                         <div class="form-group">
-                            <label for="firstName">Dein Name</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Vorname" value="{{ user.firstName }}">
+                            <label for="firstName">{{ 'Your name'|trans({},'core') }}</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="{{ 'First name'|trans({},'core') }}" value="{{ user.firstName }}">
                         </div>
                         <div class="form-group">
-                            <label for="love_name">Name Deines/Deiner Liebsten</label>
-                            <input type="text" class="form-control" id="love_name" name="love_name" placeholder="Vorname" value="{{ user.settings.love_name }}">
+                            <label for="love_name">{{ 'Name of your loved one'|trans({},'twentysteps_alexa') }}</label>
+                            <input type="text" class="form-control" id="love_name" name="love_name" placeholder="{{ 'First name'|trans({},'core') }}" value="{{ user.settings.love_name }}">
                         </div>
                         <div class="form-group">
-                            <label for="uptime_robot_api_key">API Key bei <a target="_blank" href="https://uptimerobot.com">UptimeRobot.com</a></label>
+                            <label for="uptime_robot_api_key">{{ 'API key at'|trans({},'twentysteps_alexa') }} <a target="_blank" href="https://uptimerobot.com">UptimeRobot.com</a></label>
                             <input type="text" class="form-control" id="uptime_robot_api_key" name="uptime_robot_api_key" placeholder="API Key" value="{{ user.settings.uptime_robot_api_key }}">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ 'Save'|trans({},'core') }}</button>

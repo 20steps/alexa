@@ -14,6 +14,102 @@
                 <source>signin.mail.reset_password.subject</source>
                 <target>Reset your password</target>
             </trans-unit>
+            <trans-unit id="4">
+                <source>meta.description</source>
+                <target>Alexa Skill by 20steps for developers, system administrators and marketers.</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>link.about</source>
+                <target>About the Alexa Skill</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>link.imprint</source>
+                <target>Imprint and privacy</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>slug.about</source>
+                <target>about-the-alexa-skill</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>slug.imprint</source>
+                <target>imprint</target>
+            </trans-unit>
+             <trans-unit id="9">
+                <source>Name of your loved one</source>
+                <target>Name of your loved one</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>API key at</source>
+                <target>API key at</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>slug.imprint</source>
+                <target>impressum</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>slug.imprint</source>
+                <target>impressum</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>slug.imprint</source>
+                <target>impressum</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>info.login.title</source>
+                <target>Why should I login?</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>info.login.content</source>
+                <target>After login you can personalize the settings of the skill e.g. by entering the API key of your account at UptimeRobot.com.</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>info.register.title</source>
+                <target>Why should I register?</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>info.register.content</source>
+                <target>Create an account to personalize the skill to your needs. After that connect the account with Alexa in the Alexa App on your Smartphone.</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>info.resetPassword.title</source>
+                <target>I forgot my password!</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>info.resetPassword.content</source>
+                <target>No problem. Just enter your email address. If it is valid we will send you a secure link to update your password.</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>info.confirmAccount.title</source>
+                <target>Why must I confirm the account?</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>info.confirmAccount.content</source>
+                <target>For security reasons we had to validate your email address.</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>info.resendActivationLink.title</source>
+                <target>I did not receive an activation link?</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>info.resendActivationLink.content</source>
+                <target>No problem. Just enter your email address and check your email inbox - this time please check your SPAM folder as well!</target>
+            </trans-unit>
+            <trans-unit id="21">
+                <source>info.updatePassword.title</source>
+                <target>What do I have to do?</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>info.updatePassword.content</source>
+                <target>Simply enter your new password and login after that.</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>info.home.title</source>
+                <target>And now?</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>info.home.content</source>
+                <target>Great that you are here. Now personalize the skill to your needs and please do not forget to connect the account in the Alexa App on your Smartphone!</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>
