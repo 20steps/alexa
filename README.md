@@ -11,7 +11,7 @@ Current capabilitites:
 * Support for german and english language
 * Support for Alexa Account linking via oAuth2
 * Basic Website using Pages brick to integrate Wordpress as CMS
-* Basic user management including self-regirations and user settings
+* Basic user management including self-regiration and user settings
 * High availability deployment at Bricks Cluster, service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
 Usage:
