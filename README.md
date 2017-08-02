@@ -1,7 +1,7 @@
 20steps Alexa Backend
 =====================
 
-This is the backend of the "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
+This is the backend of the personalilzed and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
 
 Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps and used to enhance my skillset.
 
