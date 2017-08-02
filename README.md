@@ -15,7 +15,7 @@ Current capabilitites:
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any knowledge of Alexa
 * Responsive and localized Website using Pages brick to integrate Wordpress as CMS and Twig/Bootstrap for layouting
-* High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS; PHP7, mod_pagespeed, Redis, MariaDB Cluster etc. Service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
+* High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS, HHVM+PHP7, mod_pagespeed, Redis, MariaDB Cluster etc. Service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
