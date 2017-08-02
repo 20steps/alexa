@@ -11,6 +11,9 @@ Current capabilitites:
 * Support for german and english language
 * Support for Alexa Account linking via oAuth2
 * User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
+
+Technical specs:
+* Built using the RAD Bricks platform in 4 days, start to publish, without any knowledge of Alexa
 * Responsive and localized Website using Pages brick to integrate Wordpress as CMS and Twig/Bootstrap for layouting
 * High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS; PHP7, mod_pagespeed, Redis, MariaDB Cluster etc. Service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
