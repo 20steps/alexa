@@ -4,6 +4,7 @@
 	
 	use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 	
+	use Symfony\Component\HttpFoundation\RequestStack;
 	use twentysteps\Commons\EnsureBundle\Ensure;
 	
 	use Bricks\Basic\MobileBrick\MobileBundle\Modules\AbstractMailModule;
@@ -76,6 +77,7 @@
 					$allowed=false;
 				}
 			}
+			$locale = $this->getLocale();
 			if ($allowed) {
 				$this->sendMail(
 					$user->getEmailCanonical(),
@@ -85,8 +87,8 @@
 						'text' => $message->getText(),
 						'custom' => $message->getCustom()
 					),
-					'message.de.txt.twig',
-					'message.de.html.twig',
+					'message.'.$locale.'.txt.twig',
+					'message.'.$locale.'.html.twig',
 					'20steps: '.$message->getText()
 				);
 			}
@@ -154,23 +156,24 @@
 		}
 		
 		public function sendMailToUser(User $user, $data, $view, $subject='Nachricht von 20steps', $fromMail = null, $fromName = null, $replyTo = null) {
-			return $this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.de.txt.twig', $view.'.de.html.twig', $subject, $fromMail, $fromName, $replyTo);
+			$locale = $this->getLocale();
+			return $this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.'.$locale.'.txt.twig', $view.'.'.$locale.'.html.twig', $subject, $fromMail, $fromName, $replyTo);
 		}
 		
 		public function sendMailToAdmins($data, $view, $subject='Nachricht von Bricks by 20steps', $fromMail = null, $fromName = null, $replyTo = null) {
 			$users = $this->pages->getUserModule()->findByRole('ROLE_WP_ADMINISTRATOR');
-			
+			$locale = $this->getLocale();
 			foreach ($users as $user) {
-				$this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.de.txt.twig', $view.'.de.html.twig', $subject, $fromMail, $fromName, $replyTo);
+				$this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.'.$locale.'.txt.twig', $view.'.'.$locale.'.html.twig', $subject, $fromMail, $fromName, $replyTo);
 			}
 			return true;
 		}
 		
 		public function sendMailToEditors($data, $view, $subject='Nachricht von Bricks by 20steps', $fromMail = null, $fromName = null, $replyTo = null) {
 			$users = $this->pages->getUserModule()->findByRole('ROLE_WP_EDITOR');
-			
+			$locale = $this->getLocale();
 			foreach ($users as $user) {
-				$this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.de.txt.twig', $view.'.de.html.twig', $subject, $fromMail, $fromName, $replyTo);
+				$this->sendMail($user->getEmail(), $user->getDisplayName(), $data, $view.'.'.$locale.'.txt.twig', $view.'.'.$locale.'.html.twig', $subject, $fromMail, $fromName, $replyTo);
 			}
 			return true;
 		}
@@ -187,6 +190,21 @@
 		
 		private function getURLPrefix() {
 			return $this->customProtocol.'://'.$this->customHost;
+		}
+		
+		/**
+		 * @return string
+		 */
+		private function getLocale($default='de') {
+			/**
+			 * @var RequestStack $requestStack
+			 */
+			$requestStack = $this->getCore()->getContainer()->get('request_stack');
+			$request = $requestStack->getCurrentRequest();
+			if ($request) {
+				return $requestStack->getCurrentRequest()->getLocale();
+			}
+			return $default;
 		}
 		
 	}
