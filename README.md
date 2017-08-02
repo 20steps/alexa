@@ -12,7 +12,7 @@ Current capabilitites:
 * Basic user management including self-regirations and user settings
 * Alexa Account linking using oAuth2
 * Support for german and english language including localized website
-* High availability deployment at Bricks Cluster, service status available via <a href="https://monitoring.20steps.de">UptimeRobot</a>
+* High availability deployment at Bricks Cluster, service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
