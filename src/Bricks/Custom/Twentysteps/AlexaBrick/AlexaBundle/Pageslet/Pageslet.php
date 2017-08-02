@@ -123,8 +123,8 @@ class Pageslet extends AbstractPageslet {
                         'fullFeaturedImageUrl' => $page->getFullFeaturedImageUrl(),
                         'mediumFeaturedImageUrl' => $page->getMediumFeaturedImageUrl(),
                         'shortDescription' => $page->getShortDescription(),
-                        'metaDescription' => $page->getMetaDescription(),
-                        'content' => wpautop($page->getContent()),
+                        'metaDescription' => $page->getMetaDescription($locale),
+                        'content' => wpautop($page->getLocalizedContent($locale)),
                         'paths' => array(
                             'de' => $page->getPath('de'),
                             'en' => $page->getPath('en')
@@ -144,8 +144,8 @@ class Pageslet extends AbstractPageslet {
                         'fullFeaturedImageUrl' => $post->getFullFeaturedImageUrl(),
                         'mediumFeaturedImageUrl' => $post->getMediumFeaturedImageUrl(),
                         'shortDescription' => $post->getShortDescription(),
-                        'metaDescription' => $post->getMetaDescription(),
-                        'content' => wpautop($post->getContent()),
+                        'metaDescription' => $post->getMetaDescription($locale),
+                        'content' => wpautop($post->getLocalizedContent($locale)),
                         'categories' => array(
                             'primary' => $primaryCategory?array(
                                 'id' => $primaryCategory['id'],
