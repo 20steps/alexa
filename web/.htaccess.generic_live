@@ -26,10 +26,27 @@ DirectoryIndex app.php
     SetEnvIf Host "alexa.20steps.de" LAZY_LOAD_WORDPRESS=1
 
     # Custom redirects and rewrites
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
+    RewriteCond %{HTTP:Accept-Language} ^de [NC]
     RewriteRule ^$ /de/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
+    RewriteCond %{HTTP:Accept-Language} ^en [NC]
+    RewriteRule ^$ /en/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
+    RewriteRule ^$ /de/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
     RewriteRule ^de$ /de/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
     RewriteRule ^en$ /en/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
     RewriteRule ^sitemap\.xml$ /custom/alexa/sitemaps/sitemap-index.xml [L]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.20steps.de$ [NC]
     RewriteRule ^sitemaps/(.*)$ /custom/alexa/sitemaps/$1 [L]
 
     # Determine the RewriteBase automatically and set it as environment variable.

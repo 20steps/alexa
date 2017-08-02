@@ -27,17 +27,27 @@ DirectoryIndex app.php
 
     # Custom redirects and rewrites
 
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteCond %{HTTP:Accept-Language} ^de [NC]
     RewriteRule ^$ /de/login [L,R=302]
 
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteCond %{HTTP:Accept-Language} ^en [NC]
     RewriteRule ^$ /en/login [L,R=302]
 
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteRule ^$ /de/login [L,R=302]
 
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteRule ^de$ /de/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteRule ^en$ /en/login [L,R=302]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteRule ^sitemap\.xml$ /custom/alexa/sitemaps/sitemap-index.xml [L]
+
+    RewriteCond %{HTTP_HOST}   ^alexa.localhost.com$ [NC]
     RewriteRule ^sitemaps/(.*)$ /custom/alexa/sitemaps/$1 [L]
 
     # Determine the RewriteBase automatically and set it as environment variable.
