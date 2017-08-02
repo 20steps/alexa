@@ -41,6 +41,8 @@ Hints for fellow coders:
 ## Sponsored by
 <a href="https://20steps.de">20steps - Digital Full Service Boutique</a>
 
+p.s.: we are up for hire
+
 [1]:  https://github.com/20steps/bricks-installer
 [2]:  https://symfony.com/
 [3]:  https://api-platform.com/
