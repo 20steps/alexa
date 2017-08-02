@@ -46,7 +46,7 @@
 			$response = new AlexaResponse();
 
 			if (!$user) {
-				if ($intentRequest->locale=='de') {
+				if ($intentRequest->locale=='de-DE') {
 					$responseText='Bitte registriere Dich bei alexa.20steps.de und verknüpfe in das Konto in der Allexa App auf Deinem Smartphone.';
 					$cardTitle = 'Account verknüpfen';
 				} else {
@@ -60,7 +60,7 @@
 			}
 			
 			if (!$user->hasSetting('uptime_robot_api_key') || $user->getSetting('uptime_robot_api_key')=='') {
-				if ($intentRequest->locale=='de') {
+				if ($intentRequest->locale=='de-DE') {
 					$responseText='Bitte melde Dich bei alexa.20steps.de an und speichere Deinen UptimeRobot API Schlüssel';
 					$cardTitle = 'UptimeRobot API Schlüssel';
 				} else {
@@ -126,28 +126,28 @@
 					
 					
 					// prepare response text
-					if ($intentRequest->locale=='de') {
+					if ($intentRequest->locale=='de-DE') {
 						$responseText = $statistics['count'].' Monitore wurden geprüft: ';
 					} else {
 						$responseText = $statistics['count'].' have been checked: ';
 					}
 					
 					if (($statistics['seems_down']['count'] + $statistics['down']['count']) == 0) {
-						if ($intentRequest->locale=='de') {
+						if ($intentRequest->locale=='de-DE') {
 							$responseText.= 'Alle Systeme sind up. Trink einen Kaffee! ';
 						} else {
 							$responseText.= 'All systems up and running. Drink a coffee!! ';
 						}
 					} else {
 						if ($statistics['down']['count'] > 0) {
-							if ($intentRequest->locale=='de') {
+							if ($intentRequest->locale=='de-DE') {
 								$responseText.= 'Oh weh! '.$statistics['down']['count'].' Monitore sind down! Bitte prüfe das sofort oder hol Dir einen Schnaps! ';
 							} else {
 								$responseText.= 'Oh no! '.$statistics['down']['count'].' monitors are down! Please check your systems immediately or drink a whiskey! ';
 							}
 						}
 						if ($statistics['seems_down']['count'] > 0) {
-							if ($intentRequest->locale=='de') {
+							if ($intentRequest->locale=='de-DE') {
 								$responseText.= 'Hm, '.$statistics['seems_down']['count'].' Monitore sind möglicherweise down! Bitte prüfe das bei Gelegenheit und vergiss nicht genug Wasser zu trinken.';
 							} else {
 								$responseText.= 'Hm, '.$statistics['seems_down']['count'].' monitors are possibly down! Please check this at your pleasure and don\'t forget to drink enough water.';
@@ -157,27 +157,27 @@
 					}
 					
 					if ($statistics['paused']['count'] + $statistics['not_checked_yet']['count']  + $statistics['unknown']['count'] > 0) {
-						if ($intentRequest->locale=='de') {
+						if ($intentRequest->locale=='de-DE') {
 							$responseText .= 'Ach und übrigens, ein Hinweis noch: ';
 						} else {
 							$responseText .= 'Oh and by the way, one additional hint: ';
 						}
 						if ($statistics['paused']['count'] > 0) {
-							if ($intentRequest->locale=='de') {
+							if ($intentRequest->locale=='de-DE') {
 								$responseText .= $statistics['paused']['count'] . ' Monitore sind pausiert.';
 							} else {
 								$responseText .= $statistics['paused']['count'] . ' monitors are paused.';
 							}
 						}
 						if ($statistics['not_checked_yet']['count'] > 0) {
-							if ($intentRequest->locale=='de') {
+							if ($intentRequest->locale=='de-DE') {
 								$responseText .= $statistics['paused']['count'] . ' Monitore wurden noch nicht geprüft.';
 							} else {
 								$responseText .= $statistics['paused']['count'] . ' monitors have not been checked yet.';
 							}
 						}
 						if ($statistics['unknown']['count'] > 0) {
-							if ($intentRequest->locale=='de') {
+							if ($intentRequest->locale=='de-DE') {
 								$responseText .= 'Bei ' . $statistics['paused']['count'] . ' Monitoren bin ich mir nicht sicher..';
 							} else {
 								$responseText .= 'With ' . $statistics['paused']['count'] . ' monitors i am not quite sure ..';
@@ -192,7 +192,7 @@
 				
 				$error = $monitorsResponse->getError();
 				
-				if ($intentRequest->locale=='de') {
+				if ($intentRequest->locale=='de-DE') {
 					$responseText = 'Leider konnte ich den Status nicht ermitteln - bitte prüfe Deinen UptimeRobot API Schlüssel : '.$error->getMessage();
 					$responseText .= ' Melde Dich bei alexa.20steps.de an um Deinen API Schlüssel zu konfigurieren.';
 					$cardTitle = 'UptimeRobot Prüfung';
@@ -215,7 +215,7 @@
 			 */
 			$reasonPhrase = $monitorsResponse->getReasonPhrase();
 
-			if ($intentRequest->locale=='de') {
+			if ($intentRequest->locale=='de-DE') {
 				$responseText = 'Leider ist ein technischer Fehler aufgetreten - bitte prüfe Deinen UptimeRobot API Schlüssel: '.($reasonPhrase?$reasonPhrase:$monitorsResponse->getStatusCode());
 				$responseText .= ' Melde Dich bei alexa.20steps.de an um Deinen API Schlüssel zu konfigurieren.';
 				$cardTitle = 'UptimeRobot Prüfung';
