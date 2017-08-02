@@ -3,7 +3,7 @@
 
 This is the backend of the "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
 
-Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps and used to enhance my skillset ,-)
+Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps and used to enhance my skillset.
 
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
@@ -22,10 +22,10 @@ TODO:
 * Localization for english language (in addition to german language) (wip)
 * Publish skill at Amazon (wip)
 * Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
-* Some more capabilities that help developers and system administrators or marketers (GA, GWT, Batch, QWertz, Adex, and a lot more in the works ...)
+* Some more capabilities that help developers, system administrators and marketers (GA, GWT, Slack etc.)
 * Adapt for Echo Show (as soon as it is available in Germany)
-* Enhance AbstractCustomBundle of Bricks platform to minimize glue code in custom brick as this is prob. the most simple application ever built with bricks ,-)
-* Automated tests and after that invite som developers to provide speechlets ,-)
+* Enhance AbstractCustomBundle of Bricks platform to minimize glue code
+* Automated tests and after that invite som developers to provide speechlets
 
 Hints for fellow coders:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
