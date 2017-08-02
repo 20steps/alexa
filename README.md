@@ -19,11 +19,11 @@ Usage:
 * Connect the previously registered account in the Alexa App.
 
 TODO:
-* Publish skill at Amazon (wip)
-* Some more capabilities that help developers, system administrators and marketers (GA, GWT, Slack etc.)
-* Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
-* Adapt for Echo Show (as soon as it is available in Germany)
-* Enhance AbstractCustomBundle of Bricks platform to minimize glue code
+* Publish skill at Amazon (waiting for approval)
+* Some more capabilities that help developers, system administrators and marketers such as GA, GWT, Slack etc. (wip)
+* Refactor AbstractCustomBundle of Bricks platform to minimize glue code and introduce speechlets (wip)
+* Prepare Joblet for Alexa push messages
+* Adapt for Echo Show as soon as it is available in Germany
 * Automated tests and after that invite som developers to provide speechlets
 
 Hints for fellow coders:
