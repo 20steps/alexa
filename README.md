@@ -18,12 +18,12 @@ Usage:
 * Connect the previously registered account in the Alexa App.
 
 TODO:
-* Self-registration and password reset for users at https://alexa.20steps.de  (wip)
+* Self-registration for users at https://alexa.20steps.de  (wip)
+* Localization for english language (in addition to german language) (wip)
 * Publish skill at Amazon (wip)
 * Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
 * Some more capabilities that help developers and system administrators or marketers (GA, GWT, Batch, QWertz, Adex, and a lot more in the works ...)
 * Adapt for Echo Show (as soon as it is available in Germany)
-* Localization for english language (in addition to german language)
 * Enhance AbstractCustomBundle of Bricks platform to minimize glue code in custom brick as this is prob. the most simple application ever built with bricks ,-)
 * Automated tests and after that invite som developers to provide speechlets ,-)
 

@@ -13,17 +13,9 @@ use Bricks\AbstractCustomBundle\DTO\AbstractRegistration;
 class Registration extends AbstractRegistration {
 
     private $source;
-    private $type;
-    private $birthday;
-    private $firstName;
-    private $lastName;
-    private $message;
 
     public function setFromRequest(Request $request) {
         parent::setFromRequest($request);
-        $this->setType($request->request->get('type'));
-        $this->setFirstName($request->request->get('first_name'));
-        $this->setLastName($request->request->get('last_name'));
     }
 	
 	/**
@@ -43,69 +35,4 @@ class Registration extends AbstractRegistration {
 		return $this;
 	}
 	
-	/**
-	 * @return mixed
-	 */
-	public function getMessage() {
-		return $this->message;
-	}
-	
-	/**
-	 * @param mixed $message
-	 * @return Registration
-	 */
-	public function setMessage($message) {
-		$this->message = $message;
-		
-		return $this;
-	}
-    
-    /**
-     * @return mixed
-     */
-    public function getFirstName()
-    {
-        return $this->firstName;
-    }
-
-    /**
-     * @param mixed $firstName
-     */
-    public function setFirstName($firstName)
-    {
-        $this->firstName = $firstName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLastName()
-    {
-        return $this->lastName;
-    }
-
-    /**
-     * @param mixed $lastName
-     */
-    public function setLastName($lastName)
-    {
-        $this->lastName = $lastName;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getType()
-    {
-        return $this->type?:'user';
-    }
-
-    /**
-     * @param mixed $type
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-    }
-
 }

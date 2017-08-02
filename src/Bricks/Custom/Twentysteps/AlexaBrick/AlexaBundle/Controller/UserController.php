@@ -2,7 +2,10 @@
 
 namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 
-use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
+use Bricks\AbstractCustomBundle\Exception\EmailAlreadyTakenException;
+use Bricks\AbstractCustomBundle\Exception\EmailInvalidException;
+use Bricks\AbstractCustomBundle\Exception\PasswordToShortException;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\DTO\Registration;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -11,10 +14,20 @@ use FOS\RestBundle\Controller\Annotations\View;
 
 use twentysteps\Commons\EnsureBundle\Ensure;
 
+use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Controller\AbstractBricksController;
+
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule;
 
 
 class UserController extends AbstractBricksController {
+	
+	/**
+	 * @var UserModule $userModule ;
+	 * @BS\Inject()
+	 */
+	protected $userModule;
 	
 	/**
 	 * @param Request $request
@@ -23,6 +36,78 @@ class UserController extends AbstractBricksController {
 		parent::setupController($request);
 		// force html format as some spiders send strange requests ...
 		$request->setRequestFormat('html');
+	}
+	
+	
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function registerAction(Request $request) {
+		$context = [
+			'body_class' => 'register',
+			'title' => 'Register'
+		];
+		if ($request->getMethod()==Request::METHOD_POST) {
+			$request->request->set('username',$request->request->get('email'));
+			$registration = new Registration();
+			$registration->setFromRequest($request);
+			try {
+				$result = $this->userModule->register($registration);
+				$context['message']=$result['message'];
+				$context['is_enabled']=$result['is_enabled'];
+			} catch(EmailInvalidException $e) {
+				$context['message']='email_invalid';
+				$context['is_enabled']=false;
+			} catch(EmailAlreadyTakenException $e) {
+				$context['message']='email_already_taken';
+				$context['is_enabled']=false;
+			} catch(PasswordToShortException $e) {
+				$context['message']='password_to_short';
+				$context['is_enabled']=false;
+			} catch(\Exception $e) {
+				$context['message']=$e->getMessage();
+				$context['is_enabled']=false;
+			}
+		}
+		return $context;
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function confirmAction(Request $request) {
+		$context = [
+			'body_class' => 'confirm_registration',
+			'title' => 'Confirm registration'
+		];
+		
+		$token = Ensure::isNotNull($request->query->get('token'),'token must not be null');
+		
+		$flash = $this->userModule->activateRegistration($token);
+		$context['message'] = $flash['message'];
+		
+		return $context;
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function resendActivationMailAction(Request $request) {
+		$context = [
+			'body_class' => 'resend_activation_mail',
+			'title' => 'Resend activation mail'
+		];
+		
+		$context['message'] = 'not yet implemented';
+		
+		return $context;
 	}
 	
 	/**
@@ -61,23 +146,6 @@ class UserController extends AbstractBricksController {
 	 * @param Request $request
 	 * @return array
 	 */
-	public function registerAction(Request $request) {
-		$context = [
-			'body_class' => 'register',
-			'title' => 'Register'
-		];
-		if ($request->getMethod()==Request::METHOD_POST) {
-			$context['message']='Registration succeeded';
-			$context['message']='Not yet implemented';
-		}
-		return $context;
-	}
-	
-	/**
-	 * @View
-	 * @param Request $request
-	 * @return array
-	 */
 	public function homeAction(Request $request) {
 		/**
 		 * @var User $user
@@ -93,9 +161,14 @@ class UserController extends AbstractBricksController {
 		if ($request->getMethod()==Request::METHOD_POST) {
 			$settings = $request->request->all();
 			foreach ($settings as $key => $value) {
-				$user->updateSetting($key,trim($value));
+				$value = trim($value);
+				if ($key=='firstName') {
+					$user->setFirstName($value);
+				} else {
+					$user->updateSetting($key,$value);
+				}
 			}
-			$this->em->flush();
+			$this->userModule->updateUser($user);
 			$context['message']='Settings saved';
 		}
 		return $context;

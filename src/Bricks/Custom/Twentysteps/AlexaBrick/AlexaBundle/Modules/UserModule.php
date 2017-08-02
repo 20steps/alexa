@@ -12,6 +12,7 @@ use Doctrine\ORM\Tools\Pagination\Paginator;
 
 use JMS\DiExtraBundle\Annotation\Service;
 
+use Symfony\Component\Routing\Router;
 use Twig_Environment;
 use Swift_Mailer;
 
@@ -69,13 +70,19 @@ class UserModule extends AbstractUserModule {
      * @var Project
      */
     protected $currentProjectEntity;
+	
+	/**
+	 * @var Router
+	 */
+    protected $router;
 
 
-    public function __construct(EntityManager $em, RequestStack $requestStack, EventDispatcherInterface $eventDispatcher, UserManager $userManager, $sts, $sac, RefreshTokenManager $refreshTokenManager, $redis, $jwtEncoder, $liipImagineCacheManager, $avatarDirectory, $avatarPath, $translator, Twig_Environment $twig, Swift_Mailer $mailer, $fromEmail, $fromName, $replyTo, $allowMultipart, $customProtocol, $customHost, $activationTokenValidity, $passwordResetTokenValidity, $bcc, $bccDev, BusinessShell $business, $logger) {
+    public function __construct(EntityManager $em, RequestStack $requestStack, EventDispatcherInterface $eventDispatcher, UserManager $userManager, $sts, $sac, RefreshTokenManager $refreshTokenManager, $redis, $jwtEncoder, $liipImagineCacheManager, $avatarDirectory, $avatarPath, $translator, Twig_Environment $twig, Swift_Mailer $mailer, $fromEmail, $fromName, $replyTo, $allowMultipart, $customProtocol, $customHost, $activationTokenValidity, $passwordResetTokenValidity, $bcc, $bccDev, BusinessShell $business, Router $router, $logger) {
         parent::__construct($em, $requestStack, $eventDispatcher, $userManager, $sts, $sac, $refreshTokenManager, $redis, $jwtEncoder, $liipImagineCacheManager, $avatarDirectory, $avatarPath, $translator, $twig, $mailer, $fromEmail, $fromName, $replyTo, $allowMultipart, $customProtocol, $customHost, $activationTokenValidity, $passwordResetTokenValidity, $logger);
         $this->bcc = $bcc;
 	    $this->bccDev = $bccDev;
         $this->business = $business;
+        $this->router = $router;
     }
 
     // abstracts
@@ -112,34 +119,6 @@ class UserModule extends AbstractUserModule {
     }
 
     // overrides
-	
-    public function findImpersonatable() {
-        $users = parent::findImpersonatable();
-        $currentUser = $this->getCurrentUser();
-        $rtn = array();
-        foreach ($users as $user) {
-        	/** @var User $user */
-            if ($user->getId() == $currentUser->getId()) {
-                continue;
-            }
-            if ($currentUser->isSuperAdmin()) {
-                $rtn[] = $user;
-            }
-        }
-        return $rtn;
-    }
-
-    protected function getDigitsConsumerKey() {
-        return $this->getCore()->getContainer()->getParameter('bricks_custom_twentysteps_alexa_digits_consumer_key');
-    }
-
-    public function touchAll() {
-        $entities = $this->findAll();
-        foreach ($entities as $entity) {
-            $entity->setUpdatedAt(new \DateTime());
-        }
-        $this->em->flush();
-    }
 
     /** @return User */
     public function find($id) {
@@ -171,11 +150,11 @@ class UserModule extends AbstractUserModule {
     }
 
     protected function getActivationWebUrlPrefix($locale = 'de') {
-        return '/' . $locale . '/activate';
+        return '/' . $locale . '/confirm';
     }
 
     protected function getActivationUrl(AbstractUser $user, $locale = 'de') {
-        return $this->getURLForPath($this->getActivationWebUrlPrefix($locale)) . '/' . urlencode($user->getActivationToken());
+        return $this->getURLForPath($this->getActivationWebUrlPrefix($locale)) . '?token=' . urlencode($user->getActivationToken());
     }
 
     protected function getPasswordResetWebUrlPrefix($locale = 'de') {
@@ -183,11 +162,11 @@ class UserModule extends AbstractUserModule {
     }
 
     protected function getResetPasswordUrl(AbstractUser $user, $locale = 'de') {
-        return $this->getURLForPath($this->getPasswordResetWebUrlPrefix($locale)) . '/' . urlencode($user->getResetPasswordToken());
+        return $this->getURLForPath($this->getPasswordResetWebUrlPrefix($locale)) . '?token=' . urlencode($user->getResetPasswordToken());
     }
 
     protected function autoEnable() {
-        return true;
+        return false;
     }
 
     /**
@@ -196,7 +175,7 @@ class UserModule extends AbstractUserModule {
      */
     protected function autoEnableByUser(AbstractUser &$user) {
         /** @var User $user */
-        return true;
+        return false;
     }
 
     /**
@@ -205,8 +184,7 @@ class UserModule extends AbstractUserModule {
      */
     protected function shouldSendActivationMail(AbstractUser &$user) {
         /** @var User $user */
-        return true;
-        // return !$this->autoEnableByUser($user);
+        return !$this->autoEnableByUser($user);
     }
 	
 	/**
@@ -230,53 +208,18 @@ class UserModule extends AbstractUserModule {
     }
 
     public function processCustomRegistrationData(AbstractUser &$user, AbstractRegistration $registration) {
-        /** @var Registration $registration */
-        $type = strtolower($registration->getType());
-
-        /** @var User $user */
-        $user->setFirstName($registration->getFirstName());
-        $user->setLastName($registration->getLastName());
-
-        switch ($type) {
-            case 'user':
-                $user->addRole('ROLE_TWENTYSTEPS_ALEXA_USER');
-                break;
-            case 'admin':
-                $user->addRole('ROLE_TWENTYSTEPS_ALEXA_ADMIN');
-                break;
-            default:
-                $user->addRole('ROLE_TWENTYSTEPS_ALEXA_USER');
-                break;
-        }
+        $user->addRole('ROLE_TWENTYSTEPS_ALEXA_USER');
     }
 
-    public function processUserAfterRegistration(AbstractUser $user, AbstractRegistration $registration) {
-
-        parent::processUserAfterRegistration($user, $registration);
-
-        /** @var Registration $registration */
-        /** @var User $user */
-    }
-	
 	public function processUserAfterActivation(AbstractUser $user) {
     	parent::processUserAfterActivation($user);
 		/** @var User $user */
-		if (!$user->isAdmin()) {
-			$this->getShell()->getMailModule()->sendMailToUser($user,
-				[
-					'user' => $user
-				],
-				'welcome.b2c','Willkommen bei 20steps'
-			);
-		} else if (!$user->isAdmin()) {
-			$this->getShell()->getMailModule()->sendMailToUser($user,
-				[
-					'user' => $user
-				],
-				'welcome.b2c','Willkommen bei 20steps'
-			);
-		} else if ($user->isAdmin()) {
-		}
+		$this->getShell()->getMailModule()->sendMailToUser($user,
+			[
+				'user' => $user
+			],
+			'welcome','Willkommen bei 20steps'
+		);
 	}
 
     protected function getMinUsernameLength() {
@@ -306,25 +249,6 @@ class UserModule extends AbstractUserModule {
         return $flash;
     }
 	
-	/**
-	 * @param array $payload
-	 * @return array
-	 */
-	public function updateFromPayload($payload,$user = null) {
-		$flash = parent::updateFromPayload($payload);
-
-		/** @var User $user */
-		if (!$user) {
-			$user = $this->getCurrentUser();
-		}
-
-		if (array_key_exists('tags',$payload)) {
-			$user->addTags($payload['tags']);
-		}
-		
-		$this->em->flush();
-		return $flash;
-	}
 
 	// custom finders
     
@@ -344,27 +268,6 @@ class UserModule extends AbstractUserModule {
     }
 	
 	/**
-	 * @return User[]
-	 */
-    public function findAdmins($enabled = true) {
-        $rtn = array();
-        $users = $this->findAll($enabled);
-        foreach ($users as $user) {
-            /** @var User $user */
-            if ($user->isAdmin()) {
-                $rtn[] = $user;
-            }
-        }
-        return $rtn;
-    }
-	
-    
-    public function fixData() {
-    	
-        throw new \Exception("not yet implemented");
-    }
-	
-	/**
 	 * @param User $user
 	 * @return User
 	 */
@@ -374,30 +277,6 @@ class UserModule extends AbstractUserModule {
 		return $user;
 	}
 
-	// for dashboarding
-	
-	/**
-	 * @param string $view
-	 * @return array
-	 */
-	public function getDashboardData($view='full') {
-		return [
-			'count' => $this->count()
-		];
-	}
-	
-	/**
-	 * @return int
-	 */
-	public function count() {
-		return intval($this->em
-			->createQueryBuilder()
-			->select('count(user.id)')
-			->from('BricksCustomTwentystepsAlexaBundle:User','user')
-			->getQuery()
-			->getSingleScalarResult());
-	}
-	
     // helpers
 
     /** @return Project */

@@ -1,14 +1,24 @@
 # regular login
 
-bricks.custom.twentysteps_alexa.user.login:
-    path: /{_locale}/login
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:login, project: alexa }
-    methods: [GET]
-
 bricks.custom.twentysteps_alexa.user.register:
     path: /{_locale}/register
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:register, project: alexa }
     methods: [GET,POST]
+
+bricks.custom.twentysteps_alexa.user.confirm:
+    path: /{_locale}/confirm
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:confirm, project: alexa }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.user.resend_acivation_mail:
+    path: /{_locale}/resend-activation-mail
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resendActivationMail, project: alexa }
+    methods: [GET,POST]
+
+bricks.custom.twentysteps_alexa.user.login:
+    path: /{_locale}/login
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:login, project: alexa }
+    methods: [GET]
 
 bricks.custom.twentysteps_alexa.user.check:
     path:   /{_locale}/authenticated/check

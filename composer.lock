@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "a95537362b905cd54acca3595f3abe7140a27800"
+                "reference": "da66781a2069499f1541b41a31628bfd879011e5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/a95537362b905cd54acca3595f3abe7140a27800",
-                "reference": "a95537362b905cd54acca3595f3abe7140a27800",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/da66781a2069499f1541b41a31628bfd879011e5",
+                "reference": "da66781a2069499f1541b41a31628bfd879011e5",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-08-01 16:21:37"
+            "time": "2017-08-02 08:57:33"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
@@ -1030,16 +1030,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.2",
+            "version": "3.32.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "a823106c19f44bed652b6415e846d7afa503c04c"
+                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/a823106c19f44bed652b6415e846d7afa503c04c",
-                "reference": "a823106c19f44bed652b6415e846d7afa503c04c",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
+                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-07-31T22:18:28+00:00"
+            "time": "2017-08-01T21:51:56+00:00"
         },
         {
             "name": "beberlei/DoctrineExtensions",
@@ -9979,12 +9979,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/http.git",
-                "reference": "d1ee39ad2a1f5cf3b5f727cdd14f466816b82bba"
+                "reference": "6de52b61a8301474b6e817fa047b5e877d1794f9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/http/zipball/d1ee39ad2a1f5cf3b5f727cdd14f466816b82bba",
-                "reference": "d1ee39ad2a1f5cf3b5f727cdd14f466816b82bba",
+                "url": "https://api.github.com/repos/reactphp/http/zipball/6de52b61a8301474b6e817fa047b5e877d1794f9",
+                "reference": "6de52b61a8301474b6e817fa047b5e877d1794f9",
                 "shasum": ""
             },
             "require": {
@@ -10020,7 +10020,7 @@
                 "server",
                 "streaming"
             ],
-            "time": "2017-07-15 09:42:18"
+            "time": "2017-08-02 06:40:42"
         },
         {
             "name": "react/promise",
@@ -11028,16 +11028,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.1",
+            "version": "v4.1.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f"
+                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f",
-                "reference": "cf61ce9d9706ba35e60a894fe6f3584c6d0e5c9f",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/9c7bfbc7be32781d39f8e262744f7fb0c410df67",
+                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67",
                 "shasum": ""
             },
             "require": {
@@ -11069,7 +11069,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-07-28T18:31:05+00:00"
+            "time": "2017-08-02T07:52:06+00:00"
         },
         {
             "name": "snc/redis-bundle",

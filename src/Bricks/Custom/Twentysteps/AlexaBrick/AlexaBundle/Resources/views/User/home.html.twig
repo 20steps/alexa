@@ -17,12 +17,16 @@
                             <div style="margin-bottom: 10px">{{ 'Hello'|trans({},'core') }} {{  user.displayName }}</div>
                         {% endif %}
                         <div class="form-group">
-                            <label for="uptime_robot_api_key">API Key bei <a target="_blank" href="https://uptimerobot.com">UptimeRobot.com</a></label>
-                            <input type="text" class="form-control" id="uptime_robot_api_key" name="uptime_robot_api_key" placeholder="API Key" value="{{ user.settings.uptime_robot_api_key }}">
+                            <label for="firstName">Dein Name</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Vorname" value="{{ user.firstName }}">
                         </div>
                         <div class="form-group">
-                            <label for="love_name">Name Ihrer/Ihres Liebsten</label>
+                            <label for="love_name">Name Deines/Deiner Liebsten</label>
                             <input type="text" class="form-control" id="love_name" name="love_name" placeholder="Vorname" value="{{ user.settings.love_name }}">
+                        </div>
+                        <div class="form-group">
+                            <label for="uptime_robot_api_key">API Key bei <a target="_blank" href="https://uptimerobot.com">UptimeRobot.com</a></label>
+                            <input type="text" class="form-control" id="uptime_robot_api_key" name="uptime_robot_api_key" placeholder="API Key" value="{{ user.settings.uptime_robot_api_key }}">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ 'Save'|trans({},'core') }}</button>
                         <a style="text-align: right; float: right; margin-top: 8px;" href="#" onclick="resetForm();">{{ 'Reset'|trans({},'core') }}</a>

@@ -1,0 +1,19 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:layout:layout.html.twig" %}
+
+{% block content %}
+
+    <div id="logo-container-top"></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
+                    <form action="{{ path('bricks.custom.twentysteps_alexa.user.reset_password') }}" method="post">
+                        <label style="margin-bottom: 15px; width: 100%">Aktivierungslink erneut gesendet <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Passswort&nbsp;zurücksetzen" data-content="Gibt Deine bei der Registrierung verwendete E-Mail Adresse ein, um Dein Passwort zurückzusetzen."></span></label>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "BricksCustomTwentystepsAlexaBundle:layout:layout.html.twig" %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            <div class="Absolute-Center is-Responsive">
+                <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
+                    <div id="logo-container"></div>
+                    {% if (message is defined) %}
+                        {% if message == 'user_not_found' %}
+                            <form action="{{ path('bricks.custom.twentysteps_alexa.user.resend_acivation_mail') }}" method="post">
+                                <label style="margin-bottom: 15px; width: 100%">Aktivierungslink ungültig <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Alexa&nbsp;20steps&nbsp;Skill&nbsp;anpassen" data-content="Passen Sie die Einstellungen des Skills z.B. den API Key für UptimeRobot an. Wenn Sie noch keinen Account bei 20steps haben, klicken Sie auf Registrieren."></span></label>
+                                <div class="form-group">
+                                    <label for="username">E-Mail Adressse</label>
+                                    <input type="text" class="form-control" id="username" name="_username" placeholder="E-Mail Adresse">
+                                </div>
+                                <button type="submit" class="btn btn-primary">{{ 'Resend activation'|trans({},'core') }}</button>
+                                <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
+                            </form>
+                        {% elseif message == 'token_expired' %}
+                            <form action="{{ path('bricks.custom.twentysteps_alexa.user.resend_acivation_mail') }}" method="post">
+                                <label style="margin-bottom: 15px; width: 100%">Aktivierungslink abgelaufen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Alexa&nbsp;20steps&nbsp;Skill&nbsp;anpassen" data-content="Passen Sie die Einstellungen des Skills z.B. den API Key für UptimeRobot an. Wenn Sie noch keinen Account bei 20steps haben, klicken Sie auf Registrieren."></span></label>
+                                <div class="form-group">
+                                    <label for="username">E-Mail Adressse</label>
+                                    <input type="text" class="form-control" id="username" name="_username" placeholder="E-Mail Adresse">
+                                </div>
+                                <button type="submit" class="btn btn-primary">{{ 'Resend activation'|trans({},'core') }}</button>
+                                <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
+                            </form>
+                        {% elseif message == 'registration_activated' %}
+                            <form action="{{ path('bricks.custom.twentysteps_alexa.user.check') }}" method="post">
+                                <label style="margin-bottom: 15px; width: 100%">Registrierung bestätigt, jetzt anmelden <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Alexa&nbsp;20steps&nbsp;Skill&nbsp;anpassen" data-content="Passen Sie die Einstellungen des Skills z.B. den API Key für UptimeRobot an. Wenn Sie noch keinen Account bei 20steps haben, klicken Sie auf Registrieren."></span></label>
+                                <div class="form-group">
+                                    <label for="username">E-Mail Adressse</label>
+                                    <input type="text" class="form-control" id="username" name="_username" placeholder="E-Mail Adresse">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Passwort</label>
+                                    <input type="password" class="form-control" id="password" name="_password" placeholder="Passwort">
+                                </div>
+                                <button type="submit" class="btn btn-primary">{{ 'Login'|trans({},'core') }}</button>
+                                <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
+                            </form>
+                        {% else %}
+                            <form>
+                                Technischer Fehler
+                            </form>
+                        {% endif %}
+                    {% endif %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -17,6 +17,12 @@ $('body').on('click', function (e) {
 $("input, textarea").focus(function(){  $(document.body).addClass('when-keyboard-showing');     });
 $("input, textarea").blur( function(){  $(document.body).removeClass('when-keyboard-showing');  });
 
+// reset changes entered in form by user
 function resetForm() {
     $("form")[0].reset();
 };
+
+// goto start on logo click
+$("#logo-container-top").click(function() {
+    window.location.href = "/";
+});
