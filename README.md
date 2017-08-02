@@ -10,7 +10,7 @@ Current capabilitites:
 * Some easter egg for your loved one
 * Basic Website using Pages brick to integrate Wordpress as CMS
 * Basic user management including user settings
-* Alexa Account linking using oAuth2 for pre-registered users
+* Alexa Account linking using oAuth2
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
