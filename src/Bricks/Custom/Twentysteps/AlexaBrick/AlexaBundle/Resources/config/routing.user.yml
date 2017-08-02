@@ -25,28 +25,38 @@ bricks.custom.twentysteps_alexa.user.check:
 
 bricks.custom.twentysteps_alexa.user.home:
     path:   /{_locale}/authenticated/home
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:home, , project: alexa}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:home, project: alexa}
 
 bricks.custom.twentysteps_alexa.user.logout:
     path:   /{_locale}/authenticated/logout
 
 bricks.custom.twentysteps_alexa.user.reset_password:
     path:   /{_locale}/reset-password
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPassword, , project: alexa}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPassword, project: alexa}
     methods: [GET,POST]
 
 
 # alexa account linking login
 
-bricks.custom.twentysteps_alexa.user.alexa.login:
-    path: /oauth/v2/login
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:loginAlexa, project: alexa, _locale: de }
-    methods: [GET]
-
 bricks.custom.twentysteps_alexa.user.alexa.register:
     path: /oauth/v2/register
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:registerAlexa, project: alexa, _locale: de }
     methods: [GET,POST]
+
+bricks.custom.twentysteps_alexa.user.alexa.confirm:
+    path: /{_locale}/alexa/confirm
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:confirmAlexa, project: alexa }
+    methods: [GET]
+
+bricks.custom.twentysteps_alexa.user.alexa.resend_activation_link:
+    path: /{_locale}/alexa/resend-activation-link
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resendActivationLinkAlexa, project: alexa }
+    methods: [GET,POST]
+
+bricks.custom.twentysteps_alexa.user.alexa.login:
+    path: /oauth/v2/login
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:loginAlexa, project: alexa, _locale: de }
+    methods: [GET]
 
 bricks.custom.twentysteps_alexa.user.alexa.check:
     path:   /oauth/v2/authenticated/check
@@ -68,8 +78,12 @@ fos_oauth_server_token:
 
 fos_oauth_server_profile_show:
     path:   /oauth/v2/authenticated/home
-    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, , project: alexa, _locale: de}
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:homeAlexa, project: alexa, _locale: de}
 
 bricks.custom.twentysteps_alexa.user.alexa.logout:
     path:   /oauth/v2/authenticated/logout
 
+bricks.custom.twentysteps_alexa.user.alexa.reset_password:
+    path:   /{_locale}/alexa/reset-password
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPasswordAlexa, project: alexa}
+    methods: [GET,POST]

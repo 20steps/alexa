@@ -98,6 +98,18 @@
                 <source>info.home.content</source>
                 <target>Prima dass Sie hier sind. Nehmen Sie die gewünschten Einstellungen vor um den Alexa Skill an Ihren Bedarf anzupassen. Und bitte vergiss nicht das Konto in der Alexa App auf Deinem Smartphone zu verknüpfen!</target>
             </trans-unit>
+            <trans-unit id="25">
+                <source>Connect 20steps Account</source>
+                <target>20steps Konto verknüpfen!</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>info.login.alexa.title</source>
+                <target>Wie funktioniert das?</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>info.login.alexa.content</source>
+                <target>Registrieren Sie sich zunächst bei alexa.20steps.de. Verknüpfen Sie danach das registrierte Konto in der Amazon Alexa App auf Ihrem Smartphone um den Skill zu personalisieren.</target>
+            </trans-unit>
         </body>
     </file>
 </xliff>

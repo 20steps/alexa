@@ -213,12 +213,42 @@ class UserController extends AbstractBricksController {
 		return $context;
 	}
 	
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function registerAlexaAction(Request $request) {
+		return $this->registerAction($request);
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function confirmAlexaAction(Request $request) {
+		return $this->confirmAction($request);
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function resendActivationLinkAlexaAction(Request $request) {
+		return $this->resendActivationLinkAction($request);
+	}
+	
+	
 	/**
 	 * @View
 	 * @param Request $request
 	 * @return array
 	 */
 	public function loginAlexaAction(Request $request) {
+		$this->autoDetectLocale($request);
 		$session = $request->getSession();
 		$context = [
 			// last username entered by the user
@@ -243,29 +273,11 @@ class UserController extends AbstractBricksController {
 				$context['message']='Wrong credentials';
 			}
 		}
-	
+		
 		$context['error'] = $error;
 		
 		return $context;
 	}
-	
-	/**
-	 * @View
-	 * @param Request $request
-	 * @return array
-	 */
-	public function registerAlexaAction(Request $request) {
-		$context = [
-			'body_class' => 'register',
-			'title' => 'Register'
-		];
-		if ($request->getMethod()==Request::METHOD_POST) {
-			$context['message']='Registration succeeded';
-			$context['message']='Not yet implemented';
-		}
-		return $context;
-	}
-	
 	
 	/**
 	 * @param Request $request
@@ -289,12 +301,24 @@ class UserController extends AbstractBricksController {
 	 * @return array
 	 */
 	public function homeAlexaAction(Request $request) {
-		$context = [
-			'body_class' => 'home',
-			'message' => 'Hallo Alexa',
-			'title' => 'Settings'
-		];
-		return $context;
+		return $this->homeAction($request);
+	}
+	
+	/**
+	 * @View
+	 * @param Request $request
+	 * @return array
+	 */
+	public function resetPasswordAlexaAction(Request $request) {
+		return $this->resetPasswordAction($request);
+	}
+	
+	// helpers
+	
+	protected function autoDetectLocale(Request $request) {
+		$request->setLocale($request->getPreferredLanguage(['de', 'en']));
+		$this->get('translator')->setLocale($request->getLocale());
+		$this->get('router')->getContext()->setParameter('_locale', $request->getLocale());
 	}
 	
 }

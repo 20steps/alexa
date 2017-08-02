@@ -9,9 +9,9 @@
             <div class="Absolute-Center is-Responsive">
                 <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
                     <div id="logo-container"></div>
-                    {% if message is defined and message == 'user_registered' %}
+                    {% if (message is defined and message == 'resent_activation_link') %}
                         <form action="{{ path('bricks.custom.twentysteps_alexa.user.alexa.confirm') }}" method="get">
-                            <label style="margin-bottom: 15px; width: 100%">{{ 'Activate account'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.confirmAccount.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.confirmAccount.content'|trans({},'twentysteps_alexa') }}"></span></label>
+                            <label style="margin-bottom: 15px; width: 100%">{{ 'Activate account'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.enterToken.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.enterToken.content'|trans({},'twentysteps_alexa') }}"></span></label>
                             <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                             <div class="form-group">
                                 <label for="token">{{ 'Enter token'|trans({},'core') }}</label>
@@ -21,8 +21,8 @@
                             <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.login') }}">{{ 'Login'|trans({},'core') }}</a>
                         </form>
                     {% else %}
-                        <form action="{{ path('bricks.custom.twentysteps_alexa.user.alexa.register') }}" method="post">
-                            <label style="margin-bottom: 15px; width: 100%">{{ 'Register now'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.register.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.register.content'|trans({},'twentysteps_alexa') }}"></span></label>
+                        <form action="{{ path('bricks.custom.twentysteps_alexa.user.alexa.resend_activation_link') }}" method="post">
+                            <label style="margin-bottom: 15px; width: 100%">{{ 'Resend activation link'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.resendActivationLink.title'|trans({},'cotwentysteps_alexare') }}" data-content="{{ 'info.resendActivationLink.title'|trans({},'twentysteps_alexa') }}"></span></label>
                             {% if (message is defined) %}
                                 <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                             {% endif %}
@@ -30,22 +30,14 @@
                                 <label for="username">{{ 'Email address'|trans({},'core') }}</label>
                                 <input type="text" class="form-control" id="email" name="email" placeholder="{{ 'Email address'|trans({},'core') }}">
                             </div>
-                            <div class="form-group">
-                                <label for="password">{{ 'Password'|trans({},'core') }}</label>
-                                <input type="password" class="form-control" id="password" name="password" placeholder="{{ 'Password'|trans({},'core') }}">
-                            </div>
-                            <button type="submit" class="btn btn-primary">{{ 'Register'|trans({},'core') }}</button>
-                            {% if (message is defined and message == 'user_not_activated') %}
-                                <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.resend_activation_link') }}">{{ 'Resend activation link'|trans({},'core') }}</a>
-                            {% else %}
-                                <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.login') }}">{{ 'Login'|trans({},'core') }}</a>
-                            {% endif %}
+                            <button type="submit" class="btn btn-primary">{{ 'Resend activation link'|trans({},'core') }}</button>
+                            <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.login') }}">{{ 'Login'|trans({},'core') }}</a>
                         </form>
                     {% endif %}
+
                 </div>
             </div>
         </div>
     </div>
-
 
 {% endblock %}

@@ -2,23 +2,25 @@
 
 {% block content %}
 
+    <div id="action-container-top"><a href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.reset_password') }}">{{ 'Reset password'|trans({},'core') }}</a></div>
+
     <div class="container">
         <div class="row">
             <div class="Absolute-Center is-Responsive">
                 <div class="col-sm-12 col-md-10 col-md-offset-1 Absolute-Content">
                     <div id="logo-container"></div>
                     <form action="{{ path('bricks.custom.twentysteps_alexa.user.alexa.check') }}" method="post">
-                        <label style="margin-bottom: 15px; width: 100%">20steps Konto verknüpfen <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="Alexa&nbsp;Konto&nbsp;verknüpfen" data-content="Verknüpfen Sie Ihr 20steps Konto mit Alexa um den Skill an Ihren Bedarf anpassen zu können. Wenn Sie noch keinen Account bei 20steps haben, klicken Sie auf registrieren."></span></label>
+                        <label style="margin-bottom: 15px; width: 100%">{{ 'Connect 20steps Account'|trans({},'twentysteps_alexa') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.login.alexa.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.login.alexa.content'|trans({},'twentysteps_alexa') }}"></span></label>
                         {% if (message is defined) %}
                             <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                         {% endif %}
                         <div class="form-group">
-                            <label for="username">E-Mail Adressse</label>
-                            <input type="text" class="form-control" id="username" name="_username" placeholder="E-Mail Adresse">
+                            <label for="username">{{ 'Email address'|trans({},'core') }}</label>
+                            <input type="text" class="form-control" id="username" name="_username" placeholder="{{ 'Email address'|trans({},'core') }}">
                         </div>
                         <div class="form-group">
-                            <label for="password">Passwort</label>
-                            <input type="password" class="form-control" id="password" name="_password" placeholder="Passwort">
+                            <label for="password">{{ 'Password'|trans({},'core') }}</label>
+                            <input type="password" class="form-control" id="password" name="_password" placeholder="{ 'Password'|trans({},'core') }}">
                         </div>
                         <button type="submit" class="btn btn-primary">{{ 'Login'|trans({},'core') }}</button>
                         <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.register') }}">{{ 'Register'|trans({},'core') }}</a>

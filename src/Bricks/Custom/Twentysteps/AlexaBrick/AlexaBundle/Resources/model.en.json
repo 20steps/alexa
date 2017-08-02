@@ -1,0 +1,36 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "SandraLoveIntent",
+      "samples": [
+        "Tell something to Sandra",
+        "Sandra",
+        "Whom does Helmut love",
+        "Love"
+      ],
+      "slots": []
+    },
+    {
+      "name": "UptimeRobotStatusIntent",
+      "samples": [
+        "what is the status",
+        "is the cluster healthy",
+        "Cluster Status",
+        "System status"
+      ],
+      "slots": []
+    }
+  ]
+}
