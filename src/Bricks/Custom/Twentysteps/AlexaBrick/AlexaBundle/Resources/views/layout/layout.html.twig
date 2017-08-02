@@ -29,7 +29,7 @@
 
         <meta property="og:site_name" content="20steps Digital Full Service Boutique"/>
         <meta property="og:url" content="{{ app.request.uri | replace({'http://': 'https://'}) }}"/><!-- have to replace protocol as we are deployed behind an SSL offloader -->
-        <metax property="og:type" content="page"/>
+        <meta property="og:type" content="page"/>
         {% if title is defined %}
             <meta property="og:title" content="20steps Alexa | {{ title|trans({},'core') }}"/>
         {% else %}
