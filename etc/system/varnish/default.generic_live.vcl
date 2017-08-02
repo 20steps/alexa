@@ -333,7 +333,7 @@ sub vcl_recv {
   #  return (pass);
   #}
 
-  #return (hash);
+  return (hash);
 }
 
 sub vcl_pipe {
