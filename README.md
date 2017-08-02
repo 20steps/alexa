@@ -9,7 +9,7 @@ Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your services
 * Some easter egg for your loved one
 * Basic Website using Pages brick to integrate Wordpress as CMS 
-* Basic user management including user settings
+* Basic user management including self-regirations and user settings
 * Alexa Account linking using oAuth2
 * Support for german and english language including localized website
 
@@ -19,10 +19,9 @@ Usage:
 * Connect the previously registered account in the Alexa App.
 
 TODO:
-* Self-registration for users at https://alexa.20steps.de  (wip)
 * Publish skill at Amazon (wip)
-* Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
 * Some more capabilities that help developers, system administrators and marketers (GA, GWT, Slack etc.)
+* Prepare Joblet for Alexa push messages (wip, given OK of Amazon)
 * Adapt for Echo Show (as soon as it is available in Germany)
 * Enhance AbstractCustomBundle of Bricks platform to minimize glue code
 * Automated tests and after that invite som developers to provide speechlets
