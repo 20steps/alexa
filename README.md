@@ -8,10 +8,10 @@ Furthermore this project is a demonstration of the capabilities of the RAD platf
 Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your web services
 * Some easter egg for your loved one
-* Basic Website using Pages brick to integrate Wordpress as CMS 
+* Support for german and english language
+* Support for Alexa Account linking via oAuth2
+* Basic Website using Pages brick to integrate Wordpress as CMS
 * Basic user management including self-regirations and user settings
-* Alexa Account linking using oAuth2
-* Support for german and english language including localized website
 * High availability deployment at Bricks Cluster, service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
 Usage:
