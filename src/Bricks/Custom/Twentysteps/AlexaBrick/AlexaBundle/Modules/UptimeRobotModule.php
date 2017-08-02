@@ -36,9 +36,10 @@
 		
 		/**
 		 * @param IntentRequest $intentRequest
+		 * @param User|null $user
 		 * @return AlexaResponse
 		 */
-		public function processAlexaIntent(IntentRequest $intentRequest, User $user) {
+		public function processAlexaIntent(IntentRequest $intentRequest, $user) {
 			Ensure::isTrue($intentRequest->intentName == 'UptimeRobotStatusIntent',
 				sprintf('Wrong intent [%s]',$intentRequest->intentName));
 
