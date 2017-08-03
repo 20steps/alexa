@@ -14,14 +14,14 @@
             <meta name="description" content="{{ 'meta.description'|trans({},'twentysteps_alexa') }}">
         {% endif %}
 
-        <link rel="shortcut icon" type="image/png" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png" >
-        <link rel="icon" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png" type="image/png">
+        <link rel="shortcut icon" type="image/png" href="{{ bricks_cdn_prefix }}/fav.png" >
+        <link rel="icon" href="{{ bricks_cdn_prefix }}/fav.png" type="image/png">
 
-        <link rel="apple-touch-startup-image" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
-        <link rel="apple-touch-icon" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
-        <link rel="apple-touch-icon" sizes="76x76" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
-        <link rel="apple-touch-icon" sizes="120x120" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
-        <link rel="apple-touch-icon" sizes="152x152" href="https://20steps.de/bundles/brickscustomtwentystepswebsite/images/fav.png">
+        <link rel="apple-touch-startup-image" href="{{ bricks_cdn_prefix }}/fav.png">
+        <link rel="apple-touch-icon" href="{{ bricks_cdn_prefix }}/fav.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="{{ bricks_cdn_prefix }}/fav.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="{{ bricks_cdn_prefix }}/fav.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="{{ bricks_cdn_prefix }}/fav.png">
 
         <meta name="apple-mobile-web-app-capable" content="yes">
         <meta name="apple-mobile-web-app-title" content="20steps">
@@ -48,7 +48,7 @@
 
         {% stylesheets
             combine=true
-            filter='cssrewrite'
+            filter='cssrewrite, uglifycss'
             output='bundles/brickscustomtwentystepsalexa/dist/dist.css'
 
             "@BricksCustomTwentystepsAlexaBundle/Resources/public/css/bootstrap.less"
@@ -57,6 +57,11 @@
         %}
             <link rel="stylesheet" href="{{ bricks_cdn_prefix }}{{ asset_url }}?v={{ bricks_application_version }}" />
         {% endstylesheets %}
+        <style>
+            #logo-container, #logo-container-top {
+                background-image: url('{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/20steps-logo-white.png');
+            }
+        </style>
 
         {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
 
@@ -128,6 +133,7 @@
 
         {% javascripts
             combine=true
+            filter='uglifyjs2'
             output='bundles/brickscustomtwentystepsalexa/dist/alexa.js'
 
             "../vendor/jquery/jquery/jquery-1.11.1.js"

@@ -5,11 +5,8 @@
  * @package WordPress
  * @subpackage Administration
  */
-	
-header('X-XSS-Protection:0');
-	
-	
-	/**
+
+/**
  * In WordPress Administration Screens
  *
  * @since 2.3.2
