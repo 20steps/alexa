@@ -16,7 +16,7 @@
                                 <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                                 <div class="form-group">
                                     <label for="username">{{ 'Email address'|trans({},'core') }}</label>
-                                    <input type="text" class="form-control" id="email" name="email" placeholder="{{ 'Email address'|trans({},'core') }}">
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="{{ 'Email address'|trans({},'core') }}">
                                 </div>
                                 <button type="submit" class="btn btn-primary">{{ 'Resend activation link'|trans({},'core') }}</button>
                                 <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.register') }}">{{ 'Register'|trans({},'core') }}</a>
@@ -26,7 +26,7 @@
                                 <label style="margin-bottom: 15px; width: 100%">{{ 'Login now'|trans({},'core') }} <span class="glyphicon glyphicon-info-sign icon-info pull-right" aria-hidden="true" data-toggle="popover" data-placement="left" title="{{ 'info.login.title'|trans({},'twentysteps_alexa') }}" data-content="{{ 'info.login.title'|trans({},'twentysteps_alexa') }}"></span></label>
                                 <div style="margin-bottom: 10px">{{ message|trans({},'core') }}</div>
                                 <div class="form-group">
-                                    <label for="username">{{ 'Email address'|trans({},'core') }}</label>
+                                    <label for="email">{{ 'Email address'|trans({},'core') }}</label>
                                     <input type="text" class="form-control" id="username" name="_username" placeholder="{{ 'Email address'|trans({},'core') }}">
                                 </div>
                                 <div class="form-group">

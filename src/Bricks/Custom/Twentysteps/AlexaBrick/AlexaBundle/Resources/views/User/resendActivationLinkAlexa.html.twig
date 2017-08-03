@@ -28,7 +28,7 @@
                             {% endif %}
                             <div class="form-group">
                                 <label for="username">{{ 'Email address'|trans({},'core') }}</label>
-                                <input type="text" class="form-control" id="email" name="email" placeholder="{{ 'Email address'|trans({},'core') }}">
+                                <input type="email" class="form-control" id="email" name="email" placeholder="{{ 'Email address'|trans({},'core') }}">
                             </div>
                             <button type="submit" class="btn btn-primary">{{ 'Resend activation link'|trans({},'core') }}</button>
                             <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.login') }}">{{ 'Login'|trans({},'core') }}</a>
