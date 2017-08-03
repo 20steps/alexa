@@ -147,7 +147,7 @@
     "wp-cli-update": [
       "composer update --working-dir=bin\/.wp --no-interaction --no-suggest"
     ],
-    "wp-iinstall": [
+    "wp-install": [
 
     ],
     "wp-update": [
