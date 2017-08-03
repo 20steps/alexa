@@ -27,7 +27,7 @@ TODO:
 * Publish skill at Amazon (waiting for approval)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce speechlets into basic layer of Bricks (wip)
 * Prepare Joblet for messages pushed to Alexa by speechlets (wip)
-* A lot more capabilities that help developers, system administrators and marketers such as GA, GWT, Slack, GitHub, StackOverflow, some banks, some SEO services, some job boards and last but not least some knowledge bases for the given target group ,-) (wip)
+* A lot more capabilities that help developers, system administrators and marketers such as integration of GA, GWT, Slack, GitHub, StackOverflow, some banks, some SEO services, some job boards and last but not least some knowledge bases for the given target group ,-) (wip)
 * Adapt for Echo Show as soon as it is available in Germany.
 * Automated tests and after that invite some developers to collaborate on speechlets for additional services.
 
