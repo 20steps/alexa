@@ -15,13 +15,13 @@ Current capabilitites:
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
 * Responsive and localized yet minimal Website using Pages brick to integrate Wordpress as CMS and Twig/Bootstrap for layouting
-* High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS, HHVM+PHP7, <a href="https://developers.google.com/speed/pagespeed/insights/?hl=de&url=https%3A%2F%2Falexa.20steps.de%2Fde%2Flogin&tab=mobile">mod_pagespeed</a>, Redis, MariaDB Cluster etc. Service status available at <a href="https://monitoring.20steps.de">monitoring.20steps.de</a>
+* High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS, HHVM+PHP7, <a target="_blank"href="https://developers.google.com/speed/pagespeed/insights/?hl=de&url=https%3A%2F%2Falexa.20steps.de%2Fde%2Flogin&tab=mobile">mod_pagespeed</a>, Redis, MariaDB Cluster etc. Service status available at <a target="_blank" href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
 Usage:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API key of your UptimeRobot account etc.
 * Connect the previously registered account in the Alexa App on your smartphone.
-* Cp. <a href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
+* Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
 * Publish skill at Amazon (waiting for approval)
