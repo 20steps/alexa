@@ -15,11 +15,18 @@
     {
       "name": "SandraLoveIntent",
       "samples": [
-        "Sag etwas zu Sandra",
         "Sandra",
-        "Was empfindet Helmut",
         "Liebe",
-        "Love"
+        "Love",
+        "Helmut",
+        "my love",
+        "meine liebe",
+        "meine gefühle",
+        "gefühle",
+        "wen ich liebe",
+        "was ich fühle",
+        "meine liebste",
+        "meinen liebsten"
       ],
       "slots": []
     },
