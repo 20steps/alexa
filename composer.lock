@@ -12,12 +12,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/amazon-alexa-php.git",
-                "reference": "2b54e196cb4b1e2fa3b21806631ad3c45040e6c5"
+                "reference": "99b19bc27b1fa9ae03f80915417bcfa2c2821f2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/2b54e196cb4b1e2fa3b21806631ad3c45040e6c5",
-                "reference": "2b54e196cb4b1e2fa3b21806631ad3c45040e6c5",
+                "url": "https://api.github.com/repos/20steps/amazon-alexa-php/zipball/99b19bc27b1fa9ae03f80915417bcfa2c2821f2a",
+                "reference": "99b19bc27b1fa9ae03f80915417bcfa2c2821f2a",
                 "shasum": ""
             },
             "require": {
@@ -62,7 +62,7 @@
                 "php",
                 "show"
             ],
-            "time": "2017-08-02 19:46:05"
+            "time": "2017-08-04 13:23:59"
         },
         {
             "name": "20steps/angularjs-bundle",
@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "5c8b1de46954439026e417337832e52771e434e2"
+                "reference": "16c031a945ae297cfdc0775410de418c0543274d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/5c8b1de46954439026e417337832e52771e434e2",
-                "reference": "5c8b1de46954439026e417337832e52771e434e2",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/16c031a945ae297cfdc0775410de418c0543274d",
+                "reference": "16c031a945ae297cfdc0775410de418c0543274d",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-08-02 18:35:38"
+            "time": "2017-08-04 08:48:28"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
@@ -9328,29 +9328,29 @@
         },
         {
             "name": "phpunit/php-token-stream",
-            "version": "1.4.11",
+            "version": "2.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-token-stream.git",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7"
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/e03f8f67534427a787e21a385a67ec3ca6978ea7",
-                "reference": "e03f8f67534427a787e21a385a67ec3ca6978ea7",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-token-stream/zipball/ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
+                "reference": "ecb0b2cdaa0add708fe6f329ef65ae0c5225130b",
                 "shasum": ""
             },
             "require": {
                 "ext-tokenizer": "*",
-                "php": ">=5.3.3"
+                "php": "^7.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "~4.2"
+                "phpunit/phpunit": "^6.2.4"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.4-dev"
+                    "dev-master": "2.0-dev"
                 }
             },
             "autoload": {
@@ -9373,7 +9373,7 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2017-02-27T10:12:30+00:00"
+            "time": "2017-08-03T14:17:41+00:00"
         },
         {
             "name": "phpunit/phpunit",
@@ -11028,16 +11028,16 @@
         },
         {
             "name": "sensiolabs/security-checker",
-            "version": "v4.1.2",
+            "version": "v4.1.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sensiolabs/security-checker.git",
-                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67"
+                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/9c7bfbc7be32781d39f8e262744f7fb0c410df67",
-                "reference": "9c7bfbc7be32781d39f8e262744f7fb0c410df67",
+                "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/7d60f01b9a56dfd152796877d009b1a0578d6ef4",
+                "reference": "7d60f01b9a56dfd152796877d009b1a0578d6ef4",
                 "shasum": ""
             },
             "require": {
@@ -11069,7 +11069,7 @@
                 }
             ],
             "description": "A security checker for your composer.lock",
-            "time": "2017-08-02T07:52:06+00:00"
+            "time": "2017-08-03T12:24:05+00:00"
         },
         {
             "name": "snc/redis-bundle",

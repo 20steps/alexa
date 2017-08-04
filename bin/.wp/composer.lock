@@ -426,16 +426,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709"
+                "reference": "bf0450cfe7282c5f06539c4733ba64273e91e918"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
-                "reference": "295fa37f13dbc4bba200680d2f4ae2c4a1f77709",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/bf0450cfe7282c5f06539c4733ba64273e91e918",
+                "reference": "bf0450cfe7282c5f06539c4733ba64273e91e918",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.5.9"
+                "php": "^5.5.9|>=7.0.8"
             },
             "type": "library",
             "extra": {
@@ -467,7 +467,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-06-01 21:02:15"
+            "time": "2017-08-03 09:34:20"
         }
     ],
     "packages-dev": [],
