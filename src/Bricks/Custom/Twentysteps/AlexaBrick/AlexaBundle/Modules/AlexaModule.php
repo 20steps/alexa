@@ -2,6 +2,7 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
+	use Alexa\Request\LaunchRequest;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -54,17 +55,21 @@
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
 							if ($alexaRequest->locale=='de-DE') {
 								$responseText = sprintf('%s, %s liebt Dich!', $user->getSetting('love_name'), $user->getDisplayName());
+								$cardTitle = 'Liebe';
 							} else {
 								$responseText = sprintf('%s, %s loves you!', $user->getSetting('love_name'), $user->getDisplayName());
+								$cardTitle = 'Love';
 							}
 						} else {
 							if ($alexaRequest->locale=='de-DE') {
 								$responseText = 'Sandra, Helmut liebt Dich!';
+								$cardTitle = 'Liebe';
 							} else {
 								$responseText = 'Sandra, Helmut loves you!';
+								$cardTitle = 'Love';
 							}
 						}
-						return $response->respond($responseText)->withCard('Für Sandra',$responseText)->endSession();
+						return $response->respond($responseText)->withCard($cardTitle,$responseText)->endSession();
 					case 'UptimeRobotStatusIntent':
 						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					default:
@@ -75,6 +80,16 @@
 							return $response->respond('Don\'t talk rubbish!')->endSession();
 						}
 				}
+			} else if ($alexaRequest instanceof LaunchRequest) {
+				$response = new AlexaResponse();
+				if ($alexaRequest->locale=='de-DE') {
+					$responseText = 'Dieser Skill informiert Dich über den Systemstatus Deiner Webservices. Frage einfach Alexa, frage 20steps nach wie ist der Status.';
+					$cardTitle = 'Willkommen';
+				} else {
+					$responseText = 'This skill informs you about the system status of your webservices. Simply ask: Alexa, ask 20steps to tell about the status.';
+					$cardTitle = 'Welcome';
+				}
+				return $response->respond($responseText)->withCard($cardTitle,$responseText)->endSession();
 			}
 			
 			$response = new AlexaResponse();

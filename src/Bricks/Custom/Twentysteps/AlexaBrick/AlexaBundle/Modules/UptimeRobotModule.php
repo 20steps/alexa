@@ -55,7 +55,7 @@
 				}
 				return $response
 					->respond($responseText)
-					->withCard($cardTitle,$responseText)
+					->withLinkAccountCard($cardTitle,$responseText)
 					->endSession();
 			}
 			
@@ -69,7 +69,7 @@
 				}
 				return $response
 					->respond($responseText)
-					->withCard($cardTitle,$responseText)
+					->withLinkAccountCard($cardTitle,$responseText)
 					->endSession();
 				
 			}
