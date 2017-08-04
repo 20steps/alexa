@@ -47,7 +47,7 @@
 
 			if (!$user) {
 				if ($intentRequest->locale=='de-DE') {
-					$responseText='Bitte registriere Dich bei alexa.20steps.de und verknüpfe in das Konto in der Allexa App auf Deinem Smartphone.';
+					$responseText='Bitte registriere Dich bei alexa.20steps.de und verknüpfe das Konto in der Allexa App auf Deinem Smartphone.';
 					$cardTitle = 'Account verknüpfen';
 				} else {
 					$responseText='Please register at alexa.20steps.de and connect the account in the Alexa App on your Smartphone.';
