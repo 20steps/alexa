@@ -1,6 +1,6 @@
 parameters:
 
-    bricks_custom_twentysteps_alexa_host: alexa.20steps.de
-    bricks_custom_twentysteps_alexa_protocol: https
+    bricks_custom_twentysteps_alexa_host: 'alexa.20steps.de'
+    bricks_custom_twentysteps_alexa_protocol: 'https'
 
     bricks_custom_twentysteps_alexa_alexa_oauth2_client_id: "1_1qr1gdyc8bb4w8cwscg4wowoo8ksgoo4ww8sokg4840c00sswk"
