@@ -559,7 +559,6 @@
         {
           "name": "alexa1",
           "url": "ssh:\/\/twentysteps@h6.20steps.de:2232\/var\/www\/Bricks",
-          "color": "generic",
           "stage": "live"
         }
       ],

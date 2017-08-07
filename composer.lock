@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "205ba2c49cc86ce383678234984aa1c0",
+    "content-hash": "b2ca372f02f4427802320d42c68e7250",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -190,12 +190,12 @@
             "source": {
                 "type": "git",
                 "url": "git@github.com:20steps/bricks.git",
-                "reference": "952330e94f5b7aa285a72333a7cc13e19e86b345"
+                "reference": "131e55e732aa7d1c05bb3a9b86809f99fd3e2f9c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks/zipball/952330e94f5b7aa285a72333a7cc13e19e86b345",
-                "reference": "952330e94f5b7aa285a72333a7cc13e19e86b345",
+                "url": "https://api.github.com/repos/20steps/bricks/zipball/131e55e732aa7d1c05bb3a9b86809f99fd3e2f9c",
+                "reference": "131e55e732aa7d1c05bb3a9b86809f99fd3e2f9c",
                 "shasum": ""
             },
             "require": {
@@ -349,7 +349,7 @@
                 "source": "https://github.com/20steps/bricks/tree/3.2",
                 "issues": "https://github.com/20steps/bricks/issues"
             },
-            "time": "2017-08-07 14:15:31"
+            "time": "2017-08-07 15:14:47"
         },
         {
             "name": "20steps/bricks-platform-composer-extras",
@@ -357,12 +357,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/bricks-platform-composer-extras.git",
-                "reference": "695a1ba0250756fcc55216dcbb2ddf67dd74cdce"
+                "reference": "0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks-platform-composer-extras/zipball/695a1ba0250756fcc55216dcbb2ddf67dd74cdce",
-                "reference": "695a1ba0250756fcc55216dcbb2ddf67dd74cdce",
+                "url": "https://api.github.com/repos/20steps/bricks-platform-composer-extras/zipball/0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e",
+                "reference": "0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e",
                 "shasum": ""
             },
             "require": {
@@ -391,7 +391,7 @@
                 }
             ],
             "description": "Cpmposer extensions for setting up the bricks platform using composer",
-            "time": "2017-08-05 18:39:34"
+            "time": "2017-08-07 14:42:27"
         },
         {
             "name": "20steps/bricks-rest-core",
