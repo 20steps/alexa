@@ -33,7 +33,7 @@ class acf_field_font_awesome extends acf_field
 		$this->settings = array(
 			'path' => apply_filters('acf/helpers/get_path', __FILE__),
 			'dir' => apply_filters('acf/helpers/get_dir', __FILE__),
-			'version' => '1.5'
+			'version' => '1.74'
 		);
 
 		add_filter('acf/load_field', array( $this, 'maybe_enqueue_font_awesome' ) );
@@ -330,6 +330,9 @@ class acf_field_font_awesome extends acf_field
 		// register acf scripts
 		wp_enqueue_script('font-awesome-select2', $this->settings['dir'] . 'js/select2/select2.min.js', array(), $this->settings['version']);
 		wp_enqueue_script('font-awesome-create-input', $this->settings['dir'] . 'js/create_input.js', array(), $this->settings['version']);
+		wp_localize_script( 'font-awesome-create-input', 'ACFFA', array(
+			'version'	=> 4
+		));
 		wp_enqueue_style('acf-input-font-awesome-input', $this->settings['dir'] . 'css/input.css', array(), $this->settings['version']);
 		wp_enqueue_style('acf-input-font-awesome-fa', $this->stylesheet, array(), $this->version);
 		wp_enqueue_style('acf-input-font-awesome-select2-css', $this->settings['dir'] . 'css/select2.css', array(), $this->settings['version']);

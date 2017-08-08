@@ -36,7 +36,7 @@ class acf_field_font_awesome extends acf_field {
 		$this->settings = array(
 			'path' => dirname(__FILE__),
 			'dir' => $this->helpers_get_dir( __FILE__ ),
-			'version' => '1.5'
+			'version' => '1.74'
 		);
 
 		add_filter('acf/load_field', array( $this, 'maybe_enqueue_font_awesome' ) );
@@ -134,7 +134,7 @@ class acf_field_font_awesome extends acf_field {
 		*/
 		
 		acf_render_field_setting( $field, array(
-			'label'			=> __('Live Preview','acf-font-awesome'),
+			'label'			=> __('Icon Preview','acf-font-awesome'),
 			'instructions'	=> '',
 			'type'			=> 'message',
 			'name'			=> 'fa_live_preview',
@@ -147,7 +147,9 @@ class acf_field_font_awesome extends acf_field {
 			'type'			=> 'select',
 			'name'			=> 'default_value',
 			'class'	  		=>  'fontawesome',
-			'choices'		=>	$field['choices']
+			'choices'		=>	$field['choices'],
+			'placeholder'	=> 'Choose',
+			'ui'			=> 1
 		));
 
 		acf_render_field_setting( $field, array(
@@ -229,7 +231,7 @@ class acf_field_font_awesome extends acf_field {
 		echo '<div class="fa-field-wrapper">';
 		echo '<div class="fa-live-preview"></div>';
 		echo '<select id="' . $field['id'] . '" class="' . $field['class'] . ' fa-select2-field" name="' . $field['name'] . '" >';	
-		
+
 		// null
 		if( $field['allow_null'] )
 		{
@@ -320,6 +322,9 @@ class acf_field_font_awesome extends acf_field {
 
 		// register acf scripts
 		wp_enqueue_script('font-awesome-create-input', $this->settings['dir'] . 'js/create_input.js', array(), $this->settings['version']);
+		wp_localize_script( 'font-awesome-create-input', 'ACFFA', array(
+			'version'	=> 5
+		));
 		wp_enqueue_style('acf-input-font-awesome-input', $this->settings['dir'] . 'css/input.css', array(), $this->settings['version']);
 		wp_enqueue_style('acf-input-font-awesome-fa', $this->stylesheet, array(), $this->version);
 	}

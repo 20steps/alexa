@@ -14,15 +14,15 @@
 			});
 		}
 
-		$( 'select.fa-select2-field' ).on( 'select2-selecting', function( object ) {
+		$( 'select.fa-select2-field' ).on( 'select2-selecting select2:selecting', function( object ) {
 			update_preview( this, object.val );
 		});
 
-		$( 'select.fa-select2-field' ).on( 'select2-highlight', function( object ) {
+		$( 'select.fa-select2-field' ).on( 'select2-highlight select2:highlight', function( object ) {
 			update_preview( this, object.val );
 		});
 
-		$( 'select.fa-select2-field' ).on( 'select2-close', function( object ) {
+		$( 'select.fa-select2-field' ).on( 'select2-close select2:close', function( object ) {
 			update_preview( this, $(this).val() );
 		});
 

@@ -1,18 +1,19 @@
 (function($){
 
-	var version_num = 5;
+	var version_num = ACFFA.version;
 
 	$(document).on( 'change', '.field_type-select select, .field_type select, .acf-field-select select', function() {
 
 		if ( $(this).val() == 'font-awesome' ) {
 
-			// ACF 5
-			var font_awesome_form = $(this).closest( '.acf-field-object-font-awesome' );
+			var font_awesome_form;
 
-			// ACF 4
-			if ( font_awesome_form.length === 0 ) {
+			if ( 5 == version_num ) {
+				// ACF 5
+				font_awesome_form = $(this).closest( '.acf-field-object-font-awesome' );
+			} else {
+				// ACF 4
 				font_awesome_form = $(this).closest( '.field_form' );
-				version_num = 4;
 			}
 
 			setTimeout(function() {
@@ -37,32 +38,45 @@
 
 	});
 
-	$(document).ready(function($) {
-		
-		if ( $('.fa-field-wrapper').length > 0 ) {
-			version_num = 4;
-		}
+	if ( 5 == version_num ) {
+		acf.add_filter('select2_args', function( args, $select, settings, $field ){
+			
+			if ( $field.data('setting') == 'font-awesome' ) {
+				args.dropdownCssClass = 'fa-select2-drop';
+			}
 
+			// return
+			return args;
+					
+		});
+	}
+
+	$(document).ready(function($) {
+	
 		elements = $( 'select.fontawesome' );
 
-		$( elements ).select2({
-			width : '100%',
-			dropdownCssClass : 'fa-select2-drop'
-		});
+		if ( 4 == version_num ) {
+			$( elements ).select2({
+				width : '100%',
+				dropdownCssClass : 'fa-select2-drop'
+			});
+		}
+
 		$.each( elements , function( index, el ) {
 			update_preview( el, $(el).val(), version_num );
 		});
+
 	});
 
-	$(document).on( 'select2-selecting', 'select.fontawesome', function( object ) {
+	$(document).on( 'select2-selecting select2:selecting', 'select.fontawesome', function( object ) {
 		update_preview( this, object.val, version_num );
 	});
 
-	$(document).on( 'select2-highlight', 'select.fontawesome', function( object ) {
+	$(document).on( 'select2-highlight select2:highlight', 'select.fontawesome', function( object ) {
 		update_preview( this, object.val, version_num );
 	});
 
-	$(document).on( 'select2-close', 'select.fontawesome', function( object ) {
+	$(document).on( 'select2-close select2:close', 'select.fontawesome', function( object ) {
 		update_preview( this, $(this).val(), version_num );
 	});
 
