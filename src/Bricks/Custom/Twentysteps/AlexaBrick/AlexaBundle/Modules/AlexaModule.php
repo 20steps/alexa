@@ -50,7 +50,7 @@
 				 * @var IntentRequest $alexaRequest
 				 */
 				switch ($alexaRequest->intentName) {
-					case 'HelpIntent':
+					case 'AMAZON.HelpIntent':
 						$response = new AlexaResponse();
 						if ($alexaRequest->locale=='de-DE') {
 							$responseText = 'Der twenty steps Skill informiert Dich über den Systemstatus Deiner Webservices. Sage einfach: "Wie ist der Status?';
@@ -60,10 +60,10 @@
 							$cardTitle = 'Help';
 						}
 						return $response->respond($responseText)->withCard($cardTitle,$responseText);
-					case 'StopIntent':
+					case 'AMAZON.StopIntent':
 						$response = new AlexaResponse();
 						return $response->endSession();
-					case 'CancelIntent':
+					case 'AMAZON.CancelIntent':
 						$response = new AlexaResponse();
 						return $response->endSession();
 					case 'UptimeRobotStatusIntent':
