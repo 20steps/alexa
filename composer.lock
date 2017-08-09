@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b2ca372f02f4427802320d42c68e7250",
+    "content-hash": "83a2573e18235e6feb1a768cc594496b",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -1030,16 +1030,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.3",
+            "version": "3.32.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd"
+                "reference": "bf3a26b9706b6a91ca2d8a5b74d1d7ebd085a244"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
-                "reference": "d34a5779803ae7bc3efd3c6cab6e4e6f3b7409dd",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/bf3a26b9706b6a91ca2d8a5b74d1d7ebd085a244",
+                "reference": "bf3a26b9706b6a91ca2d8a5b74d1d7ebd085a244",
                 "shasum": ""
             },
             "require": {
@@ -1106,7 +1106,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-01T21:51:56+00:00"
+            "time": "2017-08-08T23:24:05+00:00"
         },
         {
             "name": "beberlei/DoctrineExtensions",
@@ -1918,16 +1918,16 @@
         },
         {
             "name": "composer/installers",
-            "version": "v1.3.0",
+            "version": "v1.4.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/composer/installers.git",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045"
+                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/installers/zipball/79ad876c7498c0bbfe7eed065b8651c93bfd6045",
-                "reference": "79ad876c7498c0bbfe7eed065b8651c93bfd6045",
+                "url": "https://api.github.com/repos/composer/installers/zipball/9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
+                "reference": "9ce17fb70e9a38dd8acff0636a29f5cf4d575c1b",
                 "shasum": ""
             },
             "require": {
@@ -1973,6 +1973,7 @@
                 "Hurad",
                 "ImageCMS",
                 "Kanboard",
+                "Lan Management System",
                 "MODX Evo",
                 "Mautic",
                 "Maya",
@@ -1996,6 +1997,7 @@
                 "croogo",
                 "dokuwiki",
                 "drupal",
+                "eZ Platform",
                 "elgg",
                 "expressionengine",
                 "fuelphp",
@@ -2012,6 +2014,7 @@
                 "mediawiki",
                 "modulework",
                 "moodle",
+                "osclass",
                 "phpbb",
                 "piwik",
                 "ppi",
@@ -2028,7 +2031,7 @@
                 "zend",
                 "zikula"
             ],
-            "time": "2017-04-24T06:37:16+00:00"
+            "time": "2017-08-09T07:53:48+00:00"
         },
         {
             "name": "container-interop/container-interop",
@@ -6809,6 +6812,52 @@
             "time": "2017-05-05T14:54:15+00:00"
         },
         {
+            "name": "maxbeckers/google-actions-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/maxbeckers/google-actions-php.git",
+                "reference": "965a5b8cd40eb9ced6c67abcf4a8337f959d75b6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/maxbeckers/google-actions-php/zipball/965a5b8cd40eb9ced6c67abcf4a8337f959d75b6",
+                "reference": "965a5b8cd40eb9ced6c67abcf4a8337f959d75b6",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.2"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "MaxBeckers\\GoogleActions\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Maximilian Beckers",
+                    "email": "beckers.maximilian@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This library is a helper for google actions with php.",
+            "keywords": [
+                "actions",
+                "google",
+                "home",
+                "php"
+            ],
+            "time": "2017-08-07 18:25:24"
+        },
+        {
             "name": "maxmind-db/reader",
             "version": "v1.1.3",
             "source": {
@@ -10070,22 +10119,25 @@
         },
         {
             "name": "react/promise-timer",
-            "version": "v1.1.1",
+            "version": "v1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/reactphp/promise-timer.git",
-                "reference": "ddedc67bfd7f579fc83e66ff67e3564b179297dd"
+                "reference": "3bc527fbd1201a193ab41c19b9a770d71a3514af"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/ddedc67bfd7f579fc83e66ff67e3564b179297dd",
-                "reference": "ddedc67bfd7f579fc83e66ff67e3564b179297dd",
+                "url": "https://api.github.com/repos/reactphp/promise-timer/zipball/3bc527fbd1201a193ab41c19b9a770d71a3514af",
+                "reference": "3bc527fbd1201a193ab41c19b9a770d71a3514af",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3",
-                "react/event-loop": "~0.4.0|~0.3.0",
+                "react/event-loop": "^1.0 || ^0.5 || ^0.4 || ^0.3.5",
                 "react/promise": "~2.1|~1.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.0 || ^4.8"
             },
             "type": "library",
             "autoload": {
@@ -10116,7 +10168,7 @@
                 "timeout",
                 "timer"
             ],
-            "time": "2016-12-27T08:12:19+00:00"
+            "time": "2017-08-08T16:30:19+00:00"
         },
         {
             "name": "react/socket",
@@ -13704,6 +13756,7 @@
         "20steps/amazon-alexa-php": 20,
         "20steps/oauth-server-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
+        "maxbeckers/google-actions-php": 20,
         "jane/open-api": 20
     },
     "prefer-stable": true,
