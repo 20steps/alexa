@@ -45,8 +45,22 @@
 		public function processAlexaRequest(AlexaRequest $alexaRequest) {
 
 			$user = $this->getUserFromRequest($alexaRequest);
-
-			if ($alexaRequest instanceof IntentRequest) {
+			
+			if ($alexaRequest instanceof LaunchRequest) {
+				$response = new AlexaResponse();
+				if ($alexaRequest->locale=='de-DE') {
+					$responseText = 'Der twenty steps skill informiert Dich über den Systemstatus Deiner Webservices. Sage zum Beispiel: "Wie ist der Status?';
+					$cardTitle = 'Willkommen';
+				} else {
+					$responseText = 'The twenty steps skill informs you about the system status of your webservices. For example say: "How is the status?';
+					$cardTitle = 'Welcome';
+				}
+				return $response->respond($responseText)->withCard($cardTitle,$responseText);
+			} else if ($alexaRequest instanceof SessionEndedRequest) {
+				$response = new AlexaResponse();
+				$response->endSession();
+				return $response;
+			} else if ($alexaRequest instanceof IntentRequest) {
 				/**
 				 * @var IntentRequest $alexaRequest
 				 */
@@ -92,25 +106,11 @@
 					default:
 						$response = new AlexaResponse();
 						if ($alexaRequest->locale=='de-DE') {
-							return $response->respond('Quatsch nicht!')->endSession();
+							return $response->respond('Entschuldigung, aber ich verstehe Dich leider nicht.')->endSession();
 						} else {
-							return $response->respond('Don\'t talk rubbish!')->endSession();
+							return $response->respond('Sad to say but I don\' understand you.')->endSession();
 						}
 				}
-			} else if ($alexaRequest instanceof LaunchRequest) {
-				$response = new AlexaResponse();
-				if ($alexaRequest->locale=='de-DE') {
-					$responseText = 'Der twenty steps skill informiert Dich über den Systemstatus Deiner Webservices. Sage zum Beispiel: "Wie ist der Status?';
-					$cardTitle = 'Willkommen';
-				} else {
-					$responseText = 'The twenty steps skill informs you about the system status of your webservices. For example say: "How is the status?';
-					$cardTitle = 'Welcome';
-				}
-				return $response->respond($responseText)->withCard($cardTitle,$responseText);
-			} else if ($alexaRequest instanceof SessionEndedRequest) {
-				$response = new AlexaResponse();
-				$response->endSession();
-				return $response;
 			}
 			
 			$response = new AlexaResponse();
