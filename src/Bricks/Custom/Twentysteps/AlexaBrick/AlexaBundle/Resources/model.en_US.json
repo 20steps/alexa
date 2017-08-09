@@ -6,7 +6,11 @@
     },
     {
       "name": "AMAZON.HelpIntent",
-      "samples": []
+      "samples": [
+        "Help",
+        "the manual",
+        "manual"
+      ]
     },
     {
       "name": "AMAZON.StopIntent",
@@ -72,7 +76,23 @@
         "are my web services health",
         "healthiness of my cluster",
         "healthiness of my websites",
-        "my website"
+        "my website",
+        "the status of my website",
+        "the status of my cluster",
+        "the status of my websites",
+        "the healthiness of my website",
+        "the healthiness of my websites",
+        "the healthiness of my cluster",
+        "health of my website",
+        "the health of my website",
+        "the health of my websites",
+        "health of my websites",
+        "the health of my cluster",
+        "health of my cluster",
+        "health of my web services",
+        "the health of my web services",
+        "the healthiness",
+        "the system status"
       ],
       "slots": []
     }

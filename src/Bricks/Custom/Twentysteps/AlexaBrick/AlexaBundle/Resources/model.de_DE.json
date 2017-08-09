@@ -6,7 +6,12 @@
     },
     {
       "name": "AMAZON.HelpIntent",
-      "samples": []
+      "samples": [
+        "Hilfe",
+        "der Hilfe",
+        "Anleitung",
+        "der Anleitung"
+      ]
     },
     {
       "name": "AMAZON.StopIntent",
