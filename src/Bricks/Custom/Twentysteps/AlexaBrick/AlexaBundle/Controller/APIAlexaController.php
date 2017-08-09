@@ -71,6 +71,6 @@ class APIAlexaController extends AbstractAPIController {
 	 * @return LoggerInterface
 	 */
 	protected function getAlexaLogger() {
-		return $this->get('monolog.logger.alexa');
+		return $this->get('monolog.logger.bricks.custom.twentysteps_alexa.controller.alexa');
 	}
 }
