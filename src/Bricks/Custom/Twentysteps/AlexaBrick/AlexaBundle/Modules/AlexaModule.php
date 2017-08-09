@@ -3,6 +3,7 @@
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
 	use Alexa\Request\LaunchRequest;
+	use Alexa\Request\SessionEndedRequest;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -106,6 +107,10 @@
 					$cardTitle = 'Welcome';
 				}
 				return $response->respond($responseText)->withCard($cardTitle,$responseText);
+			} else if ($alexaRequest instanceof SessionEndedRequest) {
+				$response = new AlexaResponse();
+				$response->endSession();
+				return $response;
 			}
 			
 			$response = new AlexaResponse();
