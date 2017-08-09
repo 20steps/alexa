@@ -13,6 +13,7 @@ Current capabilitites:
 * Support for german and english language
 * Support for Alexa Account linking via oAuth2
 * User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
+* Certified with Amazon (<a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill at Amazon Store</a>).
 
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
@@ -26,7 +27,6 @@ Usage:
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
-* Publish skill at Amazon (approved, waiting for publication)
 * Provide API for Google Home / Actions and rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions (wip)
 * Prepare Joblet for messages pushed to Alexa by assistantlets (wip)
