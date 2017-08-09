@@ -50,6 +50,24 @@
 				 * @var IntentRequest $alexaRequest
 				 */
 				switch ($alexaRequest->intentName) {
+					case 'HelpIntent':
+						$response = new AlexaResponse();
+						if ($alexaRequest->locale=='de-DE') {
+							$responseText = 'Der twenty steps Skill informiert Dich über den Systemstatus Deiner Webservices. Sage einfach: "Wie ist der Status?';
+							$cardTitle = 'Willkommen';
+						} else {
+							$responseText = 'The twenty steps skill informs you about the system status of your webservices. Simply say: "How is the status?';
+							$cardTitle = 'Welcome';
+						}
+						return $response->respond($responseText)->withCard($cardTitle,$responseText);
+					case 'StopIntent':
+						$response = new AlexaResponse();
+						return $response->endSession();
+					case 'CancelIntent':
+						$response = new AlexaResponse();
+						return $response->endSession();
+					case 'UptimeRobotStatusIntent':
+						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					case 'SandraLoveIntent':
 						$response = new AlexaResponse();
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
@@ -70,8 +88,6 @@
 							}
 						}
 						return $response->respond($responseText)->withCard($cardTitle,$responseText)->endSession();
-					case 'UptimeRobotStatusIntent':
-						return $this->getShell()->getUptimeRobotModule()->processAlexaIntent($alexaRequest,$user);
 					default:
 						$response = new AlexaResponse();
 						if ($alexaRequest->locale=='de-DE') {
@@ -83,10 +99,10 @@
 			} else if ($alexaRequest instanceof LaunchRequest) {
 				$response = new AlexaResponse();
 				if ($alexaRequest->locale=='de-DE') {
-					$responseText = 'Dieser Skill informiert Dich über den Systemstatus Deiner Webservices. Sage einfach: "Wie ist der Status?';
+					$responseText = 'Der twenty steps skill informiert Dich über den Systemstatus Deiner Webservices. Sage zum Beispiel: "Wie ist der Status?';
 					$cardTitle = 'Willkommen';
 				} else {
-					$responseText = 'This skill informs you about the system status of your webservices. Simply say: "How is the status?';
+					$responseText = 'The twenty steps skill informs you about the system status of your webservices. For example say: "How is the status?';
 					$cardTitle = 'Welcome';
 				}
 				return $response->respond($responseText)->withCard($cardTitle,$responseText);
