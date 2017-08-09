@@ -54,10 +54,10 @@
 						$response = new AlexaResponse();
 						if ($alexaRequest->locale=='de-DE') {
 							$responseText = 'Der twenty steps Skill informiert Dich über den Systemstatus Deiner Webservices. Sage einfach: "Wie ist der Status?';
-							$cardTitle = 'Willkommen';
+							$cardTitle = 'Hilfe';
 						} else {
 							$responseText = 'The twenty steps skill informs you about the system status of your webservices. Simply say: "How is the status?';
-							$cardTitle = 'Welcome';
+							$cardTitle = 'Help';
 						}
 						return $response->respond($responseText)->withCard($cardTitle,$responseText);
 					case 'StopIntent':
