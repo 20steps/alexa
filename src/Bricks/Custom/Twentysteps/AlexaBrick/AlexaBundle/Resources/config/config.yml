@@ -116,3 +116,13 @@ braincrafted_bootstrap:
         bootstrap_output: %kernel.root_dir%/../src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Resources/public/css/bootstrap.less
         bootstrap_template: BraincraftedBootstrapBundle:Bootstrap:bootstrap.less.twig
 
+monolog:
+    channels:
+      - "bricks.custom.twentysteps_alexa.controller.alexa"
+    handlers:
+        alexa:
+            type: stream
+            path: "%kernel.logs_dir%/alexa.log"
+            level: debug
+            channels: ["bricks.custom.twentysteps_alexa.controller.alexa"]
+

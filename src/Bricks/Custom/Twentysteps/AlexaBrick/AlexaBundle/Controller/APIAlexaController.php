@@ -2,6 +2,7 @@
 
 namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Controller;
 
+use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -49,7 +50,7 @@ class APIAlexaController extends AbstractAPIController {
 			$appId = $this->getParameter('bricks_custom_twentysteps_alexa_application_id');
 		}
 		$content = $request->getContent();
-		$this->logger->error('alexa request',json_decode($content,true));
+		$this->getAlexaLogger()->debug('alexa request',json_decode($content,true));
 		$alexaRequest = new AlexaRequest($content, $appId);
 		return $alexaRequest->fromData();
 	}
@@ -59,8 +60,17 @@ class APIAlexaController extends AbstractAPIController {
 	 * @return Response
 	 */
 	protected function successAlexa(AlexaResponse $alexaResponse) {
-		$response = new Response($this->serializeJSON($alexaResponse->render()));
+		$renderedResponse = $alexaResponse->render();
+		$this->getAlexaLogger()->debug('response',$alexaResponse->render());
+		$response = new Response($this->serializeJSON($renderedResponse));
 		$response->headers->set('Content-Type', 'application/json');
 		return $response;
+	}
+	
+	/**
+	 * @return LoggerInterface
+	 */
+	protected function getAlexaLogger() {
+		return $this->get('monolog.logger.alexa');
 	}
 }
