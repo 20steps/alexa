@@ -54,10 +54,10 @@
 					case 'AMAZON.HelpIntent':
 						$response = new AlexaResponse();
 						if ($alexaRequest->locale=='de-DE') {
-							$responseText = 'Informiere Dich über den Status Deiner Webservices - sage dazu einfach:"Wie ist der Status? Oder imponiere Deiner Liebsten - sage einfach: "Frage nach Liebe.". Einstellungen kannst Du auf alexa.20steps.de vornehmen.';
+							$responseText = 'Informiere Dich über den Status Deiner Webservices - sage dazu einfach:"Wie ist der Status? Oder imponiere Deiner Liebsten - sage einfach: "Frage nach Liebe.". Einstellungen kannst Du auf alexa.20steps.de vornehmen. Wie kann ich Dir nun helfen?';
 							$cardTitle = 'Hilfe';
 						} else {
-							$responseText = 'You want to know the status of your webservices? Simply say: "How is the status? Or impress your loved one - simply say: "Ask for love." You can change settings at alexa.20steps.de.';
+							$responseText = 'You want to know the status of your webservices? Simply say: "How is the status? Or impress your loved one - simply say: "Ask for love." You can change settings at alexa.20steps.de. How can I help you now?';
 							$cardTitle = 'Help';
 						}
 						return $response->respond($responseText)->withCard($cardTitle,$responseText);
