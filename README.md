@@ -26,7 +26,7 @@ Usage:
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
-* Publish skill at Amazon (waiting for approval)
+* Publish skill at Amazon (approved, waiting for publication)
 * Provide API for Google Home / Actions and rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions (wip)
 * Prepare Joblet for messages pushed to Alexa by assistantlets (wip)

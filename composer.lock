@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "83a2573e18235e6feb1a768cc594496b",
+    "content-hash": "246e135e2fd38ed2c94c25b99d332ded",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -5085,6 +5085,49 @@
             ],
             "abandoned": true,
             "time": "2014-05-27T05:29:25+00:00"
+        },
+        {
+            "name": "iboldurev/api-ai-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iboldurev/api-ai-php.git",
+                "reference": "5c1110c3e8393419f4bab76b44bca7dbbb861a9d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iboldurev/api-ai-php/zipball/5c1110c3e8393419f4bab76b44bca7dbbb861a9d",
+                "reference": "5c1110c3e8393419f4bab76b44bca7dbbb861a9d",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^6.2",
+                "php": ">=5.5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "ApiAi\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ivan Boldyrev",
+                    "email": "iboldurev@gmail.com",
+                    "homepage": "https://github.com/iboldurev"
+                }
+            ],
+            "description": "API.ai php sdk",
+            "keywords": [
+                "api.ai",
+                "api.ai sdk",
+                "bot"
+            ],
+            "time": "2016-10-10 06:41:36"
         },
         {
             "name": "igorw/get-in",
@@ -13757,6 +13800,7 @@
         "20steps/oauth-server-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
         "maxbeckers/google-actions-php": 20,
+        "iboldurev/api-ai-php": 20,
         "jane/open-api": 20
     },
     "prefer-stable": true,
