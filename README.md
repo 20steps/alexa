@@ -11,10 +11,12 @@ Current capabilitites:
 * Possiblity to ask UptimeRobot.com for detailed system status of your web services
 * Some easter egg for your loved one
 * Support for german and english language
-* Support for Alexa Account linking via oAuth2
 * User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
 * Supports Sign in with Google
+* Support for Amazon Alexa Webhook API
+* Support for Alexa Account linking via oAuth2
 * Certified with Amazon (<a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill at Amazon Store</a>).
+* Support for Google Home / API AI Webhook API
 
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
@@ -28,12 +30,13 @@ Usage:
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
-* Provide API for Google Home / Actions / API AI (basically done, waiting for device shipment to test w/o simulator)
+* Provide API for Google Home / Actions / API AI
 * Provide support for Google Home / Account linking (wip)
 * Rename everything to assistant.20steps.de (wip)
-* Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions (wip)
+* Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions
+* Publish for Google Home
 * Prepare Joblet for messages pushed to Alexa by assistantlets (wip)
-* A lot more capabilities that help developers, system administrators and marketers  (wip)
+* A lot more capabilities that help developers, system administrators and marketers
 * Adapt for Echo Show as soon as it is available in Germany.
 * Automated tests and after that invite some developers to collaborate on speechlets for additional services.
 
