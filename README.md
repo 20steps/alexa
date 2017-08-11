@@ -1,9 +1,9 @@
 20steps Alexa Backend
 =====================
 
-This is the certified backend of the personalilzed and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
+This is the certified backend of the personalized and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
 
-Extending the backend to provide support for Google Home / Actions is work in progress (cp. below).
+Publishing for Google Home is work in progress (cp. below).
 
 Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps, availability and performance characterics of the Bricks Cloud and last but not least used to enhance my skillset during holidays.
 
@@ -12,10 +12,10 @@ Current capabilitites:
 * Some easter egg for your loved one
 * Support for german and english language
 * User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
-* Supports Sign in with Google
+* Support for Sign in with Google
 * Support for Amazon Alexa Webhook API
 * Support for Alexa Account linking via oAuth2
-* Certified with Amazon (<a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill at Amazon Store</a>).
+* Certified with Amazon (cp. <a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill in Amazon Store</a>).
 * Support for Google Home / API AI Webhook API
 
 Technical specs:
