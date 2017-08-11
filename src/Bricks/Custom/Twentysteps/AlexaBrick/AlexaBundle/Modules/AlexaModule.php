@@ -130,7 +130,7 @@
 		/**
 		 * @return Client
 		 */
-		public function createClient() {
+		public function createOAuthClient() {
 			$clientManager = $this->getCore()->getContainer()->get('fos_oauth_server.client_manager.default');
 			/**
 			 * @var Client $client

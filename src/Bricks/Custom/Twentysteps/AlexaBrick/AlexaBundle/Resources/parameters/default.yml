@@ -22,7 +22,14 @@ parameters:
 
     bricks_custom_twentysteps_alexa_is_live: false
 
-    bricks_custom_twentysteps_alexa_alexa_oauth2_client_id: "2_1b1zwhhvnthc00oco0w4k840gg40okcoko40wg8w8gcwwoo840"
+    # account linking via oauth2
+    bricks_custom_twentysteps_alexa_account_linking_alexa_oauth2_client_id: "2_1b1zwhhvnthc00oco0w4k840gg40okcoko40wg8w8gcwwoo840"
+    bricks_custom_twentysteps_alexa_account_linking_google_oauth2_client_id: "4_35h577zurhk488o0488840gw844ck0wogskc4cocw408kkgkgc"
+    bricks_custom_twentysteps_alexa_account_linking_google_oauth2_client_secret: "1zejqnxqnzk0408w8kkows4gsw08kcc4gg4gk0s4o0o808wows"
+
+    # login via oauth2
+    bricks_custom_twentysteps_alexa_login_google_oauth2_client_id: "523394422445-iaipgq5b8k6cgl523p8huipcugfbjk6t.apps.googleusercontent.com"
+    bricks_custom_twentysteps_alexa_login_google_oauth2_client_secret: "FAohx4juQpWU9VzD1nZEBpNc"
 
     bricks_custom_twentysteps_alexa_protocol: http
     bricks_custom_twentysteps_alexa_host: alexa.localhost.com

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+INSTALL_DIR=`pwd`
+
+trap 'killall php' SIGINT
+
+cd $INSTALL_DIR && sudo rm -rf var/cache/*
+cd $INSTALL_DIR && php bin/console assets:install --symlink
+cd $INSTALL_DIR && php bin/console assetic:watch --period=2 --no-interaction --env=prod --no-debug

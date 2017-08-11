@@ -2,9 +2,9 @@
 /*
 Plugin Name: Simple Post Notes
 Description: Adds simple notes to post, pagem and custom post type edit screen.
-Author: Kuba Mikita
-Author URI: http://www.wpart.pl
-Version: 1.5
+Author: underDEV
+Author URI: https://underdev.it
+Version: 1.6
 License: GPL2
 Text Domain: simple-post-notes
 Domain Path: /languages
@@ -74,6 +74,13 @@ class SPNotes {
 		add_action( 'add_meta_boxes', array( $this, 'add_meta_box' ) );
 
 		add_action( 'save_post', array( $this, 'save_note' ) );
+		add_action( 'save_post', array( $this, 'save_quickedit_note' ) );
+		add_action( 'wp_ajax_spnote_save_bulk_edit', array( $this, 'save_bulkedit_note' ) );
+
+		add_action( 'bulk_edit_custom_box', array( $this, 'add_quick_edit_field' ), 10, 2 );
+		add_action( 'quick_edit_custom_box', array( $this, 'add_quick_edit_field' ), 10, 2 );
+
+		add_shortcode( 'spnote', array( $this, 'shortcode_callback' ) );
 
 	}
 
@@ -121,9 +128,21 @@ class SPNotes {
 
 	}
 
+	/**
+	 * Gets settings
+	 * @return void
+	 */
+	public function get_settings() {
+
+		if ( empty( $this->settings ) ) {
+			$this->settings = get_option( 'spnotes_settings' );
+		}
+
+	}
+
 	public function add_column_filters() {
 
-		$this->settings = get_option( 'spnotes_settings' );
+		$this->get_settings();
 
 		foreach ( $this->settings['post_types'] as $post_type ) {
 
@@ -142,6 +161,31 @@ class SPNotes {
 			if ( apply_filters( 'spn/columns-sortable/' . $post_type, true ) ) {
 				add_filter( 'manage_edit-' . $post_type . '_sortable_columns', array( $this, 'register_sortable_column' ) );
 			}
+
+		}
+
+	}
+
+	/**
+	 * Adds field to quick/bulk edit box
+	 * @param  string $column_name column name
+	 * @param  string $post_type   post type name
+	 * @return void
+	 */
+	function add_quick_edit_field( $column_name, $post_type ) {
+
+		$this->get_settings();
+
+		if ( in_array( $post_type, $this->settings['post_types'] ) && $column_name == 'spnote' ) {
+
+			echo '<fieldset class="inline-edit-col-right">';
+				echo '<div class="inline-edit-group">';
+					echo '<label>';
+						echo '<span class="title">' .  __( 'Notes', 'simple-post-notes' ) . '</span>';
+						echo '<textarea name="spnote"></textarea>';
+					echo '</label>';
+				echo '</div>';
+			echo '</fieldset>';
 
 		}
 
@@ -195,9 +239,9 @@ class SPNotes {
 			$note = get_post_meta( $post_id, '_spnote', true );
 
 			if ( $note ) {
-
-				echo nl2br( esc_attr( $note ) );
-
+				echo '<div id="spnote-' . $post_id . '">';
+				echo nl2br( $note );
+				echo '</div>';
 			}
 
 		}
@@ -262,6 +306,51 @@ class SPNotes {
 	}
 
 	/**
+	 * Saves the note from quick edit
+	 * @param  int $post_id saved post ID
+	 * @return void
+	 */
+	public function save_quickedit_note( $post_id ) {
+
+		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+			return;
+		}
+
+		if ( ! isset( $_POST['action'] ) || $_POST['action'] != 'inline-save' ) {
+			return;
+		}
+
+		$this->get_settings();
+
+		if ( in_array( $_POST['post_type'], $this->settings['post_types'] ) ) {
+
+			if ( isset( $_POST['spnote'] ) ) {
+				update_post_meta( $post_id, '_spnote', $_POST['spnote'] );
+			}
+
+		}
+
+	}
+
+	/**
+	 * Saves the note from bulk edit
+	 * @return void
+	 */
+	public function save_bulkedit_note() {
+
+		$post_ids = ( isset( $_POST['post_ids'] ) && ! empty( $_POST['post_ids'] ) ) ? $_POST['post_ids'] : array();
+
+		$spnote = ( isset( $_POST['spnote'] ) && ! empty( $_POST['spnote'] ) ) ? $_POST['spnote'] : null;
+
+		if ( ! empty( $post_ids ) && is_array( $post_ids ) && ! empty( $spnote ) ) {
+			foreach( $post_ids as $post_id ) {
+				update_post_meta( $post_id, '_spnote', $spnote );
+			}
+		}
+
+	}
+
+	/**
 	 * Registers admin page
 	 * @return  void
 	 */
@@ -305,7 +394,7 @@ class SPNotes {
 	 */
 	public function register_settings() {
 
-		$this->settings = get_option( 'spnotes_settings' );
+		$this->get_settings();
 
 		register_setting( 'spnotes_settings', 'spnotes_settings' );
 
@@ -367,10 +456,6 @@ class SPNotes {
 	 */
 	public function enqueue_scripts_and_styles( $hook ) {
 
-		if ( $this->page_hook != $hook || $hook != 'post-new.php' || $hook != 'post.php' ) {
-			// return;
-		}
-
 		// enqueue scripts
 
 		wp_enqueue_script( 'spnotes/chosen', SPNOTES . 'assets/chosen/chosen.jquery.min.js', array(
@@ -387,7 +472,34 @@ class SPNotes {
 
 		wp_enqueue_style( 'spnotes/chosen', SPNOTES . 'assets/chosen/chosen.min.css' );
 
-		// wp_enqueue_style( 'spnotes/admin', SPNOTES . 'assets/admin.css' );
+	}
+
+
+	/**
+	 * Displays shortcode output
+	 * @param  array $atts shortcode attributes
+	 * @return string
+	 */
+	public function shortcode_callback( $atts ) {
+		$atts = shortcode_atts( array(
+			'id' => null,
+		), $atts, 'spnote' );
+
+		if ( $atts['id'] == null ) {
+
+			global $post;
+
+			if ( empty( $post ) ) {
+				return '';
+			}
+
+			$atts['id'] = $post->ID;
+
+		}
+
+		$note = get_post_meta( $atts['id'], '_spnote', true );
+
+		return nl2br( $note );
 
 	}
 

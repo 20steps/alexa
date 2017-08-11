@@ -3,7 +3,7 @@ Contributors: Kubitomakita
 Tags: post, page, custom post type, cpt, note, notes, informations, info
 Requires at least: 3.6
 Tested up to: 4.8
-Stable tag: 1.5
+Stable tag: 1.6
 
 Adds simple notes to post, page and custom post type edit screen.
 
@@ -13,23 +13,20 @@ Adds simple notes to post, page and custom post type edit screen.
 
 * Simple note section on the post edit screen
 * Sortable note column in posts table
+* Bulk / Quick edit support
+* Shortcode which will display the note on the front end
 
 Cover photo [designed by Freepik](http://www.freepik.com)
-
-== Installation ==
-
-Don't download .zip file - is silly when you can search for this plugin in your WordPress!
-(unless you need .zip)
-
-1. Go to Plugin -> Add New
-1. Search for Popslide
-1. Install and enjoy!
 
 == Frequently Asked Questions ==
 
 = Custom post type are supported? =
 
 Yes! Enable them on the plugin settings screen.
+
+= Can I display my note on the front-end? =
+
+Yes. Use the `[spnote]` shortcode. You can also pass optional parameter with post ID: `[spnote id="123"]` to display note from other post. By default it's grabbing current post.
 
 = Can I disable display of admin column? =
 
@@ -50,6 +47,10 @@ To disable SPN column only for specific post type
 3. Settings
 
 == Changelog ==
+
+= 1.6 =
+* [Added] Support for quick and bulk edit
+* [Added] Shortcode [sponote]
 
 = 1.5 =
 * [Fixed] Bug with duplicated post notes for custom post type

@@ -87,3 +87,14 @@ bricks.custom.twentysteps_alexa.user.alexa.reset_password:
     path:   /{_locale}/alexa/reset-password
     defaults: { _controller: BricksCustomTwentystepsAlexaBundle:User:resetPasswordAlexa, project: alexa}
     methods: [GET,POST]
+
+hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix:   /{_locale}/authenticated/connect
+
+hwi_oauth_connect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/connect.xml"
+    prefix:   /{_locale}/authenticated/connect
+
+hwi_oauth_check_google:
+    path: /{_locale}/authenticated/connect/check/google

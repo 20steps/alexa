@@ -117,6 +117,12 @@ services:
         tags:
             - { name: monolog.logger, channel: "security" }
 
+    # OAuth
+    bricks_custom_twentysteps_alexa_user_provider_oauth:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\OAuth\UserProvider
+        arguments:
+            - '@bricks.custom.twentysteps_alexa.user_manager'
+            - { google: "googleId", facebook: "facebookId" }
 
     # Foundlets (for search)
 

@@ -1,3 +1,12 @@
+# Custom user management (Web)
+
+bricks.custom.twentysteps_alexa.user:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.user.yml"
+    host: "%bricks_custom_twentysteps_alexa_host%"
+    prefix: "/"
+    requirements:
+        bricks_custom_twentysteps_alexa_host: "%bricks_custom_twentysteps_alexa_host%"
+
 # Custom API
 
 bricks.custom.twentysteps_alexa.api.alexa:
@@ -7,15 +16,6 @@ bricks.custom.twentysteps_alexa.api.alexa:
     defaults: { _format: "json" }
     requirements:
         bricks_api_host: "%bricks_api_host%"
-
-# Custom user management (Web)
-
-bricks.custom.twentysteps_alexa.user:
-    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.user.yml"
-    host: "%bricks_custom_twentysteps_alexa_host%"
-    prefix: "/"
-    requirements:
-        bricks_custom_twentysteps_alexa_host: "%bricks_custom_twentysteps_alexa_host%"
 
 # Wordpress CMS (Web)
 

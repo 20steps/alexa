@@ -20,11 +20,11 @@ swiftmailer:
             logging:    true
             transport:  "%bricks_custom_twentysteps_alexa_mailer_transport%"
             host:       "%bricks_custom_twentysteps_alexa_mailer_host%"
-            encryption: ssl
-            auth_mode:  login
+            encryption: "ssl"
+            auth_mode:  "login"
             username:   "%bricks_custom_twentysteps_alexa_mailer_user%"
             password:   "%bricks_custom_twentysteps_alexa_mailer_password%"
-            spool:      { type: memory }
+            spool:      { type: "memory" }
         twentysteps_alexa_signin:
             logging: true
             transport:  "%bricks_custom_twentysteps_alexa_signin_mailer_transport%"
@@ -33,7 +33,7 @@ swiftmailer:
             auth_mode:  "%bricks_custom_twentysteps_alexa_signin_mailer_auth_mode%"
             username:   "%bricks_custom_twentysteps_alexa_signin_mailer_user%"
             password:   "%bricks_custom_twentysteps_alexa_signin_mailer_password%"
-            spool:     { type: memory }
+            spool:     { type: "memory" }
 
 sp_bower:
     bundles:
@@ -48,9 +48,9 @@ assetic:
 snc_redis:
     clients:
         twentysteps_alexa:
-            type: predis
-            alias: twentysteps_alexa
-            dsn: redis://127.0.1
+            type: "predis"
+            alias: "twentysteps_alexa"
+            dsn: "redis://127.0.1"
             logging: "%kernel.debug%"
             options:
                 connection_timeout: 2
@@ -61,19 +61,19 @@ oneup_flysystem:
     adapters:
         twentysteps_alexa_user_avatar_adapter:
             local:
-                directory: %kernel.root_dir%/../web/custom/Twentysteps/Alexa/user/avatar
+                directory: "%kernel.root_dir%/../web/custom/Twentysteps/Alexa/user/avatar"
 
     filesystems:
         twentysteps_alexa_user_avatar_filesystem:
-            adapter:    twentysteps_alexa_user_avatar_adapter
-            mount:      twentysteps_alexa_user_avatar_mount
+            adapter:    "twentysteps_alexa_user_avatar_adapter"
+            mount:      "twentysteps_alexa_user_avatar_mount"
 
 vich_uploader:
     mappings:
         twentysteps_alexa_user_avatar:
             uri_prefix: "/custom/Twentysteps/Alexa/user/avatar"
-            upload_destination: twentysteps_alexa_user_avatar_mount
-            namer:              vich_uploader.namer_uniqid
+            upload_destination: "twentysteps_alexa_user_avatar_mount"
+            namer:              "vich_uploader.namer_uniqid"
             inject_on_load:     true
             delete_on_update:   true
             delete_on_remove:   true
@@ -87,25 +87,25 @@ liip_imagine:
         twentysteps_alexa_user_avatar_mobile:
             quality: 75
             filters:
-                thumbnail: { size: [512, 512], mode: inset, allow_upscale: true }
+                thumbnail: { size: [512, 512], mode: "inset", allow_upscale: true }
 
 fos_oauth_server:
-    db_driver: orm
-    client_class:        Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\Client
-    access_token_class:  Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken
-    refresh_token_class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\RefreshToken
-    auth_code_class:     Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AuthCode
+    db_driver: "orm"
+    client_class:        "Bricks\\Custom\\Twentysteps\\AlexaBrick\\AlexaBundle\\Entity\\Client"
+    access_token_class:  "Bricks\\Custom\\Twentysteps\\AlexaBrick\\AlexaBundle\\Entity\\AccessToken"
+    refresh_token_class: "Bricks\\Custom\\Twentysteps\\AlexaBrick\\AlexaBundle\\Entity\\RefreshToken"
+    auth_code_class:     "Bricks\\Custom\\Twentysteps\\AlexaBrick\\AlexaBundle\\Entity\\AuthCode"
     service:
         options:
-            supported_scopes: _TWENTYSTEPS_ALEXA_USER
+            supported_scopes: "_TWENTYSTEPS_ALEXA_USER"
             auth_code_lifetime: 3600
-        user_provider: bricks.custom.twentysteps_alexa.user_provider
+        user_provider: "bricks.custom.twentysteps_alexa.user_provider"
 
 braincrafted_bootstrap:
     css_preprocessor: lessphp
-    jquery_path: %kernel.root_dir%/../vendor/jquery/jquery/jquery-1.10.2.js
+    jquery_path: "%kernel.root_dir%/../vendor/jquery/jquery/jquery-1.10.2.js"
     css_preprocessor: less
-    fonts_dir: %kernel.root_dir%/../web/fonts
+    fonts_dir: "%kernel.root_dir%/../web/fonts"
     auto_configure:
         assetic: false
         twig: true
@@ -123,6 +123,18 @@ monolog:
         alexa:
             type: stream
             path: "%kernel.logs_dir%/alexa.log"
-            level: debug
+            level: "debug"
             channels: ["bricks.custom.twentysteps_alexa.controller.alexa"]
 
+hwi_oauth:
+    firewall_names:
+      - "bricks_custom_twentysteps_alexa_authenticated_de"
+    resource_owners:
+        google:
+            type:                "google"
+            client_id:           "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_id%"
+            client_secret:       "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_secret%"
+            scope:               "email profile https://www.googleapis.com/auth/analytics.readonly"
+            options:
+                csrf: true
+                access_type:     "offline"

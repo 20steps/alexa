@@ -24,6 +24,12 @@
                         </div>
                         <button type="submit" class="btn btn-primary">{{ 'Login'|trans({},'core') }}</button>
                         <a style="text-align: right; float: right; margin-top: 8px;" href="{{ path('bricks.custom.twentysteps_alexa.user.alexa.register') }}">{{ 'Register'|trans({},'core') }}</a>
+                        <hr/>
+                        <div id="oauth">
+                            {% for owner in hwi_oauth_resource_owners() %}
+                                <a href="{{ hwi_oauth_login_url(owner) }}"><img src="{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/google-sign-in/1x/btn_google_signin_dark_normal_web.png"></a> <br />
+                            {% endfor %}
+                        </div>
                     </form>
                 </div>
             </div>

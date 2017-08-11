@@ -119,13 +119,35 @@ security:
             access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
             form_login: { login_path: /de/login, check_path: /de/authenticated/check, default_target_path: /de/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /de/authenticated/logout, target: /de/login, invalidate_session: true }
-        bricks_custom_twentysteps_alexa_authenticated_e:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    google:           "/de/authenticated/connect/check/google"
+                login_path:           "/de/login"
+                check_path:           "/de/authenticated/connect/check"
+                failure_path:         "/de/login"
+                default_target_path:  "/de/authenticated/home"
+                use_forward:          false
+                oauth_user_provider:
+                    service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
+        bricks_custom_twentysteps_alexa_authenticated_en:
             pattern: ^/en/authenticated
             host: '%bricks_custom_twentysteps_alexa_host%'
             provider: bricks_custom_twentysteps_alexa_user_provider
             access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
             form_login: { login_path: /en/login, check_path: /en/authenticated/check, default_target_path: /en/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /en/authenticated/logout, target: /en/login, invalidate_session: true }
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    google:           "/en/authenticated/connect/check/google"
+                login_path:           "/en/login"
+                check_path:           "/en/authenticated/connect/check"
+                failure_path:         "/en/login"
+                default_target_path:  "/en/authenticated/home"
+                use_forward:          false
+                oauth_user_provider:
+                    service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
         bricks_custom_twentysteps_alexa_oauth_token:
             pattern:    ^/oauth/v2/authenticated/token$
             host: '%bricks_custom_twentysteps_alexa_host%'
@@ -152,3 +174,9 @@ security:
         -
             path: ^/api
             roles: IS_AUTHENTICATED_FULLY
+        -
+            path: ^/de/authenticated/connect
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
+        -
+            path: ^/en/authenticated/connect
+            roles: IS_AUTHENTICATED_ANONYMOUSLY
