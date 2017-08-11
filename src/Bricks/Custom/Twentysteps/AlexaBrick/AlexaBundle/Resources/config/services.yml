@@ -12,6 +12,7 @@ services:
             - { name: twentysteps.bricks.shell, alias: twentysteps_alexa, integrated_kernel: true }
         calls:
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.alexa' ] ]
+            - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.api_ai' ] ]
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.uptime_robot' ] ]
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.user' ] ]
             - [ injectModule, [ '@bricks.custom.twentysteps_alexa.module.mail' ] ]
@@ -25,6 +26,12 @@ services:
         arguments: [ '@doctrine.orm.entity_manager', '@logger']
         tags:
             - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.alexa" }
+
+    bricks.custom.twentysteps_alexa.module.api_ai:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\APIAIModule
+        arguments: [ '@doctrine.orm.entity_manager', '@logger']
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.module.api_ai" }
 
     bricks.custom.twentysteps_alexa.module.uptime_robot:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule

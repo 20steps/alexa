@@ -12,6 +12,7 @@ use twentysteps\Commons\EnsureBundle\Ensure;
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Base\AbstractCustomShell;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\APIAIModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\MailModule;
@@ -48,6 +49,13 @@ class AlexaShell extends AbstractCustomShell  {
 	 */
 	public function getAlexaModule() {
 		return $this->useModuleByKey('AlexaModule');
+	}
+	
+	/**
+	 * @return APIAIModule
+	 */
+	public function getAPIAIModule() {
+		return $this->useModuleByKey('APIAIModule');
 	}
 	
 	/**

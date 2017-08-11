@@ -2,8 +2,6 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
-	use Alexa\Request\LaunchRequest;
-	use Alexa\Request\SessionEndedRequest;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -11,6 +9,8 @@
 	
 	use Alexa\Request\Request as AlexaRequest;
 	use Alexa\Response\Response as AlexaResponse;
+	use Alexa\Request\LaunchRequest;
+	use Alexa\Request\SessionEndedRequest;
 	use Alexa\Request\IntentRequest;
 	
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken;
@@ -29,8 +29,9 @@
 		private $em;
 		
 		/**
-		 * UptimeRobotModule constructor.
+		 * AlexaModule constructor.
 		 *
+		 * @param EntityManager $em
 		 * @param Logger $logger
 		 */
 		public function __construct(EntityManager $em, Logger $logger) {

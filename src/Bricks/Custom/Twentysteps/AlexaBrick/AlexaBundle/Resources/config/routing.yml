@@ -17,6 +17,14 @@ bricks.custom.twentysteps_alexa.api.alexa:
     requirements:
         bricks_api_host: "%bricks_api_host%"
 
+bricks.custom.twentysteps_alexa.api.api_ai:
+    resource: "@BricksCustomTwentystepsAlexaBundle/Resources/config/routing.api.1.0.api_ai.yml"
+    host: "%bricks_api_host%"
+    prefix: "/bricks/api/v1.0/alexa/api-ai"
+    defaults: { _format: "json" }
+    requirements:
+        bricks_api_host: "%bricks_api_host%"
+
 # Wordpress CMS (Web)
 
 bricks.custom.twentysteps_alexa.content:

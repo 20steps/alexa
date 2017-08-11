@@ -119,12 +119,18 @@ braincrafted_bootstrap:
 monolog:
     channels:
       - "bricks.custom.twentysteps_alexa.controller.alexa"
+      - "bricks.custom.twentysteps_alexa.controller.api_ai"
     handlers:
         alexa:
             type: stream
             path: "%kernel.logs_dir%/alexa.log"
             level: "debug"
             channels: ["bricks.custom.twentysteps_alexa.controller.alexa"]
+        api_ai:
+            type: stream
+            path: "%kernel.logs_dir%/api-ai.log"
+            level: "debug"
+            channels: ["bricks.custom.twentysteps_alexa.controller.api_ai"]
 
 hwi_oauth:
     firewall_names:

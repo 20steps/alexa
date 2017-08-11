@@ -17,8 +17,11 @@ parameters:
 
     bricks_infrastructure_core_core_monitoring_uptime_alert_contacts: "0468077_0_0-2553365_0_0-2553366_0_0-2554119_0_0-2557247_0_0"
     bricks_infrastructure_core_core_monitoring_monitor_definitions_custom:
-      - { name: "Admin Homepage", url: https://admin.alexa.20steps.de }
-      - { name: "Custom Ping", url: https://api.alexa.20steps.de/bricks/api/v1.0/alexa/alexa/process }
+      - { name: "Homepage (admin)", url: https://admin.alexa.20steps.de }
+      - { name: "Homepage (de)", url: https://alexa.20steps.de/de/login }
+      - { name: "Homepage (en)", url: https://alexa.20steps.de/en/login }
+      - { name: "Webhook (Alexa)", url: https://api.alexa.20steps.de/bricks/api/v1.0/alexa/alexa/process }
+      - { name: "Webhook (Google Home / API AI)", url: https://api.alexa.20steps.de/bricks/api/v1.0/alexa/api-ai/process }
 
     bricks_custom_twentysteps_alexa_is_live: false
 

@@ -7,6 +7,7 @@ use Bricks\Infrastructure\CoreBrick\CoreBundle\Command\AbstractProjectCommand;
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations\Command;
 
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\APIAIModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UptimeRobotModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\UserModule;
 use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\Mailmodule;
@@ -29,6 +30,13 @@ abstract class AbstractCommand extends AbstractProjectCommand {
 	 */
 	protected final function getAlexaModule() {
 		return $this->container->get('twentysteps_alexa')->getAlexaModule();
+	}
+	
+	/**
+	 * @return APIAIModule
+	 */
+	protected final function getAPIAIModule() {
+		return $this->container->get('twentysteps_alexa')->getAPIAIModule();
 	}
 	
 	/**

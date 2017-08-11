@@ -3,7 +3,7 @@
   "license": "(c) 20steps Digital Full Service Boutique",
   "type": "project",
   "description": "PHP/Symfony based backend for personalized and localized 20steps Amazon Alexa Echo skill for developers, system administrators and marketers",
-  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking","Wordpress","tinypng","keycdn","google analytics","google webmaster tools","Twig","Bootstrap","monitoring"],
+  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking","Wordpress","tinypng","keycdn","google analytics","google webmaster tools","Twig","Bootstrap","monitoring","Google Home","Google Actions","API AI"],
   "homepage": "https:\/\/alexa.20steps.de",
   "autoload": {
     "psr-4": {
@@ -85,12 +85,11 @@
     "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
 
     "20steps/amazon-alexa-php": "dev-master",
+    "20steps/api-ai-webhook-php": "dev-master",
     "20steps/oauth-server-bundle": "dev-master",
     "braincrafted/bootstrap-bundle": "dev-develop",
     "twbs/bootstrap": "^3.0",
-    "jquery/jquery":  "1.11.1",
-    "maxbeckers/google-actions-php": "dev-master",
-    "iboldurev/api-ai-php": "dev-master"
+    "jquery/jquery":  "1.11.1"
   },
   "require-dev": {
     "jane/open-api": "dev-master"

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "246e135e2fd38ed2c94c25b99d332ded",
+    "content-hash": "94105add9ad257a6d9717eb7ad67e27a",
     "packages": [
         {
             "name": "20steps/amazon-alexa-php",
@@ -125,6 +125,52 @@
                 "issues": "https://github.com/20steps/bricks-angularjs/issues"
             },
             "time": "2017-07-27 22:38:28"
+        },
+        {
+            "name": "20steps/api-ai-webhook-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/20steps/api-ai-webhook-php.git",
+                "reference": "7e6a1149b515a6e57a7844c446806c6a7a9d5a0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/20steps/api-ai-webhook-php/zipball/7e6a1149b515a6e57a7844c446806c6a7a9d5a0d",
+                "reference": "7e6a1149b515a6e57a7844c446806c6a7a9d5a0d",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.6"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "APIAI\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Helmut Hoffer von Ankershoffen",
+                    "email": "hhva@20steps.de"
+                }
+            ],
+            "description": "API AI Webhook interface for PHP",
+            "keywords": [
+                "Google Actions",
+                "Google Home",
+                "ai",
+                "api",
+                "php"
+            ],
+            "time": "2017-08-11 13:08:00"
         },
         {
             "name": "20steps/autotables-bundle",
@@ -5239,49 +5285,6 @@
             "time": "2017-01-08T14:13:58+00:00"
         },
         {
-            "name": "iboldurev/api-ai-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/iboldurev/api-ai-php.git",
-                "reference": "5c1110c3e8393419f4bab76b44bca7dbbb861a9d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/iboldurev/api-ai-php/zipball/5c1110c3e8393419f4bab76b44bca7dbbb861a9d",
-                "reference": "5c1110c3e8393419f4bab76b44bca7dbbb861a9d",
-                "shasum": ""
-            },
-            "require": {
-                "guzzlehttp/guzzle": "^6.2",
-                "php": ">=5.5.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "ApiAi\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Ivan Boldyrev",
-                    "email": "iboldurev@gmail.com",
-                    "homepage": "https://github.com/iboldurev"
-                }
-            ],
-            "description": "API.ai php sdk",
-            "keywords": [
-                "api.ai",
-                "api.ai sdk",
-                "bot"
-            ],
-            "time": "2016-10-10 06:41:36"
-        },
-        {
             "name": "igorw/get-in",
             "version": "v1.0.3",
             "source": {
@@ -7005,52 +7008,6 @@
                 "monitoring"
             ],
             "time": "2017-05-05T14:54:15+00:00"
-        },
-        {
-            "name": "maxbeckers/google-actions-php",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/maxbeckers/google-actions-php.git",
-                "reference": "965a5b8cd40eb9ced6c67abcf4a8337f959d75b6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/maxbeckers/google-actions-php/zipball/965a5b8cd40eb9ced6c67abcf4a8337f959d75b6",
-                "reference": "965a5b8cd40eb9ced6c67abcf4a8337f959d75b6",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=7.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "^6.2"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "MaxBeckers\\GoogleActions\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Maximilian Beckers",
-                    "email": "beckers.maximilian@gmail.com",
-                    "role": "Developer"
-                }
-            ],
-            "description": "This library is a helper for google actions with php.",
-            "keywords": [
-                "actions",
-                "google",
-                "home",
-                "php"
-            ],
-            "time": "2017-08-07 18:25:24"
         },
         {
             "name": "maxmind-db/reader",
@@ -13953,10 +13910,9 @@
         "20steps/angularjs-bundle": 20,
         "gedmo/doctrine-extensions": 20,
         "20steps/amazon-alexa-php": 20,
+        "20steps/api-ai-webhook-php": 20,
         "20steps/oauth-server-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
-        "maxbeckers/google-actions-php": 20,
-        "iboldurev/api-ai-php": 20,
         "jane/open-api": 20
     },
     "prefer-stable": true,

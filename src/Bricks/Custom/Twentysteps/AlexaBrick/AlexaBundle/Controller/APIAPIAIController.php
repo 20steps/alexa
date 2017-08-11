@@ -6,20 +6,20 @@ use Psr\Log\LoggerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-use Alexa\Request\Request as AlexaRequest;
-use Alexa\Response\Response as AlexaResponse;
+use APIAI\Request\Request as APIAIRequest;
+use APIAI\Response\Response as APIAIResponse;
 
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations as BS;
 
-use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\AlexaModule;
+use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules\APIAIModule;
 
-class APIAlexaController extends AbstractAPIController {
+class APIAPIAIController extends AbstractAPIController {
 
 	/**
-	 * @var AlexaModule $alexaModule;
+	 * @var APIAIModule $apiAIModule;
 	 * @BS\Inject()
 	 */
-	private $alexaModule;
+	private $apiAIModule;
 	
 	/**
 	 * @param Request $request
@@ -29,8 +29,8 @@ class APIAlexaController extends AbstractAPIController {
 		
 		if ($request->getMethod()==Request::METHOD_POST) {
 			// prepare/process request from Amazon Alexa
-			return $this->successAlexa(
-				$this->alexaModule->processAlexaRequest($this->getAlexaRequest($request))
+			return $this->successAPIAI(
+				$this->apiAIModule->processAPIAIRequest($this->getAPIAIRequest($request))
 			);
 		}
 		
@@ -43,24 +43,21 @@ class APIAlexaController extends AbstractAPIController {
 	/**
 	 * @param Request $request
 	 * @param string|null $appId
-	 * @return AlexaRequest
+	 * @return APIAIRequest
 	 */
-	protected  function getAlexaRequest(Request $request, string $appId = null) {
-		if (!$appId) {
-			$appId = $this->getParameter('bricks_custom_twentysteps_alexa_application_id');
-		}
+	protected  function getAPIAIRequest(Request $request) {
 		$content = $request->getContent();
-		$this->getLogger()->debug('alexa request',json_decode($content,true));
-		$alexaRequest = new AlexaRequest($content, $appId);
+		$this->getLogger()->debug('apiai request',json_decode($content,true));
+		$alexaRequest = new APIAIRequest($content);
 		return $alexaRequest->fromData();
 	}
 	
 	/**
-	 * @param AlexaResponse $alexaResponse
+	 * @param APIAIResponse $alexaResponse
 	 * @return Response
 	 */
-	protected function successAlexa(AlexaResponse $alexaResponse) {
-		$renderedResponse = $alexaResponse->render();
+	protected function successAPIAI(APIAIResponse $apiaiResponse) {
+		$renderedResponse = $apiaiResponse->render();
 		$this->getLogger()->debug('response',$renderedResponse);
 		$response = new Response($this->serializeJSON($renderedResponse));
 		$response->headers->set('Content-Type', 'application/json');
@@ -71,6 +68,6 @@ class APIAlexaController extends AbstractAPIController {
 	 * @return LoggerInterface
 	 */
 	protected function getLogger() {
-		return $this->get('monolog.logger.bricks.custom.twentysteps_alexa.controller.alexa');
+		return $this->get('monolog.logger.bricks.custom.twentysteps_alexa.controller.api_ai');
 	}
 }

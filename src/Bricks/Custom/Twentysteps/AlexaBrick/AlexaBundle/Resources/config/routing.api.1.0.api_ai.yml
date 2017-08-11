@@ -1,0 +1,4 @@
+bricks.custom.twentysteps_alexda.api.api_ai.process:
+    path: /process
+    defaults: { _controller: BricksCustomTwentystepsAlexaBundle:APIAPIAI:process, project: alexa }
+    methods: [POST,GET]
