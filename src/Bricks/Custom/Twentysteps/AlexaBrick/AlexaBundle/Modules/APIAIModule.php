@@ -41,6 +41,7 @@
 		public function processAPIAIRequest(APIAIRequest $apiaiRequest) {
 
 			$user = $this->getUserFromRequest($apiaiRequest);
+			$userAgent = '20steps/assistant';
 			
 			if ($apiaiRequest instanceof IntentRequest) {
 				/**
@@ -48,7 +49,7 @@
 				 */
 				switch ($apiaiRequest->getIntentName()) {
 					case 'SandraLoveIntent':
-						$response = new APIAIResponse('20steps/assistant');
+						$response = new APIAIResponse($userAgent);
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
 							if ($apiaiRequest->getLang()=='de') {
 								$speech = sprintf('%s, %s liebt Dich!', $user->getSetting('love_name'), $user->getDisplayName());
@@ -67,8 +68,10 @@
 							}
 						}
 						return $response->respond($speech)->withDisplayText($displayText);
+					case 'UptimeRobotStatusIntent':
+						return $this->getShell()->getUptimeRobotModule()->processAPIAIIntent($apiaiRequest,$user);
 					default:
-						$response = new APIAIResponse('20steps/assistant');
+						$response = new APIAIResponse($userAgent);
 						if ($apiaiRequest->getLang()=='de') {
 							return $response->respond('Entschuldigung, aber ich verstehe Dich leider nicht.');
 						} else {

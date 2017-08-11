@@ -28,7 +28,7 @@ Usage:
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
-* Provide API for Google Home / Actions / API AI (wip)
+* Provide API for Google Home / Actions / API AI (basically done, waiting for device shipment to test w/o simulator)
 * Provide support for Google Home / Account linking (wip)
 * Rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions (wip)
