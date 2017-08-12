@@ -2,6 +2,7 @@
 	
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
+	use APIAI\Request\GoogleRequest;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -11,6 +12,8 @@
 	use APIAI\Response\Response as APIAIResponse;
 	use APIAI\Request\IntentRequest;
 	
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessToken;
+	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\AccessTokenRepository;
 	use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 	
 	/**
@@ -75,7 +78,7 @@
 						if ($apiaiRequest->getLang()=='de') {
 							return $response->respond('Entschuldigung, aber ich verstehe Dich leider nicht.');
 						} else {
-							return $response->respond('Sad to say but I don\' understand you.');
+							return $response->respond('Sad to say but I don\'t understand you.');
 						}
 				}
 			}
@@ -94,9 +97,33 @@
 		 */
 		public function getUserFromRequest(APIAIRequest $apiaiRequest) {
 			Ensure::isNotNull($apiaiRequest,'request must not be null');
-			// not yet implemented
+			$originalRequest = $apiaiRequest->getOriginalRequest();
+			if ($originalRequest && $originalRequest instanceof GoogleRequest) {
+				/**
+				 * @var GoogleRequest $originalRequest
+				 */
+				$user = $originalRequest->getUser();
+				if ($user) {
+					$accessToken = $user->getAccessToken();
+					if ($accessToken) {
+						$token = $this->getAccessTokenRepository()->findOneBy(['token' => $accessToken]);
+						if ($token) {
+							/**
+							 * @var AccessToken $token
+							 */
+							return $token->getUser();
+						}
+					}
+				}
+			}
 			return null;
 		}
+		
+		/** @return AccessTokenRepository */
+		protected function getAccessTokenRepository() {
+			return $this->em->getRepository('BricksCustomTwentystepsAlexaBundle:AccessToken');
+		}
+		
 		
 	}
 	

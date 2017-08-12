@@ -109,7 +109,7 @@
 						if ($alexaRequest->locale=='de-DE') {
 							return $response->respond('Entschuldigung, aber ich verstehe Dich leider nicht.')->endSession();
 						} else {
-							return $response->respond('Sad to say but I don\' understand you.')->endSession();
+							return $response->respond('Sad to say but I don\'t understand you.')->endSession();
 						}
 				}
 			}

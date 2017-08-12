@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/api-ai-webhook-php.git",
-                "reference": "658b021fe71a8c33221add3c35b82ffa2fc2e2cd"
+                "reference": "47e71033db3b8c79dec42960ffd589cf91ab1b9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/api-ai-webhook-php/zipball/658b021fe71a8c33221add3c35b82ffa2fc2e2cd",
-                "reference": "658b021fe71a8c33221add3c35b82ffa2fc2e2cd",
+                "url": "https://api.github.com/repos/20steps/api-ai-webhook-php/zipball/47e71033db3b8c79dec42960ffd589cf91ab1b9d",
+                "reference": "47e71033db3b8c79dec42960ffd589cf91ab1b9d",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
                 "api",
                 "php"
             ],
-            "time": "2017-08-11 13:31:00"
+            "time": "2017-08-12 14:33:17"
         },
         {
             "name": "20steps/autotables-bundle",
@@ -1077,16 +1077,16 @@
         },
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.32.6",
+            "version": "3.32.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "db5bd8d617012d4afb3e5e1f3e8f4b9899242b62"
+                "reference": "9e2ad0ee0a1269190e411b7409e9b64361626e0a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/db5bd8d617012d4afb3e5e1f3e8f4b9899242b62",
-                "reference": "db5bd8d617012d4afb3e5e1f3e8f4b9899242b62",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/9e2ad0ee0a1269190e411b7409e9b64361626e0a",
+                "reference": "9e2ad0ee0a1269190e411b7409e9b64361626e0a",
                 "shasum": ""
             },
             "require": {
@@ -1153,7 +1153,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-08-10T20:29:21+00:00"
+            "time": "2017-08-11T21:16:28+00:00"
         },
         {
             "name": "beberlei/DoctrineExtensions",
@@ -3289,23 +3289,23 @@
         },
         {
             "name": "doctrine/orm",
-            "version": "v2.5.6",
+            "version": "v2.5.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/doctrine2.git",
-                "reference": "e6c434196c8ef058239aaa0724b4aadb0107940b"
+                "reference": "22546a381144a957c00f17dc428ca33bc48ddecd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/e6c434196c8ef058239aaa0724b4aadb0107940b",
-                "reference": "e6c434196c8ef058239aaa0724b4aadb0107940b",
+                "url": "https://api.github.com/repos/doctrine/doctrine2/zipball/22546a381144a957c00f17dc428ca33bc48ddecd",
+                "reference": "22546a381144a957c00f17dc428ca33bc48ddecd",
                 "shasum": ""
             },
             "require": {
                 "doctrine/cache": "~1.4",
                 "doctrine/collections": "~1.2",
-                "doctrine/common": ">=2.5-dev,<2.8-dev",
-                "doctrine/dbal": ">=2.5-dev,<2.6-dev",
+                "doctrine/common": ">=2.5-dev,<2.9-dev",
+                "doctrine/dbal": ">=2.5-dev,<2.7-dev",
                 "doctrine/instantiator": "~1.0.1",
                 "ext-pdo": "*",
                 "php": ">=5.4",
@@ -3361,7 +3361,7 @@
                 "database",
                 "orm"
             ],
-            "time": "2016-12-18T15:42:34+00:00"
+            "time": "2017-08-11T21:28:20+00:00"
         },
         {
             "name": "dunglas/action-bundle",
