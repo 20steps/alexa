@@ -56,21 +56,21 @@
 						if ($user && $user->hasSetting('love_name') && $user->getSetting('love_name')!='') {
 							if ($apiaiRequest->getLang()=='de') {
 								$speech = sprintf('%s, %s liebt Dich!', $user->getSetting('love_name'), $user->getDisplayName());
-								$displayText = 'Liebe';
+								$cardTitle = 'Liebe';
 							} else {
 								$speech = sprintf('%s, %s loves you!', $user->getSetting('love_name'), $user->getDisplayName());
-								$displayText = 'Love';
+								$cardTitle = 'Love';
 							}
 						} else {
 							if ($apiaiRequest->getLang()=='de') {
 								$speech = 'Sandra, Helmut liebt Dich!';
-								$displayText = 'Liebe';
+								$cardTitle = 'Liebe';
 							} else {
 								$speech = 'Sandra, Helmut loves you!';
-								$displayText = 'Love';
+								$cardTitle = 'Love';
 							}
 						}
-						return $response->respond($speech)->withDisplayText($displayText);
+						return $response->respond($speech)->withCard($cardTitle,$speech);
 					case 'UptimeRobotStatusIntent':
 						return $this->getShell()->getUptimeRobotModule()->processAPIAIIntent($apiaiRequest,$user);
 					default:

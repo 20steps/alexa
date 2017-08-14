@@ -1,0 +1,90 @@
+{
+  "originalRequest": {
+    "source": "google",
+    "version": "2",
+    "data": {
+      "isInSandbox": true,
+      "surface": {
+        "capabilities": [
+          {
+            "name": "actions.capability.AUDIO_OUTPUT"
+          }
+        ]
+      },
+      "inputs": [
+        {
+          "rawInputs": [
+            {
+              "query": "love",
+              "inputType": "VOICE"
+            }
+          ],
+          "arguments": [
+            {
+              "rawText": "love",
+              "textValue": "love",
+              "name": "text"
+            }
+          ],
+          "intent": "actions.intent.TEXT"
+        }
+      ],
+      "user": {
+        "accessToken": "NWQ0OGY2MTBjYTA1MDQ4YzNkZjM2NjcyMzM2NDQ1Njk1YTdjOGE5ZjM0ODI5MzA1NWQxNDk3MDNkYjcyNzg3Yg",
+        "locale": "en-US",
+        "userId": "1502695183229"
+      },
+      "device": [],
+      "conversation": {
+        "conversationId": "1502695183229",
+        "type": "ACTIVE",
+        "conversationToken": "[]"
+      }
+    }
+  },
+  "id": "500e1334-ccbf-4382-a040-cd4986e08375",
+  "timestamp": "2017-08-14T07:23:14.296Z",
+  "lang": "en",
+  "result": {
+    "source": "agent",
+    "resolvedQuery": "love",
+    "speech": "",
+    "action": "LoveAction",
+    "actionIncomplete": false,
+    "parameters": [],
+    "contexts": [
+      {
+        "name": "actions_capability_audio_output",
+        "parameters": [],
+        "lifespan": 0
+      },
+      {
+        "name": "google_assistant_input_type_voice",
+        "parameters": [],
+        "lifespan": 0
+      }
+    ],
+    "metadata": {
+      "intentId": "4db4cf6a-0cff-423a-83a9-d2e5b3ecd21b",
+      "webhookUsed": "true",
+      "webhookForSlotFillingUsed": "false",
+      "nluResponseTime": 6,
+      "intentName": "SandraLoveIntent"
+    },
+    "fulfillment": {
+      "speech": "",
+      "messages": [
+        {
+          "type": 0,
+          "speech": ""
+        }
+      ]
+    },
+    "score": 1
+  },
+  "status": {
+    "code": 200,
+    "errorType": "success"
+  },
+  "sessionId": "1502695183229"
+}

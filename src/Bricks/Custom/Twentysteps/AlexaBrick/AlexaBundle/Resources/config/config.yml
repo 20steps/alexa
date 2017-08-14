@@ -144,3 +144,4 @@ hwi_oauth:
             options:
                 csrf: true
                 access_type:     "offline"
+    target_path_parameter: "_target_path"

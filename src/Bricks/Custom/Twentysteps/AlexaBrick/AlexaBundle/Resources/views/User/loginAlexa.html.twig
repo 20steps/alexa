@@ -27,7 +27,7 @@
                         <hr/>
                         <div id="oauth">
                             {% for owner in hwi_oauth_resource_owners() %}
-                                <a href="{{ hwi_oauth_login_url(owner) }}"><img src="{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/google-sign-in/1x/btn_google_signin_dark_normal_web.png"></a> <br />
+                                <a href="{{ hwi_oauth_login_url(owner) }}?_target_path=bricks.custom.twentysteps_alexa.user.alexa.pre_authorize"><img src="{{ bricks_cdn_prefix }}/bundles/brickscustomtwentystepsalexa/img/google-sign-in/1x/btn_google_signin_dark_normal_web.png"></a> <br />
                             {% endfor %}
                         </div>
                     </form>

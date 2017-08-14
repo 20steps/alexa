@@ -122,11 +122,11 @@ security:
             anonymous: ~
             oauth:
                 resource_owners:
-                    google:           "/de/authenticated/connect/check/google"
-                login_path:           "/de/login"
-                check_path:           "/de/authenticated/connect/check"
-                failure_path:         "/de/login"
-                default_target_path:  "/de/authenticated/home"
+                    google:           hwi_oauth_check_google
+                login_path:           bricks.custom.twentysteps_alexa.user.login
+                check_path:           hwi_oauth_check_google
+                failure_path:         bricks.custom.twentysteps_alexa.user.login
+                default_target_path:  bricks.custom.twentysteps_alexa.user.home
                 use_forward:          false
                 oauth_user_provider:
                     service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
@@ -140,11 +140,11 @@ security:
             anonymous: ~
             oauth:
                 resource_owners:
-                    google:           "/en/authenticated/connect/check/google"
-                login_path:           "/en/login"
-                check_path:           "/en/authenticated/connect/check"
-                failure_path:         "/en/login"
-                default_target_path:  "/en/authenticated/home"
+                    google:           hwi_oauth_check_google
+                login_path:           bricks.custom.twentysteps_alexa.user.login
+                check_path:           hwi_oauth_check_google
+                failure_path:         bricks.custom.twentysteps_alexa.user.login
+                default_target_path:  bricks.custom.twentysteps_alexa.user.home
                 use_forward:          false
                 oauth_user_provider:
                     service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
@@ -158,6 +158,17 @@ security:
             provider: bricks_user_provider
             form_login: { login_path: /oauth/v2/login, check_path: /oauth/v2/authenticated/check, default_target_path: /oauth/v2/authenticated/pre-authorize, provider: bricks_custom_twentysteps_alexa_user_provider }
             logout: { path: /oauth/v2/authenticated/logout, target: /oauth/v2/login, invalidate_session: true }
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    google:           hwi_oauth_check_google
+                login_path:           bricks.custom.twentysteps_alexa.user.alexa.login
+                check_path:           hwi_oauth_check_google
+                failure_path:         bricks.custom.twentysteps_alexa.user.alexa.login
+                default_target_path:  bricks.custom.twentysteps_alexa.user.alexa.pre_authorize
+                use_forward:          false
+                oauth_user_provider:
+                    service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
 
     access_control:
         -

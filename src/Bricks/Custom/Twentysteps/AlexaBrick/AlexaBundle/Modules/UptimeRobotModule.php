@@ -132,7 +132,7 @@
 					if ($intentRequest->locale=='de-DE') {
 						$responseText = $statistics['count'].' Monitore wurden geprüft: ';
 					} else {
-						$responseText = $statistics['count'].' have been checked: ';
+						$responseText = $statistics['count'].' monitors have been checked: ';
 					}
 					
 					if (($statistics['seems_down']['count'] + $statistics['down']['count']) == 0) {
@@ -328,7 +328,7 @@
 					if ($intentRequest->getLang()=='de') {
 						$responseText = $statistics['count'].' Monitore wurden geprüft: ';
 					} else {
-						$responseText = $statistics['count'].' have been checked: ';
+						$responseText = $statistics['count'].' monitors have been checked: ';
 					}
 					
 					if (($statistics['seems_down']['count'] + $statistics['down']['count']) == 0) {
