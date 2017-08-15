@@ -35,7 +35,7 @@ TODO:
 * Provide support for Google Assistant / Actions / API AI / Rich messages (wip)
 * Rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions
-* Publish for Google Home
+* Publish for Google Assistant
 * Prepare Joblet for messages pushed to Alexa by assistantlets (wip)
 * A lot more capabilities that help developers, system administrators and marketers
 * Adapt for Echo Show as soon as it is available in Germany.
