@@ -56,7 +56,7 @@
 			
 			// alg: RS256, kid: ca04df587b5a7cead80abee9ea8dcf7586a78e01
 			
-			$userId = $jwt->claims['sub'];
+			$userGoogleId = $jwt->claims['sub'];
 			$userEmail = $jwt->claims['email'];
 			$userEmailVerified = $jwt->claims['email_verified'];
 			$userFirstName = $jwt->claims['given_name'];
@@ -70,16 +70,17 @@
 					/**
 					 * @var User $user
 					 */
-					$user = $userManager->findUserBy(array('googleId' => $userId));
+					$user = $userManager->findUserBy(array('googleId' => $userGoogleId));
 					if (!$user) {
 						$user = $userManager->findUserByEmail($userEmail);
 					}
 					if (!$user) {
+						$this->logger->debug('get intent: user not found');
 						throw new OAuth2ServerException(OAuth2::HTTP_UNAUTHORIZED, 'user_not_found', "User was not found");
 					}
 
 					// possibly set user's Google Id and enable user
-					$user->setGoogleId($userId);
+					$user->setGoogleId($userGoogleId);
 					if (!$user->isEnabled()) {
 						// change password for security reason if user is not enabled
 						// i.e. has not confirmed the form based registration
@@ -94,6 +95,8 @@
 					
 					$userManager->updateUser($user);
 					
+					$this->logger->info('get intent: user updated ['.$userGoogleId.','.$userEmail.','.$user->getId().']');
+					
 					// return user reference so token is assigned to user
 					return ['data' => $user];
 					
@@ -101,17 +104,18 @@
 					/**
 					 * @var User $user
 					 */
-					$user = $userManager->findUserBy(array('googleId' => $userId));
+					$user = $userManager->findUserBy(array('googleId' => $userGoogleId));
 					if (!$user) {
 						$user = $userManager->findUserByEmail($userEmail);
 					}
 					if ($user) {
+						$this->logger->warn('create intent: user found, returning linking_error ['.$userGoogleId.','.$userEmail.','.$user->getId().']');
 						throw new OAuth2ServerException(OAuth2::HTTP_UNAUTHORIZED, 'linking_error', "User already exists",$user->getEmailCanonical());
 					}
 					
 					// user is new, create and connect it
 					$user = $userManager->createUser();
-					$user->setUsername($this->generateRandomUsername($userId, 'google'));
+					$user->setUsername($this->generateRandomUsername($userGoogleId, 'google'));
 					$user->setEmail($userEmail);
 					$user->setPassword($this->generateRandomPassword());
 					$user->setEnabled(true);
@@ -123,10 +127,13 @@
 					
 					$userManager->updateUser($user);
 
+					$this->logger->info('create intent: user created ['.$userGoogleId.','.$userEmail.','.$user->getId().']');
+
 					// return user reference so token is assigned to user
 					return ['data' => $user];
 
 				default:
+					$this->logger->critical('unsupported intent ['.$intent.']');
 					Ensure::fail('intent not supported');
 			}
 			
