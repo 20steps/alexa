@@ -46,6 +46,8 @@
 			$user = $this->getUserFromRequest($apiaiRequest);
 			$userAgent = '20steps/assistant';
 			
+			$this->logger->debug(var_export($apiaiRequest,true));
+			
 			if ($apiaiRequest instanceof IntentRequest) {
 				/**
 				 * @var IntentRequest $apiaiRequest

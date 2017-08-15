@@ -242,7 +242,7 @@
 			Ensure::isTrue($intentRequest->getIntentName() == 'UptimeRobotStatusIntent',
 				sprintf('Wrong intent [%s]',$intentRequest->getIntentName()));
 			
-			$response = new APIAIResponse();
+			$response = new APIAIResponse('20steps/assistant');
 			
 			if (!$user) {
 				if ($intentRequest->getLang()=='de') {
@@ -268,7 +268,7 @@
 				}
 				return $response
 					->respond($responseText)
-					->withLinkAccountCard($cardTitle,$responseText)
+					->withCard($cardTitle,$responseText)
 					->endSession();
 				
 			}

@@ -29,9 +29,7 @@ class APIAPIAIController extends AbstractAPIController {
 		
 		if ($request->getMethod()==Request::METHOD_POST) {
 			// prepare/process request from Amazon Alexa
-			return $this->successAPIAI(
-				$this->apiAIModule->processAPIAIRequest($this->getAPIAIRequest($request))
-			);
+			return $this->successAPIAI($this->apiAIModule->processAPIAIRequest($this->getAPIAIRequest($request)));
 		}
 		
 		// for monitoring / health-check,
@@ -58,7 +56,7 @@ class APIAPIAIController extends AbstractAPIController {
 	 */
 	protected function successAPIAI(APIAIResponse $apiaiResponse) {
 		$renderedResponse = $apiaiResponse->render();
-		$this->getLogger()->debug('response',$renderedResponse);
+		$this->getLogger()->debug('apiai response',$renderedResponse);
 		$response = new Response($this->serializeJSON($renderedResponse));
 		$response->headers->set('Content-Type', 'application/json');
 		return $response;
