@@ -782,12 +782,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/FOSOAuthServerBundle.git",
-                "reference": "88065be077468956614dbec8d93c4c451e3ea19f"
+                "reference": "033bda230f5d78d1808406bedbd24b49c00f90c8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/88065be077468956614dbec8d93c4c451e3ea19f",
-                "reference": "88065be077468956614dbec8d93c4c451e3ea19f",
+                "url": "https://api.github.com/repos/20steps/FOSOAuthServerBundle/zipball/033bda230f5d78d1808406bedbd24b49c00f90c8",
+                "reference": "033bda230f5d78d1808406bedbd24b49c00f90c8",
                 "shasum": ""
             },
             "require": {
@@ -852,7 +852,7 @@
                 "oauth2",
                 "server"
             ],
-            "time": "2017-08-15 12:04:57"
+            "time": "2017-08-15 12:27:52"
         },
         {
             "name": "20steps/oauth2-php",
@@ -860,12 +860,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/oauth2-php.git",
-                "reference": "1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c"
+                "reference": "211c4965b5a9a858498e6d90494f0f7763fd7b20"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/oauth2-php/zipball/1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c",
-                "reference": "1ebc6457ea4cee3d9335cf1a1377332eb4f08a7c",
+                "url": "https://api.github.com/repos/20steps/oauth2-php/zipball/211c4965b5a9a858498e6d90494f0f7763fd7b20",
+                "reference": "211c4965b5a9a858498e6d90494f0f7763fd7b20",
                 "shasum": ""
             },
             "require": {
@@ -906,7 +906,7 @@
                 "oauth",
                 "oauth2"
             ],
-            "time": "2017-07-30 16:37:46"
+            "time": "2017-08-15 12:44:51"
         },
         {
             "name": "20steps/phone-number-bundle",
