@@ -25,11 +25,17 @@ Technical specs:
 * Responsive and localized yet minimal Website using Pages brick to integrate Wordpress as CMS and Twig/Bootstrap for layouting
 * High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS, HHVM+PHP7, <a target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?hl=de&url=https%3A%2F%2Falexa.20steps.de%2Fde%2Flogin&tab=mobile">mod_pagespeed</a>, Redis, MariaDB Cluster etc. Service status available at <a target="_blank" href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
-Usage:
+Usage (for Amazon Alexa)
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API key of your UptimeRobot account etc.
 * Connect the previously registered account in the Alexa App on your smartphone.
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
+
+Usage (for Google Assistant)
+* Ask for "20steps" and create / link account seamlessly
+* Configure the skill by entering the API key of your UptimeRobot account etc at https://alexa.20steps.de
+* Ask for "status"
+
 
 TODO:
 * Provide support for Google Assistant / Actions / API AI / Rich messages (wip)
