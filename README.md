@@ -12,10 +12,10 @@ Current capabilitites:
 * Some easter egg for your loved one
 * Support for german and english language
 * User management including self-registration, double-opt-in, user settings, password reset, resend activation link etc.
-* Support for Sign in with Google
 * Support for Amazon Alexa Webhook API
 * Support for Alexa Account linking via oAuth2
 * Certified with Amazon (cp. <a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill in Amazon Store</a>).
+* Support for Sign in with Google
 * Basic Support for Google Assistant / Actions / API AI Webhook API
 * Basic Support for Google Assistant / Account linking
 
