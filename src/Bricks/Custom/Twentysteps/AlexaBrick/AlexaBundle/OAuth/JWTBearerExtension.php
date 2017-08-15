@@ -48,11 +48,11 @@
 			$intent = Ensure::isNotNull(array_key_exists('intent',$inputData)?$inputData['intent']:null,'no intent set');
 			$jwtString = Ensure::isNotNull(array_key_exists('assertion',$inputData)?$inputData['assertion']:null,'no assertion set');
 			
-			$this->logger->debug(var_export($inputData,true));
+			$this->logger->debug('input: '.var_export($inputData,true));
 
 			$jwt = \JOSE_JWT::decode($jwtString);
 			
-			$this->logger->debug(var_export($jwt,true));
+			$this->logger->debug('jwt: '.var_export($jwt,true));
 			
 			// alg: RS256, kid: ca04df587b5a7cead80abee9ea8dcf7586a78e01
 			
