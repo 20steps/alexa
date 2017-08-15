@@ -23,10 +23,8 @@ class UserProvider extends FOSUBUserProvider {
 		$username = $response->getUsername();
 		
 		// On connect, retrieve the access token and the user id
-		$serviceName = $response->getResourceOwner()->getName();
-		$setter = 'set' . ucfirst($serviceName);
-		$setterId = $setter . 'Id';
-		$setterAccessToken = $setter . 'AccessToken';
+		$setterId = 'set' . ucfirst($this->getProperty($response));
+		$setterAccessToken = substr($setterId,0,-2) . 'AccessToken';
 		
 		// Disconnect previously connected users
 		if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
