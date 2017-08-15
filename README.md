@@ -16,7 +16,7 @@ Current capabilitites:
 * Support for Alexa Account linking via oAuth2
 * Certified with Amazon (cp. <a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill in Amazon Store</a>).
 * Support for Sign in with Google
-* Basic Support for Google Assistant / Actions / API AI Webhook API
+* Basic Support for Google Assistant / Actions / API AI Webhook API (cp. https://api.ai/docs/fulfillment)
 * Basic Support for Google Assistant / Account linking / Authorization code flow (cp. https://developers.google.com/actions/identity/oauth2-code-flow)
 * Basic support for Google Assistant / Account linking / Streamlined identity flow (cp. https://developers.google.com/actions/identity/oauth2-assertion-flow)
 
