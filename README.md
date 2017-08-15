@@ -1,7 +1,7 @@
 20steps Alexa Backend
 =====================
 
-This is the certified backend of the personalized and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers.
+This is the certified backend of the personalized and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers
 
 Publishing for Google Home is work in progress (cp. below).
 

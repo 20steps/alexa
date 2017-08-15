@@ -15,6 +15,7 @@ use Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Entity\User;
 class UserProvider extends FOSUBUserProvider {
 	
 	public function connect(UserInterface $user, UserResponseInterface $response) {
+		
 		/**
 		 * @var User $user
 		 */
