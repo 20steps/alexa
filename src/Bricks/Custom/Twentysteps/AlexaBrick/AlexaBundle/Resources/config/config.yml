@@ -131,6 +131,11 @@ monolog:
             path: "%kernel.logs_dir%/api-ai.log"
             level: "debug"
             channels: ["bricks.custom.twentysteps_alexa.controller.api_ai"]
+        oauth_jwt:
+            type: stream
+            path: "%kernel.logs_dir%/oauth-jwt.log"
+            level: "debug"
+            channels: ["bricks.custom.twentysteps_alexa.oauth.jwt"]
 
 hwi_oauth:
     firewall_names:

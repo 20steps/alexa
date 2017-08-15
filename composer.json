@@ -89,7 +89,8 @@
     "20steps/oauth-server-bundle": "dev-master",
     "braincrafted/bootstrap-bundle": "dev-develop",
     "twbs/bootstrap": "^3.0",
-    "jquery/jquery":  "1.11.1"
+    "jquery/jquery":  "1.11.1",
+    "gree/jose": "dev-master"
   },
   "require-dev": {
     "jane/open-api": "dev-master"

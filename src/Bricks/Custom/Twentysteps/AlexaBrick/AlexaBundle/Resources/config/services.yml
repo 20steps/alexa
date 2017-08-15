@@ -131,6 +131,15 @@ services:
             - '@bricks.custom.twentysteps_alexa.user_manager'
             - { google: "googleId", fos_oauth_google: "googleId", facebook: "facebookId" }
 
+    bricks_custom_twentysteps_alexa_jwt_bearer_oauth:
+        class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\OAuth\JWTBearerExtension
+        arguments:
+            - '@service_container'
+            - '@logger'
+        tags:
+            - { name: monolog.logger, channel: "bricks.custom.twentysteps_alexa.oauth.jwt" }
+            - { name: fos_oauth_server.grant_extension, uri: "urn:ietf:params:oauth:grant-type:jwt-bearer" }
+
     # Foundlets (for search)
 
     bricks.custom.twentysteps_alexa.foundlet.page:
