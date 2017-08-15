@@ -16,7 +16,8 @@ Current capabilitites:
 * Support for Amazon Alexa Webhook API
 * Support for Alexa Account linking via oAuth2
 * Certified with Amazon (cp. <a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill in Amazon Store</a>).
-* Support for Google Home / API AI Webhook API
+* Basic Support for Google Assistant / Actions / API AI Webhook API
+* Basic Support for Google Assistant / Account linking
 
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
@@ -30,8 +31,8 @@ Usage:
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
 TODO:
-* Provide API for Google Home / Actions / API AI
-* Provide support for Google Home / Account linking (wip)
+* Provide support for Google Assistant / Account linking / Streamlined Identity Flow (wip)
+* Provide support for Google Assistant / Actions / API AI / Rich messages (wip)
 * Rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions
 * Publish for Google Home

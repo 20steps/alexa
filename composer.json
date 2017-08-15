@@ -3,7 +3,7 @@
   "license": "(c) 20steps Digital Full Service Boutique",
   "type": "project",
   "description": "PHP/Symfony based backend for personalized and localized 20steps Amazon Alexa Echo skill for developers, system administrators and marketers",
-  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking","Wordpress","tinypng","keycdn","google analytics","google webmaster tools","Twig","Bootstrap","monitoring","Google Home","Google Actions","API AI"],
+  "keywords": ["Amazon","Alexa","Echo","PHP","Symfony","Symfony3","Bricks","20steps","UptimeRobot","demo","OAuth","OAuth2","Account linking","Wordpress","tinypng","keycdn","google analytics","google webmaster tools","Twig","Bootstrap","monitoring","Google Assistant","Google Home","Google Actions","API AI"],
   "homepage": "https:\/\/alexa.20steps.de",
   "autoload": {
     "psr-4": {
