@@ -33,7 +33,7 @@ Usage:
 
 TODO:
 * Provide support for Google Assistant / Actions / API AI / Rich messages (wip)
-* Refactor / cleanup Google oAuth hackbup (wip)
+* Refactor / cleanup Google oAuth and Alexa oAuth account linking inkluding JWT/JWK verification etc. (wip)
 * Rename everything to assistant.20steps.de (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions
 * Publish for Google Assistant
