@@ -254,7 +254,8 @@ class UserController extends AbstractBricksController {
 			// last username entered by the user
 			'last_username' => $session->get(Security::LAST_USERNAME),
 			'body_class' => 'login',
-			'title' => 'Login'
+			'title' => 'Login',
+			'language_switch' => false
 		];
 		
 		$session->set('alexa_state',$request->query->get('state',rand(0,99)));

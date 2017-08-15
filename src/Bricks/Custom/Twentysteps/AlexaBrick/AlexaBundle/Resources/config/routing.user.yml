@@ -90,6 +90,7 @@ bricks.custom.twentysteps_alexa.user.alexa.reset_password:
 
 hwi_oauth_redirect:
     resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    #prefix:   /oauth/v2/authenticated/connect
     prefix:   /{_locale}/authenticated/connect
 
 hwi_oauth_connect:
@@ -98,3 +99,6 @@ hwi_oauth_connect:
 
 hwi_oauth_check_google:
     path: /{_locale}/authenticated/connect/check/google
+
+fos_oauth_hwi_oauth_check_google:
+    path: /oauth/v2/authenticated/connect/check/google

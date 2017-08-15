@@ -99,15 +99,18 @@
     <body class="redirect">
     {% endif %}
 
-        <div id="language-switcher">
-            <ul class="lang-menu">
-                {% if (app.request.locale  == 'de') %}
-                    de&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">en</a>
-                {% elseif (app.request.locale  == 'en') %}
-                    en&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'de'}))}}">de</a>
-                {% endif %}
-            </ul>
-        </div>
+        {% if language_switch is defined and language_switch == false %}
+        {% else %}
+            <div id="language-switcher">
+                <ul class="lang-menu">
+                    {% if (app.request.locale  == 'de') %}
+                        de&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'en'}))}}">en</a>
+                    {% elseif (app.request.locale  == 'en') %}
+                        en&nbsp;<span class="divider">|</span>&nbsp;<a href="{{  path(app.request.get('_route'), app.request.get('_route_params')|merge({'_locale': 'de'}))}}">de</a>
+                    {% endif %}
+                </ul>
+            </div>
+        {% endif %}
 
         {% block content %}
             No content yet - please fillup the content block in the view.

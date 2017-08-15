@@ -129,7 +129,7 @@ services:
         class: Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\OAuth\UserProvider
         arguments:
             - '@bricks.custom.twentysteps_alexa.user_manager'
-            - { google: "googleId", facebook: "facebookId" }
+            - { google: "googleId", fos_oauth_google: "googleId", facebook: "facebookId" }
 
     # Foundlets (for search)
 

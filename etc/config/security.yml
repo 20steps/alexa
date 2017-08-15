@@ -112,31 +112,13 @@ security:
             stateless: true
             lexik_jwt: null
             switch_user_stateless: true
-        bricks_custom_twentysteps_alexa_authenticated_de:
-            pattern: ^/de/authenticated
+        bricks_custom_twentysteps_alexa_authenticated:
+            pattern: ^/(de|en)/authenticated
             host: '%bricks_custom_twentysteps_alexa_host%'
             provider: bricks_custom_twentysteps_alexa_user_provider
             access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
-            form_login: { login_path: /de/login, check_path: /de/authenticated/check, default_target_path: /de/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
-            logout: { path: /de/authenticated/logout, target: /de/login, invalidate_session: true }
-            anonymous: ~
-            oauth:
-                resource_owners:
-                    google:           hwi_oauth_check_google
-                login_path:           bricks.custom.twentysteps_alexa.user.login
-                check_path:           hwi_oauth_check_google
-                failure_path:         bricks.custom.twentysteps_alexa.user.login
-                default_target_path:  bricks.custom.twentysteps_alexa.user.home
-                use_forward:          false
-                oauth_user_provider:
-                    service: "bricks_custom_twentysteps_alexa_user_provider_oauth"
-        bricks_custom_twentysteps_alexa_authenticated_en:
-            pattern: ^/en/authenticated
-            host: '%bricks_custom_twentysteps_alexa_host%'
-            provider: bricks_custom_twentysteps_alexa_user_provider
-            access_denied_handler: bricks.infrastructure.core.service.security.access_denied_handler
-            form_login: { login_path: /en/login, check_path: /en/authenticated/check, default_target_path: /en/authenticated/home, provider: bricks_custom_twentysteps_alexa_user_provider }
-            logout: { path: /en/authenticated/logout, target: /en/login, invalidate_session: true }
+            form_login: { login_path: bricks.custom.twentysteps_alexa.user.login, check_path: bricks.custom.twentysteps_alexa.user.check, default_target_path: bricks.custom.twentysteps_alexa.user.home, provider: bricks_custom_twentysteps_alexa_user_provider }
+            logout: { path: bricks.custom.twentysteps_alexa.user.logout, target: bricks.custom.twentysteps_alexa.user.login, invalidate_session: true }
             anonymous: ~
             oauth:
                 resource_owners:
@@ -161,9 +143,9 @@ security:
             anonymous: ~
             oauth:
                 resource_owners:
-                    google:           hwi_oauth_check_google
+                    fos_oauth_google:           fos_oauth_hwi_oauth_check_google
                 login_path:           bricks.custom.twentysteps_alexa.user.alexa.login
-                check_path:           hwi_oauth_check_google
+                check_path:           fos_oauth_hwi_oauth_check_google
                 failure_path:         bricks.custom.twentysteps_alexa.user.alexa.login
                 default_target_path:  bricks.custom.twentysteps_alexa.user.alexa.pre_authorize
                 use_forward:          false

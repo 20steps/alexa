@@ -134,9 +134,18 @@ monolog:
 
 hwi_oauth:
     firewall_names:
-      - "bricks_custom_twentysteps_alexa_authenticated_de"
+      - "bricks_custom_twentysteps_alexa_authenticated"
+      - "bricks_custom_twentysteps_alexa_oauth_authorize"
     resource_owners:
         google:
+            type:                "google"
+            client_id:           "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_id%"
+            client_secret:       "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_secret%"
+            scope:               "email profile https://www.googleapis.com/auth/analytics.readonly"
+            options:
+                csrf: true
+                access_type:     "offline"
+        fos_oauth_google:
             type:                "google"
             client_id:           "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_id%"
             client_secret:       "%bricks_custom_twentysteps_alexa_login_google_oauth2_client_secret%"

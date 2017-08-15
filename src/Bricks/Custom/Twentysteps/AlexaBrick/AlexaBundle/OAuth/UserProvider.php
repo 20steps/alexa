@@ -43,10 +43,8 @@ class UserProvider extends FOSUBUserProvider {
 	
 	public function loadUserByOAuthUserResponse(UserResponseInterface $response) {
 		
-		$serviceName = $response->getResourceOwner()->getName();
-		$setter = 'set' . ucfirst($serviceName);
-		$setterId = $setter . 'Id';
-		$setterAccessToken = $setter . 'AccessToken';
+		$setterId = 'set' . ucfirst($this->getProperty($response));
+		$setterAccessToken = substr($setterId,0,-2) . 'AccessToken';
 		
 		$username = $response->getUsername();
 		$email = $response->getEmail() ? $response->getEmail() : $username;
@@ -102,7 +100,7 @@ class UserProvider extends FOSUBUserProvider {
 		$user->setPassword($this->generateRandomPassword());
 		$user->setEnabled(true);
 		
-		$user->setRegistrationType('oauth:'.$serviceName);
+		$user->setRegistrationType('oauth:'.$response->getResourceOwner()->getName());
 		$user->$setterId($username);
 		$user->$setterAccessToken($response->getAccessToken());
 		
