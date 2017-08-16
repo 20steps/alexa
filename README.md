@@ -19,7 +19,7 @@ Current capabilitites:
 * Basic support for Google Assistant / Actions / API AI Webhook API (cp. https://api.ai/docs/fulfillment)
 * Basic support for Google Assistant / Account linking / Authorization code flow (cp. https://developers.google.com/actions/identity/oauth2-code-flow)
 * Basic support for Google Assistant / Account linking / Streamlined identity flow (cp. https://developers.google.com/actions/identity/oauth2-assertion-flow)
-* Basic support for Google Assistant / Actions / API AI / Rich messages
+* Basic support for Google Assistant / Actions / API AI / Rich responses
 
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
