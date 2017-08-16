@@ -16,9 +16,10 @@ Current capabilitites:
 * Support for Alexa Account linking via oAuth2
 * Certified with Amazon (cp. <a target="_blank" href="https://www.amazon.de/20steps-Digital-Full-Service-Boutique/dp/B074HHVYQ7">Skill in Amazon Store</a>).
 * Support for Sign in with Google (cp. https://github.com/hwi/HWIOAuthBundle)
-* Basic Support for Google Assistant / Actions / API AI Webhook API (cp. https://api.ai/docs/fulfillment)
-* Basic Support for Google Assistant / Account linking / Authorization code flow (cp. https://developers.google.com/actions/identity/oauth2-code-flow)
+* Basic support for Google Assistant / Actions / API AI Webhook API (cp. https://api.ai/docs/fulfillment)
+* Basic support for Google Assistant / Account linking / Authorization code flow (cp. https://developers.google.com/actions/identity/oauth2-code-flow)
 * Basic support for Google Assistant / Account linking / Streamlined identity flow (cp. https://developers.google.com/actions/identity/oauth2-assertion-flow)
+* Basic support for Google Assistant / Actions / API AI / Rich messages
 
 Technical specs:
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
@@ -38,10 +39,10 @@ Usage (for Google Assistant)
 
 
 TODO:
-* Provide support for Google Assistant / Actions / API AI / Rich messages (wip)
 * Refactor / cleanup Google oAuth and Alexa oAuth account linking inkluding JWT/JWK verification etc. (wip)
+* Introduce speechlets in basic layer of Bricks abstracting away Amazon Alexa / Skills vs. Google Assistant / Actions (wip)
+* Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. (wip)
 * Rename everything to assistant.20steps.de (wip)
-* Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. and introduce assistantlets into basic layer of Bricks abstracting away Amazon Alexa / Skills and Google Home / Actions
 * Publish for Google Assistant
 * Prepare Joblet for messages pushed to Alexa by assistantlets (wip)
 * A lot more capabilities that help developers, system administrators and marketers
