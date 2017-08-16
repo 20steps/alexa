@@ -3,6 +3,9 @@
 	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Modules;
 	
 	use APIAI\Request\GoogleRequest;
+	use APIAI\Response\GoogleBasicCard;
+	use APIAI\Response\GoogleData;
+	use APIAI\Response\GoogleSimpleResponse;
 	use Doctrine\ORM\EntityManager;
 	use Monolog\Logger;
 
@@ -73,6 +76,7 @@
 							}
 						}
 						return $response->respond($speech)->withCard($cardTitle,$speech);
+						
 					case 'UptimeRobotStatusIntent':
 						return $this->getShell()->getUptimeRobotModule()->processAPIAIIntent($apiaiRequest,$user);
 					default:
