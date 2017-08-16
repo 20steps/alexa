@@ -132,12 +132,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/api-ai-webhook-php.git",
-                "reference": "b3e3f4080579946146918d2cb1b5fd8ee47de638"
+                "reference": "a3e06eb07f200f7d2907b35d38ce5ac2e6df5d02"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/api-ai-webhook-php/zipball/b3e3f4080579946146918d2cb1b5fd8ee47de638",
-                "reference": "b3e3f4080579946146918d2cb1b5fd8ee47de638",
+                "url": "https://api.github.com/repos/20steps/api-ai-webhook-php/zipball/a3e06eb07f200f7d2907b35d38ce5ac2e6df5d02",
+                "reference": "a3e06eb07f200f7d2907b35d38ce5ac2e6df5d02",
                 "shasum": ""
             },
             "require": {
@@ -170,7 +170,7 @@
                 "api",
                 "php"
             ],
-            "time": "2017-08-16 09:37:50"
+            "time": "2017-08-16 09:47:54"
         },
         {
             "name": "20steps/autotables-bundle",
