@@ -12,7 +12,7 @@ composer install --no-interaction
 echo ""
 echo "Bootstrapping bricks node and cluster"
 echo "====================================="
-composer bricks-boostrap --no-interaction
+composer bricks-bootsrap --no-interaction
 
 echo ""
 echo "Importing Wordpress Database from live-master"

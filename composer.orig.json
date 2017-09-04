@@ -278,7 +278,7 @@
       "merge-extra": true,
       "merge-extra-deep": false,
       "merge-scripts": true
-    }
+    },
     "installer-paths": {
       "web\/{$name}": [
         "interconnectit\/search-replace-db"

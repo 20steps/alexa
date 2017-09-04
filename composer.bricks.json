@@ -1,4 +1,18 @@
 {
+  "autoload": {
+    "psr-4": {
+      "": "src\/"
+    },
+    "classmap": [
+      "app\/AppKernel.php",
+      "app\/AppCache.php"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests\/"
+    }
+  },
   "repositories": [
     {
       "type": "vcs",
@@ -62,7 +76,7 @@
 
     "20steps\/bricks": "3.2.x-dev",
     "20steps\/angularjs-bundle": "dev-master",
-    "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
+    "gedmo\/doctrine-extensions": "dev-master as 2.4.1"
   },
   "require-dev": {
     "jane/open-api": "dev-master"
@@ -74,5 +88,428 @@
     "symfony-web-dir": "web",
     "symfony-tests-dir": "tests",
     "symfony-assets-install": "relative",
+    "bricks-platform": {
+      "config": {
+        "jms_diextra_metadata": {
+          "directory": "var\/cache\/jms_diextra\/metadata",
+          "type": "directory",
+          "mode": "777"
+        },
+        "pids_dev_test": {
+          "directory": "var\/pids",
+          "type": "directory",
+          "mode": "777",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        "pids_live": {
+          "directory": "var\/pids",
+          "type": "directory",
+          "mode": "777",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "credentials_dev_test": {
+          "file": "etc\/credentials\/.credentials",
+          "dist-file": "etc\/credentials\/.credentials.dist",
+          "type": "dist",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        "credentials_live": {
+          "file": "etc\/credentials\/.credentials",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/.credentials",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        "credentials_custom_parameters_dev_test": {
+          "file": "etc\/credentials\/custom\/parameters.yml",
+          "dist-file": "etc\/credentials\/custom\/parameters.dist.yml",
+          "type": "dist",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        "credentials_custom_parameters_live": {
+          "file": "etc\/credentials\/custom\/parameters.yml",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/custom\/parameters.yml",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        "credentials_basic_mobile_apns": {
+          "file": "etc\/credentials\/basic\/mobile\/apns_cert.pem",
+          "type": "link"
+        },
+        "credentials_basic_pages_wordpress_dev": {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "dist-file": "etc\/credentials\/basic\/pages\/.wordpress.dist.generic_dev.php",
+          "type": "dist",
+          "stage": [
+            "dev"
+          ]
+        },
+        "credentials_basic_pages_wordpress_test": {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "dist-file": "etc\/credentials\/basic\/pages\/.wordpress.dist.generic_test.php",
+          "type": "dist",
+          "stage": [
+            "test"
+          ]
+        },
+        "credentials_basic_pages_wordpress_live": {
+          "file": "etc\/credentials\/basic\/pages\/.wordpress.php",
+          "link-file": "\/mnt\/data\/zone\/etc\/credentials\/basic\/pages\/.wordpress.php",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        "cluster": {
+          "file": "etc\/parameters\/cluster.yml",
+          "type": "link"
+        },
+        "node_dev_test": {
+          "file": "etc\/parameters\/node.yml",
+          "type": "link",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        "node_live": {
+          "file": "etc\/parameters\/node.yml",
+          "type": "link",
+          "use-hostname": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "htaccess": {
+          "file": "web\/.htaccess",
+          "type": "link"
+        },
+        "robots.txt": {
+          "file": "web\/robots.txt",
+          "type": "link"
+        },
+        "hosts_dev": {
+          "file": "\/etc\/hosts",
+          "inject-file": "etc\/system\/hosts\/hosts.generic_dev",
+          "type": "inject",
+          "sudo": true,
+          "stage": [
+            "dev"
+          ]
+        },
+        "pagespeed_live": {
+          "file": "\/mnt\/data\/zone\/etc\/system\/httpd\/conf.d\/pagespeed.conf",
+          "dist-file": "etc\/system\/httpd\/conf.d\/pagespeed.generic_live.conf",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "varnish_default_live": {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/default.vcl",
+          "dist-file": "etc\/system\/varnish\/default.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "varnish_director_live": {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/director.vcl",
+          "dist-file": "etc\/system\/varnish\/director.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "varnish_badbot_live": {
+          "file": "\/mnt\/data\/zone\/etc\/system\/varnish\/badbot.vcl",
+          "dist-file": "etc\/system\/varnish\/badbot.generic_live.vcl",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "haproxy_live": {
+          "file": "\/mnt\/data\/zone\/etc\/system\/haproxy\/haproxy.cfg",
+          "dist-file": "etc\/system\/haproxy\/haproxy.generic_live.cfg",
+          "type": "dist",
+          "update-by-default": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "solr_log4j": {
+          "file": "etc\/system\/solr\/resources\/log4j.properties",
+          "type": "link"
+        },
+        "solr_initd_live": {
+          "file": "\/etc\/init.d\/bricks.basic.found.solr",
+          "link-file": "\/var\/www\/Bricks\/etc\/system\/init.d\/bricks.basic.found.solr.generic_live",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "jobs_initd_live": {
+          "file": "\/etc\/init.d\/bricks.core.jobs",
+          "link-file": "\/var\/www\/Bricks\/etc\/system\/init.d\/bricks.core.jobs.generic_live",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "web_custom_live": {
+          "file": "\/var\/www\/Bricks\/web\/custom",
+          "link-file": "\/mnt\/data\/zone\/var\/web-custom",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "web_wpcontent_uploads_live": {
+          "file": "\/var\/www\/Bricks\/web\/wp-content\/uploads",
+          "link-file": "\/mnt\/data\/zone\/var\/wp-uploads",
+          "type": "link",
+          "stage": [
+            "live"
+          ]
+        },
+        "web_wellknown_live": {
+          "file": "\/var\/www\/Bricks\/web\/.well-known",
+          "link-file": "\/mnt\/data\/zone\/.well-known",
+          "type": "link",
+          "sudo": true,
+          "stage": [
+            "live"
+          ]
+        },
+        "systemctl_live": {
+          "script": "bin\/prepare\/linux-systemctl",
+          "type": "script",
+          "stage": [
+            "live"
+          ]
+        }
+      },
+      "service": {
+        "haproxy": {
+          "name": "haproxy",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        "solr": {
+          "name": "bricks.basic.found.solr",
+          "sudo": "true",
+          "action": "restart",
+          "stage": [
+            "live"
+          ]
+        },
+        "jobs": {
+          "name": "bricks.core.jobs",
+          "sudo": "true",
+          "action": "restart",
+          "stage": [
+            "live"
+          ]
+        },
+        "hhvm": {
+          "name": "hhvm",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        "apache": {
+          "name": "Apache",
+          "sudo": "true",
+          "script": "sudo apachectl restart",
+          "stage": [
+            "dev"
+          ]
+        },
+        "httpd": {
+          "name": "httpd",
+          "sudo": "true",
+          "stage": [
+            "live"
+          ]
+        },
+        "varnish": {
+          "name": "varnish",
+          "sudo": "true",
+          "action": "reload",
+          "stage": [
+            "live"
+          ]
+        }
+      }
+    }
+  },
+  "scripts": {
+    "maintenance-start": [
+      "bin/console bricks:core:monitoring:monitors:pause",
+      "bin/console bricks:core:cluster:node:maintenance:start"
+    ],
+    "maintenance-stop": [
+      "bin/console bricks:core:cluster:node:maintenance:stop",
+      "bin/console bricks:core:monitoring:monitors:resume",
+      "bin/console bricks:core:monitoring:monitors:create-or-update"
+    ],
+    "cluster-info": [
+      "bin/console bricks:core:cluster:node:properties:update",
+      "bin/console bricks:core:cluster:info"
+    ],
+    "post-install-cmd": [
+      "@wp-cli-install",
+      "@wp-install",
+      "@bricks-install",
+      "@symfony-install",
+      "@custom-install"
+    ],
+    "post-update-cmd": [
+      "@wp-cli-update",
+      "@wp-update",
+      "@bricks-update",
+      "@symfony-update",
+      "@app-update"
+    ],
+    "prepare-dev": [
+      "composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "bin\/symfony_requirements",
+      "php --version",
+      "bin\/prepare\/fix-access-rights"
+    ],
+    "prepare-live": [
+      "sudo -i composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "bin\/symfony_requirements",
+      "php --version",
+      "bin\/prepare\/fix-access-rights"
+    ],
+    "prepare-travis": [
+      "sudo -i composer self-update",
+      "composer global require 'hirak\/prestissimo'",
+      "php --version",
+      "bin\/prepare\/travis-build-tools"
+    ],
+    "wp-cli-install": [
+      "composer install --working-dir=bin\/.wp --no-interaction --no-suggest"
+    ],
+    "wp-cli-update": [
+      "composer update --working-dir=bin\/.wp --no-interaction --no-suggest"
+    ],
+    "wp-install": [
+
+    ],
+    "wp-update": [
+      "bin/wp core update",
+      "bin/wp plugin update --all"
+    ],
+    "wp-db-export-local": [
+      "mkdir -p var/dump/db",
+      "bin/wp db export var/dump/db/wp-local.sql --tables=$(bin/wp db tables --all-tables-with-prefix --format=csv)"
+    ],
+    "wp-db-export-live": [
+      "mkdir -p var/dump/db",
+      "bin/wp @live-master db export - --tables=$(bin/wp @live-master db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-live.sql"
+    ],
+    "bricks-install": [
+      "BricksPlatformComposerExtras\\Bootstrap::setup",
+      "BricksPlatformComposerExtras\\Bootstrap::remotes"
+    ],
+    "bricks-update": [
+      "@bricks-install"
+    ],
+    "bricks-bootstrap": [
+      "bin/console bricks:core:bootstrap --no-interaction",
+      "bin/console bricks:core:cluster:node:register --no-interaction",
+      "bin/console bricks:core:cluster:node:properties:update --no-interaction"
+    ],
+    "symfony-install": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "@cache-clear",
+      "@assets-build",
+      "@doctrine-migrate",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "symfony-update": [
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
+      "@cache-clear",
+      "@assets-build",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installRequirementsFile",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::prepareDeploymentTarget"
+    ],
+    "assets-build": [
+      "bin\/console sp:bower:install --env=prod --no-debug --interactive=false",
+      "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::installAssets",
+      "bin\/console bazinga:js-translation:dump --env=prod --no-debug",
+      "bin\/console assetic:dump --env=prod --no-debug  --no-interaction"
+    ],
+    "doctrine-migrate": [
+      "bin\/console doctrine:migrations:migrate  --no-interaction"
+    ],
+    "cache-clear": [
+      "sudo rm -rf var\/cache\/*"
+    ],
+    "platform-info": [
+      "bin\/console bricks:core:info",
+      "bin\/wp manifest"
+    ],
+    "services-reload": [
+      "BricksPlatformComposerExtras\\Bootstrap::reload"
+    ],
+    "test-phpunit": [
+      "@cache-clear",
+      "bin\/vendor\/phpunit"
+    ],
+    "test-behat": [
+      "@cache-clear",
+      "bin\/vendor\/behat"
+    ],
+    "test": [
+      "@test-phpunit",
+      "@test-behat"
+    ],
+    "documentation-generate": [
+      "bin\/console api:swagger:export > web\/doc\/api\/rest.json",
+      "#You can now import web\/doc\/api\/rest.json into postman."
+    ],
+    "deploy": [
+      "BricksPlatformComposerExtras\\Bootstrap::remotes",
+      "BricksPlatformComposerExtras\\Bootstrap::deploy"
+    ],
+    "mac-apache-restart": [
+      "sudo rm -rf \/tmp\/apc\/*; sudo rm -rf var\/cache\/*; rm -rf var\/logs\/*; sudo killall -9 httpd; sudo killall -9 httpd; sudo apachectl restart; bin/console"
+    ],
+    "console": [
+      "BricksPlatformComposerExtras\\Bootstrap::remoteConsole"
+    ]
   }
 }
