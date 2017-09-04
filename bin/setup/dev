@@ -24,4 +24,11 @@ echo "Configuring Alexa custom brick"
 echo "=============================="
 bin/alexa/configure
 
+echo ""
+echo "Restarting webserver"
+echo "===================="
+sudo apachectl restart
 
+echo ""
+echo "Opening browser"
+open "http://alexa.localhost.com"
