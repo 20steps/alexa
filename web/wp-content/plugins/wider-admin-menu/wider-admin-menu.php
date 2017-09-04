@@ -1,16 +1,16 @@
 <?php
 /**
  * Plugin Name: Wider Admin Menu
- * Plugin URI: https://strongplugins.com/downloads/wider-admin-menu/
+ * Plugin URI: https://strongplugins.com/plugins/wider-admin-menu/
  * Description: Let your admin menu breathe.
  * Author: Chris Dillon
- * Version: 1.2.1
+ * Version: 1.2.2
  * Author URI: https://strongplugins.com
  * Text Domain: wider-admin-menu
  * Requires: 3.3 or higher
  * License: GPLv3 or later
  *
- * Copyright 2014-2016  Chris Dillon  chris@wpmission.com
+ * Copyright 2014-2017  Chris Dillon  chris@strongplugins.com
  *
  * This program is free software; you can redistribute it and/or modify
  * it under the terms of the GNU General Public License, version 2, as
@@ -79,7 +79,7 @@ class WiderAdminMenu {
 	 */
 	public function plugin_action_links( $links, $file ) {
 		if ( $file == plugin_basename( __FILE__ ) ) {
-			$settings_link = '<a href="options-general.php?page=wider-admin-menu.php">' . __( 'Settings', 'wider-admin-menu' ) . '</a>';
+			$settings_link = '<a href="' . admin_url( 'options-general.php?page=wider-admin-menu.php' ) . '">' . __( 'Settings', 'wider-admin-menu' ) . '</a>';
 			array_unshift( $links, $settings_link );
 		}
 		return $links;

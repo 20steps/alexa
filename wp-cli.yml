@@ -1,2 +1,4 @@
 path: web
 WP_CLI_PACKAGES_DIR: wp-vendor
+@live-master:
+    ssh: twentysteps@h6.20steps.de:2232/var/www/Bricks/

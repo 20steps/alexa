@@ -59,6 +59,7 @@ bin/.wp/vendor/**
 /var/ftp
 /var/ftp/*
 
+
 etc/system/solr/cores/*
 etc/system/solr/cores/
 

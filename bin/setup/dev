@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+echo "Creating database and user"
+echo "=========================="
+mysql -u root < $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/dev.sql
+
+echo ""
+echo "Installing dependencies, generating configuration files and creating database schema"
+echo "===================================================================================="
+composer install --no-interaction
+
+echo ""
+echo "Bootstrapping bricks node and cluster"
+echo "====================================="
+composer bricks-boostrap --no-interaction
+
+echo ""
+echo "Importing Wordpress Database from live-master"
+echo "======================================"
+composer wp-db-live-to-local --no-interaction
+
+echo ""
+echo "Configuring Alexa custom brick"
+echo "=============================="
+bin/alexa/configure
+
+

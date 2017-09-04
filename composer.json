@@ -156,12 +156,31 @@
       "bin/wp core update",
       "bin/wp plugin update --all"
     ],
+    "wp-db-export-local": [
+      "mkdir -p var/dump/db",
+      "bin/wp db export var/dump/db/wp-local.sql --tables=$(bin/wp db tables --all-tables-with-prefix --format=csv)"
+    ],
+    "wp-db-export-live": [
+      "mkdir -p var/dump/db",
+      "bin/wp @live-master db export - --tables=$(bin/wp @live-master db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-live.sql"
+    ],
+    "wp-db-live-to-local": [
+      "@wp-db-export-live",
+      "bin/wp db import var/dump/db/wp-live.sql",
+      "export WP_DOMAIN_CURRENT_SITE_OVERRIDE=\"$(bin/wp @live-master eval \"echo DOMAIN_CURRENT_SITE;\")\"; bin/wp search-replace \"$WP_DOMAIN_CURRENT_SITE_OVERRIDE\" \"admin.alexa.localhost.com\" --all-tables",
+      "bin/wp search-replace \"$(bin/wp @live-master eval \"echo get_blog_details(2)->domain;\")\" \"alexa.localhost.com\" --all-tables"
+    ],
     "bricks-install": [
       "BricksPlatformComposerExtras\\Bootstrap::setup",
       "BricksPlatformComposerExtras\\Bootstrap::remotes"
     ],
     "bricks-update": [
       "@bricks-install"
+    ],
+    "bricks-bootstrap": [
+      "bin/console bricks:core:bootstrap --no-interaction",
+      "bin/console bricks:core:cluster:node:register --no-interaction",
+      "bin/console bricks:core:cluster:node:properties:update --no-interaction"
     ],
     "symfony-install": [
       "Sensio\\Bundle\\DistributionBundle\\Composer\\ScriptHandler::buildBootstrap",
@@ -225,6 +244,9 @@
     ],
     "custom-install": [
       "@custom-update"
+    ],
+    "console": [
+      "BricksPlatformComposerExtras\\Bootstrap::remoteConsole"
     ]
   },
   "minimum-stability": "dev",

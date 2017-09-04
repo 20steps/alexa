@@ -404,12 +404,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/20steps/bricks-platform-composer-extras.git",
-                "reference": "0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e"
+                "reference": "d4c020ebb4b0ccf3c1f186da7bc0c7e59af7b8e7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/20steps/bricks-platform-composer-extras/zipball/0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e",
-                "reference": "0dda78c3a7d6c0c4ff59cdb0bae78c778fed554e",
+                "url": "https://api.github.com/repos/20steps/bricks-platform-composer-extras/zipball/d4c020ebb4b0ccf3c1f186da7bc0c7e59af7b8e7",
+                "reference": "d4c020ebb4b0ccf3c1f186da7bc0c7e59af7b8e7",
                 "shasum": ""
             },
             "require": {
@@ -438,7 +438,7 @@
                 }
             ],
             "description": "Cpmposer extensions for setting up the bricks platform using composer",
-            "time": "2017-08-07T14:42:27+00:00"
+            "time": "2017-09-04T13:04:44+00:00"
         },
         {
             "name": "20steps/bricks-rest-core",
@@ -9323,16 +9323,16 @@
         },
         {
             "name": "phpspec/prophecy",
-            "version": "v1.7.1",
+            "version": "v1.7.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpspec/prophecy.git",
-                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659"
+                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/15ea9ac619e37009edcda64089e3fa4cc88aa659",
-                "reference": "15ea9ac619e37009edcda64089e3fa4cc88aa659",
+                "url": "https://api.github.com/repos/phpspec/prophecy/zipball/c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
+                "reference": "c9b8c6088acd19d769d4cc0ffa60a9fe34344bd6",
                 "shasum": ""
             },
             "require": {
@@ -9382,7 +9382,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2017-09-03T09:38:53+00:00"
+            "time": "2017-09-04T11:05:03+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",

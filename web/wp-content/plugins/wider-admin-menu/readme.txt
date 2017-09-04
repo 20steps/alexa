@@ -2,8 +2,8 @@
 Contributors: cdillon27
 Tags: admin menu
 Requires at least: 3.3
-Tested up to: 4.7
-Stable tag: 1.2.1
+Tested up to: 4.8.1
+Stable tag: 1.2.2
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -84,16 +84,19 @@ So this plugin will completely remove itself upon deletion. Deactivating the plu
 
 == Changelog ==
 
-= 1.2.1 - April 14, 2017 =
+= 1.2.2 - 2017-09-04 =
 * Update URLs.
 
-= 1.2 - June 24, 2016 =
+= 1.2.1 - 2017-04-14 =
+* Update URLs.
+
+= 1.2 - 2016-06-24 =
 * New "Leave No Trace" icon.
 
-= 1.1.3 - April 29, 2016 =
+= 1.1.3 - 2016-04-29 =
 * Add style for [Query Monitor](https://wordpress.org/plugins/query-monitor/) plugin.
 
-= 1.1.2 - April 22, 2015 =
+= 1.1.2 - 2015-04-22 =
 * Fix minor JavaScript bug on Settings page.
 
 = 1.1.1 =
