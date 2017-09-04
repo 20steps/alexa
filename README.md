@@ -1,5 +1,4 @@
-20steps Alexa Backend
-=====================
+#20steps Alexa Backend
 
 This is the certified backend of the personalized and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers
 
@@ -7,7 +6,7 @@ Publishing for Google Home is work in progress (cp. below).
 
 Furthermore this project is a demonstration of the capabilities of the RAD platform Bricks by 20steps, availability and performance characterics of the Bricks Cloud and last but not least used to enhance my skillset during holidays.
 
-Current capabilitites:
+## Current capabilitites
 * Possiblity to ask UptimeRobot.com for detailed system status of your web services
 * Some easter egg for your loved one
 * Support for german and english language
@@ -21,30 +20,37 @@ Current capabilitites:
 * Basic support for Google Assistant / Account linking / Streamlined identity flow (cp. https://developers.google.com/actions/identity/oauth2-assertion-flow)
 * Basic support for Google Assistant / Actions / API AI / Rich responses
 
-Technical specs:
+## Technical specs
 * Built using the RAD Bricks platform in 4 days, start to publish, without any prior knowledge of Alexa
 * Responsive and localized yet minimal Website using Pages brick to integrate Wordpress as CMS and Twig/Bootstrap for layouting
 * High performance and availability deployment at Bricks Cluster including HTTP/2, SSL offloader, CDN via keycdn, CentOS containers, Varnish layer, GlusterFS, HHVM+PHP7, <a target="_blank" href="https://developers.google.com/speed/pagespeed/insights/?hl=de&url=https%3A%2F%2Falexa.20steps.de%2Fde%2Flogin&tab=mobile">mod_pagespeed</a>, Redis, MariaDB Cluster etc. Service status available at <a target="_blank" href="https://monitoring.20steps.de">monitoring.20steps.de</a>
 
-Setup (for dev on MacOS X, enter password when asked):
+## Setup
+
+To setup on your MacOS X based workstation simple enter:
+
 ```shell
 git clone https://github.com/20steps/alexa
-bin/setup/dev
+cd alexa; bin/setup/dev
 ```
 
-Usage (for Amazon Alexa)
+Hint: enter password of your local account when asked for.
+
+## Usage
+
+###For Amazon Alexa
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API key of your UptimeRobot account etc.
 * Connect the previously registered account in the Alexa App on your smartphone.
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
-Usage (for Google Assistant)
+###For Google Assistant
 * Ask for "20steps" and create / link account seamlessly
 * Configure the skill by entering the API key of your UptimeRobot account etc at https://alexa.20steps.de
 * Ask for "status"
 
 
-TODO:
+## Todo
 * Refactor / cleanup Google oAuth and Alexa oAuth account linking inkluding JWT/JWK verification etc. (wip)
 * Introduce speechlets in basic layer of Bricks abstracting away Amazon Alexa / Skills vs. Google Assistant / Actions (wip)
 * Refactor AbstractCustomBundle of Bricks platform to minimize glue code for user mgmt. (wip)
@@ -59,7 +65,6 @@ Hints for fellow coders:
 * The business logic resides in the https://github.com/20steps/alexa/tree/master/src/Bricks/Custom/Twentysteps/AlexaBrick/AlexaBundle/Modules directory
 
 ## Author
-
 * Helmut Hoffer von Ankershoffen (hhva@20steps.de)
 
 ## Sponsored by
