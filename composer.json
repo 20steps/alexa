@@ -35,7 +35,7 @@
       "ignore-duplicates": false,
       "merge-dev": true,
       "merge-extra": true,
-      "merge-extra-deep": false,
+      "merge-extra-deep": true,
       "merge-scripts": true
     },
     "installer-paths": {

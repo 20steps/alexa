@@ -12,12 +12,12 @@ composer install --no-interaction
 echo ""
 echo "Bootstrapping bricks node and cluster"
 echo "====================================="
-composer bricks-bootsrap --no-interaction
+composer run-script bricks-bootsrap --no-interaction
 
 echo ""
 echo "Importing Wordpress Database from live-master"
 echo "============================================="
-composer wp-db-live-to-local --no-interaction
+composer run-script wp-db-live-to-local --no-interaction
 
 echo ""
 echo "Configuring Alexa custom brick"
