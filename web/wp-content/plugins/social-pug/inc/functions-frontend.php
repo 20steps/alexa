@@ -355,7 +355,7 @@
 			echo '<meta property="fb:app_id" 	content ="' . esc_attr( $settings['facebook_app_id'] ) . '" />';
 
 		// Twitter specific
-		echo '<meta name="twitter:card" 		content="summary" />';
+		echo '<meta name="twitter:card" 		content="summary_large_image" />';
 
 		// Meta tags for Open Graph
 		echo '<meta property="og:url"			content="' . esc_attr( dpsp_get_post_url() ) . '" />';

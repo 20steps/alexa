@@ -1,27 +1,52 @@
 <?php
+
 /*
 Plugin Name: Advanced Custom Fields: Font Awesome
-Description: Add a Font Awesome field type to Advanced Custom Fields
-Version: 1.7.4
-Author: Matt Keys
+Plugin URI: https://wordpress.org/plugins/advanced-custom-fields-font-awesome/
+Description: Adds a new 'Font Awesome Icon' field to the popular Advanced Custom Fields plugin.
+Version: 2.0.2
+Author: mattkeys
 Author URI: http://mattkeys.me/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 */
 
-function register_fields_font_awesome() {
-
-	if ( ! class_exists( 'acf' ) ) {
-		return;
-	}
-
-	global $acf;
-
-	if ( version_compare( $acf->settings['version'], '5.0', '>=' ) ) {
-		include_once( 'acf-font-awesome-v5.php' );
-	} else {
-		include_once( 'acf-font-awesome-v4.php' );
-	}
-	
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
 }
-add_action( 'init', 'register_fields_font_awesome' );
+
+if ( ! class_exists('acf_plugin_font_awesome') ) :
+
+	require 'assets/inc/class-ACFFAL.php';
+
+	class acf_plugin_font_awesome {
+
+		public function __construct()
+		{
+			$this->settings = array(
+				'version'	=> '2.0.0',
+				'url'		=> plugin_dir_url( __FILE__ ),
+				'path'		=> plugin_dir_path( __FILE__ )
+			);
+
+			load_plugin_textdomain( 'acf-font-awesome', false, plugin_basename( dirname( __FILE__ ) ) . '/lang' ); 
+
+			add_action('acf/include_field_types', 	array($this, 'include_field_types'), 10 ); // v5
+			add_action('acf/register_fields', 		array($this, 'include_field_types'), 10 ); // v4		
+		}
+
+		public function include_field_types( $version = false )
+		{
+			if ( ! $version ) {
+				$version = 4;
+			}
+
+			include_once('fields/acf-font-awesome-v' . $version . '.php');
+			
+		}
+		
+	}
+
+	new acf_plugin_font_awesome();
+
+endif;

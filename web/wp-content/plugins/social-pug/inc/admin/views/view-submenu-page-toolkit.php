@@ -19,7 +19,7 @@
 	<br />
 
 	<!-- Marketing Tools -->
-	<h1 class="dpsp-page-title"><?php echo __( 'Marketing Tools', 'social-pug' ); ?></h1>
+	<h1 class="dpsp-page-title"><?php echo __( 'Email Optin Forms', 'social-pug' ); ?></h1>
 
 	<div class="dpsp-row dpsp-m-padding">
 
@@ -27,13 +27,13 @@
 			$tools = array();
 
 			$tools['opt_in_pop_up'] = array(
-				'name' 		 		 => __( 'Email Opt-in Pop-up', 'social-pug' ),
+				'name' 		 		 => __( 'Email Optin Popup', 'social-pug' ),
 				'img'		 		 => 'assets/img/opt-in-hound-promo-pop-up.png',
 				'url'				 => admin_url( 'admin.php?page=dpsp-extensions&sub-page=opt-in-hound' )
 			);
 
 			$tools['opt_in_widget'] = array(
-				'name' 		 		 => __( 'Email Opt-in Widget', 'social-pug' ),
+				'name' 		 		 => __( 'Email Optin Widget', 'social-pug' ),
 				'img'		 		 => 'assets/img/opt-in-hound-promo-widget.png',
 				'url'				 => admin_url( 'admin.php?page=dpsp-extensions&sub-page=opt-in-hound' )
 			);

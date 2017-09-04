@@ -1,17 +1,17 @@
 === Social Share Buttons - Social Pug ===
 Contributors: iova.mihai
 Donate link: https://www.devpups.com/social-pug/
-Tags: social, social share, social media, social network, social share buttons, share buttons, share button, facebook button, pin button, share counter, social network share, floating sidebar, floating share buttons, content share buttons, share counts, social share icon
+Tags: social, social share, social sharing buttons, social network, social share buttons, share buttons, share button, facebook button, pin button, share counter, social network share, floating sidebar, floating share buttons, content share buttons, share counts, social share icon
 Requires at least: 3.1
-Tested up to: 4.8.0
-Stable tag: 1.3.5
+Tested up to: 4.8.1
+Stable tag: 1.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Social share buttons with style that will increase your social share count and user interaction on your website.
 
 == Description ==
-**Social Share Buttons with Style**
+**Social Shareing Buttons with Style**
 
 Add highly customizable social share buttons to your website to increase the interaction on your website. Place the share buttons before and after the post content or have them follow your readers as they scroll up and down the page, in the form of a floating sidebar.
 
@@ -67,6 +67,9 @@ http://www.devpups.com/
 
 
 == Changelog ==
+= 1.3.6 =
+* Misc: Added support for Twitter summary card with large image
+
 = 1.3.5 =
 * New: Added option to set a custom value for the mobile device screen width in order to display or hide the social media share buttons
 * Misc: Updated the social media icon font

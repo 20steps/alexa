@@ -285,6 +285,15 @@
           ]
         },
         {
+          "file": "etc\/credentials\/custom\/parameters.yml",
+          "dist-file": "etc\/credentials\/custom\/parameters.dist.yml",
+          "type": "dist",
+          "stage": [
+            "dev",
+            "test"
+          ]
+        },
+        {
           "file": "etc\/credentials\/.credentials",
           "link-file": "\/mnt\/data\/zone\/etc\/credentials\/.credentials",
           "type": "link",

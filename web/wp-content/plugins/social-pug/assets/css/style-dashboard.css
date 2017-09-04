@@ -800,7 +800,7 @@ h1.dpsp-page-title {
 /**********************************************/
 .dpsp-page-extensions { max-width: 1000px; }
 
-.dpsp-unavailable .dpsp-tool-actions { padding: 15px 10px; overflow: hidden; }
+.dpsp-unavailable .dpsp-tool-actions { padding: 15px 10px; overflow: hidden; text-align: right; }
 .dpsp-unavailable .dpsp-description { height: 50px; }
 
 /**********************************************/
@@ -994,6 +994,30 @@ h1.dpsp-page-title {
 #opt-in-hound-promo-box-disclaimer { max-width: 800px; margin: 0 auto; font-size: 12px; color: #a1a1a1; }
 
 .dpsp-page-extensions.dpsp-sub-page-opt-in-hound div.notice { display: none; }
+
+/************************************************************/
+/* Browser Window Sketch
+/************************************************************/
+.browser-window {
+    border: 1px solid rgba(52,152,219,0.75);
+    border-radius: 5px;
+    line-height: 0;
+    overflow: hidden;
+}
+.browser-header {
+    text-align: left;
+    border-bottom: 1px solid rgba(52,152,219,0.75);
+    height: 20px;
+}
+.browser-header:before {
+    display: block;
+    content: '○ ○ ○';
+    position: relative;
+    top: 10px;
+    left: 7px;
+    font-size: 20px;
+    color: rgba(52,152,219,0.75);
+}
 
 /**********************************************/
 /* Mobile Display

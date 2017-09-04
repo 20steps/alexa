@@ -52,7 +52,7 @@
                 "source": "https://github.com/anhskohbo/wp-cli-themecheck/tree/master",
                 "issues": "https://github.com/anhskohbo/wp-cli-themecheck/issues"
             },
-            "time": "2017-07-13 06:37:23"
+            "time": "2017-07-13T06:37:23+00:00"
         },
         {
             "name": "billerickson/wp-cli-plugin-install-missing",
@@ -86,7 +86,7 @@
                 "source": "https://github.com/billerickson/wp-cli-plugin-install-missing/tree/master",
                 "issues": "https://github.com/billerickson/wp-cli-plugin-install-missing/issues"
             },
-            "time": "2016-10-20 14:17:11"
+            "time": "2016-10-20T14:17:11+00:00"
         },
         {
             "name": "danielbachhuber/wp-cli-stat-command",
@@ -132,7 +132,7 @@
                 "source": "https://github.com/danielbachhuber/wp-cli-stat-command/tree/master",
                 "issues": "https://github.com/danielbachhuber/wp-cli-stat-command/issues"
             },
-            "time": "2016-10-20 14:08:17"
+            "time": "2016-10-20T14:08:17+00:00"
         },
         {
             "name": "iandunn/wp-cli-plugin-active-on-sites",
@@ -170,7 +170,7 @@
                 "source": "https://github.com/iandunn/wp-cli-plugin-active-on-sites/tree/master",
                 "issues": "https://github.com/iandunn/wp-cli-plugin-active-on-sites/issues"
             },
-            "time": "2017-01-27 23:57:32"
+            "time": "2017-01-27T23:57:32+00:00"
         },
         {
             "name": "markri/wp-sec",
@@ -210,7 +210,7 @@
                 "source": "https://github.com/markri/wp-sec/tree/0.0.3",
                 "issues": "https://github.com/markri/wp-sec/issues"
             },
-            "time": "2017-01-25 12:22:51"
+            "time": "2017-01-25T12:22:51+00:00"
         },
         {
             "name": "pantheon-systems/wp_launch_check",
@@ -244,7 +244,7 @@
                 "source": "https://github.com/pantheon-systems/wp_launch_check/tree/master",
                 "issues": "https://github.com/pantheon-systems/wp_launch_check/issues"
             },
-            "time": "2017-06-16 16:52:15"
+            "time": "2017-06-16T16:52:15+00:00"
         },
         {
             "name": "runcommand/find-unused-themes",
@@ -305,7 +305,7 @@
                 "source": "https://github.com/runcommand/find-unused-themes/tree/master",
                 "issues": "https://github.com/runcommand/find-unused-themes/issues"
             },
-            "time": "2017-01-24 00:43:01"
+            "time": "2017-01-24T00:43:01+00:00"
         },
         {
             "name": "runcommand/hook",
@@ -365,7 +365,7 @@
             "support": {
                 "source": "https://github.com/runcommand/hook/tree/master"
             },
-            "time": "2016-11-15 18:48:54"
+            "time": "2016-11-15T18:48:54+00:00"
         },
         {
             "name": "runcommand/manifest",
@@ -418,7 +418,7 @@
             "support": {
                 "source": "https://github.com/runcommand/manifest/tree/master"
             },
-            "time": "2016-11-01 18:25:08"
+            "time": "2016-11-01T18:25:08+00:00"
         },
         {
             "name": "symfony/finder",
@@ -467,7 +467,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-03 09:34:20"
+            "time": "2017-08-03T09:34:20+00:00"
         }
     ],
     "packages-dev": [],
