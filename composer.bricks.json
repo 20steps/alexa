@@ -1,0 +1,78 @@
+{
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:20steps\/bricks-angularjs.git"
+    },
+    {
+      "type": "vcs",
+      "url": "git@github.com:20steps\/bricks.git"
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "nyholm\/google-api-php-client",
+        "version": "dev-abandoned",
+        "type": "library",
+        "description": "Google API library for PHP (with namespaces). This packet is maintained! Version 0.6.2 of original code.",
+        "keywords": [
+          "google",
+          "gdata"
+        ],
+        "homepage": "http:\/\/nyholm.github.io\/google-api-php-client",
+        "license": "Apache 2.0",
+        "authors": [
+          {
+            "name": "Tobias Nyholm",
+            "email": "tobias.nyholm@gmail.com",
+            "homepage": "http:\/\/www.tnyholm.se\/"
+          }
+        ],
+        "require": {
+          "php": ">=5.3.0",
+          "ext-curl": "*"
+        },
+        "autoload": {
+          "psr-0": {
+            "GoogleApi": "src"
+          }
+        },
+        "source": {
+          "type": "git",
+          "url": "git@github.com:20steps\/google-api-php-client.git",
+          "reference": "master"
+        }
+      }
+    },
+    {
+      "type": "package",
+      "package": {
+        "name": "jquery/jquery",
+        "version": "1.11.1",
+        "dist": {
+          "url": "https://code.jquery.com/jquery-1.11.1.js",
+          "type": "file"
+        }
+      }
+    }
+  ],
+  "require": {
+    "php": ">=7.0.0",
+    "symfony\/symfony": "^3.2, !=3.2.10",
+
+    "20steps\/bricks": "3.2.x-dev",
+    "20steps\/angularjs-bundle": "dev-master",
+    "gedmo\/doctrine-extensions": "dev-master as 2.4.1",
+  },
+  "require-dev": {
+    "jane/open-api": "dev-master"
+  },
+  "extra": {
+    "symfony-app-dir": "app",
+    "symfony-bin-dir": "bin",
+    "symfony-var-dir": "var",
+    "symfony-web-dir": "web",
+    "symfony-tests-dir": "tests",
+    "symfony-assets-install": "relative",
+  }
+}
