@@ -16,7 +16,7 @@ composer bricks-boostrap --no-interaction
 
 echo ""
 echo "Importing Wordpress Database from live-master"
-echo "======================================"
+echo "============================================="
 composer wp-db-live-to-local --no-interaction
 
 echo ""
@@ -28,6 +28,7 @@ echo ""
 echo "Restarting webserver"
 echo "===================="
 sudo apachectl restart
+sudo chmod -R 777 var
 
 echo ""
 echo "Opening browser"

@@ -1,4 +1,5 @@
-#20steps Alexa Backend
+20steps Alexa Backend
+=====================
 
 This is the certified backend of the personalized and localized "20steps" Alexa skill - the skill aims to support developers, system administrators and marketers
 
@@ -38,13 +39,13 @@ Hint: enter password of your local account when asked for.
 
 ## Usage
 
-###For Amazon Alexa
+For Amazon Alexa:
 * First register at the <a href="https://alexa.20steps.de">20steps Alexa Website</a>.
 * Configure the skill by entering the API key of your UptimeRobot account etc.
 * Connect the previously registered account in the Alexa App on your smartphone.
 * Cp. <a target="_blank" href="https://alexa.20steps.de/en/c/about-the-alexa-skill">About the Alexa skill</a> for more infos.
 
-###For Google Assistant
+For Google Assistant:
 * Ask for "20steps" and create / link account seamlessly
 * Configure the skill by entering the API key of your UptimeRobot account etc at https://alexa.20steps.de
 * Ask for "status"
