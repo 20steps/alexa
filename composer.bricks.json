@@ -371,32 +371,22 @@
     }
   },
   "scripts": {
-    "maintenance-start": [
-      "bin/console bricks:core:monitoring:monitors:pause",
-      "bin/console bricks:core:cluster:node:maintenance:start"
-    ],
-    "maintenance-stop": [
-      "bin/console bricks:core:cluster:node:maintenance:stop",
-      "bin/console bricks:core:monitoring:monitors:resume",
-      "bin/console bricks:core:monitoring:monitors:create-or-update"
-    ],
-    "cluster-info": [
-      "bin/console bricks:core:cluster:node:properties:update",
-      "bin/console bricks:core:cluster:info"
-    ],
-    "post-install-cmd": [
-      "@wp-cli-install",
-      "@wp-install",
-      "@bricks-install",
-      "@symfony-install",
-      "@custom-install"
-    ],
-    "post-update-cmd": [
-      "@wp-cli-update",
-      "@wp-update",
-      "@bricks-update",
-      "@symfony-update",
-      "@app-update"
+    "setup-dev": [
+      "echo \"Creating database and user\"",
+      "@setup-custom-prepare-db-dev",
+      "echo \"Installing dependencies, generating configuration files and creating database schema\"",
+      "composer install --no-interaction",
+      "echo \"Bootstrapping bricks node and cluster\"",
+      "composer run-script bricks-bootsrap --no-interaction",
+      "echo \"Importing data\"",
+      "@setup-custom-import-data-dev",
+      "echo \"Applying configuration for custom brick\"s",
+      "@setup-custom-configure-dev",
+      "echo \"Restarting webserver\"",
+      "sudo apachectl restart",
+      "sudo chmod -R 777 var",
+      "echo \"Opening application\"",
+      "@setup-custom-open-application-dev"
     ],
     "prepare-dev": [
       "composer self-update",
@@ -418,6 +408,20 @@
       "php --version",
       "bin\/prepare\/travis-build-tools"
     ],
+    "post-install-cmd": [
+      "@wp-cli-install",
+      "@wp-install",
+      "@bricks-install",
+      "@symfony-install",
+      "@custom-install"
+    ],
+    "post-update-cmd": [
+      "@wp-cli-update",
+      "@wp-update",
+      "@bricks-update",
+      "@symfony-update",
+      "@app-update"
+    ],
     "wp-cli-install": [
       "composer install --working-dir=bin\/.wp --no-interaction --no-suggest"
     ],
@@ -430,14 +434,6 @@
     "wp-update": [
       "bin/wp core update",
       "bin/wp plugin update --all"
-    ],
-    "wp-db-export-local": [
-      "mkdir -p var/dump/db",
-      "bin/wp db export var/dump/db/wp-local.sql --tables=$(bin/wp db tables --all-tables-with-prefix --format=csv)"
-    ],
-    "wp-db-export-live": [
-      "mkdir -p var/dump/db",
-      "bin/wp @live-master db export - --tables=$(bin/wp @live-master db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-live.sql"
     ],
     "bricks-install": [
       "BricksPlatformComposerExtras\\Bootstrap::setup",
@@ -478,12 +474,47 @@
     "cache-clear": [
       "sudo rm -rf var\/cache\/*"
     ],
+    "wp-db-export-local": [
+      "mkdir -p var/dump/db",
+      "bin/wp db export var/dump/db/wp-local.sql --tables=$(bin/wp db tables --all-tables-with-prefix --format=csv)"
+    ],
+    "wp-db-export-live": [
+      "mkdir -p var/dump/db",
+      "bin/wp @live-master db export - --tables=$(bin/wp @live-master db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-live.sql"
+    ],
+    "maintenance-start": [
+      "bin/console bricks:core:monitoring:monitors:pause",
+      "bin/console bricks:core:cluster:node:maintenance:start"
+    ],
+    "maintenance-stop": [
+      "bin/console bricks:core:cluster:node:maintenance:stop",
+      "bin/console bricks:core:monitoring:monitors:resume",
+      "bin/console bricks:core:monitoring:monitors:create-or-update"
+    ],
+    "cluster-info": [
+      "bin/console bricks:core:cluster:node:properties:update",
+      "bin/console bricks:core:cluster:info"
+    ],
     "platform-info": [
       "bin\/console bricks:core:info",
       "bin\/wp manifest"
     ],
     "services-reload": [
       "BricksPlatformComposerExtras\\Bootstrap::reload"
+    ],
+    "mac-apache-restart": [
+      "sudo rm -rf \/tmp\/apc\/*; sudo rm -rf var\/cache\/*; rm -rf var\/logs\/*; sudo killall -9 httpd; sudo killall -9 httpd; sudo apachectl restart; bin/console"
+    ],
+    "documentation-generate": [
+      "bin\/console api:swagger:export > web\/doc\/api\/rest.json",
+      "#You can now import web\/doc\/api\/rest.json into postman."
+    ],
+    "deploy": [
+      "BricksPlatformComposerExtras\\Bootstrap::remotes",
+      "BricksPlatformComposerExtras\\Bootstrap::deploy"
+    ],
+    "console": [
+      "BricksPlatformComposerExtras\\Bootstrap::remoteConsole"
     ],
     "test-phpunit": [
       "@cache-clear",
@@ -496,20 +527,6 @@
     "test": [
       "@test-phpunit",
       "@test-behat"
-    ],
-    "documentation-generate": [
-      "bin\/console api:swagger:export > web\/doc\/api\/rest.json",
-      "#You can now import web\/doc\/api\/rest.json into postman."
-    ],
-    "deploy": [
-      "BricksPlatformComposerExtras\\Bootstrap::remotes",
-      "BricksPlatformComposerExtras\\Bootstrap::deploy"
-    ],
-    "mac-apache-restart": [
-      "sudo rm -rf \/tmp\/apc\/*; sudo rm -rf var\/cache\/*; rm -rf var\/logs\/*; sudo killall -9 httpd; sudo killall -9 httpd; sudo apachectl restart; bin/console"
-    ],
-    "console": [
-      "BricksPlatformComposerExtras\\Bootstrap::remoteConsole"
     ]
   }
 }
