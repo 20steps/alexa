@@ -33,7 +33,7 @@ To setup on your MacOS X based workstation simple enter:
 ```shell
 git clone https://github.com/20steps/alexa
 cd alexa
-composer run-script setup-dev
+bin/setup/dev
 ```
 
 Hint: enter password of your local account when asked for.

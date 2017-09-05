@@ -5,24 +5,14 @@ echo "=========================="
 mysql -u root < $( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )/dev.sql
 
 echo ""
-echo "Installing dependencies, generating configuration files and creating database schema"
-echo "===================================================================================="
+echo "Installing dependencies, generating basic configuration files and creating database schema"
+echo "==========================================================================================="
 composer install --no-interaction
 
 echo ""
-echo "Bootstrapping bricks node and cluster"
-echo "====================================="
-composer run-script bricks-bootsrap --no-interaction
-
-echo ""
-echo "Importing Wordpress Database from live-master"
-echo "============================================="
-composer run-script wp-db-live-to-local --no-interaction
-
-echo ""
-echo "Configuring Alexa custom brick"
-echo "=============================="
-bin/alexa/configure
+echo "Setting up for development"
+echo "==========================="
+composer run-script setup-dev --no-interaction
 
 echo ""
 echo "Restarting webserver"

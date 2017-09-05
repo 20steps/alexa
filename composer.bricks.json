@@ -372,10 +372,6 @@
   },
   "scripts": {
     "setup-dev": [
-      "echo \"Creating database and user\"",
-      "@setup-custom-prepare-db-dev",
-      "echo \"Installing dependencies, generating configuration files and creating database schema\"",
-      "composer install --no-interaction",
       "echo \"Bootstrapping bricks node and cluster\"",
       "composer run-script bricks-bootsrap --no-interaction",
       "echo \"Importing data\"",

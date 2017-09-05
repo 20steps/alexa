@@ -105,9 +105,6 @@
     }
   },
   "scripts": {
-    "setup-custom-prepare-db-dev": [
-      "mysql -u root < bin/setup/dev.sql"
-    ],
     "setup-custom-import-data-dev": [
       "composer run-script wp-db-live-to-local --no-interaction"
     ],
