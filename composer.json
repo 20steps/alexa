@@ -28,7 +28,7 @@
   "extra": {
     "merge-plugin": {
       "include": [
-        "composer.bricks.json",
+        "composer.bricks-platform.json",
         "etc/composer/*.json"
       ],
       "recurse": true,
@@ -113,7 +113,7 @@
     ],
     "setup-custom-open-application-dev": [
       "echo Opening browser",
-      "http://alexa.localhost.com"
+      "open http://alexa.localhost.com"
     ],
     "wp-db-live-to-local": [
       "@wp-db-export-live",

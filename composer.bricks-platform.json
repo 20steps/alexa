@@ -373,7 +373,7 @@
   "scripts": {
     "setup-dev": [
       "echo \"Bootstrapping bricks node and cluster\"",
-      "composer run-script bricks-bootsrap --no-interaction",
+      "composer run-script bricks-bootstrap --no-interaction",
       "echo \"Importing data\"",
       "@setup-custom-import-data-dev",
       "echo \"Applying configuration for custom brick\"s",
