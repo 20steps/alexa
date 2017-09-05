@@ -3,10 +3,10 @@
 date +"%T - %d.%m.%y"
 
 # enter maintenance mode
-composer maintenance-start
+composer run-script maintenance-start
 
 # check requirements, prepare access rights, self-update composer
-composer prepare-live
+composer run-script prepare-live
 
 # strange stuff
 cd /var/www/Bricks/vendor/20steps/angularjs-bundle/twentysteps/Bundle/AngularJsBundle
@@ -18,7 +18,7 @@ composer install --no-interaction --no-suggest
 composer dump-autoload --optimize
 sudo rm -rf /var/www/Bricks/var/cache/*
 sudo chmod -R 777 /var/www/Bricks/var/
-composer services-reload
+composer run-script services-reload
 sudo chmod -R 777 /var/www/Bricks/var/
 
 # show resulting status
@@ -26,7 +26,7 @@ composer info
 sudo chmod -R 777 /var/www/Bricks/var/
 
 # exit maintenance mode
-composer maintenance-stop
+composer run-script maintenance-stop
 
 # show info about state of cluster
-composer cluster-info
+composer run-script cluster-info

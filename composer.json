@@ -9,7 +9,7 @@
   "prefer-stable": true,
   "config": {
     "platform": {
-      "php": "7.0.0"
+      "php": "7.0.8"
     },
     "bin-dir": "bin\/vendor",
     "optimize-autoloader": false,
@@ -17,13 +17,14 @@
     "classmap-authoritative": false
   },
   "require": {
-    "20steps/amazon-alexa-php": "dev-master",
-    "20steps/api-ai-webhook-php": "dev-master",
-    "20steps/oauth-server-bundle": "dev-master",
-    "braincrafted/bootstrap-bundle": "dev-develop",
+    "gedmo/doctrine-extensions": "dev-master as 2.4.1",
     "twbs/bootstrap": "^3.0",
     "jquery/jquery":  "1.11.1",
-    "gree/jose": "dev-master"
+    "gree/jose": "dev-master",
+    "braincrafted/bootstrap-bundle": "dev-develop",
+    "20steps/amazon-alexa-php": "dev-master",
+    "20steps/api-ai-webhook-php": "dev-master",
+    "20steps/oauth-server-bundle": "dev-master"
   },
   "extra": {
     "merge-plugin": {
@@ -99,9 +100,6 @@
           "branch": "master"
         }
       ]
-    },
-    "branch-alias": {
-      "dev-master": "3.2-dev"
     }
   },
   "scripts": {

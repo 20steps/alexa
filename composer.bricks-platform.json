@@ -71,12 +71,10 @@
     }
   ],
   "require": {
-    "php": ">=7.0.0",
-    "symfony\/symfony": "^3.2, !=3.2.10",
-
-    "20steps\/bricks": "3.2.x-dev",
-    "20steps\/angularjs-bundle": "dev-master",
-    "gedmo\/doctrine-extensions": "dev-master as 2.4.1"
+    "php": ">=7.0.8",
+    "symfony/symfony": "^3.2, !=3.2.10",
+    "20steps/bricks": "3.2.x-dev",
+    "20steps/angularjs-bundle": "dev-master"
   },
   "require-dev": {
     "jane/open-api": "dev-master"
@@ -416,7 +414,7 @@
       "@wp-update",
       "@bricks-update",
       "@symfony-update",
-      "@app-update"
+      "@custom-update"
     ],
     "wp-cli-install": [
       "composer install --working-dir=bin\/.wp --no-interaction --no-suggest"

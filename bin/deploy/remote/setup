@@ -3,18 +3,18 @@
 date +"%T - %d.%m.%y"
 
 # check requirements, prepare access rights, self-update composer
-composer prepare-live
+composer run-script prepare-live
 
 # do the installation, optimize autoloader and reload services
 composer install --no-interaction --no-suggest
 composer dump-autoload --optimize
 sudo rm -rf /var/www/Bricks/var/cache/*
 sudo chmod -R 777 /var/www/Bricks/var/
-composer services-reload
+composer run-script services-reload
 sudo chmod -R 777 /var/www/Bricks/var/
 
 # show resulting status
-composer info
+composer run-script cluster-info
 sudo chmod -R 777 /var/www/Bricks/var/
 
 
