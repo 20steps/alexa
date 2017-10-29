@@ -93,7 +93,6 @@ DirectoryIndex app.php
     RewriteRule ^(.*)/wp-content/uploads/(.*)$ %{ENV:BASE}/wp-content/uploads/$2 [L]
     RewriteRule ^(.*)/feed/ %{ENV:BASE}/index.php [L]
 
-    #
     # Rewrite all other queries to the front controller if not custom, wordpress uploads etc
     RewriteCond %{REQUEST_URI}  !(^/custom/) [NC]
     RewriteCond %{REQUEST_URI}  !(^/wp-content/uploads/) [NC]

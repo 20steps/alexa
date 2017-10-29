@@ -13,13 +13,3 @@ echo ""
 echo "Setting up for development"
 echo "==========================="
 composer run-script setup-dev --no-interaction
-
-echo ""
-echo "Restarting webserver"
-echo "===================="
-sudo apachectl restart
-sudo chmod -R 777 var
-
-echo ""
-echo "Opening browser"
-open "http://alexa.localhost.com"

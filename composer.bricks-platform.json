@@ -468,13 +468,33 @@
     "cache-clear": [
       "sudo rm -rf var\/cache\/*"
     ],
-    "wp-db-export-local": [
+    "wp-db-dump-local": [
       "mkdir -p var/dump/db",
       "bin/wp db export var/dump/db/wp-local.sql --tables=$(bin/wp db tables --all-tables-with-prefix --format=csv)"
     ],
-    "wp-db-export-live": [
+    "wp-db-dump-cluster": [
       "mkdir -p var/dump/db",
-      "bin/wp @live-master db export - --tables=$(bin/wp @live-master db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-live.sql"
+      "bin/wp @cluster db export - --tables=$(bin/wp @cluster db tables --all-tables-with-prefix --format=csv) > var/dump/db/wp-cluster.sql"
+    ],
+    "db-dump-cluster": [
+      "mkdir -p var/dump/db",
+      "bin/wp @cluster db export - > var/dump/db/live.sql"
+    ],
+    "wp-uploads-dump-local": [
+      "mkdir -p var/dump/wp-uploads",
+      "mkdir -p web/wp-content/uploads; touch web/wp-content/uploads/created",
+      "tar czf var/dump/wp-uploads/local.tgz web/wp-content/uploads/*"
+    ],
+    "wp-uploads-dump-cluster": [
+      "mkdir -p var/dump/wp-uploads",
+      "composer run-script shell cluster \"tar -czf var/wp-uploads.tgz -C web/wp-content/uploads . \"",
+      "composer run-script pull cluster var/wp-uploads.tgz var/dump/wp-uploads/cluster.tgz",
+      "composer run-script shell cluster \"rm -f var/wp-uploads.tgz\""
+    ],
+    "wp-uploads-cluster-to-local": [
+      "@wp-uploads-dump-cluster",
+      "mkdir web/wp-content/uploads",
+      "tar xzvf var/dump/wp-uploads/cluster.tgz -C web/wp-content/uploads"
     ],
     "maintenance-start": [
       "bin/console bricks:core:monitoring:monitors:pause",
@@ -509,6 +529,15 @@
     ],
     "console": [
       "BricksPlatformComposerExtras\\Bootstrap::remoteConsole"
+    ],
+    "shell": [
+      "BricksPlatformComposerExtras\\Bootstrap::remoteShell"
+    ],
+    "pull": [
+      "BricksPlatformComposerExtras\\Bootstrap::remotePull"
+    ],
+    "push": [
+      "BricksPlatformComposerExtras\\Bootstrap::remotePush"
     ],
     "test-phpunit": [
       "@cache-clear",

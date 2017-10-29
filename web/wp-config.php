@@ -129,7 +129,10 @@ define('DISABLE_WP_CRON', true);
 define('WP_LESS_COMPILATION', 'always');
 // Use oyejorge less compiler implementation
 define('WP_LESS_COMPILER','less.php');
-
-
-/** Definiert WordPress-Variablen und fügt Dateien ein.  */
+// disable automatic updates of core, plugins, themes and translation files
+define( 'AUTOMATIC_UPDATER_DISABLED', true );
+	
+	
+	
+	/** Definiert WordPress-Variablen und fügt Dateien ein.  */
 require_once(ABSPATH . 'wp-settings.php');

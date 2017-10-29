@@ -18,10 +18,12 @@
   },
   "require": {
     "gedmo/doctrine-extensions": "dev-master as 2.4.1",
+
     "twbs/bootstrap": "^3.0",
     "jquery/jquery":  "1.11.1",
     "gree/jose": "dev-master",
     "braincrafted/bootstrap-bundle": "dev-develop",
+
     "20steps/amazon-alexa-php": "dev-master",
     "20steps/api-ai-webhook-php": "dev-master",
     "20steps/oauth-server-bundle": "dev-master"
@@ -84,27 +86,27 @@
           ]
         }
       },
-      "remote": [
-        {
+      "remote": {
+        "alexa1": {
           "name": "alexa1",
           "url": "ssh:\/\/twentysteps@h6.20steps.de:2232\/var\/www\/Bricks",
           "stage": "live"
         }
-      ],
-      "target": [
-        {
+      },
+      "target": {
+        "cluster": {
           "name": "cluster",
           "remote": [
             "alexa1"
           ],
           "branch": "master"
         }
-      ]
+      }
     }
   },
   "scripts": {
     "setup-custom-import-data-dev": [
-      "composer run-script wp-db-live-to-local --no-interaction"
+      "@custom-wp-cluster-to-local"
     ],
     "setup-custom-configure-dev": [
       "bin/alexa/configure"
@@ -113,11 +115,15 @@
       "echo Opening browser",
       "open http://alexa.localhost.com"
     ],
-    "wp-db-live-to-local": [
-      "@wp-db-export-live",
-      "bin/wp db import var/dump/db/wp-live.sql",
-      "export WP_DOMAIN_CURRENT_SITE_OVERRIDE=\"$(bin/wp @live-master eval \"echo DOMAIN_CURRENT_SITE;\")\"; bin/wp search-replace \"$WP_DOMAIN_CURRENT_SITE_OVERRIDE\" \"admin.alexa.localhost.com\" --all-tables",
-      "bin/wp search-replace \"$(bin/wp @live-master eval \"echo get_blog_details(2)->domain;\")\" \"alexa.localhost.com\" --all-tables"
+    "custom-wp-cluster-to-local": [
+      "composer run-script custom-wp-db-cluster-to-local --no-interaction",
+      "@wp-uploads-cluster-to-local"
+    ],
+    "custom-wp-db-cluster-to-local": [
+      "@wp-db-dump-cluster",
+      "bin/wp db import var/dump/db/wp-cluster.sql",
+      "export WP_DOMAIN_CURRENT_SITE_OVERRIDE=\"$(bin/wp @cluster eval \"echo DOMAIN_CURRENT_SITE;\")\"; bin/wp search-replace \"$WP_DOMAIN_CURRENT_SITE_OVERRIDE\" \"admin.alexa.localhost.com\" --all-tables",
+      "bin/wp search-replace \"$(bin/wp @cluster eval \"echo get_blog_details(2)->domain;\")\" \"alexa.localhost.com\" --all-tables"
     ],
     "custom-install": [
       "@custom-update"

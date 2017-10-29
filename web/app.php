@@ -18,6 +18,9 @@ $kernel->loadClassCache();
 
 // When using the HttpCache, you need to call the method in your front controller instead of relying on the configuration parameter
 //Request::enableHttpMethodParameterOverride();
+	
+Request::setTrustedProxies(['127.0.0.1/32','192.168.0.1/16','136.243.144.68','136.243.144.74','136.243.144.75','136.243.148.18','138.201.122.28','138.201.137.4','144.76.121.145']);
+
 $sfRequest = Request::createFromGlobals();
 
 // Possibly do not lazy load worpdress as part of the Pages Brick ...

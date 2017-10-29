@@ -26,6 +26,9 @@ Debug::enable();
 
 $kernel = new AppKernel('dev', true);
 $kernel->loadClassCache();
+
+Request::setTrustedProxies(['127.0.0.1/32','192.168.0.1/16','136.243.144.68','136.243.144.74','136.243.144.75','136.243.148.18','138.201.122.28','138.201.137.4','144.76.121.145']);
+
 $sfRequest = Request::createFromGlobals();
 
 // Possibly do not lazy load worpdress as part of the Pages Brick ...
