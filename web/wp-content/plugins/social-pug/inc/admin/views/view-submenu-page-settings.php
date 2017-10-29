@@ -39,3 +39,5 @@
 		<p class="submit"><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 	</form>
 </div>
+
+<?php do_action( 'dpsp_submenu_page_bottom' ); ?>

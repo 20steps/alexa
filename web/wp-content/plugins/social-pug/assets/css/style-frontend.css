@@ -222,7 +222,8 @@
 	position: relative;
 
 	display: block;
-	text-decoration: none;
+	text-decoration: none !important;
+	text-transform: unset !important;
 	height: 40px;
 	min-width: 40px;
 
@@ -245,11 +246,14 @@
 	-o-transition: all 0.15s ease-in;
 	transition: all 0.15s ease-in;
 
+	box-shadow: none;
+
 	cursor: pointer;
 }
 
 .dpsp-networks-btns-wrapper .dpsp-network-btn:hover {
 	border: 2px solid;
+	box-shadow: none;
 }
 
 .dpsp-networks-btns-wrapper .dpsp-network-btn:focus {

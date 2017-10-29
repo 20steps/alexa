@@ -19,9 +19,7 @@
 	 */
 	function dpsp_extensions_subpage() {
 
-		if( ! empty( $_GET['sub-page'] ) && $_GET['sub-page'] == 'skyepress' )
-			include_once 'views/view-submenu-page-extensions-sub-page-skyepress.php';
-		elseif( ! empty( $_GET['sub-page'] ) && $_GET['sub-page'] == 'opt-in-hound' )
+		if( ! empty( $_GET['sub-page'] ) && $_GET['sub-page'] == 'opt-in-hound' )
 			include_once 'views/view-submenu-page-extensions-sub-page-opt-in-hound.php';
 		else
 			include_once 'views/view-submenu-page-extensions.php';

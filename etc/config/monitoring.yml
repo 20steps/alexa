@@ -1,2 +1,5 @@
 twentysteps_commons_uptime_robot:
     api_key: "u468077-e7d74553c87d929617042bf9"
+
+sentry:
+    dsn: "https://9ddae143e8e440fe8bcd3f220bd09098:1a38f137b92c483991bd55d0fa193e75@sentry.io/237099"

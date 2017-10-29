@@ -7,9 +7,11 @@ var _EPYTWIZ_ = _EPYTWIZ_ || {};
             range.moveToElementText(ele);
             range.select();
         } else if (window.getSelection) {
+            var selection = window.getSelection();
             var range = document.createRange();
             range.selectNode(ele);
-            window.getSelection().addRange(range);
+            selection.removeAllRanges();
+            selection.addRange(range);
         }
     };
 

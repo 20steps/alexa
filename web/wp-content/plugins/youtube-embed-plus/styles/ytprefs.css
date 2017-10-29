@@ -44,6 +44,7 @@ iframe.__youtube_prefs__
 }
 
 .epyt-gallery-thumb {
+    position: relative;
     box-sizing: border-box;
     overflow-y: hidden;
     display: block !important;
@@ -72,6 +73,15 @@ iframe.__youtube_prefs__
     background-size: cover !important;
     background-position: center !important;
 
+}
+
+.epyt-gallery-playhover-textonly {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 .epyt-gallery-playhover {
@@ -154,6 +164,12 @@ iframe.__youtube_prefs__
     text-align: center;
     padding: 10px 8px 10px 8px;
 }
+
+
+.epyt-pagination.epyt-hide-pagination * {
+   display: none !important;
+}
+
 
 .epyt-pagination > div, .epyt-pagenumbers > div {
     display: inline-block;

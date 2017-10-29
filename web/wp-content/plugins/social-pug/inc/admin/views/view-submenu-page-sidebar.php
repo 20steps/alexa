@@ -76,4 +76,7 @@
 		<p class="submit"><input type="submit" class="button-primary" value="<?php _e( 'Save Changes' ); ?>" /></p>
 	
 	</div>
+
 </form>
+
+<?php do_action( 'dpsp_submenu_page_bottom' ); ?>

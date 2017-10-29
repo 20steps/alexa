@@ -1,6 +1,6 @@
 <?php
-
-namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Command;
+	
+	namespace Bricks\Custom\Twentysteps\AlexaBrick\AlexaBundle\Command;
 
 use Bricks\AbstractCustomBundle\Command\AbstractUserListCommand;
 use Bricks\Infrastructure\CoreBrick\CoreBundle\Annotations\Command;

@@ -4,7 +4,7 @@ Plugin Name: YouTube Embed
 Tags: youtube gallery, video gallery, youtube channel, youtube live, live stream
 Requires at least: 3.6.1
 Tested up to: 4.8
-Stable tag: 11.8.2
+Stable tag: 11.8.3
 License: GPLv3 or later
 
 YouTube Embed WordPress Plugin. Embed a responsive video, YouTube channel gallery, playlist gallery, or YouTube.com live stream
@@ -73,7 +73,7 @@ You can also start and end each individual video at particular times. Like the a
 > If you like this free version, you may even upgrade to a separate Pro plugin with features like:
 >
 > * Full visual embedding wizard 
-> * Alternate playlist and channel gallery styling  (list layouts and slider layouts, popup/lightbox player, and more)
+> * [Alternate playlist and channel gallery styling >>](https://www.embedplus.com/responsive-youtube-playlist-channel-gallery-for-wordpress.aspx) (list layouts and slider layouts, popup/lightbox player, thumbnail hiding for text only paging, and more)
 > * Caching to avoid making frequent requests to YouTube.com and speed up your page loads
 > * Automatic video thumbnail images: each post or page that contains at least one video will have the thumbnail of its first video serve as its featured image
 > * [Lazy loading YouTube embeds >>](https://www.embedplus.com/add-special-effects-to-youtube-embeds-in-wordpress.aspx) with eye-catching effects and animations
@@ -144,6 +144,16 @@ You can also start and end each individual video at particular times. Like the a
 9. YouTube Embed Screenshot 9: Optional YouTube channel subscription button above gallery thumbnails
 
 == Changelog ==
+
+= WordPress YouTube Embed 11.8.3 =
+* Improved compatability with PHP 7
+* Improved compatability with Divi theme
+* Improved AJAX compatibility
+* Improved accessibility
+* Fix gallery scrolling
+* Fix "not live" content output
+* Modernize and improve wizard interface (Pro)
+* Ability to hide thumbnail images from galleries (Pro)
 
 = WordPress YouTube Embed 11.8.2 =
 * Fix auto-next gallery issue

@@ -37,8 +37,9 @@ This ACF field type is compatible with:
 
 === Filters ===
 
+* **ACFFA_always_enqueue_fa**: Return true to always enqueue FontAwesome on the frontend, even if no ACF FontAwesome fields are in use on the page. This will enqueue FontAwesome in the header instead of the footer.
 * **ACFFA_override_version**: Use to override the default FontAwesome icon version (latest). Return any valid version number from [jsDelivr](https://www.jsdelivr.com/projects/fontawesome)
-* **ACFFA_admin_enqueue_fa**: Return false to stop enqueueing FontAwesome in the admin area. Useful if you already have FontAwesome enqueued by some other means. 
+* **ACFFA_admin_enqueue_fa**: Return false to stop enqueueing FontAwesome in the admin area. Useful if you already have FontAwesome enqueued by some other means.
 * **ACFFA_load_chosen**: Return false to stop loading the [Chosen JS](https://harvesthq.github.io/chosen/) library in the admin area. Used in v4 of ACF only.
 * **ACFFA_get_icons**: Filter the array of icons and icon details loaded from the database
 * **ACFFA_get_fa_url**: Filter the URL used for enqueuing FontAwesome in the frontend and admin areas of the site.
@@ -49,6 +50,24 @@ This ACF field type is compatible with:
 2. Searchable list of all icons, including large live preview
 
 == Changelog ==
+
+= 2.0.8 =
+* Fixed bug where fields marked to 'allow null' in acf v5 did not show the (x) to remove the selected option on the field
+
+= 2.0.7 =
+* Fixed bug with FA fields assigned to menu items + further refactoring of JS for ACF v5
+
+= 2.0.6 =
+* Refactored JS to simplify codebase and fix bugs where Chosen or Select2 fields would not initialize in a variety of field/sub-field configurations and display options.
+
+= 2.0.5 =
+* Fixed bug with ACF tabs + FontAwesome fields where Chosen/Select2 would not initialize beyond the first tab shown
+
+= 2.0.4 =
+* Added filter (ACFFA_always_enqueue_fa) to allow FontAwesome to always be enqueued on your sites frontend, even if no ACF FontAwesome fields are in use on the page.
+
+= 2.0.3 =
+* Fixed bug where a field set to return 'Icon Object' would instead return an array
 
 = 2.0.2 =
 * Fixed bug effecting Select fields when used along with a Font Awesome field in a repeater (ACF v5)
@@ -128,6 +147,24 @@ This ACF field type is compatible with:
 * Initial Release.
 
 == Upgrade Notice ==
+
+= 2.0.8 =
+* Fixed bug where fields marked to 'allow null' in acf v5 did not show the (x) to remove the selected option on the field
+
+= 2.0.7 =
+* Fixed bug with FA fields assigned to menu items + further refactoring of JS for ACF v5
+
+= 2.0.6 =
+* Refactored JS to simplify codebase and fix bugs where Chosen or Select2 fields would not initialize in a variety of field/sub-field configurations and display options.
+
+= 2.0.5 =
+* Fixed bug with ACF tabs + FontAwesome fields where Chosen/Select2 would not initialize beyond the first tab shown
+
+= 2.0.4 =
+* Added filter (ACFFA_always_enqueue_fa) to allow FontAwesome to always be enqueued on your sites frontend, even if no ACF FontAwesome fields are in use on the page.
+
+= 2.0.3 =
+* Fixed bug where a field set to return 'Icon Object' would instead return an array
 
 = 2.0.2 =
 * Fixed bug effecting Select fields when used along with a Font Awesome field in a repeater (ACF v5)

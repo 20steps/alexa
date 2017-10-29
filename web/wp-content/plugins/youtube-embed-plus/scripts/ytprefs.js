@@ -175,10 +175,17 @@
                             range.moveToElementText(ele);
                             range.select();
                         } else if (window.getSelection) {
+                            var selection = window.getSelection();
                             var range = document.createRange();
                             range.selectNode(ele);
-                            window.getSelection().addRange(range);
+                            selection.removeAllRanges();
+                            selection.addRange(range);
                         }
+                    },
+                    setVidSrc: function ($iframe, vidSrc) {
+                        $iframe.attr('src', vidSrc);
+                        $iframe.get(0).epytsetupdone = false;
+                        window._EPADashboard_.setupevents($iframe.attr('id'));
                     },
                     pageReady: function () {
                         $('.epyt-gallery').each(function () {
@@ -218,14 +225,19 @@
                                 }
 
                                 // https://github.com/jquery/jquery-ui/blob/master/ui/scroll-parent.js
-                                $('html, body').animate({
-                                    scrollTop: $iframe.offset().top - parseInt(_EPYT_.gallery_scrolloffset)
-                                }, 500, function () {
-                                    $iframe.attr('src', vidSrc);
-                                    $iframe.get(0).epytsetupdone = false;
-                                    window._EPADashboard_.setupevents($iframe.attr('id'));
-                                });
-
+                                var bodyScrollTop = $('html').scrollTop();
+                                var scrollNext = $iframe.offset().top - parseInt(_EPYT_.gallery_scrolloffset);
+                                if (bodyScrollTop > scrollNext)
+                                {
+                                    $('html, body').animate({
+                                        scrollTop: scrollNext
+                                    }, 500, function () {
+                                        window._EPADashboard_.setVidSrc($iframe, vidSrc);
+                                    });
+                                } else
+                                {
+                                    window._EPADashboard_.setVidSrc($iframe, vidSrc);
+                                }
 
                             }).on('keydown', '.epyt-gallery-list .epyt-gallery-thumb, .epyt-pagebutton', function (e) {
                                 var code = e.which;
@@ -252,10 +264,11 @@
                                         playlistId: $(this).data('playlistid'),
                                         pageToken: $(this).data('pagetoken'),
                                         pageSize: $(this).data('pagesize'),
-                                        columns: $(this).data('columns'),
+                                        columns: $(this).data('epcolumns'),
                                         showTitle: $(this).data('showtitle'),
                                         showPaging: $(this).data('showpaging'),
                                         autonext: $(this).data('autonext'),
+                                        hidethumbimg: $(this).data('hidethumbimg'),
                                         thumbplay: $(this).data('thumbplay')
                                     }
                                 };
@@ -284,10 +297,20 @@
                                         })
                                         .always(function () {
                                             $container.find('.epyt-gallery-list').removeClass('epyt-loading');
-                                            // https://github.com/jquery/jquery-ui/blob/master/ui/scroll-parent.js
-                                            $('html, body').animate({
-                                                scrollTop: $container.find('.epyt-gallery-list').offset().top - parseInt(_EPYT_.gallery_scrolloffset)
-                                            }, 500);
+
+                                            if ($container.find('.epyt-pagebutton').first().data('autonext') != '1')
+                                            {
+                                                // https://github.com/jquery/jquery-ui/blob/master/ui/scroll-parent.js
+                                                var bodyScrollTop = $('html').scrollTop();
+                                                var scrollNext = $container.find('.epyt-gallery-list').offset().top - parseInt(_EPYT_.gallery_scrolloffset);
+                                                if (bodyScrollTop > scrollNext)
+                                                {
+                                                    $('html, body').animate({
+                                                        scrollTop: scrollNext
+                                                    }, 500);
+                                                }
+                                            }
+
                                         });
 
                             });

@@ -178,12 +178,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/markri/wp-sec.git",
-                "reference": "173987424cb5df4a1cddf9193d375893f358fd3c"
+                "reference": "eb0f36fa0c9257e68a60aef5992f254652db2c0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/markri/wp-sec/zipball/173987424cb5df4a1cddf9193d375893f358fd3c",
-                "reference": "173987424cb5df4a1cddf9193d375893f358fd3c",
+                "url": "https://api.github.com/repos/markri/wp-sec/zipball/eb0f36fa0c9257e68a60aef5992f254652db2c0f",
+                "reference": "eb0f36fa0c9257e68a60aef5992f254652db2c0f",
                 "shasum": ""
             },
             "require-dev": {
@@ -207,10 +207,10 @@
             "description": "Checks Wordpress installation for CVE security issues at wpvulndb.com",
             "homepage": "https://github.com/markri/wp-sec",
             "support": {
-                "source": "https://github.com/markri/wp-sec/tree/0.0.3",
+                "source": "https://github.com/markri/wp-sec/tree/0.0.6",
                 "issues": "https://github.com/markri/wp-sec/issues"
             },
-            "time": "2017-01-25T12:22:51+00:00"
+            "time": "2017-10-06T15:15:47+00:00"
         },
         {
             "name": "pantheon-systems/wp_launch_check",
@@ -218,12 +218,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/pantheon-systems/wp_launch_check.git",
-                "reference": "6d223f4e8208020d70f017d90541e3e6b561330d"
+                "reference": "77b15b5abeaa8680afe11808b6479eaef1017c0b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pantheon-systems/wp_launch_check/zipball/6d223f4e8208020d70f017d90541e3e6b561330d",
-                "reference": "6d223f4e8208020d70f017d90541e3e6b561330d",
+                "url": "https://api.github.com/repos/pantheon-systems/wp_launch_check/zipball/77b15b5abeaa8680afe11808b6479eaef1017c0b",
+                "reference": "77b15b5abeaa8680afe11808b6479eaef1017c0b",
                 "shasum": ""
             },
             "require-dev": {
@@ -244,7 +244,7 @@
                 "source": "https://github.com/pantheon-systems/wp_launch_check/tree/master",
                 "issues": "https://github.com/pantheon-systems/wp_launch_check/issues"
             },
-            "time": "2017-06-16T16:52:15+00:00"
+            "time": "2017-10-03T23:04:48+00:00"
         },
         {
             "name": "runcommand/find-unused-themes",
@@ -426,12 +426,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
-                "reference": "bf0450cfe7282c5f06539c4733ba64273e91e918"
+                "reference": "29422c4e871dd668ecac0e8075cf64dccdabff46"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/finder/zipball/bf0450cfe7282c5f06539c4733ba64273e91e918",
-                "reference": "bf0450cfe7282c5f06539c4733ba64273e91e918",
+                "url": "https://api.github.com/repos/symfony/finder/zipball/29422c4e871dd668ecac0e8075cf64dccdabff46",
+                "reference": "29422c4e871dd668ecac0e8075cf64dccdabff46",
                 "shasum": ""
             },
             "require": {
@@ -467,7 +467,7 @@
             ],
             "description": "Symfony Finder Component",
             "homepage": "https://symfony.com",
-            "time": "2017-08-03T09:34:20+00:00"
+            "time": "2017-10-24T14:12:06+00:00"
         }
     ],
     "packages-dev": [],

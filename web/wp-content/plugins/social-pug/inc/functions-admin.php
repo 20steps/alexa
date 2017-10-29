@@ -1,6 +1,6 @@
 <?php
 
-	/*
+	/**
 	 * Displays the HTML of the plugin admin header
 	 *
 	 */
@@ -9,12 +9,17 @@
 		$page = ( isset( $_GET['page'] ) && strpos( $_GET['page'], 'dpsp' ) !== false ? trim( $_GET['page'] ) : '' );
 
 		echo '<div class="dpsp-page-header">';
-			echo '<span class="dpsp-logo">Social Pug <span>Free</span></span>';
-			echo '<small>v.' . DPSP_VERSION . '</small>';
+			echo '<span class="dpsp-logo">';
+				echo '<span class="dpsp-logo-inner">Social Pug <span>Free</span> </span>';
+				echo '<small class="dpsp-version">v.' . DPSP_VERSION . '</small>';
+			echo '</span>';
 
 			echo '<nav>';
 				echo '<a href="' . dpsp_get_documentation_link( $page ) . '" target="_blank"><i class="dashicons dashicons-book"></i>Documentation</a>';
-				echo '<a href="https://wordpress.org/support/view/plugin-reviews/social-pug?filter=5#postform" target="_blank">5<i class="dashicons dashicons-star-filled"></i>Leave a Review</a>';
+				//echo '<a href="https://wordpress.org/support/view/plugin-reviews/social-pug?filter=5#postform" target="_blank">5<i class="dashicons dashicons-star-filled"></i>Leave a Review</a>';
+			echo '</nav>';
+
+			echo '<nav style="float: right; margin-right: 10px;">';
 				echo '<a id="dpsp-to-premium" href="http://www.devpups.com/social-pug/features/?utm_source=plugin&utm_medium=header-to-premium&utm_campaign=social-pug" target="_blank"><i class="dashicons dashicons-external"></i>' . __( 'Upgrade to Pro', 'social-pug' ) . '</a>';
 			echo '</nav>';
 		echo '</div>';
@@ -58,7 +63,7 @@
 	 */
 	function dpsp_output_tool_box( $tool_slug, $tool ) {
 
-		echo '<div class="dpsp-col-1-4">';
+		echo '<div class="dpsp-col-1-' . ( ! empty( $tool['admin_page'] ) ? '3' : '4' ) . '">';
 			echo '<div class="dpsp-tool-wrapper ' . ( empty($tool['admin_page']) ? 'dpsp-unavailable' : '' ) . '">';
 
 				// Tool image
@@ -77,6 +82,9 @@
 				// Tool name
 				echo '<h4 class="dpsp-tool-name">' . $tool['name'] . '</h4>';
 
+				if( !empty( $tool['desc'] ) )
+					echo '<p class="dpsp-description">' . $tool['desc'] . '</p>';
+
 				$tool_active = dpsp_is_tool_active( $tool_slug );
 
 				// Tool actions
@@ -85,7 +93,7 @@
 					if( isset( $tool['admin_page'] ) ) {
 
 						// Tool admin page
-						echo '<a class="dpsp-tool-settings" href="' . admin_url( $tool['admin_page'] ) . '"><i class="dashicons dashicons-admin-generic"></i></a>';
+						echo '<a class="dpsp-tool-settings" href="' . admin_url( $tool['admin_page'] ) . '"><i class="dashicons dashicons-admin-generic"></i>' . __( 'Settings', 'social-pug' ) . '</a>';
 
 						// Tool activation switch
 						echo '<div class="dpsp-switch small">';
@@ -98,9 +106,6 @@
 						echo '</div>';
 
 					} else {
-
-						if( !empty( $tool['desc'] ) )
-							echo '<p class="dpsp-description">' . $tool['desc'] . '</p>';
 
 						if( empty( $tool['url'] ) )
 							$tool['url'] = 'http://www.devpups.com/';
@@ -418,7 +423,7 @@
 	}
 
 
-	/*
+	/**
 	 * Remove dpsp query args from the URL
 	 *
 	 * @param array $removable_query_args 	- the args that WP will remove
@@ -432,6 +437,64 @@
 
 	}
 	add_filter( 'removable_query_args', 'dpsp_removable_query_args' );
+
+
+	/**
+	 * Adds a sidebar to the submenu pages for subscribing to newsletter
+	 *
+	 */
+	function dpsp_add_submenu_page_sidebar() {
+
+		// The Settings Sidebar
+		echo '<div class="dpsp-settings-sidebar">';
+
+?>
+			<!-- Begin MailChimp Signup Form -->
+			<div id="dpsp-mailchimp-subscribe-wrapper">
+				<form action="//devpups.us10.list-manage.com/subscribe/post?u=391911b7881ba9ca27be83107&amp;id=e8045e44a7" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				    
+				    <h3><?php echo __( 'Drive More Traffic', 'social-pug' ); ?></h3>
+				    <p><?php echo __( "Learn how to drive more traffic to your website with our free monthly tips and tricks.", 'social-pug' ); ?></p>
+
+					<div class="mc-field-group">
+						<label for="mce-EMAIL"><?php echo __( 'Email Address', 'social-pug' ); ?> *</label>
+						<input type="email" value="" name="EMAIL" class="required email" required id="mce-EMAIL">
+					</div>
+					<div class="mc-field-group">
+						<label for="mce-FNAME"><?php echo __( 'First Name', 'social-pug' ); ?> *</label>
+						<input type="text" value="" name="FNAME" class="required" required id="mce-FNAME">
+					</div>
+
+					<div id="mce-responses" class="clear">
+						<div class="response" id="mce-error-response" style="display:none"></div>
+						<div class="response" id="mce-success-response" style="display:none"></div>
+					</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+
+				    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_391911b7881ba9ca27be83107_e8045e44a7" tabindex="-1" value=""></div>
+				    <div class="clear"><input type="submit" value="Stay Informed" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+				    
+				</form>
+			</div>
+			<!--End mc_embed_signup-->
+
+<?php
+
+			echo '<br /><hr />';
+
+			echo '<div id="dpsp-settings-sidebar-opt-in-hound">';
+
+				echo '<h3><img src="' . DPSP_PLUGIN_DIR_URL . 'assets/img/opt-in-hound-icon-256x256.png" />' . __( 'Start Growing Your Email List', 'social-pug' ) . '</h3>';
+
+				echo '<p>' . sprintf( __( '%sOpt-In Hound%s is the easiest way for you to create beautiful popup and widget email optin forms and start growing your email subscriber lists.', 'social-pug' ), '<a href="https://devpups.com/opt-in-hound/?utm_source=plugin-sidebar&amp;utm_medium=opt-in-hound-crosspromo&amp;utm_campaign=social-pug" target="_blank">', '</a>' ) . '</p>';
+
+				echo '<a href="https://devpups.com/opt-in-hound/?utm_source=plugin-sidebar&amp;utm_medium=opt-in-hound-crosspromo&amp;utm_campaign=social-pug" target="_blank" class="button button-secondary">Learn More</a>';
+
+			echo '</div>';
+
+		echo '</div>';
+
+	}
+	add_action( 'dpsp_submenu_page_bottom', 'dpsp_add_submenu_page_sidebar' );
 
 
 	/*
@@ -513,11 +576,11 @@
         echo '</div>';
 
 	}
-	add_action( 'admin_notices', 'dpsp_admin_notice_wp_review' );
+	//add_action( 'admin_notices', 'dpsp_admin_notice_wp_review' );
 
 
 	/**
-	 * Add admin notice to promot SkyePress
+	 * Add admin notice to promote Opt-In Hound
 	 *
 	 */
 	function dpsp_admin_notice_promo_opt_in_hound() {
@@ -532,7 +595,7 @@
 		if( ! current_user_can( 'activate_plugins' ) )
 			return;
 
-		if( time() <= $first_activation + 10 * DAY_IN_SECONDS )
+		if( time() <= $first_activation + 2 * DAY_IN_SECONDS )
 			return;
 
 		// Do not display this notice for users that have dismissed it
@@ -540,13 +603,15 @@
 			return;
 
 		// Echo the admin notice
-		echo '<div class="dpsp-admin-notice dpsp-admin-notice-wp-rating notice">';
+		echo '<div class="dpsp-admin-notice dpsp-admin-notice-opt-in-hound notice">';
 
-        	echo '<p>' . __( 'You have been using <strong>Social Pug</strong> for some time now to grow your website by helping your users share your content with ease.', 'social-pug' ) . '</p>';
+			echo '<img src="' . DPSP_PLUGIN_DIR_URL . 'assets/img/opt-in-hound-icon-256x256.png" />';
 
-        	echo '<p>' . __( 'Now we want to help you reach more people by growing your email list in a simple and beautiful way.', 'social-pug' ) . '</p>';
+			echo '<h3>' . __( 'Start Growing Your Email List', 'social-pug' ) . '</h3>';
 
-        	echo '<p><a class="button-primary" href="' . admin_url( 'admin.php?page=dpsp-extensions&sub-page=opt-in-hound&dpsp_admin_notice_promo_opt_in_hound=1' ) . '">' . __( 'Learn More About the Email Subscribe Tools', 'social-pug' ) . '</a></p>';
+        	echo '<p>' . __( 'We, the team behind <strong>Social Pug</strong>, have been working hard the past months to create a brand new plugin. We would love to hear your thoughts!', 'social-pug' ) . '</p>';
+
+        	echo '<p><a class="button-primary" href="' . admin_url( 'admin.php?page=dpsp-extensions&sub-page=opt-in-hound&dpsp_admin_notice_promo_opt_in_hound=1' ) . '">' . __( 'Check It Out!', 'social-pug' ) . '</a></p>';
 
         	echo '<a href="' . add_query_arg( array( 'dpsp_admin_notice_promo_opt_in_hound' => 1 ) ) . '" type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></a>'; 
 
@@ -554,46 +619,6 @@
 
 	}
 	add_action( 'admin_notices', 'dpsp_admin_notice_promo_opt_in_hound' );
-
-
-	/**
-	 * Add admin notice to promote SkyePress
-	 *
-	 */
-	function dpsp_admin_notice_promo_skyepress() {
-
-		// Get first activation of the plugin
-		$first_activation = get_option( 'dpsp_first_activation', '' );
-
-		if( empty( $first_activation ) )
-			return;
-
-		// Do not display this notice if user cannot activate plugins
-		if( ! current_user_can( 'activate_plugins' ) )
-			return;
-
-		if( time() <= $first_activation + 10 * DAY_IN_SECONDS )
-			return;
-
-		// Do not display this notice for users that have dismissed it
-		if( get_user_meta( get_current_user_id(), 'dpsp_admin_notice_promo_skyepress', true ) != '' )
-			return;
-
-		// Echo the admin notice
-		echo '<div class="dpsp-admin-notice dpsp-admin-notice-wp-rating notice">';
-
-        	echo '<p>' . __( 'You have been using <strong>Social Pug</strong> for some time now to help your users share your content with ease.', 'social-pug' ) . '</p>';
-
-        	echo '<p>' . __( 'Because we want to help you reach more people and grow your audience we\'ve been working hard for the last months to develop a new tool to do just that.', 'social-pug' ) . '</p>';
-
-        	echo '<p><a class="button-primary" href="' . admin_url( 'admin.php?page=dpsp-extensions&sub-page=skyepress&dpsp_admin_notice_promo_skyepress=1' ) . '">' . __( 'Check it Out', 'social-pug' ) . '</a></p>';
-
-        	echo '<a href="' . add_query_arg( array( 'dpsp_admin_notice_promo_skyepress' => 1 ) ) . '" type="button" class="notice-dismiss"><span class="screen-reader-text">Dismiss this notice.</span></a>'; 
-
-        echo '</div>';
-
-	}
-	//add_action( 'admin_notices', 'dpsp_admin_notice_promo_skyepress' );
 
 
 	/*
@@ -607,9 +632,6 @@
 
 		if( isset( $_GET['dpsp_admin_notice_wp_review'] ) )
 			add_user_meta( get_current_user_id(), 'dpsp_admin_notice_wp_review', 1, true );
-
-		if( isset( $_GET['dpsp_admin_notice_promo_skyepress'] ) )
-			add_user_meta( get_current_user_id(), 'dpsp_admin_notice_promo_skyepress', 1, true );
 
 		if( isset( $_GET['dpsp_admin_notice_promo_opt_in_hound'] ) )
 			add_user_meta( get_current_user_id(), 'dpsp_admin_notice_promo_opt_in_hound', 1, true );
